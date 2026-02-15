@@ -7,22 +7,28 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
 	{
-		image: "/images/2.png",
+		image: "/images/banner1.png",
 		title: "India's top manpower security service provider",
 		description:
 			"Trusted teams, proven processes, and uncompromising safety standards.",
 	},
 	{
-		image: "/images/3.png",
+		image: "/images/banner2.png",
 		title: "Integrated facility management",
 		description:
 			"Your go-to partner for premium facility management that runs smoothly.",
 	},
 	{
-		image: "/images/4.png",
+		image: "/images/banner3.png",
 		title: "Transforming India into a global hub of skills",
 		description:
 			"Building trained, dependable workforces for every industry we serve.",
+	},
+	{
+		image: "/images/banner4.png",
+		title: "Toll Operations & Highway Maintenance Services",
+		description:
+			"Comprehensive toll management, traffic systems, and highway maintenance for seamless operations.",
 	},
 ];
 
@@ -87,17 +93,17 @@ export default function Hero() {
 
 					<div className="mt-8 flex flex-wrap justify-center gap-4">
 						<Link
-							href="/contact"
+							href="/services"
 							className="bg-[#EF2B2D] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition hover:bg-[#d62426]"
 						>
-							Request Security Audit
+							Our Services
 						</Link>
 
 						<Link
-							href="/services"
+							href="/contact"
 							className="border border-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white/10"
 						>
-							Our Services
+							Contact Us
 						</Link>
 					</div>
 				</div>

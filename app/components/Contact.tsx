@@ -1,117 +1,244 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Contact() {
+  const states = [
+    "Haryana", "West Bengal", "Odisha", "Rajasthan", "Delhi", "Punjab",
+    "Uttar Pradesh", "Chhattisgarh", "Bihar", "Madhya Pradesh",
+    "Karnataka", "Tamil Nadu", "Telangana", "Maharashtra", "Gujarat"
+  ];
+
+  const services = [
+    "Security Services",
+    "Facility Management",
+    "Toll Plaza Management",
+    "Manpower Supply",
+    "Training Services",
+    "Technology Solutions"
+  ];
+
   return (
-    <section className="relative overflow-hidden py-32 text-white">
-
-      {/* Background */}
-      <Image
-        src="/images/2.png"
-        alt="Contact Innovision Security"
-        fill
-        className="object-cover scale-110"
-        sizes="100vw"
-      />
-
-      <div className="absolute inset-0 bg-black/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
-
+    <section className="relative overflow-hidden bg-white py-24 text-gray-900">
+      
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white" />
+      
       {/* Glow Effects */}
-      <div className="absolute -top-20 left-10 h-72 w-72 rounded-full bg-[#EF2B2D]/30 blur-3xl" />
-      <div className="absolute bottom-0 right-10 h-72 w-72 rounded-full bg-[#EF2B2D]/20 blur-3xl" />
+      <div className="absolute -top-20 left-10 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
+      <div className="absolute bottom-0 right-10 h-96 w-96 rounded-full bg-[#EF2B2D]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6">
 
-        <div className="grid gap-16 lg:grid-cols-2 items-center">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
+            Get In Touch!
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            We look forward to hearing from you. If you have any questions or need support, please feel free to reach out.
+          </p>
+        </motion.div>
 
-          {/* LEFT CONTENT */}
+        {/* Contact Info Cards */}
+        <div className="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          
+          {/* Registered Address */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
+            className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-              Contact Us
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
+              Registered Address
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-700">
+              First Floor, 1/209, Sadar Bazaar, Delhi Cantonment, New Delhi, Delhi 110010
             </p>
-
-            <h2 className="mt-6 text-4xl font-bold sm:text-5xl leading-tight">
-              Request a Security
-              <br />
-              Consultation
-            </h2>
-
-            <p className="mt-6 text-base text-white/70 max-w-md">
-              Share your requirements and our security specialists will connect
-              with you promptly to design a customized manpower and risk
-              management solution.
-            </p>
-
-            <div className="mt-10 space-y-4 text-sm text-white/70">
-              <p>📞 +91 98765 43210</p>
-              <p>📧 contact@innovisionsecurity.com</p>
-              <p>📍 Nationwide Presence | 55+ Locations</p>
-            </div>
           </motion.div>
 
-          {/* FORM CARD */}
+          {/* Registered Phone */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="relative"
+            className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
           >
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
+              Registered Phone No.
+            </h3>
+            <p className="text-sm text-gray-700">‪+91-9289063231‬</p>
+          </motion.div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-10 shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
+          {/* Mail Address */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
+              Mail Address
+            </h3>
+            <p className="text-sm text-gray-700">contact@innovision.co.in</p>
+          </motion.div>
 
-              <form className="space-y-5">
+          {/* Corporate Address */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
+              Corporate Address
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-700">
+              Plot no. 251, Udyog Vihar, Phase IV, Sector 18, Gurgaon, Haryana - 122015
+            </p>
+          </motion.div>
 
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name"
-                  className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 transition focus:border-[#EF2B2D] focus:ring-1 focus:ring-[#EF2B2D]/50 focus:outline-none"
-                />
+          {/* Corporate Phone */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
+              Corporate Phone No.
+            </h3>
+            <p className="text-sm text-gray-700">
+              0124-4387354<br />
+              0124-2341602 (F)
+            </p>
+          </motion.div>
 
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 transition focus:border-[#EF2B2D] focus:ring-1 focus:ring-[#EF2B2D]/50 focus:outline-none"
-                />
-
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number"
-                  className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 transition focus:border-[#EF2B2D] focus:ring-1 focus:ring-[#EF2B2D]/50 focus:outline-none"
-                />
-
-                <textarea
-                  name="message"
-                  placeholder="Tell us about your requirements"
-                  rows={4}
-                  className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 transition focus:border-[#EF2B2D] focus:ring-1 focus:ring-[#EF2B2D]/50 focus:outline-none"
-                />
-
-                <button
-                  type="submit"
-                  className="w-full rounded-md bg-[#EF2B2D] px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-[#d62426] hover:shadow-[0_0_25px_rgba(239,43,45,0.6)]"
-                >
-                  Send Request
-                </button>
-
-              </form>
-
-            </div>
-
+          {/* CIN Number */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
+              CIN Number
+            </h3>
+            <p className="text-sm text-gray-700">U74910DL2007PLC157700</p>
           </motion.div>
 
         </div>
+
+        {/* Form Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-16 rounded-2xl border border-gray-200 bg-white p-8 shadow-lg lg:p-12"
+        >
+          <h3 className="mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+            What Are You Looking For?
+          </h3>
+
+          <form className="mx-auto max-w-2xl space-y-6">
+            
+            {/* Service Selection */}
+            <select
+              name="service"
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
+            >
+              <option value="" className="text-gray-500">
+                SELECT SERVICES
+              </option>
+              {services.map((service) => (
+                <option key={service} value={service}>
+                  {service}
+                </option>
+              ))}
+            </select>
+
+            {/* Name */}
+            <input
+              type="text"
+              name="name"
+              placeholder="NAME"
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
+            />
+
+            {/* Email */}
+            <input
+              type="email"
+              name="email"
+              placeholder="E-MAIL"
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
+            />
+
+            {/* Phone */}
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone No."
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
+            />
+
+            {/* Message */}
+            <textarea
+              name="message"
+              placeholder="Message"
+              rows={5}
+              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
+            />
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full rounded-lg bg-[#EF2B2D] px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition hover:bg-[#d62426] hover:shadow-[0_0_25px_rgba(239,43,45,0.6)]"
+            >
+              SEND
+            </button>
+          </form>
+        </motion.div>
+
+        {/* Our Footprints */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+            Our Footprints
+          </h3>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            {states.map((state, index) => (
+              <motion.div
+                key={state}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="rounded-lg border border-gray-200 bg-white px-6 py-3 shadow-sm transition hover:border-[#EF2B2D]/50 hover:shadow-md"
+              >
+                <span className="text-sm font-medium text-gray-700">{state}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
       </div>
     </section>

@@ -38,7 +38,7 @@ const services = [
 	{
 		title: "Toll Plaza Management",
 		description:
-			"Operations, staffing, and revenue assurance for toll assets.",
+			"Comprehensive toll operations and highway maintenance services including TMS, ATMS, MLFF systems, traffic management, toll collection, infrastructure maintenance, and 24/7 incident management for seamless highway operations.",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M3 20h18" />
