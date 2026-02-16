@@ -5,46 +5,46 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const reviews = [
   {
-    name: "Amit Sharma",
-    role: "Facility Head, Manufacturing",
+    name: "Prashant Kumar",
+    role: "Manager - Loss Prevention & QHS, Future Supply Chain",
     quote:
-      "Innovision helped us stabilize site security and improve response times within weeks. The team is disciplined and proactive.",
+      "Innovision Limited has been an excellent partner, providing trained security guards that meet our store requirements. They've consistently delivered quality staff over the past year, showing reliability and integrity. We look forward to continuing our collaboration.",
   },
   {
-    name: "Neha Verma",
-    role: "Operations Manager, Logistics",
+    name: "Rubina Nath",
+    role: "Manager, CavinKare Pvt Ltd",
     quote:
-      "Their manpower sourcing and training reduced attrition and boosted compliance. Reliable partner for scale.",
+      "Impressed by their dedication to providing top-notch security services. Their proactive approach set them apart in the industry.",
   },
   {
-    name: "Rajesh Iyer",
-    role: "Admin Lead, IT Campus",
+    name: "Sajal Mandal",
+    role: "Manager, SVLL Godrej, Kolkata",
     quote:
-      "From audits to daily supervision, the standards are consistent. We see visible improvements in safety and reporting.",
+      "Their tailored solutions and experienced staff make them a valuable asset to any organisation.",
   },
   {
-    name: "Priya Kulkarni",
-    role: "HR Director, Retail",
+    name: "Krishnamurthy",
+    role: "Client Partner",
     quote:
-      "Quick deployment, professional guards, and transparent communication. We are confident in every location.",
+      "Innovision Limited has been dedicated in meeting our manpower hiring needs. Their professional team provided us with well-qualified candidates. We recommend their services for reliable and skilled security manpower services.",
   },
   {
-    name: "Vikram Singh",
-    role: "Plant Head, FMCG",
+    name: "Deepak Gupta",
+    role: "Manager, Reliance Jewels",
     quote:
-      "Clear SOPs, well-trained teams, and consistent supervision made a big difference in safety compliance.",
+      "Their team is skilled, responsive, and ready to tackle any challenges.",
   },
   {
-    name: "Sana Khan",
-    role: "Corporate Services, BFSI",
+    name: "Ashish Kumar",
+    role: "Hub Manager, APML",
     quote:
-      "Their nationwide coverage helped us standardize service quality across all branches.",
+      "Their professionalism and commitment to safety are unmatched. Highly recommend their services.",
   },
   {
-    name: "Karan Mehta",
-    role: "Operations Head, Infrastructure",
+    name: "Lt. Col Rohit Kapila",
+    role: "SVP, Stellar Value Chain",
     quote:
-      "Strong audit practices and quick escalation support keep our sites secure and accountable.",
+      "We needed a reliable security partner prioritizing quality service and frontline team support. Innovision has consistently met these needs over our years of collaboration. We recommend Innovision as a security partner.",
   },
 ];
 

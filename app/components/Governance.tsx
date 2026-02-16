@@ -167,63 +167,116 @@ export default function Governance() {
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, delay: 0.3 }}
 					viewport={{ once: true }}
-					className="mt-16"
+					className="mt-20"
 				>
-					<div className="rounded-2xl border border-gray-200 bg-white p-10 shadow-lg">
+					<div className="relative overflow-hidden rounded-3xl border-2 border-gray-200 bg-gradient-to-br from-white via-gray-50 to-white p-12 shadow-2xl">
 						
-						<div className="mb-8 text-center">
-							<h3 className="text-2xl font-bold text-gray-900">
-								Certifications & Licensing
-							</h3>
-							<p className="mt-3 text-sm text-gray-600">
-								Internationally recognized quality, safety, and compliance standards
-							</p>
-						</div>
+						{/* Decorative corner accents */}
+						<div className="absolute left-0 top-0 h-24 w-24 border-l-4 border-t-4 border-[#EF2B2D] opacity-20" />
+						<div className="absolute right-0 top-0 h-24 w-24 border-r-4 border-t-4 border-[#EF2B2D] opacity-20" />
+						<div className="absolute bottom-0 left-0 h-24 w-24 border-b-4 border-l-4 border-[#EF2B2D] opacity-20" />
+						<div className="absolute bottom-0 right-0 h-24 w-24 border-b-4 border-r-4 border-[#EF2B2D] opacity-20" />
+						
+						{/* Background pattern */}
+						<div className="absolute inset-0 opacity-[0.03]" style={{
+							backgroundImage: `repeating-linear-gradient(45deg, #EF2B2D 0px, #EF2B2D 2px, transparent 2px, transparent 20px)`
+						}} />
 
-						{/* ISO Grid */}
-						<div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-							{certifications.map((cert, index) => (
-								<motion.div
-									key={cert.code}
-									initial={{ opacity: 0, scale: 0.9 }}
-									whileInView={{ opacity: 1, scale: 1 }}
-									transition={{ duration: 0.4, delay: index * 0.05 }}
-									viewport={{ once: true }}
-									className="group relative overflow-hidden rounded-lg border-2 border-gray-200 bg-gradient-to-br from-gray-50 to-white p-4 text-center transition-all duration-300 hover:border-[#EF2B2D]/40 hover:shadow-md"
-								>
-									<div className="text-lg font-bold text-[#EF2B2D]">
-										{cert.code}
-									</div>
-									<div className="mt-2 text-xs text-gray-600 leading-tight">
-										{cert.title}
-									</div>
-									
-									{/* Checkmark Icon */}
-									<div className="absolute top-2 right-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-										<svg className="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-											<path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-										</svg>
-									</div>
-								</motion.div>
-							))}
-						</div>
-
-						{/* PSARA Badge */}
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: 0.4 }}
-							viewport={{ once: true }}
-							className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-[#EF2B2D]/20 bg-[#EF2B2D]/5 p-4"
-						>
-							<svg className="h-6 w-6 text-[#EF2B2D]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-								<path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-							</svg>
-							<div>
-								<span className="text-sm font-bold text-gray-900">PSARA Licensed Security Operations</span>
-								<span className="ml-2 text-xs text-gray-600">| Private Security Agencies Regulation Act</span>
+						<div className="relative">
+							<div className="mb-10 text-center">
+								<div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-gray-300 bg-white px-6 py-2 shadow-md">
+									<svg className="h-5 w-5 text-[#EF2B2D]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+										<path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+									</svg>
+									<span className="text-xs font-bold uppercase tracking-wider text-gray-700">Compliance Excellence</span>
+								</div>
+								
+								<h3 className="text-3xl font-bold text-gray-900">
+									Certifications & Licensing
+								</h3>
+								<p className="mt-4 text-base text-gray-600 font-medium">
+									Internationally recognized quality, safety, and compliance standards
+								</p>
+								
+								<div className="mx-auto mt-6 h-1 w-24 bg-gradient-to-r from-transparent via-[#EF2B2D] to-transparent" />
 							</div>
-						</motion.div>
+
+							{/* ISO Grid */}
+							<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
+								{certifications.map((cert, index) => (
+									<motion.div
+										key={cert.code}
+										initial={{ opacity: 0, y: 20 }}
+										whileInView={{ opacity: 1, y: 0 }}
+										transition={{ duration: 0.5, delay: index * 0.08 }}
+										viewport={{ once: true }}
+										className="group relative"
+									>
+										{/* Outer glow on hover */}
+										<div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-[#EF2B2D]/20 to-gray-300/20 opacity-0 blur transition-opacity duration-500 group-hover:opacity-100" />
+										
+										{/* Card */}
+										<div className="relative overflow-hidden rounded-xl border-2 border-gray-300 bg-white p-6 text-center shadow-lg transition-all duration-300 group-hover:border-[#EF2B2D] group-hover:shadow-xl">
+											<div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-50" />
+											
+											{/* Badge icon */}
+											<div className="relative mb-3">
+												<svg className="mx-auto h-8 w-8 text-[#EF2B2D]" fill="currentColor" viewBox="0 0 20 20">
+													<path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+												</svg>
+											</div>
+											
+											<div className="relative text-xl font-black text-gray-900 tracking-tight">
+												{cert.code}
+											</div>
+											<div className="relative mt-2 text-xs font-semibold text-gray-600 leading-tight">
+												{cert.title}
+											</div>
+										</div>
+									</motion.div>
+								))}
+							</div>
+
+							{/* PSARA Badge - More Distinguished */}
+							<motion.div
+								initial={{ opacity: 0, scale: 0.95 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								transition={{ duration: 0.6, delay: 0.5 }}
+								viewport={{ once: true }}
+								className="mt-10"
+							>
+								<div className="relative overflow-hidden rounded-2xl border-4 border-[#EF2B2D]/30 bg-gradient-to-br from-[#EF2B2D]/5 via-white to-[#EF2B2D]/5 p-8 shadow-xl">
+									<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+									
+									<div className="relative flex flex-col items-center justify-center gap-4 text-center lg:flex-row lg:text-left">
+										{/* Shield Icon */}
+										<div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#EF2B2D] shadow-lg">
+											<svg className="h-9 w-9 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+												<path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+											</svg>
+										</div>
+										
+										{/* Text */}
+										<div className="flex-1">
+											<div className="text-xl font-black text-gray-900">
+												PSARA Licensed Security Operations
+											</div>
+											<div className="mt-1 text-sm font-medium text-gray-600">
+												Private Security Agencies Regulation Act Compliant
+											</div>
+										</div>
+										
+										{/* Verified badge */}
+										<div className="flex shrink-0 items-center gap-2 rounded-full border-2 border-green-600 bg-green-50 px-4 py-2">
+											<svg className="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+												<path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+											</svg>
+											<span className="text-xs font-bold uppercase tracking-wider text-green-700">Verified</span>
+										</div>
+									</div>
+								</div>
+							</motion.div>
+						</div>
 					</div>
 				</motion.div>
 

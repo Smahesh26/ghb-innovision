@@ -18,13 +18,32 @@ const navItems = [
   {
     label: "Services",
     children: [
-      { label: "Security Services", href: "/services#security" },
-      { label: "Facility Management", href: "/services#facility" },
-      { label: "Manpower & Payroll", href: "/services#manpower" },
-      { label: "Toll Plaza Management", href: "/services#toll" },
-      { label: "Skill Development", href: "/services#skill" },
-      { label: "Overseas Recruitment", href: "/services#overseas" },
-      { label: "Drone Training", href: "/services#drone" },
+      {
+        label: "Security Services",
+        href: "/services/security/manned-private-security",
+        hasSubmenu: true,
+        children: [
+          { label: "Manned Private Security", href: "/services/security/manned-private-security" },
+          { label: "Training", href: "/services/security/training" },
+          // { label: "Electronic Security", href: "/services/security/electronic-security" },
+          // { label: "Security Consulting", href: "/services/security/consulting" },
+        ],
+      },
+      { label: "Facility Management", href: "/services/facility-management" },
+      { label: "Manpower Sourcing & Payroll", href: "/services/manpower-sourcing" },
+      { label: "Toll Plaza Management", href: "/services/toll-plaza-management" },
+      {
+        label: "Skill Development",
+        href: "/services/skill-development",
+        hasSubmenu: true,
+        children: [
+          { label: "Project", href: "/services/skill-development/project" },
+          { label: "Training", href: "/services/skill-development/training" },
+          { label: "Placement", href: "/services/skill-development/placement" },
+        ],
+      },
+      { label: "Overseas Recruitment", href: "/services/overseas-recruitment" },
+      { label: "Drone Flying Training", href: "/services#drone" },
     ],
   },
   { label: "Investors", href: "/investors" },
@@ -37,6 +56,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -75,7 +95,10 @@ export default function Header() {
                   key={item.label}
                   className="relative"
                   onMouseEnter={() => setActiveDropdown(item.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseLeave={() => {
+                    setActiveDropdown(null);
+                    setActiveSubmenu(null);
+                  }}
                 >
                   <button className="relative flex items-center gap-1 hover:text-white">
                     {item.label}
@@ -96,13 +119,54 @@ export default function Header() {
                       >
                         <ul className="space-y-4 text-xs text-white/80">
                           {item.children.map((child) => (
-                            <li key={child.href}>
-                              <Link
-                                href={child.href}
-                                className="block transition hover:text-white"
-                              >
-                                {child.label}
-                              </Link>
+                            <li key={child.label} className="relative">
+                              {child.hasSubmenu ? (
+                                <div
+                                  onMouseEnter={() => setActiveSubmenu(child.label)}
+                                  onMouseLeave={() => setActiveSubmenu(null)}
+                                  className="relative"
+                                >
+                                  <Link
+                                    href={child.href || "#"}
+                                    className="flex w-full items-center justify-between transition hover:text-white"
+                                  >
+                                    <span>{child.label}</span>
+                                    <span className="text-xs">&#9656;</span>
+                                  </Link>
+
+                                  <AnimatePresence>
+                                    {activeSubmenu === child.label && (
+                                      <motion.div
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -10 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="absolute left-full top-0 ml-2 w-64 rounded-xl border border-white/10 bg-[#0b0b0d]/95 backdrop-blur-xl p-6 shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
+                                      >
+                                        <ul className="space-y-3 text-xs text-white/80">
+                                          {child.children?.map((subChild) => (
+                                            <li key={subChild.href}>
+                                              <Link
+                                                href={subChild.href}
+                                                className="block transition hover:text-white"
+                                              >
+                                                {subChild.label}
+                                              </Link>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+                              ) : (
+                                <Link
+                                  href={child.href || "#"}
+                                  className="block transition hover:text-white"
+                                >
+                                  {child.label}
+                                </Link>
+                              )}
                             </li>
                           ))}
                         </ul>
@@ -159,16 +223,40 @@ export default function Header() {
                         {item.label}
                       </p>
                       <ul className="mt-3 space-y-2 text-sm text-white/60">
-                        {item.children.map((child) => (
-                          <li key={child.href}>
-                            <Link
-                              href={child.href}
-                              onClick={() => setIsMenuOpen(false)}
-                            >
-                              {child.label}
-                            </Link>
-                          </li>
-                        ))}
+                        {item.children.map((child) =>
+                          child.hasSubmenu ? (
+                            <li key={child.label} className="space-y-2">
+                              <Link
+                                href={child.href || "#"}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="font-semibold text-white/70 hover:text-white"
+                              >
+                                {child.label}
+                              </Link>
+                              <ul className="ml-4 space-y-2 text-white/50">
+                                {child.children?.map((subChild) => (
+                                  <li key={subChild.href}>
+                                    <Link
+                                      href={subChild.href}
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {subChild.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </li>
+                          ) : (
+                            <li key={child.href || child.label}>
+                              <Link
+                                href={child.href || "#"}
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                {child.label}
+                              </Link>
+                            </li>
+                          )
+                        )}
                       </ul>
                     </div>
                   ) : (

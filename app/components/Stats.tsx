@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const highlights = [
 	{ label: "17+ Years' Experience" },
@@ -12,6 +13,52 @@ const highlights = [
 	{ label: "Diverse Clientele" },
 	{ label: "Risk Management & Audit" },
 ];
+
+const stats = [
+	{ value: 1000, label: "Happy Customers", suffix: "+" },
+	{ value: 2000, label: "Active Sites", suffix: "+" },
+	{ value: 55, label: "Offices", suffix: "+" },
+	{ value: 20000, label: "Workforce", suffix: "+" },
+];
+
+function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
+	const [isInView, setIsInView] = useState(false);
+	const count = useMotionValue(0);
+	const rounded = useTransform(count, (latest) => Math.round(latest));
+	const [displayValue, setDisplayValue] = useState(0);
+	const ref = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (isInView) {
+			const controls = animate(count, value, {
+				duration: 2,
+				ease: "easeOut",
+			});
+			return controls.stop;
+		}
+	}, [isInView, count, value]);
+
+	useEffect(() => {
+		const unsubscribe = rounded.on("change", (latest) => {
+			setDisplayValue(latest);
+		});
+		return unsubscribe;
+	}, [rounded]);
+
+	return (
+		<motion.div
+			ref={ref}
+			initial={{ opacity: 0 }}
+			whileInView={{ opacity: 1 }}
+			viewport={{ once: true }}
+			onViewportEnter={() => setIsInView(true)}
+		>
+			<span className="text-5xl font-bold text-white sm:text-6xl">
+				{displayValue.toLocaleString()}{suffix}
+			</span>
+		</motion.div>
+	);
+}
 
 const containerVariants = {
 	hidden: {},
@@ -77,6 +124,36 @@ export default function Stats() {
 					</p>
 
 					<div className="mt-8 h-1 w-16 bg-[#EF2B2D]" />
+				</motion.div>
+
+				{/* Stats Counter Section */}
+				<motion.div
+					initial={{ opacity: 0, y: 40 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8, delay: 0.2 }}
+					viewport={{ once: true }}
+					className="mt-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-4"
+				>
+					{stats.map((stat, index) => (
+						<motion.div
+							key={stat.label}
+							initial={{ opacity: 0, scale: 0.8 }}
+							whileInView={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 0.6, delay: index * 0.1 }}
+							viewport={{ once: true }}
+							className="group relative text-center"
+						>
+							{/* Glow Effect */}
+							<div className="absolute inset-0 scale-75 rounded-full bg-[#EF2B2D]/20 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+							
+							<div className="relative">
+								<Counter value={stat.value} suffix={stat.suffix} />
+								<p className="mt-4 text-sm font-semibold uppercase tracking-wider text-white/80">
+									{stat.label}
+								</p>
+							</div>
+						</motion.div>
+					))}
 				</motion.div>
 
 				{/* 3D Glass Cards */}

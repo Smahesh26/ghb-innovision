@@ -4,13 +4,58 @@ import { motion } from "framer-motion";
 
 const highlights = [
 	{
-		metric: "19+",
-		unit: "Years",
-		title: "Proven Track Record",
-		description: "Nearly two decades of consistent operational delivery across multiple service verticals",
+		metric: "80%+",
+		unit: "Revenue CAGR",
+		title: "More Than 80% Revenue CAGR",
+		description: "Exceptional year-over-year growth demonstrating strong market demand and operational scalability",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-				<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+				<path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+			</svg>
+		),
+	},
+	{
+		metric: "₹1000+ Cr",
+		unit: "Order Book",
+		title: "Strong Order Book",
+		description: "Secured contracts worth over ₹1000 crores providing robust revenue pipeline and business continuity",
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+			</svg>
+		),
+	},
+	{
+		metric: "3-5 Years",
+		unit: "Visibility",
+		title: "Forward Revenue Visibility",
+		description: "Long-term multi-year contracts ensuring predictable cash flows and sustainable growth trajectory",
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+			</svg>
+		),
+	},
+	{
+		metric: "15+",
+		unit: "States",
+		title: "Multi-State Presence",
+		description: "Pan-India operational infrastructure across 15+ states with localized service delivery capabilities",
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+				<path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+			</svg>
+		),
+	},
+	{
+		metric: "ISO",
+		unit: "Certified",
+		title: "Institutional Governance",
+		description: "ISO 9001, 14001, 45001, 27001, 18788 certifications with robust compliance frameworks and PSARA licensing",
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
+				<path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
 			</svg>
 		),
 	},
@@ -18,33 +63,21 @@ const highlights = [
 		metric: "20,000+",
 		unit: "Workforce",
 		title: "Scale & Deployment Capacity",
-		description: "Trained and deployed personnel serving mission-critical operations nationwide",
+		description: "Trained and deployed personnel serving mission-critical operations nationwide with rapid mobilization capability",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-				<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+				<path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
 			</svg>
 		),
 	},
 	{
 		metric: "2,000+",
-		unit: "Sites",
-		title: "Pan-India Presence",
-		description: "Active deployment across corporate, government, and infrastructure facilities",
+		unit: "Active Sites",
+		title: "Operational Footprint",
+		description: "Active deployment across corporate campuses, government facilities, toll plazas, and infrastructure projects",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-				<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-				<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-			</svg>
-		),
-	},
-	{
-		metric: "500+",
-		unit: "Clients",
-		title: "Diversified Client Base",
-		description: "Enterprise, government, and institutional relationships with multi-year contracts",
-		icon: (
-			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-				<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+				<path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
 			</svg>
 		),
 	},
@@ -55,40 +88,7 @@ const highlights = [
 		description: "Security, facility management, toll operations, skill development, payroll, overseas recruitment, and drone technology",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-				<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-			</svg>
-		),
-	},
-	{
-		metric: "Long-Term",
-		unit: "Contracts",
-		title: "Recurring Revenue Model",
-		description: "Contract-based engagements ensuring predictable cash flows and revenue visibility",
-		icon: (
-			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-				<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-			</svg>
-		),
-	},
-	{
-		metric: "ISO",
-		unit: "Certified",
-		title: "Compliance & Certifications",
-		description: "ISO 9001, 14001, 45001, 27001, 18788, SA 8000 certified with PSARA licensing",
-		icon: (
-			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-				<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-			</svg>
-		),
-	},
-	{
-		metric: "24+",
-		unit: "Years",
-		title: "Experienced Leadership",
-		description: "Management team with military and corporate leadership background, government contracts expertise",
-		icon: (
-			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-				<path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+				<path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
 			</svg>
 		),
 	},
@@ -130,15 +130,15 @@ export default function InvestmentHighlights() {
 					className="text-center mb-16"
 				>
 					<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-						Why Invest
+						Measurable Strengths
 					</p>
 
 					<h2 className="mt-5 text-4xl font-bold sm:text-5xl">
-						Investment Highlights
+						Facts and Figures
 					</h2>
 
 					<p className="mx-auto mt-6 max-w-2xl text-base text-white/70">
-						Institutional-grade scale, diversified operations, and proven execution capability
+						Data-driven performance metrics demonstrating operational excellence and sustainable growth
 					</p>
 
 					<div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
@@ -205,10 +205,10 @@ export default function InvestmentHighlights() {
 				>
 					<div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 backdrop-blur-sm">
 						<svg className="h-5 w-5 text-[#EF2B2D]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-							<path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+							<path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
 						</svg>
 						<span className="text-sm font-semibold text-white">
-							Positioned for sustained growth in India's infrastructure ecosystem
+							Backed by strong fundamentals and proven execution capabilities
 						</span>
 					</div>
 				</motion.div>

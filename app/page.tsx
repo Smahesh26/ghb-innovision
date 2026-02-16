@@ -193,13 +193,13 @@ export default function Home() {
       <main id="main-content" role="main">
         <Hero />
         <About />
-      <BusinessModel />
+      {/* <BusinessModel /> */}
       <Timeline />
       <InvestmentHighlights />
       <Governance />
       <Technology />
       <Industries />
-      <MDMessage />
+      {/* <MDMessage /> */}
       <CTA />
       <Services />
       <WhyChooseUs />

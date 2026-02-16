@@ -12,7 +12,7 @@ const focusAreas = [
 
 export default function MDMessage() {
 	return (
-		<section className="relative bg-white py-32 text-gray-900">
+		<section id="leadership" className="relative bg-white py-32 text-gray-900">
 			
 			<div className="relative mx-auto max-w-6xl px-6">
 

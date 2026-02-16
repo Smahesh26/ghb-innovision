@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const technologies = [
 	{
-		title: "AI-Powered Surveillance",
+		title: "AI Powered Process Automation",
 		description: "Advanced facial recognition, behavior analytics, and real-time threat detection systems",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -120,98 +120,81 @@ export default function Technology() {
 					<div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
 				</motion.div>
 
-				{/* TECHNOLOGIES - Unique Bento Grid Layout */}
+				{/* TECHNOLOGIES - 2 Row Layout */}
 				<motion.div
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
-					className="grid gap-4 md:grid-cols-3 lg:grid-cols-6 auto-rows-fr"
+					className="space-y-6"
 				>
-					{/* Large Cards - Span 2 columns */}
-					{technologies.slice(0, 2).map((tech, index) => (
-						<motion.div
-							key={index}
-							variants={cardVariants}
-							whileHover={{ scale: 1.03 }}
-							className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 backdrop-blur-xl md:col-span-3 lg:col-span-2 transition-all duration-300 hover:border-[#EF2B2D]/40"
-						>
-							{/* Glow on hover */}
-							<div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-								<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,43,45,0.15),transparent_70%)]" />
-							</div>
-
-							<div className="relative">
-								<div className="mb-6 inline-flex items-center justify-center rounded-xl bg-[#EF2B2D]/20 p-4 text-[#EF2B2D]">
-									{tech.icon}
+					{/* First Row - 3 Cards */}
+					<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+						{technologies.slice(0, 3).map((tech, index) => (
+							<motion.div
+								key={index}
+								variants={cardVariants}
+								whileHover={{ scale: 1.03 }}
+								className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#EF2B2D]/40"
+							>
+								{/* Glow on hover */}
+								<div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+									<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,43,45,0.15),transparent_70%)]" />
 								</div>
 
-								<h3 className="mb-4 text-xl font-bold text-white">
-									{tech.title}
-								</h3>
+								<div className="relative flex flex-1 flex-col">
+									{/* Icon - Fixed size */}
+									<div className="mb-6 inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#EF2B2D]/20 p-4 text-[#EF2B2D]">
+										{tech.icon}
+									</div>
 
-								<p className="text-sm text-white/60 leading-relaxed">
-									{tech.description}
-								</p>
-							</div>
-						</motion.div>
-					))}
+									{/* Title - Fixed height */}
+									<h3 className="mb-4 h-14 text-xl font-bold leading-tight text-white">
+										{tech.title}
+									</h3>
 
-					{/* Medium Cards - Span 2 columns on larger screens */}
-					{technologies.slice(2, 4).map((tech, index) => (
-						<motion.div
-							key={index + 2}
-							variants={cardVariants}
-							whileHover={{ scale: 1.03 }}
-							className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-6 backdrop-blur-xl md:col-span-3 lg:col-span-3 transition-all duration-300 hover:border-[#EF2B2D]/40"
-						>
-							<div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-								<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,43,45,0.15),transparent_70%)]" />
-							</div>
+									{/* Description - Fixed height */}
+									<p className="h-20 text-sm leading-relaxed text-white/60">
+										{tech.description}
+									</p>
+								</div>
+							</motion.div>
+						))}
+					</div>
 
-							<div className="relative">
-								<div className="mb-4 inline-flex items-center justify-center rounded-lg bg-[#EF2B2D]/20 p-3 text-[#EF2B2D]">
-									{tech.icon}
+					{/* Second Row - 3 Cards */}
+					<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+						{technologies.slice(3, 6).map((tech, index) => (
+							<motion.div
+								key={index + 3}
+								variants={cardVariants}
+								whileHover={{ scale: 1.03 }}
+								className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#EF2B2D]/40"
+							>
+								{/* Glow on hover */}
+								<div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+									<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,43,45,0.15),transparent_70%)]" />
 								</div>
 
-								<h3 className="mb-3 text-lg font-bold text-white">
-									{tech.title}
-								</h3>
+								<div className="relative flex flex-1 flex-col">
+									{/* Icon - Fixed size */}
+									<div className="mb-6 inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-[#EF2B2D]/20 p-4 text-[#EF2B2D]">
+										{tech.icon}
+									</div>
 
-								<p className="text-xs text-white/60 leading-relaxed">
-									{tech.description}
-								</p>
-							</div>
-						</motion.div>
-					))}
+									{/* Title - Fixed height */}
+									<h3 className="mb-4 h-14 text-xl font-bold leading-tight text-white">
+										{tech.title}
+									</h3>
 
-					{/* Small Cards - Span 1 or 2 columns */}
-					{technologies.slice(4).map((tech, index) => (
-						<motion.div
-							key={index + 4}
-							variants={cardVariants}
-							whileHover={{ scale: 1.03 }}
-							className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-6 backdrop-blur-xl md:col-span-3 lg:col-span-3 transition-all duration-300 hover:border-[#EF2B2D]/40"
-						>
-							<div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-								<div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(239,43,45,0.15),transparent_70%)]" />
-							</div>
-
-							<div className="relative">
-								<div className="mb-4 inline-flex items-center justify-center rounded-lg bg-[#EF2B2D]/20 p-3 text-[#EF2B2D]">
-									{tech.icon}
+									{/* Description - Fixed height */}
+									<p className="h-20 text-sm leading-relaxed text-white/60">
+										{tech.description}
+									</p>
 								</div>
-
-								<h3 className="mb-3 text-base font-bold text-white">
-									{tech.title}
-								</h3>
-
-								<p className="text-xs text-white/60 leading-relaxed">
-									{tech.description}
-								</p>
-							</div>
-						</motion.div>
-					))}
+							</motion.div>
+						))}
+					</div>
 				</motion.div>
 
 				{/* INNOVATION STATEMENT - Updated for Dark Theme */}

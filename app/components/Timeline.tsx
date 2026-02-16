@@ -35,6 +35,11 @@ const milestones = [
 		description: "Entered drone-enabled surveillance and technology vertical",
 	},
 	{
+		year: "2023",
+		title: "Overseas Expansion",
+		description: "International recruitment and workforce deployment services launched",
+	},
+	{
 		year: "2025",
 		title: "IPO Phase",
 		description: "Preparing for public listing as diversified infrastructure partner",
@@ -86,7 +91,7 @@ export default function Timeline() {
 					<div className="absolute top-8 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 					
 					{/* Desktop: Horizontal Grid */}
-					<div className="hidden lg:grid grid-cols-7 gap-4">
+					<div className="hidden lg:grid grid-cols-8 gap-4">
 						{milestones.map((milestone, index) => (
 							<motion.div
 								key={milestone.year}

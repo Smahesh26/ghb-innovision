@@ -160,13 +160,13 @@ export default function AboutPage() {
 
       {/* Main Content Sections */}
       <main id="main-content" role="main">
+      <MDMessage />
       <About />
       <Timeline />
       <BusinessModel />
       <InvestmentHighlights />
       <Technology />
       <Industries />
-      <MDMessage />
       <Governance />
       <Services />
       <WhyChooseUs />

@@ -170,9 +170,6 @@ export default function Industries() {
 									</p>
 								</div>
 							</div>
-
-							{/* Corner Accent */}
-							<div className="absolute top-0 right-0 h-12 w-12 translate-x-6 -translate-y-6 rotate-45 bg-[#EF2B2D]/20 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0" />
 						</motion.div>
 					))}
 				</motion.div>
