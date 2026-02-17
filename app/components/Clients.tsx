@@ -46,18 +46,16 @@ export default function Clients() {
           <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-[#f7f7f5] to-transparent z-10" />
           <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-[#f7f7f5] to-transparent z-10" />
 
-          <div className="client-track group-hover:[animation-play-state:paused]">
+          <div className="client-track">
             {trackItems.map((client, index) => (
-              <div key={`${client.name}-${index}`} className="client-card group">
-                <div className="relative h-20 w-56">
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    fill
-                    className="object-contain"
-                    sizes="224px"
-                  />
-                </div>
+              <div key={`${client.name}-${index}`} className="logo-wrapper">
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  width={240}
+                  height={120}
+                  className="logo-image"
+                />
               </div>
             ))}
           </div>
@@ -68,32 +66,38 @@ export default function Clients() {
       <style jsx>{`
         .client-track {
           display: flex;
-          gap: 32px;
+          gap: 48px;
+          align-items: center;
           width: max-content;
           animation: scroll 40s linear infinite;
         }
 
-        section:hover .client-track {
+        .client-track:hover {
           animation-play-state: paused;
         }
 
-        .client-card {
+        .logo-wrapper {
           display: flex;
           align-items: center;
           justify-content: center;
-          height: 140px;
-          width: 280px;
-          border-radius: 12px;
-          border: 1px solid rgba(0, 0, 0, 0.06);
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: blur(6px);
-          box-shadow: 0 18px 40px rgba(15, 15, 18, 0.08);
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          min-width: 240px;
+          height: 120px;
         }
 
-        .client-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 25px 60px rgba(15, 15, 18, 0.15);
+        .logo-image {
+          object-fit: contain;
+          mix-blend-mode: multiply;
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) 
+                  drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+          transition: all 0.3s ease;
+          opacity: 0.75;
+        }
+
+        .logo-wrapper:hover .logo-image {
+          filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15)) 
+                  drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+          opacity: 0.95;
+          transform: scale(1.05);
         }
 
         @keyframes scroll {

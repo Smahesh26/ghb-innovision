@@ -5,28 +5,28 @@ import { motion } from "framer-motion";
 
 const articles = [
   {
-    title: "Innovision Expands Training Centers Nationwide",
-    date: "Jan 18, 2026",
+    title: "Innovision Limited: Leading Skill Development in India",
+    date: "Feb 10, 2026",
     summary:
-      "New facilities strengthen skill development programs and enhance workforce readiness across regions.",
-    image: "/images/banner1.png",
+      "Innovision Limited stands at the forefront of skill development in India, actively engaging in initiatives that bolster the talent and employability of the nation's youth.",
+    image: "/images/blog1.jpg",
     tag: "Training",
   },
   {
-    title: "How Integrated Facility Management Improves Compliance",
-    date: "Dec 02, 2025",
+    title: "Prioritizing Your Safety: Lessons from the Recent Saif Ali Khan Attack",
+    date: "Jan 20, 2025",
     summary:
-      "A closer look at IFM frameworks that reduce operational risk and boost service quality.",
-    image: "/images/banner2.png",
-    tag: "IFM",
+      "The recent knife attack involving Bollywood actor Saif Ali Khan has brought safety concerns to the forefront. The incident highlights the importance of robust security measures for individuals and families.",
+    image: "/images/blog2.jpeg",
+    tag: "Security",
   },
   {
-    title: "Security Tech That Cuts Response Time",
-    date: "Nov 12, 2025",
+    title: "How RPL Certification under PMKVY Transforms Employability",
+    date: "Jan 15, 2025",
     summary:
-      "Modern monitoring and rapid escalation systems deliver measurable improvements in incident handling.",
-    image: "/images/banner3.png",
-    tag: "Security",
+      "In an era marked by the demand for highly skilled labor, the Pradhan Mantri Kaushal Vikas Yojana (PMKVY) emerges as a powerful government initiative designed to upskill the Indian workforce through RPL certification.",
+    image: "/images/blog3.jpg",
+    tag: "Training",
   },
 ];
 
@@ -56,85 +56,48 @@ export default function News() {
           <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
         </div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-[1.4fr_0.9fr]">
+        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-          {/* FEATURED ARTICLE */}
-          <motion.article
-            whileHover={{ scale: 1.01 }}
-            className="group relative overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-[0_25px_60px_rgba(15,15,18,0.12)] transition"
-          >
-            <div className="relative h-72 overflow-hidden">
-              <Image
-                src={articles[0].image}
-                alt={articles[0].title}
-                fill
-                className="object-cover transition duration-700 group-hover:scale-105"
-              />
+          {/* ALL ARTICLES IN A ROW */}
+          {articles.map((article) => (
+            <motion.article
+              key={article.title}
+              whileHover={{ y: -5 }}
+              className="group relative overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-[0_25px_60px_rgba(15,15,18,0.12)] transition"
+            >
+              <div className="relative h-56 overflow-hidden">
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                />
 
-              <span className="absolute left-6 top-6 bg-[#EF2B2D] px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white">
-                {articles[0].tag}
-              </span>
-            </div>
+                <span className="absolute left-6 top-6 bg-[#EF2B2D] px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white">
+                  {article.tag}
+                </span>
+              </div>
 
-            <div className="p-10">
-              <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">
-                {articles[0].date}
-              </p>
+              <div className="p-8">
+                <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">
+                  {article.date}
+                </p>
 
-              <h3 className="mt-4 text-2xl font-bold text-neutral-900">
-                {articles[0].title}
-              </h3>
+                <h3 className="mt-4 text-lg font-bold text-neutral-900 line-clamp-2">
+                  {article.title}
+                </h3>
 
-              <p className="mt-4 text-base text-neutral-600">
-                {articles[0].summary}
-              </p>
+                <p className="mt-4 text-sm text-neutral-600 line-clamp-3">
+                  {article.summary}
+                </p>
 
-              <button className="mt-6 relative text-xs font-semibold uppercase tracking-[0.25em] text-[#EF2B2D]">
-                Read More
-                <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#EF2B2D] transition-all duration-500 group-hover:w-full" />
-              </button>
-            </div>
-          </motion.article>
-
-          {/* SIDE ARTICLES */}
-          <div className="space-y-8">
-            {articles.slice(1).map((article) => (
-              <motion.article
-                key={article.title}
-                whileHover={{ y: -5 }}
-                className="group flex overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-[0_18px_40px_rgba(15,15,18,0.1)] transition"
-              >
-                <div className="relative h-40 w-40 shrink-0 overflow-hidden">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-110"
-                  />
-                </div>
-
-                <div className="flex flex-1 flex-col justify-between p-6">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">
-                      {article.date}
-                    </p>
-
-                    <h3 className="mt-2 text-lg font-semibold text-neutral-900">
-                      {article.title}
-                    </h3>
-
-                    <p className="mt-2 text-sm text-neutral-600">
-                      {article.summary}
-                    </p>
-                  </div>
-
-                  <span className="mt-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#EF2B2D]">
-                    Read More →
-                  </span>
-                </div>
-              </motion.article>
-            ))}
-          </div>
+                <button className="mt-6 relative text-xs font-semibold uppercase tracking-[0.25em] text-[#EF2B2D]">
+                  Read More
+                  <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#EF2B2D] transition-all duration-500 group-hover:w-full" />
+                </button>
+              </div>
+            </motion.article>
+          ))}
 
         </div>
 
