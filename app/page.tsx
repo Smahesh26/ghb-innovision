@@ -4,14 +4,11 @@ import About from "./components/About";
 import BusinessModel from "./components/BusinessModel";
 import Timeline from "./components/Timeline";
 import InvestmentHighlights from "./components/InvestmentHighlights";
-import Governance from "./components/Governance";
 import Technology from "./components/Technology";
 import Industries from "./components/Industries";
 import MDMessage from "./components/MDMessage";
 import CTA from "./components/CTA";
 import Services from "./components/Services";
-import WhyChooseUs from "./components/WhyChooseUs";
-import Stats from "./components/Stats";
 import Reviews from "./components/Reviews";
 import Clients from "./components/Clients";
 import Contact from "./components/Contact";
@@ -195,18 +192,15 @@ export default function Home() {
         <About />
       {/* <BusinessModel /> */}
       <Timeline />
+      <Reviews />
       <InvestmentHighlights />
-      <Governance />
-      <Technology />
       <Industries />
+      <Technology />
+      <Clients />
       {/* <MDMessage /> */}
       <CTA />
-      <Services />
-      <WhyChooseUs />
-      <Stats />
-      <Reviews />
-      <Clients />
       <Contact />
+      <Services />
       <News />
       </main>
       <Footer />

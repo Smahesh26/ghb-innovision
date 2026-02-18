@@ -58,7 +58,7 @@ const itemVariants = {
 
 export default function Governance() {
 	return (
-		<section className="relative bg-gradient-to-b from-gray-50 to-white py-32 text-gray-900">
+		<section id="governance" className="relative bg-gradient-to-b from-gray-50 to-white py-32 text-gray-900">
 			
 			<div className="relative mx-auto max-w-7xl px-6">
 

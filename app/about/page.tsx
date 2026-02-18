@@ -144,7 +144,7 @@ export default function AboutPage() {
 
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" aria-hidden="true" />
-            <span>Our Story</span>
+            <span>Company Overview</span>
             <span className="h-px w-12 bg-[#EF2B2D]" aria-hidden="true" />
           </div>
 

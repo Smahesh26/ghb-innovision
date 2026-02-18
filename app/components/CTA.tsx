@@ -60,7 +60,7 @@ export default function CTA() {
 					</div>
 
 					{/* Trust Indicators */}
-					<div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 border-t border-white/10 pt-12">
+					<div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4">
 						<div>
 							<div className="text-3xl font-bold text-white">19+</div>
 							<div className="mt-1 text-xs uppercase tracking-wider text-white/60">Years Track Record</div>

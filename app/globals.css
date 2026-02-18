@@ -28,20 +28,28 @@ body {
   line-height: 1.75;
 }
 
-/* Improved visual hierarchy and spacing */
+/* Ensure sections are flush with no gaps */
 section {
-  margin-bottom: 2rem;
+  margin: 0;
+  display: block;
 }
+
+/* Improved visual hierarchy and spacing */
+/* section {
+  margin-bottom: 2rem;
+} */
 
 /* Justified text alignment for formal institutional presentation */
 p {
   text-align: justify;
   text-justify: inter-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
   line-height: 1.8;
   margin-bottom: 1rem;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* Override justified alignment for specific UI elements */
@@ -61,6 +69,15 @@ section[class*="banner"] p {
   text-align: inherit;
   text-justify: auto;
   hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+/* Ensure no hyphenation in About section */
+section p {
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
 }
 
 h1,

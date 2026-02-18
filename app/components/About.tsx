@@ -9,7 +9,6 @@ const About = () => {
       
       {/* Soft Background Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,43,45,0.06),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.02))]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
@@ -55,7 +54,18 @@ const About = () => {
 
             <div className="mt-5 h-1 w-14 bg-[#EF2B2D]" />
 
-            <p className="mt-8 text-base leading-relaxed text-neutral-700">
+            <p 
+              className="mt-8 text-base leading-relaxed text-neutral-700" 
+              style={{ 
+                hyphens: 'none', 
+                WebkitHyphens: 'none', 
+                msHyphens: 'none', 
+                wordBreak: 'keep-all', 
+                overflowWrap: 'break-word',
+                textAlign: 'justify',
+                textJustify: 'inter-word'
+              }}
+            >
               At <span className="font-semibold text-neutral-900">Innovision Limited</span>,
               we are ranked among the top Security Manpower companies in India.
               We lead the staffing industry by addressing the evolving needs of
@@ -63,7 +73,18 @@ const About = () => {
               solutions.
             </p>
 
-            <p className="mt-5 text-base leading-relaxed text-neutral-700">
+            <p 
+              className="mt-5 text-base leading-relaxed text-neutral-700" 
+              style={{ 
+                hyphens: 'none', 
+                WebkitHyphens: 'none', 
+                msHyphens: 'none', 
+                wordBreak: 'keep-all', 
+                overflowWrap: 'break-word',
+                textAlign: 'justify',
+                textJustify: 'inter-word'
+              }}
+            >
               Recognizing the crucial role of skilled manpower in driving
               efficiency and operational excellence, we have become the trusted
               partner for sourcing top-quality workforce solutions across
