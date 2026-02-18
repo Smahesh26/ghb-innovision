@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 const highlights = [
 	{
-		label: "17+ Years' Experience",
+		label: "19+ Years of Experience",
 		detail:
-			"17+ years of operational excellence with sustained growth and structured execution.",
+			"19+ years of operational excellence with sustained growth and structured execution.",
 	},
 	{
 		label: "Service Standards",
@@ -23,8 +23,16 @@ const highlights = [
 		detail:
 			"Certified training facilities with continuous skill enhancement modules.",
 	},
+	{		label: "1,00,000+ Trained Candidates",
+		detail:
+			"Successfully trained over one lakh candidates with industry-relevant skills and certifications.",
+	},
 	{
-		label: "Client-Focused Organization",
+		label: "PSARA Authorization",
+		detail:
+			"Authorized to run Private Security Training Institute under PSARA regulations.",
+	},
+	{		label: "Client-Focused Organization",
 		detail:
 			"Custom-designed security strategies aligned to each client’s needs.",
 	},
@@ -87,19 +95,32 @@ export default function WhyChooseUs() {
 							reliable manpower and security excellence.
 						</p>
 
-						<div className="mt-10 h-1 w-16 bg-[#EF2B2D]" />
-					</motion.div>
+					<div className="mt-6 space-y-3">
+						<div className="flex items-start gap-3">
+							<div className="mt-1 h-2 w-2 rounded-full bg-[#EF2B2D] flex-shrink-0" />
+							<p className="text-base text-neutral-700">
+								<span className="font-semibold text-neutral-900">1,00,000+ Trained Candidates</span> — Successfully trained over one lakh candidates with industry-relevant skills and certifications.
+							</p>
+						</div>
+						<div className="flex items-start gap-3">
+							<div className="mt-1 h-2 w-2 rounded-full bg-[#EF2B2D] flex-shrink-0" />
+							<p className="text-base text-neutral-700">
+								<span className="font-semibold text-neutral-900">PSARA Authorization</span> — Authorized to run Private Security Training Institute under PSARA regulations.
+							</p>
+						</div>
+					</div>
+					<div className="mt-10 h-1 w-16 bg-[#EF2B2D]" />
+				</motion.div>
 
-					{/* RIGHT SIDE TIMELINE */}
-					<div className="relative">
+				{/* RIGHT SIDE TIMELINE */}
+				<div className="relative">
 
-						{/* Animated Vertical Line */}
-						<motion.div
-							initial={{ height: 0 }}
-							whileInView={{ height: "100%" }}
-							transition={{ duration: 1 }}
-							viewport={{ once: true }}
-							className="absolute left-3 top-0 w-[2px] bg-[#EF2B2D]"
+					{/* Animated Vertical Line */}
+					<motion.div
+						initial={{ height: 0 }}
+						whileInView={{ height: "100%" }}
+						transition={{ duration: 1 }}
+						viewport={{ once: true }}							className="absolute left-3 top-0 w-[2px] bg-[#EF2B2D]"
 						/>
 
 						<motion.div

@@ -3,12 +3,6 @@
 import { motion } from "framer-motion";
 
 export default function Contact() {
-  const states = [
-    "Haryana", "West Bengal", "Odisha", "Rajasthan", "Delhi", "Punjab",
-    "Uttar Pradesh", "Chhattisgarh", "Bihar", "Madhya Pradesh",
-    "Karnataka", "Tamil Nadu", "Telangana", "Maharashtra", "Gujarat"
-  ];
-
   const services = [
     "Security Services",
     "Facility Management",
@@ -220,50 +214,30 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="mb-6 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+          <h3 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
             Our Footprints
           </h3>
           
-          {/* Two Column Layout */}
-          <div className="grid gap-6 lg:grid-cols-2">
-            
-            {/* States - Left Side */}
-            <div className="flex h-full flex-col justify-center rounded-lg border-2 border-gray-200 bg-gradient-to-br from-white to-gray-50 p-6 shadow-lg">
-              <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-                {states.map((state, index) => (
-                  <motion.div
-                    key={state}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="group relative overflow-hidden rounded-lg border-2 border-gray-300 bg-white px-5 py-2.5 shadow-sm transition-all duration-300 hover:border-[#EF2B2D] hover:shadow-md"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#EF2B2D]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    <span className="relative text-sm font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#EF2B2D]">
-                      {state}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+          <p className="mb-6 text-center text-sm text-gray-600 max-w-3xl mx-auto">
+            Innovision operates across 15 states in India with a robust presence. 
+            Our corporate office is located in Gurgaon, Haryana, serving as the strategic hub for nationwide operations.
+          </p>
+          
+          {/* Footprints Map Image - Centered */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-2xl overflow-hidden rounded-lg border-2 border-[#EF2B2D]/20 bg-gray-50 shadow-lg"
+          >
+            <img
+              src="/images/footprints.png"
+              alt="Innovision Footprints across India"
+              className="h-full w-full object-contain"
+            />
+          </motion.div>
 
-            {/* Footprints Map Image - Right Side */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="overflow-hidden rounded-lg border-2 border-[#EF2B2D]/20 bg-gray-50 shadow-lg"
-            >
-              <img
-                src="/images/footprints.png"
-                alt="Innovision Footprints across India"
-                className="h-full w-full object-contain"
-              />
-            </motion.div>
-
-          </div>
         </motion.div>
 
       </div>

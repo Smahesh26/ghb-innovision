@@ -7,13 +7,13 @@ import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "
 const slides = [
 	{
 		image: "/images/banner4.png",
-		title: "Toll Operations & Highway Maintenance Services",
+		title: "Toll Plaza Management.",
 		description:
 			"Comprehensive toll management, traffic systems, and highway maintenance for seamless operations.",
 	},
 	{
 		image: "/images/banner1.png",
-		title: "Integrated Infrastructure & Workforce Management Platform",
+		title: "Manned Private Security Services",
 		description:
 			"Trusted teams, proven processes, and uncompromising safety standards.",
 	},
@@ -172,7 +172,7 @@ export default function Hero() {
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -20 }}
 							transition={{ duration: 0.6, ease: "easeOut" }}
-							className="w-full"
+							className="w-full text-center"
 						>
 							<div className="flex items-center justify-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
 								<span className="h-px w-12 bg-[#EF2B2D]" />
@@ -180,11 +180,11 @@ export default function Hero() {
 								<span className="h-px w-12 bg-[#EF2B2D]" />
 							</div>
 
-							<h1 className="mt-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
+							<h1 className="mt-6 text-4xl font-bold sm:text-5xl lg:text-6xl text-center">
 								{slides[activeIndex].title}
 							</h1>
 
-							<p className="mt-5 max-w-2xl text-white/80">
+							<p className="mt-5 mx-auto max-w-2xl text-white/80 text-center">
 								{slides[activeIndex].description}
 							</p>
 

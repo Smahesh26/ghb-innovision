@@ -5,7 +5,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const highlights = [
-	{ label: "17+ Years' Experience" },
+	{ label: "19+ Years of Experience" },
 	{ label: "Service Standards" },
 	{ label: "55+ Locations" },
 	{ label: "Training Centers" },

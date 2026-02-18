@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     default: 'Innovision Limited - India\'s Leading Integrated Security & Infrastructure Services',
     template: '%s | Innovision Limited'
   },
-  description: 'Innovision Limited: 19+ years of excellence in integrated security services, facility management, and infrastructure solutions. 20,000+ workforce, 500+ clients, 2,000+ sites across India. Preparing for IPO 2025.',
+  description: 'Innovision Limited: 19+ years of excellence in integrated security services, facility management, and infrastructure solutions. 20,000+ workforce, 1000+ clients, 2,000+ sites across India. Preparing for IPO 2025.',
   keywords: ['security services India', 'facility management', 'integrated security solutions', 'manpower supply', 'toll plaza management', 'infrastructure services', 'security guards', 'workforce management', 'Innovision Limited', 'IPO 2025'],
   authors: [{ name: 'Innovision Limited' }],
   creator: 'Innovision Limited',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     url: 'https://innovision.co.in',
     siteName: 'Innovision Limited',
     title: 'Innovision Limited - India\'s Leading Integrated Security & Infrastructure Services',
-    description: '19+ years of excellence in integrated security services, facility management, and infrastructure solutions. 20,000+ workforce, 500+ clients across India.',
+    description: '19+ years of excellence in integrated security services, facility management, and infrastructure solutions. 20,000+ workforce, 1000+ clients across India.',
     images: [
       {
         url: '/images/banner1.png',

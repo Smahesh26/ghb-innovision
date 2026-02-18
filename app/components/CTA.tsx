@@ -33,12 +33,12 @@ export default function CTA() {
 					{/* Headline */}
 					<h2 className="text-4xl font-bold sm:text-5xl lg:text-6xl leading-tight">
 						Partner with India's Leading<br />
-						<span className="text-[#EF2B2D]">Integrated Infrastructure Support Platform</span>
+						<span className="text-[#EF2B2D]">Manned Private Security Services</span>
 					</h2>
 
 					{/* Subheadline */}
 					<p className="mx-auto mt-6 max-w-2xl text-lg text-white/70 leading-relaxed">
-						Join 500+ organizations trusting Innovision for secure, compliant, and technology-enabled workforce and facility management solutions.
+						Join 1000+ organizations trusting Innovision for secure, compliant, and technology-enabled workforce and facility management solutions.
 					</p>
 
 					{/* CTA Buttons */}
@@ -66,7 +66,7 @@ export default function CTA() {
 							<div className="mt-1 text-xs uppercase tracking-wider text-white/60">Years Track Record</div>
 						</div>
 						<div>
-							<div className="text-3xl font-bold text-white">500+</div>
+							<div className="text-3xl font-bold text-white">1000+</div>
 							<div className="mt-1 text-xs uppercase tracking-wider text-white/60">Trusted Clients</div>
 						</div>
 						<div>

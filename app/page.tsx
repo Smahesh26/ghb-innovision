@@ -21,11 +21,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'Home - Integrated Security & Facility Management Services',
-  description: 'Innovision Limited offers comprehensive integrated security services, facility management, toll plaza operations, and workforce solutions across India. 19+ years experience, 20,000+ trained professionals, 500+ clients, ISO certified.',
+  description: 'Innovision Limited offers comprehensive integrated security services, facility management, toll plaza operations, and workforce solutions across India. 19+ years experience, 20,000+ trained professionals, 1000+ clients, ISO certified.',
   keywords: ['security services', 'facility management', 'integrated security solutions', 'manpower supply India', 'toll plaza management', 'security guards', 'workforce management', 'infrastructure services', 'manned guarding', 'electronic security'],
   openGraph: {
     title: 'Innovision Limited - Integrated Security & Infrastructure Services',
-    description: 'Comprehensive integrated security services, facility management, and workforce solutions across India. 19+ years of excellence serving 500+ clients.',
+    description: 'Comprehensive integrated security services, facility management, and workforce solutions across India. 19+ years of excellence serving 1000+ clients.',
     url: 'https://innovision.co.in',
     siteName: 'Innovision Limited',
     images: [
@@ -79,7 +79,7 @@ export default function Home() {
       "https://www.facebook.com/innovisionlimited",
       "https://twitter.com/innovisionltd"
     ],
-    "description": "Innovision Limited is India's leading integrated security and infrastructure services provider with 19+ years of excellence, 20,000+ workforce, and 500+ clients across the nation.",
+    "description": "Innovision Limited is India's leading integrated security and infrastructure services provider with 19+ years of excellence, 20,000+ workforce, and 1000+ clients across the nation.",
     "foundingDate": "2007",
     "numberOfEmployees": {
       "@type": "QuantitativeValue",
@@ -147,7 +147,7 @@ export default function Home() {
         "name": "How many employees does Innovision have?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Innovision Limited has a workforce of over 20,000 trained professionals serving 500+ clients across 2,000+ sites in India."
+          "text": "Innovision Limited has a workforce of over 20,000 trained professionals serving 1000+ clients across 2,000+ sites in India."
         }
       },
       {

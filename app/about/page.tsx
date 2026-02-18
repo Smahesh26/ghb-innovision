@@ -20,7 +20,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us - Company Profile & Leadership",
-  description: "Discover Innovision Limited's journey since 2007. From 10 guards to 20,000+ workforce, 500+ clients, 2,000+ sites. Learn about our governance, technology, and leadership preparing for IPO 2025. ISO 9001:2015 & 45001:2018 certified.",
+  description: "Discover Innovision Limited's journey since 2007. From 10 guards to 20,000+ workforce, 1000+ clients, 2,000+ sites. Learn about our governance, technology, and leadership preparing for IPO 2025. ISO 9001:2015 & 45001:2018 certified.",
   keywords: ['about innovision', 'company profile', 'security company India', 'Lt Col Randeep Hundal', 'IPO 2025', 'integrated security provider', 'facility management company', 'corporate governance', 'ISO certified security'],
   openGraph: {
     title: 'About Innovision Limited - 19+ Years of Excellence in Security Services',
@@ -67,7 +67,7 @@ export default function AboutPage() {
         "@type": "QuantitativeValue",
         "value": 20000
       },
-      "description": "Innovision Limited has grown from a team of 10 security guards in 2007 to India's leading integrated security and infrastructure services provider with 20,000+ workforce, 500+ clients, and operations across 15 states.",
+      "description": "Innovision Limited has grown from a team of 10 security guards in 2007 to India's leading integrated security and infrastructure services provider with 20,000+ workforce, 1000+ clients, and operations across 15 states.",
       "areaServed": [
         "Haryana", "West Bengal", "Odisha", "Rajasthan", "Delhi", "Punjab",
         "Uttar Pradesh", "Chhattisgarh", "Bihar", "Madhya Pradesh",
