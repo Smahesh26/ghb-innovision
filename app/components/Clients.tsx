@@ -52,8 +52,8 @@ export default function Clients() {
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  width={240}
-                  height={120}
+                  width={180}
+                  height={90}
                   className="logo-image"
                 />
               </div>
@@ -80,11 +80,14 @@ export default function Clients() {
           display: flex;
           align-items: center;
           justify-content: center;
-          min-width: 240px;
-          height: 120px;
+          min-width: 220px;
+          height: 140px;
+          padding: 16px;
         }
 
         .logo-image {
+          width: 100%;
+          height: 100%;
           object-fit: contain;
           mix-blend-mode: multiply;
           filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) 
