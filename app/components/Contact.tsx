@@ -25,6 +25,37 @@ export default function Contact() {
       <div className="relative mx-auto max-w-7xl px-6">
 
         {/* Header */}
+           <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+            Our Footprints
+          </h3>
+          
+          <p className="mb-6 text-center text-sm text-gray-600 max-w-3xl mx-auto">
+            Innovision operates across 15 states in India with a robust presence. 
+            Our corporate office is located in Gurgaon, Haryana, serving as the strategic hub for nationwide operations.
+          </p>
+          
+          {/* Footprints Map Image - Centered */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-2xl overflow-hidden rounded-lg border-2 border-[#EF2B2D]/20 bg-gray-50 shadow-lg"
+          >
+            <img
+              src="/images/footprints.png"
+              alt="Innovision Footprints across India"
+              className="h-full w-full object-contain"
+            />
+          </motion.div>
+
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -208,37 +239,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Our Footprints */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
-            Our Footprints
-          </h3>
-          
-          <p className="mb-6 text-center text-sm text-gray-600 max-w-3xl mx-auto">
-            Innovision operates across 15 states in India with a robust presence. 
-            Our corporate office is located in Gurgaon, Haryana, serving as the strategic hub for nationwide operations.
-          </p>
-          
-          {/* Footprints Map Image - Centered */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-2xl overflow-hidden rounded-lg border-2 border-[#EF2B2D]/20 bg-gray-50 shadow-lg"
-          >
-            <img
-              src="/images/footprints.png"
-              alt="Innovision Footprints across India"
-              className="h-full w-full object-contain"
-            />
-          </motion.div>
-
-        </motion.div>
+     
 
       </div>
     </section>
