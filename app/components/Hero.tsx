@@ -7,7 +7,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "
 const slides = [
 	{
 		image: "/images/banner4.png",
-		title: "Toll Plaza Management.",
+		title: "Toll Plaza Management",
 		description:
 			"Comprehensive toll management, traffic systems, and highway maintenance for seamless operations.",
 	},
