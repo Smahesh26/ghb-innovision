@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import BusinessModel from "./components/BusinessModel";
 import Timeline from "./components/Timeline";
+import WhyChooseUs from "./components/WhyChooseUs";
 import InvestmentHighlights from "./components/InvestmentHighlights";
 import Technology from "./components/Technology";
 import Industries from "./components/Industries";
@@ -192,9 +193,12 @@ export default function Home() {
         <About />
       {/* <BusinessModel /> */}
       <Timeline />
-      <Reviews />
-      <InvestmentHighlights />
+      <WhyChooseUs />
       <Industries />
+            <InvestmentHighlights />
+
+      <Reviews />
+      
       <Technology />
       <Clients />
       {/* <MDMessage /> */}
