@@ -48,11 +48,15 @@ export default function MDMessage() {
 					>
 						<div className="sticky top-24 rounded-2xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white p-6 shadow-lg text-center">
 							
-							{/* Profile Image Placeholder */}
-							<div className="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-4 border-[#EF2B2D]/20 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-								<svg className="h-32 w-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-								</svg>
+							<div className="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-4 border-[#EF2B2D]/20 bg-gradient-to-br from-gray-100 to-gray-200">
+								<Image
+									src="/images/Randeepsir.jpeg"
+									alt="Lt. Col. Randeep Hundal"
+									width={192}
+									height={192}
+									className="h-full w-full object-cover"
+									priority
+								/>
 							</div>
 
 							{/* Name & Title */}
