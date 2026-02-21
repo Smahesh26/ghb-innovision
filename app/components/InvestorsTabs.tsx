@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { type ReactNode, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 type Doc = {
@@ -21,63 +21,6 @@ const tabs = [
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
-
-// Add smooth animation styles for details/summary
-const smoothDetailsStyles = `
-  details {
-    overflow: hidden;
-  }
-  
-  details > summary {
-    cursor: pointer;
-    user-select: none;
-    list-style: none;
-    transition: background-color 250ms ease-out;
-  }
-  
-  details > summary::-webkit-details-marker {
-    display: none;
-  }
-  
-  details > summary:hover {
-    background-color: rgba(59, 130, 246, 0.1) !important;
-  }
-  
-  details[open] > summary {
-    background-color: rgba(59, 130, 246, 0.08);
-  }
-  
-  details > summary span {
-    display: inline-block;
-    transition: transform 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
-  }
-  
-  details[open] > summary span {
-    transform: rotate(180deg);
-  }
-  
-  @keyframes expandDetailsSmooth {
-    from {
-      opacity: 0;
-      transform: translateY(-15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes collapseDetailsSmooth {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-15px);
-    }
-  }
-`;
 
 function ViewLink({ doc }: { doc: Doc }) {
   return (
@@ -127,58 +70,55 @@ function CompanyBlock({ item }: { item: CompanyDocs }) {
   );
 }
 
+function SmoothAccordion({
+  title,
+  children,
+  contentClassName = "mt-0 p-5 bg-white",
+}: {
+  title: string;
+  children: ReactNode;
+  contentClassName?: string;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="flex w-full items-center justify-between rounded-sm bg-blue-100 px-5 py-3 text-left font-semibold text-neutral-900 transition-colors duration-300 hover:bg-blue-200/70"
+      >
+        <span>{title}</span>
+        <motion.span
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+          className="text-neutral-600"
+        >
+          ▼
+        </motion.span>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0, y: -8 }}
+            animate={{ height: "auto", opacity: 1, y: 0 }}
+            exit={{ height: 0, opacity: 0, y: -8 }}
+            transition={{ duration: 0.42, ease: [0.34, 1.56, 0.64, 1] }}
+            className="overflow-hidden"
+          >
+            <div className={contentClassName}>{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export default function InvestorsTabs() {
   const [activeTab, setActiveTab] = useState<TabId>("relations");
   const [governanceYear, setGovernanceYear] = useState("2024-2025");
   const [selectedCommittee, setSelectedCommittee] = useState("audit");
-
-  useEffect(() => {
-    const closeTimers = new WeakMap<HTMLDetailsElement, number>();
-
-    const handleDetailsToggle = (e: Event) => {
-      const details = e.target as HTMLDetailsElement;
-      if (!(details instanceof HTMLDetailsElement)) return;
-
-      const content = Array.from(details.children).find(
-        (child) => child.tagName !== "SUMMARY"
-      ) as HTMLElement | undefined;
-
-      if (!content) return;
-
-      const pendingTimer = closeTimers.get(details);
-      if (pendingTimer) {
-        window.clearTimeout(pendingTimer);
-      }
-
-      if (details.open) {
-        content.style.display = "block";
-        content.style.animation = "none";
-        void content.offsetHeight;
-        content.style.animation =
-          "expandDetailsSmooth 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards";
-      } else {
-        content.style.animation =
-          "collapseDetailsSmooth 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards";
-        const timer = window.setTimeout(() => {
-          if (!details.open) {
-            content.style.display = "none";
-          }
-        }, 300);
-        closeTimers.set(details, timer);
-      }
-    };
-
-    const detailsElements = document.querySelectorAll("details");
-    detailsElements.forEach((detail) => {
-      detail.addEventListener("toggle", handleDetailsToggle);
-    });
-
-    return () => {
-      detailsElements.forEach((detail) => {
-        detail.removeEventListener("toggle", handleDetailsToggle);
-      });
-    };
-  }, [activeTab]);
 
 
   const investorRelations2023: Doc[] = [
@@ -323,7 +263,6 @@ export default function InvestorsTabs() {
 
   return (
     <>
-      <style>{smoothDetailsStyles}</style>
       <main className="relative overflow-hidden bg-gradient-to-b from-[#fbfbfa] via-[#f7f7f5] to-[#f2f2f0] py-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,43,45,0.08),transparent_45%)]" />
       <div className="pointer-events-none absolute left-[-120px] top-20 h-72 w-72 bg-black/5 blur-3xl" />
@@ -362,23 +301,13 @@ export default function InvestorsTabs() {
                 <h2 className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl">Investor Documents</h2>
               </div>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">Filter by financial year: 2023-2024
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-0 p-5 bg-white">
-                  <DocList title="" docs={investorRelations2023} />
-                </div>
-              </details>
+              <SmoothAccordion title="Filter by financial year: 2023-2024">
+                <DocList title="" docs={investorRelations2023} />
+              </SmoothAccordion>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">Filter by financial year: 2024-2025
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-0 p-5 bg-white">
-                  <DocList title="" docs={investorRelations2024} />
-                </div>
-              </details>
+              <SmoothAccordion title="Filter by financial year: 2024-2025">
+                <DocList title="" docs={investorRelations2024} />
+              </SmoothAccordion>
 
               <div id="compliance-officer" className="rounded-sm border border-neutral-200/80 bg-gradient-to-b from-[#ffffff] to-[#fafaf9] p-6 shadow-[0_10px_30px_rgba(15,15,18,0.05)]">
                 <h3 className="text-lg font-bold text-neutral-900">Contact details of Compliance Officer</h3>
@@ -389,29 +318,15 @@ export default function InvestorsTabs() {
                 </div>
               </div>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">Rating Rationale
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-0 p-5 bg-white">
-                  <DocList title="" docs={ratingRationale} />
-                </div>
-              </details>
+              <SmoothAccordion title="Rating Rationale">
+                <DocList title="" docs={ratingRationale} />
+              </SmoothAccordion>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">IPO Offer Documents
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-0 p-5 bg-white">
-                  <DocList title="" docs={ipoDocs} />
-                </div>
-              </details>
+              <SmoothAccordion title="IPO Offer Documents">
+                <DocList title="" docs={ipoDocs} />
+              </SmoothAccordion>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">Subsidiary Financials
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-5 grid gap-6 lg:grid-cols-2">
+              <SmoothAccordion title="Subsidiary Financials" contentClassName="mt-5 grid gap-6 bg-white p-5 lg:grid-cols-2">
                   <div className="rounded-sm border border-neutral-200/80 bg-[#fafaf9] p-6">
                     <h4 className="text-base font-semibold text-neutral-900">Filter by financial year: 2023-2024</h4>
                     <div className="mt-4 space-y-4">
@@ -429,14 +344,9 @@ export default function InvestorsTabs() {
                       ))}
                     </div>
                   </div>
-                </div>
-              </details>
+              </SmoothAccordion>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">Group Company Financials
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-5 grid gap-6 lg:grid-cols-2">
+              <SmoothAccordion title="Group Company Financials" contentClassName="mt-5 grid gap-6 bg-white p-5 lg:grid-cols-2">
                   <div className="rounded-sm border border-neutral-200/80 bg-[#fafaf9] p-6">
                     <h4 className="text-base font-semibold text-neutral-900">Filter by financial year: 2023-2024</h4>
                     <div className="mt-4 space-y-4">
@@ -454,8 +364,7 @@ export default function InvestorsTabs() {
                       ))}
                     </div>
                   </div>
-                </div>
-              </details>
+              </SmoothAccordion>
             </motion.section>
           )}
 
@@ -477,50 +386,26 @@ export default function InvestorsTabs() {
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-neutral-900">Financial Information</h3>
                 
-                <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                  <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                    Filter by financial year 2023-2024
-                    <span className="text-neutral-600">▼</span>
-                  </summary>
-                  <div className="mt-0 p-5 bg-white">
-                    <DocList title="" docs={annualReports.filter(d => d.title.includes("2023"))} />
-                  </div>
-                </details>
+                <SmoothAccordion title="Filter by financial year 2023-2024">
+                  <DocList title="" docs={annualReports.filter(d => d.title.includes("2023"))} />
+                </SmoothAccordion>
 
-                <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                  <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                    Filter by financial year 2024-2025
-                    <span className="text-neutral-600">▼</span>
-                  </summary>
-                  <div className="mt-0 p-5 bg-white">
-                    <DocList title="" docs={annualReports.filter(d => d.title.includes("2024") || !d.title.includes("2023"))} />
-                  </div>
-                </details>
+                <SmoothAccordion title="Filter by financial year 2024-2025">
+                  <DocList title="" docs={annualReports.filter(d => d.title.includes("2024") || !d.title.includes("2023"))} />
+                </SmoothAccordion>
               </div>
 
               {/* Financial Statements Section */}
               <div className="space-y-6 pt-6 border-t border-neutral-200">
                 <h3 className="text-2xl font-bold text-neutral-900">Financial Statements</h3>
                 
-                <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                  <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                    Filter by financial year 2023-2024
-                    <span className="text-neutral-600">▼</span>
-                  </summary>
-                  <div className="mt-0 p-5 bg-white">
-                    <DocList title="" docs={financialStatements2023} />
-                  </div>
-                </details>
+                <SmoothAccordion title="Filter by financial year 2023-2024">
+                  <DocList title="" docs={financialStatements2023} />
+                </SmoothAccordion>
 
-                <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                  <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                    Filter by financial year 2024-2025
-                    <span className="text-neutral-600">▼</span>
-                  </summary>
-                  <div className="mt-0 p-5 bg-white">
-                    <DocList title="" docs={financialStatements2024} />
-                  </div>
-                </details>
+                <SmoothAccordion title="Filter by financial year 2024-2025">
+                  <DocList title="" docs={financialStatements2024} />
+                </SmoothAccordion>
               </div>
             </motion.section>
           )}
@@ -743,22 +628,11 @@ export default function InvestorsTabs() {
                 </div>
               </div>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                  Policies and Disclosures
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-0 p-5 bg-white">
-                  <DocList title="" docs={policies} />
-                </div>
-              </details>
+              <SmoothAccordion title="Policies and Disclosures">
+                <DocList title="" docs={policies} />
+              </SmoothAccordion>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                  Corporate Governance Reports
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-5 p-5 bg-white space-y-6">
+              <SmoothAccordion title="Corporate Governance Reports" contentClassName="mt-5 space-y-6 bg-white p-5">
                   {/* Dropdown Filter */}
                   <div className="flex items-center gap-3 pb-4 border-b border-neutral-200">
                     <label htmlFor="governance-year" className="text-sm font-semibold text-neutral-700">
@@ -794,8 +668,7 @@ export default function InvestorsTabs() {
                       </div>
                     ))}
                   </div>
-                </div>
-              </details>
+              </SmoothAccordion>
             </motion.section>
           )}
 
@@ -813,12 +686,7 @@ export default function InvestorsTabs() {
                 <h2 className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl">Shareholding & Complaints</h2>
               </div>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                  Share Holding
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-0 p-5 bg-white">
+              <SmoothAccordion title="Share Holding">
                   <p className="mb-4 text-sm text-neutral-600">Filter by financial year: 2024-2025</p>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {quarters.map((q) => (
@@ -833,15 +701,9 @@ export default function InvestorsTabs() {
                       </a>
                     ))}
                   </div>
-                </div>
-              </details>
+              </SmoothAccordion>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                  Investor Complaints
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-0 p-5 bg-white">
+              <SmoothAccordion title="Investor Complaints">
                   <p className="mb-4 text-sm text-neutral-600">Filter by financial year: 2024-2025</p>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {quarters.map((q) => (
@@ -856,18 +718,11 @@ export default function InvestorsTabs() {
                       </a>
                     ))}
                   </div>
-                </div>
-              </details>
+              </SmoothAccordion>
 
-              <details className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
-                <summary className="cursor-pointer flex items-center justify-between px-5 py-3 rounded-sm bg-blue-100 text-neutral-900 font-semibold">
-                  Unpaid Dividend
-                  <span className="text-neutral-600">▼</span>
-                </summary>
-                <div className="mt-0 p-5 bg-white">
+              <SmoothAccordion title="Unpaid Dividend">
                   <p className="text-sm text-neutral-600">Details will be updated in this section.</p>
-                </div>
-              </details>
+              </SmoothAccordion>
             </motion.section>
           )}
           </AnimatePresence>
