@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Doc = {
   title: string;
@@ -132,35 +133,52 @@ export default function InvestorsTabs() {
   const [selectedCommittee, setSelectedCommittee] = useState("audit");
 
   useEffect(() => {
+    const closeTimers = new WeakMap<HTMLDetailsElement, number>();
+
     const handleDetailsToggle = (e: Event) => {
       const details = e.target as HTMLDetailsElement;
-      const children = Array.from(details.children);
-      const content = children.find(child => child.tagName !== 'SUMMARY') as HTMLElement;
-      
+      if (!(details instanceof HTMLDetailsElement)) return;
+
+      const content = Array.from(details.children).find(
+        (child) => child.tagName !== "SUMMARY"
+      ) as HTMLElement | undefined;
+
       if (!content) return;
-      
+
+      const pendingTimer = closeTimers.get(details);
+      if (pendingTimer) {
+        window.clearTimeout(pendingTimer);
+      }
+
       if (details.open) {
-        content.style.display = 'block';
-        content.style.animation = 'expandDetailsSmooth 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+        content.style.display = "block";
+        content.style.animation = "none";
+        void content.offsetHeight;
+        content.style.animation =
+          "expandDetailsSmooth 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards";
       } else {
-        content.style.animation = 'collapseDetailsSmooth 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
-        setTimeout(() => {
-          content.style.display = 'none';
+        content.style.animation =
+          "collapseDetailsSmooth 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards";
+        const timer = window.setTimeout(() => {
+          if (!details.open) {
+            content.style.display = "none";
+          }
         }, 300);
+        closeTimers.set(details, timer);
       }
     };
-    
-    const detailsElements = document.querySelectorAll('details');
-    detailsElements.forEach(detail => {
-      detail.addEventListener('toggle', handleDetailsToggle);
+
+    const detailsElements = document.querySelectorAll("details");
+    detailsElements.forEach((detail) => {
+      detail.addEventListener("toggle", handleDetailsToggle);
     });
-    
+
     return () => {
-      detailsElements.forEach(detail => {
-        detail.removeEventListener('toggle', handleDetailsToggle);
+      detailsElements.forEach((detail) => {
+        detail.removeEventListener("toggle", handleDetailsToggle);
       });
     };
-  }, []);
+  }, [activeTab]);
 
 
   const investorRelations2023: Doc[] = [
@@ -328,9 +346,17 @@ export default function InvestorsTabs() {
           </div>
         </div>
 
-        <div className="mt-10 space-y-8">
-          {activeTab === "relations" && (
-            <section className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10">
+        <div className="mt-16 space-y-8">
+          <AnimatePresence mode="wait">
+            {activeTab === "relations" && (
+              <motion.section
+                key="relations"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+                className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10"
+              >
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.45em] text-[#EF2B2D]">Investor Relations</p>
                 <h2 className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl">Investor Documents</h2>
@@ -430,11 +456,18 @@ export default function InvestorsTabs() {
                   </div>
                 </div>
               </details>
-            </section>
+            </motion.section>
           )}
 
           {activeTab === "financial" && (
-            <section className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10">
+            <motion.section
+              key="financial"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+              className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10"
+            >
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.45em] text-[#EF2B2D]">Financial Information</p>
                 <h2 className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl">Financial Statements</h2>
@@ -489,11 +522,18 @@ export default function InvestorsTabs() {
                   </div>
                 </details>
               </div>
-            </section>
+            </motion.section>
           )}
 
           {activeTab === "governance" && (
-            <section className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10">
+            <motion.section
+              key="governance"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+              className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10"
+            >
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.45em] text-[#EF2B2D]">Corporate Governance</p>
                 <h2 className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl">Board & Policies</h2>
@@ -756,11 +796,18 @@ export default function InvestorsTabs() {
                   </div>
                 </div>
               </details>
-            </section>
+            </motion.section>
           )}
 
           {activeTab === "stock" && (
-            <section className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10">
+            <motion.section
+              key="stock"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+              className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10"
+            >
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.45em] text-[#EF2B2D]">Stock Information</p>
                 <h2 className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl">Shareholding & Complaints</h2>
@@ -821,8 +868,9 @@ export default function InvestorsTabs() {
                   <p className="text-sm text-neutral-600">Details will be updated in this section.</p>
                 </div>
               </details>
-            </section>
+            </motion.section>
           )}
+          </AnimatePresence>
         </div>
       </div>
       </main>
