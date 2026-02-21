@@ -1,15 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Contact() {
   const services = [
     "Security Services",
     "Facility Management",
+    "Manpower Sourcing & Payroll",
     "Toll Plaza Management",
-    "Manpower Supply",
-    "Training Services",
-    "Technology Solutions"
+    "Skill Development",
+    "Overseas Recruitment",
+    "Drone Flying Training"
   ];
 
   return (
@@ -24,8 +26,8 @@ export default function Contact() {
 
       <div className="relative mx-auto max-w-7xl px-6">
 
-        {/* Header */}
-           <motion.div
+          {/* Header */}
+            <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -35,24 +37,43 @@ export default function Contact() {
             Our Footprints
           </h3>
           
-          <p className="mb-6 text-center text-sm text-gray-600 max-w-3xl mx-auto">
-            Innovision operates across 15 states in India with a robust presence. 
-            Our corporate office is located in Gurgaon, Haryana, serving as the strategic hub for nationwide operations.
+          <p className="mx-auto mb-6 max-w-3xl text-center text-sm text-gray-600">
+            Pan-India operational footprint with a clearly marked corporate headquarters in Gurgaon.
           </p>
           
-          {/* Footprints Map Image - Centered */}
+          {/* India Footprint Map */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-2xl overflow-hidden rounded-lg border-2 border-[#EF2B2D]/20 bg-gray-50 shadow-lg"
+            className="mx-auto max-w-3xl overflow-hidden rounded-xl border-2 border-[#EF2B2D]/20 bg-gray-50 shadow-lg"
           >
-            <img
-              src="/images/footprints.png"
-              alt="Innovision Footprints across India"
-              className="h-full w-full object-contain"
-            />
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/images/footprints.png"
+                alt="Innovision footprint map across India"
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-contain"
+                priority
+              />
+
+              <span className="absolute left-[52%] top-[34%] inline-flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-[#EF2B2D] shadow-[0_0_0_4px_rgba(239,43,45,0.25)]" aria-label="Corporate HQ">
+                <span className="h-2 w-2 rounded-full bg-white" />
+              </span>
+
+              <span className="pointer-events-none absolute left-[52%] top-[34%] h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#EF2B2D]/40 animate-ping" />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 border-t border-gray-200 bg-white px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-gray-700">
+              <span className="inline-flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#EF2B2D]" /> Corporate HQ (Gurgaon)
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-gray-400" /> Operational Presence
+              </span>
+            </div>
           </motion.div>
 
         </motion.div>

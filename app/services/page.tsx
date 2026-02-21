@@ -11,7 +11,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Services | Innovision Security",
-  description: "Comprehensive security, facility management, toll operations, and workforce solutions across India - 2,000+ sites, 20,000+ personnel.",
+  description: "Integrated security services, facility management, manpower sourcing & payroll, toll plaza management, skill development, overseas recruitment, and drone training across India - 2,000+ sites, 20,000+ personnel.",
 };
 
 export default function ServicesPage() {
@@ -36,7 +36,7 @@ export default function ServicesPage() {
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg text-white/80">
-            Integrated security, facility management, and workforce solutions designed for operational excellence and compliance
+            Integrated security services, facility management, manpower sourcing & payroll, toll plaza management, skill development, overseas recruitment, and drone training designed for operational excellence and compliance
           </p>
         </div>
       </section>

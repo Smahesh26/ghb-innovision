@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const socialLinks = [
@@ -73,7 +74,7 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 py-20">
 
         {/* TOP GRID */}
-        <div className="grid gap-16 lg:grid-cols-4">
+        <div className="grid gap-16 lg:grid-cols-5">
 
           {/* COMPANY INFO */}
           <div className="lg:col-span-1">
@@ -148,27 +149,67 @@ export default function Footer() {
             </h3>
 
             <ul className="space-y-3 text-sm text-white/70">
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Security Services</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Facility Management</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Manpower Sourcing</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Skill Development</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Leadership</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Compliance</li>
+              <li>
+                <Link href="/services/security/manned-private-security" className="transition hover:text-white hover:translate-x-1 inline-block">→ Security Services</Link>
+              </li>
+              <li>
+                <Link href="/services/facility-management" className="transition hover:text-white hover:translate-x-1 inline-block">→ Facility Management</Link>
+              </li>
+              <li>
+                <Link href="/services/manpower-sourcing" className="transition hover:text-white hover:translate-x-1 inline-block">→ Manpower Sourcing & Payroll</Link>
+              </li>
+              <li>
+                <Link href="/services/toll-plaza-management" className="transition hover:text-white hover:translate-x-1 inline-block">→ Toll Plaza Management</Link>
+              </li>
+              <li>
+                <Link href="/services/skill-development" className="transition hover:text-white hover:translate-x-1 inline-block">→ Skill Development</Link>
+              </li>
+              <li>
+                <Link href="/services/overseas-recruitment" className="transition hover:text-white hover:translate-x-1 inline-block">→ Overseas Recruitment</Link>
+              </li>
+              <li>
+                <Link href="/services#drone" className="transition hover:text-white hover:translate-x-1 inline-block">→ Drone Flying Training</Link>
+              </li>
             </ul>
           </div>
 
-          {/* INVESTOR + SUBSIDIARIES */}
+          {/* INVESTOR RELATIONS */}
+          <div>
+            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/80 border-l-4 border-[#EF2B2D] pl-3">
+              Investor Relations
+            </h3>
+
+            <ul className="space-y-3 text-sm text-white/70">
+              <li>
+                <Link href="/investors" className="transition hover:text-white hover:translate-x-1 inline-block">→ Financial Statements</Link>
+              </li>
+              <li>
+                <Link href="/investors" className="transition hover:text-white hover:translate-x-1 inline-block">→ Annual Report</Link>
+              </li>
+              <li>
+                <Link href="/investors" className="transition hover:text-white hover:translate-x-1 inline-block">→ IPO Information</Link>
+              </li>
+              <li>
+                <Link href="/investors" className="transition hover:text-white hover:translate-x-1 inline-block">→ Governance</Link>
+              </li>
+              <li>
+                <Link href="/investors/ipo-disclaimer/confirm" className="transition hover:text-white hover:translate-x-1 inline-block">→ Corporate Video</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* CORPORATE */}
           <div>
             <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/80 border-l-4 border-[#EF2B2D] pl-3">
               Corporate
             </h3>
 
             <ul className="space-y-3 text-sm text-white/70">
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Financial Statements</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Annual Return</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ IPO Audio Visual</li>
+              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Compliance</li>
+              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Awards & Recognition</li>
               <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Innovision International</li>
               <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Aerodrone Robotics</li>
+              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Careers</li>
             </ul>
           </div>
 

@@ -15,10 +15,10 @@ const highlights = [
 ];
 
 const stats = [
-	{ value: 1000, label: "Happy Customers", suffix: "+" },
-	{ value: 2000, label: "Active Sites", suffix: "+" },
-	{ value: 55, label: "Offices", suffix: "+" },
-	{ value: 20000, label: "Workforce", suffix: "+" },
+	{ value: 19, label: "Years of Experience", suffix: "+", icon: "⏱" },
+	{ value: 1000, label: "Corporate Clients", suffix: "+", icon: "🏢" },
+	{ value: 100000, label: "Trained Candidates", suffix: "+", icon: "👥" },
+	{ value: 80, label: "Revenue CAGR", suffix: "%+", icon: "📈" },
 ];
 
 function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
@@ -53,7 +53,7 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 			viewport={{ once: true }}
 			onViewportEnter={() => setIsInView(true)}
 		>
-			<span className="text-5xl font-bold text-white sm:text-6xl">
+			<span className="text-7xl font-black text-white sm:text-8xl">
 				{displayValue.toLocaleString()}{suffix}
 			</span>
 		</motion.div>
@@ -132,7 +132,7 @@ export default function Stats() {
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, delay: 0.2 }}
 					viewport={{ once: true }}
-					className="mt-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-4"
+					className="mt-28 grid gap-16 sm:grid-cols-2 lg:grid-cols-4"
 				>
 					{stats.map((stat, index) => (
 						<motion.div
@@ -144,11 +144,19 @@ export default function Stats() {
 							className="group relative text-center"
 						>
 							{/* Glow Effect */}
-							<div className="absolute inset-0 scale-75 rounded-full bg-[#EF2B2D]/20 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+							<div className="absolute inset-0 scale-75 rounded-full bg-[#EF2B2D]/30 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 							
 							<div className="relative">
+								{/* Numbered Badge */}
+								<motion.div
+									whileHover={{ scale: 1.15, rotate: 5 }}
+									className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-xl border-2 border-[#EF2B2D] bg-gradient-to-br from-[#EF2B2D]/20 to-[#EF2B2D]/5 text-2xl font-black text-[#EF2B2D] shadow-[0_0_30px_rgba(239,43,45,0.4)] transition-shadow duration-300 group-hover:shadow-[0_0_50px_rgba(239,43,45,0.6)]"
+								>
+									{index + 1}
+								</motion.div>
+
 								<Counter value={stat.value} suffix={stat.suffix} />
-								<p className="mt-4 text-sm font-semibold uppercase tracking-wider text-white/80">
+								<p className="mt-6 text-xs font-semibold uppercase tracking-[0.15em] text-white/90">
 									{stat.label}
 								</p>
 							</div>

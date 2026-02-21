@@ -2,7 +2,6 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import MoreAboutUs from "./components/MoreAboutUs";
 import BusinessModel from "./components/BusinessModel";
-import Stats from "./components/Stats";
 import WhyChooseUs from "./components/WhyChooseUs";
 import InvestmentHighlights from "./components/InvestmentHighlights";
 import Technology from "./components/Technology";
@@ -11,6 +10,7 @@ import MDMessage from "./components/MDMessage";
 import CTA from "./components/CTA";
 import Services from "./components/Services";
 import Reviews from "./components/Reviews";
+import Testimonials from "./components/Testimonials";
 import Clients from "./components/Clients";
 import Contact from "./components/Contact";
 import News from "./components/News";
@@ -19,11 +19,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'Home - Integrated Security & Facility Management Services',
-  description: 'Innovision Limited offers comprehensive integrated security services, facility management, toll plaza operations, and workforce solutions across India. 19+ years experience, 20,000+ trained professionals, 1000+ clients, ISO certified.',
+  description: 'Innovision Limited offers integrated security services, facility management, manpower sourcing & payroll, toll plaza management, skill development, overseas recruitment, and drone training across India. 19+ years experience, 20,000+ trained professionals, 1000+ clients, ISO certified.',
   keywords: ['security services', 'facility management', 'integrated security solutions', 'manpower supply India', 'toll plaza management', 'security guards', 'workforce management', 'infrastructure services', 'manned guarding', 'electronic security'],
   openGraph: {
     title: 'Innovision Limited - Integrated Security & Infrastructure Services',
-    description: 'Comprehensive integrated security services, facility management, and workforce solutions across India. 19+ years of excellence serving 1000+ clients.',
+    description: 'Integrated security services, facility management, manpower sourcing & payroll, toll plaza management, skill development, overseas recruitment, and drone training across India. 19+ years of excellence serving 1000+ clients.',
     url: 'https://innovision.co.in',
     siteName: 'Innovision Limited',
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Innovision Limited - Integrated Security & Infrastructure Services',
-    description: 'Comprehensive security services, facility management, and workforce solutions across India.',
+    description: 'Integrated security services, facility management, manpower sourcing & payroll, toll plaza management, skill development, overseas recruitment, and drone training across India.',
     images: ['/images/banner1.png'],
   },
   alternates: {
@@ -137,7 +137,7 @@ export default function Home() {
         "name": "What services does Innovision Limited provide?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Innovision Limited provides comprehensive integrated security services including manned guarding, facility management, toll plaza management, manpower supply, electronic security systems, and workforce training solutions across India."
+          "text": "Innovision Limited provides integrated services including manned private security, facility management, manpower sourcing & payroll, toll plaza management, skill development, overseas recruitment, and drone flying training across India."
         }
       },
       {
@@ -175,6 +175,43 @@ export default function Home() {
     ]
   };
 
+  const localBusinessStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Innovision Limited",
+    "image": "https://innovision.co.in/images/logo.png",
+    "url": "https://innovision.co.in",
+    "telephone": "+91-124-2341602",
+    "email": "contact@innovision.co.in",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot no. 251, Udyog Vihar, Phase IV, Sector 18",
+      "addressLocality": "Gurgaon",
+      "addressRegion": "Haryana",
+      "postalCode": "122015",
+      "addressCountry": "IN"
+    },
+    "areaServed": "India"
+  };
+
+  const videoStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Innovision Corporate & IPO Overview",
+    "description": "Corporate overview and investor communication video of Innovision Limited.",
+    "thumbnailUrl": "https://innovision.co.in/images/video-poster-en.jpg",
+    "uploadDate": "2026-02-21",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Innovision Limited",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://innovision.co.in/images/logo.png"
+      }
+    },
+    "contentUrl": "https://innovision.co.in/investors/ipo-disclaimer/confirm"
+  };
+
   return (
     <>
       {/* Structured Data */}
@@ -185,6 +222,14 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoStructuredData) }}
       />
       
       <Header />
@@ -197,7 +242,6 @@ export default function Home() {
         
         {/* 3. Our Services */}
         <Services />
-        {/* <Stats /> */}
         {/* 4. Why Choose Us */}
         <WhyChooseUs />
         
@@ -215,6 +259,9 @@ export default function Home() {
         
         {/* 9. Client Reviews */}
         <Reviews />
+
+        {/* 9.5. Client Testimonials */}
+        <Testimonials />
         
         {/* 10. IPO Ready */}
         <CTA />

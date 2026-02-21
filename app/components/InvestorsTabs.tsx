@@ -267,16 +267,16 @@ export default function InvestorsTabs() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,43,45,0.08),transparent_45%)]" />
       <div className="pointer-events-none absolute left-[-120px] top-20 h-72 w-72 bg-black/5 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6">
-        <div className="sticky top-24 z-20 rounded-sm border border-neutral-200/80 bg-white/80 p-3 backdrop-blur-xl shadow-[0_18px_40px_rgba(15,15,18,0.08)]">
+        <div className="sticky top-24 z-20 border-b border-neutral-200 bg-white/90 px-2 py-2 backdrop-blur-xl">
           <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`rounded-sm px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
+                className={`rounded-none border-b-2 px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
                   activeTab === tab.id
-                    ? "bg-gradient-to-r from-[#EF2B2D] to-[#d62426] text-white shadow-[0_10px_25px_rgba(239,43,45,0.35)]"
-                    : "bg-[#fafaf9] text-neutral-700 hover:bg-white hover:text-[#EF2B2D]"
+                    ? "border-[#EF2B2D] text-[#EF2B2D]"
+                    : "border-transparent text-neutral-700 hover:text-[#EF2B2D]"
                 }`}
               >
                 {tab.label}

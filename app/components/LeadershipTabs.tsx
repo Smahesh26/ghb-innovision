@@ -25,6 +25,8 @@ function DirectorCard({ director }: { director: Director }) {
           fill
           className="object-cover object-top transition duration-700 group-hover:scale-105"
           sizes="144px"
+          loading="eager"
+          fetchPriority="high"
         />
       </div>
 
@@ -45,6 +47,8 @@ function TeamCard({ member }: { member: TeamMember }) {
           fill
           className="object-cover object-top transition duration-700 group-hover:scale-105"
           sizes="144px"
+          loading="eager"
+          fetchPriority="high"
         />
       </div>
 

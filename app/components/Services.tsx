@@ -2,13 +2,16 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
 	{
 		title: "Manned Private Security Services",
+		benefit: "PSARA-certified guards with rapid deployment capability.",
 		description:
 			"On-site trained guards, risk assessment, and rapid response coverage.",
 		link: "/services/security/manned-private-security",
+		image: "/images/services/unarmed.jpg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z" />
@@ -17,10 +20,12 @@ const services = [
 		),
 	},
 	{
-		title: "Integrated Facility Managed Services",
+		title: "Integrated Facility Management Services",
+		benefit: "Compliance-backed soft services for operational efficiency.",
 		description:
 			"End-to-end soft services that keep assets compliant and efficient.",
-		link: "/services#facility",
+		link: "/services/facility-management",
+		image: "/images/clients-services/facilitymanagement1.png",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M4 21V7l8-4 8 4v14" />
@@ -29,9 +34,11 @@ const services = [
 	},
 	{
 		title: "Manpower Sourcing & Payroll",
+		benefit: "End-to-end recruitment, compliance, and payroll integration.",
 		description:
 			"Recruitment, onboarding, payroll, and compliance handled in one flow.",
-		link: "/services#manpower",
+		link: "/services/manpower-sourcing",
+		image: "/images/clients-services/vista.png",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<circle cx="9" cy="8" r="3" />
@@ -41,9 +48,11 @@ const services = [
 	},
 	{
 		title: "Toll Plaza Management",
+		benefit: "TMS-integrated operations with real-time traffic management.",
 		description:
 			"Complete toll operations with TMS, ATMS, traffic management, and 24/7 incident response.",
-		link: "/services#toll",
+		link: "/services/toll-plaza-management",
+		image: "/images/clients-services/tollmanagement.jpg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M3 20h18" />
@@ -53,9 +62,11 @@ const services = [
 	},
 	{
 		title: "Skill Development",
+		benefit: "Industry-aligned training with 100K+ certified graduates.",
 		description:
 			"Training programs aligned to industry-ready standards and safety.",
-		link: "/services#skill",
+		link: "/services/skill-development",
+		image: "/images/skill-training1.png",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M4 7l8-3 8 3-8 3-8-3z" />
@@ -64,9 +75,11 @@ const services = [
 	},
 	{
 		title: "Overseas Recruitment",
+		benefit: "Global sourcing with visa and compliance support.",
 		description:
 			"Global sourcing, documentation, and deployment support.",
-		link: "/services#overseas",
+		link: "/services/overseas-recruitment",
+		image: "/images/clients-services/yaxis.png",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<circle cx="12" cy="12" r="9" />
@@ -75,9 +88,11 @@ const services = [
 	},
 	{
 		title: "Drone Flying Training",
+		benefit: "Government-certified operators for surveillance and inspection.",
 		description:
 			"Certified drone training for surveillance and inspection tasks.",
 		link: "/services#drone",
+		image: "/images/clients-services/tower.png",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<rect x="8" y="9" width="8" height="6" rx="1" />
@@ -149,34 +164,59 @@ export default function Services() {
 						>
 							<motion.div
 								variants={cardVariants}
-								whileHover={{ y: -10, scale: 1.02 }}
-								className={`group relative overflow-hidden rounded-md border border-white/10 bg-[#161618] p-8 transition duration-500 hover:border-[#EF2B2D]/40 hover:shadow-[0_25px_60px_rgba(0,0,0,0.7)] cursor-pointer
+								whileHover={{ y: -12, scale: 1.03 }}
+								className={`group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#151517] to-[#1c1c1f] p-8 transition duration-500 hover:border-[#EF2B2D]/50 hover:shadow-[0_30px_80px_rgba(239,43,45,0.2)] cursor-pointer
 									${index === 6 ? "md:col-span-2 lg:col-span-1 lg:col-start-2" : ""}`}
 							>
 
 								{/* Glow */}
 								<div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
-									<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.15),transparent_70%)]" />
+									<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.2),transparent_70%)]" />
 								</div>
 
 								<div className="relative">
-
-									<div className="flex items-center gap-4">
-										<span className="flex h-12 w-12 items-center justify-center rounded-md border border-[#EF2B2D]/40 bg-[#EF2B2D]/10 text-[#EF2B2D] transition group-hover:bg-[#EF2B2D] group-hover:text-white">
-											{service.icon}
-										</span>
-
-										<h3 className="text-lg font-semibold text-white">
-											{service.title}
-										</h3>
+									<div className="relative mb-6 h-40 overflow-hidden rounded-lg border border-white/10">
+										<Image
+											src={service.image}
+											alt={service.title}
+											fill
+											sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+											className="object-cover transition duration-700 group-hover:scale-105"
+										/>
+										<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 									</div>
 
-									<p className="mt-6 text-sm leading-relaxed text-white/70">
+									<div className="flex items-center justify-between gap-4">
+										<div className="flex items-center gap-4">
+											<motion.span
+												whileHover={{ scale: 1.1, rotate: 5 }}
+												className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-[#EF2B2D]/40 bg-[#EF2B2D]/10 text-[#EF2B2D] transition group-hover:bg-[#EF2B2D] group-hover:text-white"
+											>
+												{service.icon}
+											</motion.span>
+
+											<h3 className="text-lg font-semibold text-white">
+												{service.title}
+											</h3>
+										</div>
+
+										<span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-[#EF2B2D]/40 bg-[#EF2B2D]/10 px-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#EF2B2D]">
+											{String(index + 1).padStart(2, "0")}
+										</span>
+									</div>
+
+									{/* Benefit Line */}
+									<p className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#EF2B2D]">
+										{service.benefit}
+									</p>
+
+									<p className="mt-4 text-sm leading-relaxed text-white/70">
 										{service.description}
 									</p>
 
-									<span className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-[#EF2B2D] transition group-hover:text-white">
-										Learn More →
+									<span className="mt-6 inline-flex items-center gap-2 rounded-sm border border-[#EF2B2D]/30 bg-[#EF2B2D]/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D] transition group-hover:gap-3 group-hover:border-[#EF2B2D] group-hover:text-white">
+										Learn More
+										<span>→</span>
 									</span>
 
 								</div>

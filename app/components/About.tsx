@@ -120,7 +120,7 @@ const About = () => {
                 textJustify: 'inter-word'
               }}
             >
-              INNOVISION LIMITED is an ISO 90001:2008, ISO 27001:2013, ISO 8000:2014, ISO 14001:2015, ISO 14001:2015, ISO 18788:2018, and ISO 45001:2018 certified company. We specialize in providing a comprehensive and fully integrated range of services in Manned Private Security Services, Integrated Facility Management (IFM) Services, Manpower Sourcing and Payroll, Toll Plaza Management, and Skill Development.
+              INNOVISION LIMITED is an ISO 90001:2008, ISO 27001:2013, ISO 8000:2014, ISO 14001:2015, ISO 14001:2015, ISO 18788:2018, and ISO 45001:2018 certified company. We specialize in providing a comprehensive and fully integrated range of services in Manned Private Security Services, Integrated Facility Management (IFM) Services, Manpower Sourcing and Payroll, Toll Plaza Management, Skill Development, Overseas Recruitment, and Drone Flying Training.
             </p>
 
             <p 
@@ -135,7 +135,7 @@ const About = () => {
                 textJustify: 'inter-word'
               }}
             >
-              Our dedication to excellence and client satisfaction sets us apart, making us the preferred partner. Understanding unique client&apos;s needs, we offer tailored services to businesses, whether it&apos;s skilled manpower, security, or facility management, aiming to enhance clients&apos; success.
+              Our dedication to excellence and client satisfaction sets us apart, making us the preferred partner. Understanding each client&apos;s unique needs, we offer tailored services across security, facility management, manpower sourcing & payroll, toll operations, and skill development to enhance client outcomes.
             </p>
 
             <p 

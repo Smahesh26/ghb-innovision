@@ -46,6 +46,15 @@ const navItems = [
     ],
   },
   { label: "Investors", href: "/investors" },
+  {
+    label: "Insights",
+    children: [
+      { label: "News & Press Releases", href: "/insights/news" },
+      { label: "Certificates", href: "/insights/certificates" },
+      { label: "Blogs", href: "/insights/blogs" },
+      { label: "Gallery", href: "/insights/gallery" },
+    ],
+  },
   { label: "Clients", href: "/clients" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
