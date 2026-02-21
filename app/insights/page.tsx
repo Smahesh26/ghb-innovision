@@ -1,6 +1,5 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export const metadata = {
@@ -46,12 +45,7 @@ export default function InsightsPage() {
 			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
 				<div className="mx-auto max-w-7xl px-6">
 					{/* Hero Section */}
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						className="mb-20 text-center"
-					>
+					<div className="mb-20 text-center">
 						<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 							Insights & Updates
 						</p>
@@ -62,7 +56,7 @@ export default function InsightsPage() {
 							Stay informed with the latest news, industry insights, certifications, and visual stories from Innovision Security.
 						</p>
 						<div className="mt-12 h-1 w-16 bg-[#EF2B2D] mx-auto" />
-					</motion.div>
+					</div>
 
 					{/* Sections Grid */}
 					<div className="grid gap-8 md:grid-cols-2 mb-20">
@@ -71,12 +65,8 @@ export default function InsightsPage() {
 								key={section.title}
 								href={section.href}
 							>
-								<motion.div
-									initial={{ opacity: 0, y: 20 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 0.6, delay: index * 0.1 }}
-									whileHover={{ y: -8 }}
-									className="group h-full rounded-2xl border border-white/10 bg-gradient-to-br from-[#0b0b0d] to-white/5 p-8 backdrop-blur-md transition hover:border-[#EF2B2D]/50 hover:shadow-[0_30px_60px_rgba(239,43,45,0.15)] cursor-pointer"
+								<div
+									className="group h-full cursor-pointer rounded-2xl border border-white/10 bg-gradient-to-br from-[#0b0b0d] to-white/5 p-8 backdrop-blur-md transition hover:-translate-y-2 hover:border-[#EF2B2D]/50 hover:shadow-[0_30px_60px_rgba(239,43,45,0.15)]"
 								>
 									{/* Background Gradient */}
 									<div className={`absolute inset-0 bg-gradient-to-br ${section.color} to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500`} />
@@ -103,18 +93,13 @@ export default function InsightsPage() {
 											<span className="transition group-hover:translate-x-1">→</span>
 										</div>
 									</div>
-								</motion.div>
+								</div>
 							</Link>
 						))}
 					</div>
 
 					{/* Featured Content Section */}
-					<motion.div
-						initial={{ opacity: 0, y: 40 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6, delay: 0.4 }}
-						className="rounded-2xl border border-white/10 bg-gradient-to-r from-[#EF2B2D]/10 via-[#0b0b0d] to-[#EF2B2D]/5 backdrop-blur-md p-12"
-					>
+					<div className="rounded-2xl border border-white/10 bg-gradient-to-r from-[#EF2B2D]/10 via-[#0b0b0d] to-[#EF2B2D]/5 backdrop-blur-md p-12">
 						<div className="grid gap-12 md:grid-cols-2 items-center">
 							{/* Left Content */}
 							<div>
@@ -144,11 +129,8 @@ export default function InsightsPage() {
 									{ label: "Corporate Clients", value: "1000+" },
 									{ label: "Revenue CAGR", value: "80%+" },
 								].map((stat, idx) => (
-									<motion.div
+									<div
 										key={stat.label}
-										initial={{ opacity: 0, scale: 0.8 }}
-										animate={{ opacity: 1, scale: 1 }}
-										transition={{ duration: 0.6, delay: 0.5 + idx * 0.05 }}
 										className="rounded-lg border border-white/10 bg-white/5 backdrop-blur-md p-4 text-center"
 									>
 										<p className="text-2xl font-black text-[#EF2B2D]">
@@ -157,11 +139,11 @@ export default function InsightsPage() {
 										<p className="mt-2 text-xs text-white/70">
 											{stat.label}
 										</p>
-									</motion.div>
+									</div>
 								))}
 							</div>
 						</div>
-					</motion.div>
+					</div>
 				</div>
 			</main>
 			<Footer />

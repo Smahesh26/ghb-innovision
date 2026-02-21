@@ -1,6 +1,5 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import { motion } from "framer-motion";
 
 export const metadata = {
 	title: "News & Press Releases - Innovision Security",
@@ -35,12 +34,7 @@ export default function NewsPage() {
 			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
 				<div className="mx-auto max-w-6xl px-6">
 					{/* Header */}
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						className="mb-16"
-					>
+					<div className="mb-16">
 						<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 							Insights
 						</p>
@@ -51,16 +45,13 @@ export default function NewsPage() {
 							Stay updated with the latest news, announcements, and media coverage from Innovision Security.
 						</p>
 						<div className="mt-8 h-1 w-16 bg-[#EF2B2D]" />
-					</motion.div>
+					</div>
 
 					{/* News Grid */}
 					<div className="grid gap-8 md:grid-cols-3">
 						{newsItems.map((item, index) => (
-							<motion.article
+							<article
 								key={item.title}
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: index * 0.1 }}
 								className="group rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition hover:border-[#EF2B2D]/50 hover:bg-white/10"
 							>
 								<p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D]">
@@ -77,7 +68,7 @@ export default function NewsPage() {
 								>
 									Read More →
 								</a>
-							</motion.article>
+							</article>
 						))}
 					</div>
 				</div>

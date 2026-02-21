@@ -1,6 +1,5 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import { motion } from "framer-motion";
 
 export const metadata = {
 	title: "Gallery - Innovision Security",
@@ -47,12 +46,7 @@ export default function GalleryPage() {
 			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
 				<div className="mx-auto max-w-6xl px-6">
 					{/* Header */}
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						className="mb-20"
-					>
+					<div className="mb-20">
 						<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 							Insights
 						</p>
@@ -63,19 +57,15 @@ export default function GalleryPage() {
 							Explore our operations, training facilities, events, and the people behind Innovision Security.
 						</p>
 						<div className="mt-8 h-1 w-16 bg-[#EF2B2D]" />
-					</motion.div>
+					</div>
 
 					{/* Gallery Categories Grid */}
 					<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 						{galleryCategories.map((item, index) => (
-							<motion.a
+							<a
 								key={item.category}
 								href="#"
-								initial={{ opacity: 0, scale: 0.9 }}
-								animate={{ opacity: 1, scale: 1 }}
-								transition={{ duration: 0.6, delay: index * 0.08 }}
-								whileHover={{ scale: 1.05 }}
-								className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#0b0b0d] to-white/5 p-8 backdrop-blur-md transition hover:border-[#EF2B2D]/50"
+								className="group relative block overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#0b0b0d] to-white/5 p-8 backdrop-blur-md transition hover:scale-[1.02] hover:border-[#EF2B2D]/50"
 							>
 								{/* Background gradient overlay */}
 								<div className="absolute inset-0 bg-gradient-to-br from-[#EF2B2D]/10 to-transparent opacity-0 transition group-hover:opacity-100" />
@@ -110,17 +100,12 @@ export default function GalleryPage() {
 										<span className="transition group-hover:translate-x-1">→</span>
 									</div>
 								</div>
-							</motion.a>
+							</a>
 						))}
 					</div>
 
 					{/* Featured Section */}
-					<motion.div
-						initial={{ opacity: 0, y: 40 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6, delay: 0.5 }}
-						className="mt-24"
-					>
+					<div className="mt-24">
 						<h2 className="text-3xl font-bold text-white mb-8">
 							Featured Highlights
 						</h2>
@@ -159,15 +144,10 @@ export default function GalleryPage() {
 								</div>
 							))}
 						</div>
-					</motion.div>
+					</div>
 
 					{/* CTA */}
-					<motion.div
-						initial={{ opacity: 0, y: 40 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6, delay: 0.6 }}
-						className="mt-20 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-12 text-center"
-					>
+					<div className="mt-20 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-12 text-center">
 						<h3 className="text-2xl font-bold text-white">
 							Share Your Story
 						</h3>
@@ -180,7 +160,7 @@ export default function GalleryPage() {
 						>
 							Get in Touch
 						</a>
-					</motion.div>
+					</div>
 				</div>
 			</main>
 			<Footer />

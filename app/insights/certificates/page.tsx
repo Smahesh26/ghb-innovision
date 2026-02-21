@@ -1,6 +1,5 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import { motion } from "framer-motion";
 
 export const metadata = {
 	title: "Certificates & Certifications - Innovision Security",
@@ -47,12 +46,7 @@ export default function CertificatesPage() {
 			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
 				<div className="mx-auto max-w-6xl px-6">
 					{/* Header */}
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						className="mb-16"
-					>
+					<div className="mb-16">
 						<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 							Insights
 						</p>
@@ -63,16 +57,13 @@ export default function CertificatesPage() {
 							Innovision Security holds industry-recognized certifications and compliance standards, demonstrating our commitment to excellence and governance.
 						</p>
 						<div className="mt-8 h-1 w-16 bg-[#EF2B2D]" />
-					</motion.div>
+					</div>
 
 					{/* Certificates Grid */}
 					<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 						{certificates.map((cert, index) => (
-							<motion.div
+							<div
 								key={cert.name}
-								initial={{ opacity: 0, scale: 0.9 }}
-								animate={{ opacity: 1, scale: 1 }}
-								transition={{ duration: 0.6, delay: index * 0.08 }}
 								className="group rounded-xl border border-white/10 bg-gradient-to-br from-[#0b0b0d] to-white/5 p-8 backdrop-blur-md transition hover:border-[#EF2B2D]/50 hover:shadow-[0_0_40px_rgba(239,43,45,0.2)]"
 							>
 								{/* Certificate Icon */}
@@ -91,17 +82,12 @@ export default function CertificatesPage() {
 								<p className="mt-4 text-sm text-white/70">
 									{cert.description}
 								</p>
-							</motion.div>
+							</div>
 						))}
 					</div>
 
 					{/* Download Section */}
-					<motion.div
-						initial={{ opacity: 0, y: 40 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6, delay: 0.4 }}
-						className="mt-20 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-12 text-center"
-					>
+					<div className="mt-20 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-12 text-center">
 						<h3 className="text-2xl font-bold text-white">
 							Comprehensive Documentation
 						</h3>
@@ -114,7 +100,7 @@ export default function CertificatesPage() {
 						>
 							Request Documents
 						</a>
-					</motion.div>
+					</div>
 				</div>
 			</main>
 			<Footer />

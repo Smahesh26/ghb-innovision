@@ -1,6 +1,5 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import { motion } from "framer-motion";
 
 export const metadata = {
 	title: "Blogs & Articles - Innovision Security",
@@ -59,12 +58,7 @@ export default function BlogsPage() {
 			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
 				<div className="mx-auto max-w-6xl px-6">
 					{/* Header */}
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						className="mb-20"
-					>
+					<div className="mb-20">
 						<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 							Insights
 						</p>
@@ -75,16 +69,13 @@ export default function BlogsPage() {
 							Expert insights, industry trends, and thought leadership on security, workforce development, and business innovation.
 						</p>
 						<div className="mt-8 h-1 w-16 bg-[#EF2B2D]" />
-					</motion.div>
+					</div>
 
 					{/* Blog Grid */}
 					<div className="grid gap-8 md:grid-cols-2">
 						{blogs.map((blog, index) => (
-							<motion.article
+							<article
 								key={blog.title}
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: index * 0.08 }}
 								className="group flex flex-col rounded-xl border border-white/10 bg-gradient-to-br from-[#0b0b0d] to-white/5 p-8 backdrop-blur-md transition hover:border-[#EF2B2D]/50"
 							>
 								{/* Category & Date */}
@@ -116,17 +107,12 @@ export default function BlogsPage() {
 									Read Article
 									<span>→</span>
 								</a>
-							</motion.article>
+							</article>
 						))}
 					</div>
 
 					{/* Newsletter Section */}
-					<motion.div
-						initial={{ opacity: 0, y: 40 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6, delay: 0.5 }}
-						className="mt-24 rounded-xl border border-white/10 bg-gradient-to-r from-[#EF2B2D]/10 via-transparent to-[#EF2B2D]/5 backdrop-blur-md p-12 text-center"
-					>
+					<div className="mt-24 rounded-xl border border-white/10 bg-gradient-to-r from-[#EF2B2D]/10 via-transparent to-[#EF2B2D]/5 backdrop-blur-md p-12 text-center">
 						<h3 className="text-2xl font-bold text-white">
 							Subscribe to Our Newsletter
 						</h3>
@@ -146,7 +132,7 @@ export default function BlogsPage() {
 								Subscribe
 							</button>
 						</form>
-					</motion.div>
+					</div>
 				</div>
 			</main>
 			<Footer />
