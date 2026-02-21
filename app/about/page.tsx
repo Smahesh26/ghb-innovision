@@ -1,6 +1,8 @@
 import Header from "../components/Header";
 import About from "../components/About";
+import MDMessage from "../components/MDMessage";
 import News from "../components/News";
+import InnovisionJourney from "../components/InnovisionJourney";
 import Footer from "../components/Footer";
 import { Metadata } from "next";
 
@@ -146,7 +148,9 @@ export default function AboutPage() {
 
       {/* Main Content Sections */}
       <main id="main-content" role="main">
+      <MDMessage />
       <About />
+      <InnovisionJourney />
       <News />
       </main>
       <Footer />

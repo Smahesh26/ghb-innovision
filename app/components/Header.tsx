@@ -12,8 +12,6 @@ const navItems = [
     children: [
       { label: "Company Overview", href: "/about#story" },
       { label: "Leadership", href: "/leadership" },
-      { label: "Our Journey", href: "/journey" },
-      { label: "Institutional Standards", href: "/about#governance" },
     ],
   },
   {

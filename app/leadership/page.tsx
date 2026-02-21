@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "../components/Header";
 import News from "../components/News";
 import Footer from "../components/Footer";
+import LeadershipTabs from "../components/LeadershipTabs";
 
 const boardOfDirectors = [
   {
@@ -101,39 +102,7 @@ export default function LeadershipPage() {
         </div>
       </section>
 
-      <section className="relative bg-[#f7f7f5] py-24 text-neutral-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,43,45,0.06),transparent_65%)]" />
-
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-              Corporate Leadership
-            </p>
-            <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Board of Directors</h2>
-            <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
-          </div>
-
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {boardOfDirectors.map((director) => (
-              <DirectorCard key={director.name} director={director} />
-            ))}
-          </div>
-
-          <div className="mt-20 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-              Governance Excellence
-            </p>
-            <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Independent Directors</h2>
-            <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
-          </div>
-
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {independentDirectors.map((director) => (
-              <DirectorCard key={director.name} director={director} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <LeadershipTabs boardOfDirectors={boardOfDirectors} independentDirectors={independentDirectors} />
 
       <News />
       <Footer />
