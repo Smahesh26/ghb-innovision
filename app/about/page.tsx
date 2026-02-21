@@ -1,20 +1,6 @@
 import Header from "../components/Header";
 import About from "../components/About";
-import Timeline from "../components/Timeline";
-import BusinessModel from "../components/BusinessModel";
-import InvestmentHighlights from "../components/InvestmentHighlights";
-import Technology from "../components/Technology";
-import Industries from "../components/Industries";
-import MDMessage from "../components/MDMessage";
-import Governance from "../components/Governance";
-import Services from "../components/Services";
-import WhyChooseUs from "../components/WhyChooseUs";
-import Stats from "../components/Stats";
-import Clients from "../components/Clients";
-import Reviews from "../components/Reviews";
 import News from "../components/News";
-import Contact from "../components/Contact";
-import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import { Metadata } from "next";
 
@@ -144,12 +130,12 @@ export default function AboutPage() {
 
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" aria-hidden="true" />
-            <span>Company Overview</span>
+            <span>Journey Timeline</span>
             <span className="h-px w-12 bg-[#EF2B2D]" aria-hidden="true" />
           </div>
 
           <h1 className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl">
-            About Innovision
+            Our Journey
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg text-white/80">
@@ -160,22 +146,8 @@ export default function AboutPage() {
 
       {/* Main Content Sections */}
       <main id="main-content" role="main">
-      <MDMessage />
       <About />
-      <Timeline />
-      <BusinessModel />
-      <InvestmentHighlights />
-      <Technology />
-      <Industries />
-      <Governance />
-      <Services />
-      <WhyChooseUs />
-      <Stats />
-      <Clients />
-      <Reviews />
       <News />
-      <Contact />
-      <CTA />
       </main>
       <Footer />
     </>

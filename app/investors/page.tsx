@@ -1,18 +1,11 @@
 import Header from "../components/Header";
-import BusinessModel from "../components/BusinessModel";
-import InvestmentHighlights from "../components/InvestmentHighlights";
-import Governance from "../components/Governance";
-import Timeline from "../components/Timeline";
-import MDMessage from "../components/MDMessage";
-import Stats from "../components/Stats";
-import News from "../components/News";
-import CTA from "../components/CTA";
+import InvestorsTabs from "../components/InvestorsTabs";
 import Footer from "../components/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Investors | Innovision Limited",
-  description: "Investment highlights, governance framework, and business model information for Innovision Limited - IPO-ready integrated services platform.",
+  description: "Investor Relations, Financial Information, Corporate Governance, Stock Information and key disclosures for Innovision Limited.",
 };
 
 export default function InvestorsPage() {
@@ -21,7 +14,7 @@ export default function InvestorsPage() {
       <Header />
       
       {/* Hero Banner for Investors Page */}
-      <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f]">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 40px),
@@ -49,15 +42,8 @@ export default function InvestorsPage() {
         </div>
       </section>
 
-      {/* Main Content Sections */}
-      <InvestmentHighlights />
-      <BusinessModel />
-      <Timeline />
-      <Governance />
-      <MDMessage />
-      <Stats />
-      <News />
-      <CTA />
+      <InvestorsTabs />
+
       <Footer />
     </>
   );

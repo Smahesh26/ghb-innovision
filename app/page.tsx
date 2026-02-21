@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import About from "./components/About";
+import MoreAboutUs from "./components/MoreAboutUs";
 import BusinessModel from "./components/BusinessModel";
 import Stats from "./components/Stats";
 import WhyChooseUs from "./components/WhyChooseUs";
@@ -192,40 +192,37 @@ export default function Home() {
         {/* 1. Banners */}
         <Hero />
         
-        {/* 2. Numbers Section */}
+        {/* 2. More About Us Section */}
+        <MoreAboutUs />
         
-        
-        {/* 3. Who We Are */}
-        <About />
-        
-        {/* 4. Our Services */}
+        {/* 3. Our Services */}
         <Services />
         {/* <Stats /> */}
-        {/* 5. Why Choose Us */}
+        {/* 4. Why Choose Us */}
         <WhyChooseUs />
         
-        {/* 6. Facts & Figures */}
+        {/* 5. Facts & Figures */}
         <InvestmentHighlights />
         
-        {/* 7. Industries Served */}
+        {/* 6. Industries Served */}
         <Industries />
         
-        {/* 8. Technology & Innovation */}
+        {/* 7. Technology & Innovation */}
         <Technology />
         
-        {/* 9. Our Clients */}
+        {/* 8. Our Clients */}
         <Clients />
         
-        {/* 10. Client Reviews */}
+        {/* 9. Client Reviews */}
         <Reviews />
         
-        {/* 11. IPO Ready */}
+        {/* 10. IPO Ready */}
         <CTA />
         
-        {/* 12-14. Our Footprints + Get in Touch + Contact Form */}
+        {/* 11-13. Our Footprints + Get in Touch + Contact Form */}
         <Contact />
         
-        {/* 15. News & Articles */}
+        {/* 14. News & Articles */}
         <News />
       </main>
       <Footer />
