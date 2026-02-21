@@ -69,10 +69,10 @@ export default function LeadershipTabs({
     { name: "Lt. Col. Permender Malik", role: "SVP-Manpower", image: "/images/PermenderMalik.jpeg" },
     { name: "Commodore Thanigai Anandan", role: "VP-Skills", image: "/images/Thangai.jpg" },
     { name: "Captain Sunil Dogra", role: "AVP Aerodrone Robtics", image: "/images/SunilDogra.jpg" },
-    { name: "Shyam B Singh", role: "AVP-Sales", image: "/images/ShyamBSingh.png" },
-    { name: "Rajender Prasad", role: "GM -Admin", image: "/images/RajendraPrasad.jpg" },
-    { name: "Munish Kumar", role: "GM-Accounts", image: "/images/MunishKumar.jpg" },
-    { name: "Anil Kumar", role: "GM-Compliance", image: "/images/AnilKumar.png" },
+    // { name: "Shyam B Singh", role: "AVP-Sales", image: "/images/ShyamBSingh.png" },
+    // { name: "Rajender Prasad", role: "GM -Admin", image: "/images/RajendraPrasad.jpg" },
+    // { name: "Munish Kumar", role: "GM-Accounts", image: "/images/MunishKumar.jpg" },
+    // { name: "Anil Kumar", role: "GM-Compliance", image: "/images/AnilKumar.png" },
   ];
 
   return (
