@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Doc = {
   title: string;
@@ -20,6 +20,63 @@ const tabs = [
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
+
+// Add smooth animation styles for details/summary
+const smoothDetailsStyles = `
+  details {
+    overflow: hidden;
+  }
+  
+  details > summary {
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    transition: background-color 250ms ease-out;
+  }
+  
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  details > summary:hover {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+  }
+  
+  details[open] > summary {
+    background-color: rgba(59, 130, 246, 0.08);
+  }
+  
+  details > summary span {
+    display: inline-block;
+    transition: transform 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  details[open] > summary span {
+    transform: rotate(180deg);
+  }
+  
+  @keyframes expandDetailsSmooth {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes collapseDetailsSmooth {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+  }
+`;
 
 function ViewLink({ doc }: { doc: Doc }) {
   return (
@@ -73,6 +130,38 @@ export default function InvestorsTabs() {
   const [activeTab, setActiveTab] = useState<TabId>("relations");
   const [governanceYear, setGovernanceYear] = useState("2024-2025");
   const [selectedCommittee, setSelectedCommittee] = useState("audit");
+
+  useEffect(() => {
+    const handleDetailsToggle = (e: Event) => {
+      const details = e.target as HTMLDetailsElement;
+      const children = Array.from(details.children);
+      const content = children.find(child => child.tagName !== 'SUMMARY') as HTMLElement;
+      
+      if (!content) return;
+      
+      if (details.open) {
+        content.style.display = 'block';
+        content.style.animation = 'expandDetailsSmooth 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+      } else {
+        content.style.animation = 'collapseDetailsSmooth 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+        setTimeout(() => {
+          content.style.display = 'none';
+        }, 300);
+      }
+    };
+    
+    const detailsElements = document.querySelectorAll('details');
+    detailsElements.forEach(detail => {
+      detail.addEventListener('toggle', handleDetailsToggle);
+    });
+    
+    return () => {
+      detailsElements.forEach(detail => {
+        detail.removeEventListener('toggle', handleDetailsToggle);
+      });
+    };
+  }, []);
+
 
   const investorRelations2023: Doc[] = [
     { title: "Annual Return", url: "/images/pdfs/annualreturn2023-2024.pdf" },
@@ -215,7 +304,9 @@ export default function InvestorsTabs() {
   const quarters = ["Q1", "Q2", "Q3", "Q4"];
 
   return (
-    <main className="relative overflow-hidden bg-gradient-to-b from-[#fbfbfa] via-[#f7f7f5] to-[#f2f2f0] py-20">
+    <>
+      <style>{smoothDetailsStyles}</style>
+      <main className="relative overflow-hidden bg-gradient-to-b from-[#fbfbfa] via-[#f7f7f5] to-[#f2f2f0] py-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,43,45,0.08),transparent_45%)]" />
       <div className="pointer-events-none absolute left-[-120px] top-20 h-72 w-72 bg-black/5 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6">
@@ -734,6 +825,7 @@ export default function InvestorsTabs() {
           )}
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }
