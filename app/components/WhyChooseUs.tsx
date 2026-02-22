@@ -1,50 +1,22 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
 const highlights = [
 	{
-		label: "19+ Years of Experience",
+		label: "1,00,000+ Trained Candidates",
 		detail:
-			"19+ years of operational excellence with sustained growth and structured execution.",
+			"Successfully trained over one lakh candidates with industry-relevant skills and certifications, enabling consistent and rapid deployment across projects.",
 	},
 	{
-		label: "Service Standards",
+		label: "Toll Plaza Expertise",
 		detail:
-			"Defined SOPs, measurable KPIs, and disciplined service frameworks.",
-	},
-	{
-		label: "55+ Locations",
-		detail:
-			"Nationwide operational footprint ensuring rapid deployment capability.",
-	},
-	{
-		label: "Training Centers",
-		detail:
-			"Certified training facilities with continuous skill enhancement modules.",
-	},
-	{		label: "1,00,000+ Trained Candidates",
-		detail:
-			"Successfully trained over one lakh candidates with industry-relevant skills and certifications.",
+			"Managed with standardized SOPs, revenue control systems, and transaction-level monitoring to ensure accuracy, compliance, and operational efficiency.",
 	},
 	{
 		label: "PSARA Authorization",
 		detail:
-			"Authorized to run Private Security Training Institute under PSARA regulations.",
-	},
-	{		label: "Client-Focused Organization",
-		detail:
-			"Custom-designed security strategies aligned to each client’s needs.",
-	},
-	{
-		label: "Diverse Clientele",
-		detail:
-			"Trusted by global enterprises, government bodies, and corporates.",
-	},
-	{
-		label: "Risk Management & Audit",
-		detail:
-			"Internal audit frameworks ensuring proactive risk mitigation.",
+			"Authorized to operate Private Security Training Institutes under PSARA regulations, ensuring compliant and certified security personnel.",
 	},
 ];
 
@@ -67,11 +39,8 @@ const itemVariants = {
 export default function WhyChooseUs() {
 	return (
 		<section className="relative overflow-hidden bg-white py-32 text-neutral-900">
-
 			<div className="mx-auto max-w-7xl px-6">
-
 				<div className="grid gap-20 lg:grid-cols-[0.9fr_1.1fr]">
-
 					{/* LEFT SIDE */}
 					<motion.div
 						initial={{ opacity: 0, y: 40 }}
@@ -84,43 +53,29 @@ export default function WhyChooseUs() {
 						</p>
 
 						<h2 className="mt-6 text-4xl font-bold sm:text-5xl leading-tight">
-							Built on Discipline.
+							Built on discipline.
 							<br />
-							Driven by Standards.
+							Driven by standards.
 						</h2>
 
 						<p className="mt-8 text-base leading-relaxed text-neutral-600">
-							Innovision combines experience, nationwide presence,
+							Innovision combines toll plaza expertise, nationwide presence,
 							structured training, and strong audit systems to deliver
-							reliable manpower and security excellence.
+							reliable toll operations, skilled manpower, and security services.
 						</p>
 
-					<div className="mt-6 space-y-3">
-						<div className="flex items-start gap-3">
-							<div className="mt-1 h-2 w-2 rounded-full bg-[#EF2B2D] flex-shrink-0" />
-							<p className="text-base text-neutral-700">
-								<span className="font-semibold text-neutral-900">1,00,000+ Trained Candidates</span> — Successfully trained over one lakh candidates with industry-relevant skills and certifications.
-							</p>
-						</div>
-						<div className="flex items-start gap-3">
-							<div className="mt-1 h-2 w-2 rounded-full bg-[#EF2B2D] flex-shrink-0" />
-							<p className="text-base text-neutral-700">
-								<span className="font-semibold text-neutral-900">PSARA Authorization</span> — Authorized to run Private Security Training Institute under PSARA regulations.
-							</p>
-						</div>
-					</div>
-					<div className="mt-10 h-1 w-16 bg-[#EF2B2D]" />
-				</motion.div>
+						<div className="mt-10 h-1 w-16 bg-[#EF2B2D]" />
+					</motion.div>
 
-				{/* RIGHT SIDE TIMELINE */}
-				<div className="relative">
-
-					{/* Animated Vertical Line */}
-					<motion.div
-						initial={{ height: 0 }}
-						whileInView={{ height: "100%" }}
-						transition={{ duration: 1 }}
-						viewport={{ once: true }}							className="absolute left-3 top-0 w-[2px] bg-[#EF2B2D]"
+					{/* RIGHT SIDE TIMELINE */}
+					<div className="relative">
+						{/* Animated Vertical Line */}
+						<motion.div
+							initial={{ height: 0 }}
+							whileInView={{ height: "100%" }}
+							transition={{ duration: 1 }}
+							viewport={{ once: true }}
+							className="absolute left-3 top-0 w-[2px] bg-[#EF2B2D]"
 						/>
 
 						<motion.div
@@ -136,7 +91,6 @@ export default function WhyChooseUs() {
 									variants={itemVariants}
 									className="relative flex gap-8"
 								>
-
 									{/* Animated Dot */}
 									<div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-[#EF2B2D] bg-white">
 										<motion.div
@@ -159,17 +113,12 @@ export default function WhyChooseUs() {
 											{item.detail}
 										</p>
 									</div>
-
 								</motion.div>
 							))}
 						</motion.div>
-
 					</div>
-
 				</div>
-
 			</div>
-
 		</section>
 	);
 }

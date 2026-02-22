@@ -150,19 +150,19 @@ export default function Footer() {
 
             <ul className="space-y-3 text-sm text-white/70">
               <li>
-                <Link href="/services/security/manned-private-security" className="transition hover:text-white hover:translate-x-1 inline-block">→ Security Services</Link>
-              </li>
-              <li>
-                <Link href="/services/facility-management" className="transition hover:text-white hover:translate-x-1 inline-block">→ Facility Management</Link>
-              </li>
-              <li>
-                <Link href="/services/manpower-sourcing" className="transition hover:text-white hover:translate-x-1 inline-block">→ Manpower Sourcing & Payroll</Link>
-              </li>
-              <li>
                 <Link href="/services/toll-plaza-management" className="transition hover:text-white hover:translate-x-1 inline-block">→ Toll Plaza Management</Link>
               </li>
               <li>
+                <Link href="/services/security/manned-private-security" className="transition hover:text-white hover:translate-x-1 inline-block">→ Manned Private Security Services</Link>
+              </li>
+              <li>
+                <Link href="/services/facility-management" className="transition hover:text-white hover:translate-x-1 inline-block">→ Integrated Facility Management</Link>
+              </li>
+              <li>
                 <Link href="/services/skill-development" className="transition hover:text-white hover:translate-x-1 inline-block">→ Skill Development</Link>
+              </li>
+              <li>
+                <Link href="/services/manpower-sourcing" className="transition hover:text-white hover:translate-x-1 inline-block">→ Manpower Sourcing & Payroll</Link>
               </li>
               <li>
                 <Link href="/services/overseas-recruitment" className="transition hover:text-white hover:translate-x-1 inline-block">→ Overseas Recruitment</Link>

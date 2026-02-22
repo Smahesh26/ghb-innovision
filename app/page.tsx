@@ -66,9 +66,9 @@ export default function Home() {
     },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Plot no. 251, Udyog Vihar, Phase IV, Sector 18",
-      "addressLocality": "Gurgaon",
-      "addressRegion": "Haryana",
+      "streetAddress": "Plot 251, 1st Floor, Udyog Vihar IV",
+      "addressLocality": "Gurugram",
+      "addressRegion": "HR",
       "postalCode": "122015",
       "addressCountry": "IN"
     },
@@ -185,9 +185,9 @@ export default function Home() {
     "email": "contact@innovision.co.in",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Plot no. 251, Udyog Vihar, Phase IV, Sector 18",
-      "addressLocality": "Gurgaon",
-      "addressRegion": "Haryana",
+      "streetAddress": "Plot 251, 1st Floor, Udyog Vihar IV",
+      "addressLocality": "Gurugram",
+      "addressRegion": "HR",
       "postalCode": "122015",
       "addressCountry": "IN"
     },

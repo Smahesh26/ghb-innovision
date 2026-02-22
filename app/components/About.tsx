@@ -43,7 +43,7 @@ const About = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 text-neutral-900">
+    <section id="story" className="relative scroll-mt-32 overflow-hidden bg-white py-24 text-neutral-900">
       
       {/* Soft Background Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,43,45,0.05),transparent_58%)]" />
@@ -90,7 +90,7 @@ const About = () => {
               }}
             >
               At <span className="font-semibold text-neutral-900">Innovision Limited</span>,
-              we are ranked among the top 10 Security Manpower companies in India.
+          we operate at the intersection of infrastructure management and workforce execution. 
             </p>
 
             <p 
@@ -105,7 +105,7 @@ const About = () => {
                 textJustify: 'inter-word'
               }}
             >
-              We lead the industry by addressing the evolving needs of businesses nationwide. Specializing in comprehensive solutions for blue-collar workforce requirements, we serve a diverse range of clients, from small companies to large corporates across all industries. Recognizing the crucial role of skilled manpower in driving efficiency and success, we have become the preferred partner for sourcing top-quality blue-collar workers across various sectors.
+Our core strength lies in managing large-scale toll plaza operations and delivering structured manpower solutions that keep mission-critical projects running efficiently across India. We don’t just deploy people — we deploy process-driven, compliance-backed operational systems that ensure revenue integrity, security discipline, and service continuity.
             </p>
 
             <p 
@@ -120,8 +120,7 @@ const About = () => {
                 textJustify: 'inter-word'
               }}
             >
-              INNOVISION LIMITED is an ISO 90001:2008, ISO 27001:2013, ISO 8000:2014, ISO 14001:2015, ISO 14001:2015, ISO 18788:2018, and ISO 45001:2018 certified company. We specialize in providing a comprehensive and fully integrated range of services in Manned Private Security Services, Integrated Facility Management (IFM) Services, Manpower Sourcing and Payroll, Toll Plaza Management, Skill Development, Overseas Recruitment, and Drone Flying Training.
-            </p>
+Our expertise spans toll Plaza management, private security services, Integrated facility management, Manpower sourcing & payroll, structured training, and overseas workforce deployment. With deep on-ground execution capability and centralized compliance control, we enable infrastructure developers, government agencies, and corporate clients to focus on scale while we manage operations with precision. Our approach is data-oriented, performance-driven, and built around accountability — ensuring every site functions with trained personnel, regulatory alignment, and measurable outcomes.            </p>
 
             <p 
               className="mt-5 text-base leading-relaxed text-neutral-700" 
@@ -135,10 +134,9 @@ const About = () => {
                 textJustify: 'inter-word'
               }}
             >
-              Our dedication to excellence and client satisfaction sets us apart, making us the preferred partner. Understanding each client&apos;s unique needs, we offer tailored services across security, facility management, manpower sourcing & payroll, toll operations, and skill development to enhance client outcomes.
-            </p>
+We position ourselves not merely as a service provider, but as a long-term operational partner delivering industry-ready solutions nationwide.         </p>
 
-            <p 
+            {/* <p 
               className="mt-5 text-base leading-relaxed text-neutral-700" 
               style={{ 
                 hyphens: 'none', 
@@ -151,7 +149,7 @@ const About = () => {
               }}
             >
               We prioritize innovation, efficiency, and reliability, delivering quality services with measurable results. Leveraging expertise and resources, we ensure excellence from recruitment to ongoing support, providing peace of mind to businesses. We&apos;re not just a staffing company – we&apos;re strategic partners in success.
-            </p>
+            </p> */}
 
               {/* Optional CTA */}
               <div className="mt-8">

@@ -83,9 +83,7 @@ export default function MoreAboutUs() {
               variants={itemVariants}
               className="text-base leading-relaxed text-neutral-700 text-justify"
             >
-              At <span className="font-semibold">Innovision Limited</span>, we are ranked among the top Security 
-              Manpower companies in India. We lead the staffing industry by addressing the evolving needs of 
-              businesses nationwide, offering reliable and disciplined manpower solutions.
+              At <span className="font-semibold">Innovision Limited</span>, we operate at the intersection of infrastructure management and workforce execution. Our core strength lies in managing large-scale toll plaza operations and delivering structured manpower solutions that keep mission-critical projects running efficiently across India. We don’t just deploy people — we deploy process-driven, compliance-backed operational systems that ensure revenue integrity, security discipline, and service continuity.
             </motion.p>
 
             {/* Second Paragraph */}
@@ -93,8 +91,6 @@ export default function MoreAboutUs() {
               variants={itemVariants}
               className="text-base leading-relaxed text-neutral-700 text-justify"
             >
-              Recognizing the crucial role of skilled manpower in driving efficiency and operational excellence, 
-              we have become the trusted partner for sourcing top-quality workforce solutions across diverse industries.
             </motion.p>
 
             {/* Learn More Link */}

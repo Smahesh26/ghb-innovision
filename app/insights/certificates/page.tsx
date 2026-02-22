@@ -23,21 +23,21 @@ export default function CertificatesPage() {
 			category: "Information Security",
 			description: "Information Security Management System certification ensuring data protection standards.",
 		},
-		{
-			name: "NASSCOM Accreditation",
-			category: "Training & Development",
-			description: "National Association of Software and Services Companies recognition for training excellence.",
-		},
+		// {
+		// 	name: "NASSCOM Accreditation",
+		// 	category: "Training & Development",
+		// 	description: "National Association of Software and Services Companies recognition for training excellence.",
+		// },
 		{
 			name: "ISO 45001:2018",
 			category: "Occupational Health & Safety",
 			description: "Occupational Health and Safety Management System certification for employee safety.",
 		},
-		{
-			name: "FICCI Membership",
-			category: "Industry Association",
-			description: "Federation of Indian Chambers of Commerce and Industry membership and recognition.",
-		},
+		// {
+		// 	name: "FICCI Membership",
+		// 	category: "Industry Association",
+		// 	description: "Federation of Indian Chambers of Commerce and Industry membership and recognition.",
+		// },
 	];
 
 	return (

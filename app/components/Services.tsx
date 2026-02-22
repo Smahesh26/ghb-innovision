@@ -11,7 +11,7 @@ const services = [
 		description:
 			"On-site trained guards, risk assessment, and rapid response coverage.",
 		link: "/services/security/manned-private-security",
-		image: "/images/services/unarmed.jpg",
+		image: "/images/services-home/mannedservice1.jpeg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z" />
@@ -66,7 +66,7 @@ const services = [
 		description:
 			"Training programs aligned to industry-ready standards and safety.",
 		link: "/services/skill-development",
-		image: "/images/skill-training1.png",
+		image: "/images/services-home/skilldevservice1.jpeg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M4 7l8-3 8 3-8 3-8-3z" />
@@ -92,7 +92,7 @@ const services = [
 		description:
 			"Certified drone training for surveillance and inspection tasks.",
 		link: "/services#drone",
-		image: "/images/clients-services/tower.png",
+		image: "/images/services-home/droneservices1.jpeg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<rect x="8" y="9" width="8" height="6" rx="1" />

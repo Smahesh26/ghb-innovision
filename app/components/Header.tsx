@@ -17,8 +17,9 @@ const navItems = [
   {
     label: "Services",
     children: [
+      { label: "Toll Plaza Management", href: "/services/toll-plaza-management" },
       {
-        label: "Security Services",
+        label: "Manned Private Security Services",
         href: "/services/security/manned-private-security",
         hasSubmenu: true,
         children: [
@@ -28,9 +29,7 @@ const navItems = [
           // { label: "Security Consulting", href: "/services/security/consulting" },
         ],
       },
-      { label: "Facility Management", href: "/services/facility-management" },
-      { label: "Manpower Sourcing & Payroll", href: "/services/manpower-sourcing" },
-      { label: "Toll Plaza Management", href: "/services/toll-plaza-management" },
+      { label: "Integrated Facility Management", href: "/services/facility-management" },
       {
         label: "Skill Development",
         href: "/services/skill-development",
@@ -41,6 +40,7 @@ const navItems = [
           { label: "Placement", href: "/services/skill-development/placement" },
         ],
       },
+      { label: "Manpower Sourcing & Payroll", href: "/services/manpower-sourcing" },
       { label: "Overseas Recruitment", href: "/services/overseas-recruitment" },
       { label: "Drone Flying Training", href: "/services#drone" },
     ],
@@ -50,6 +50,7 @@ const navItems = [
     label: "Insights",
     children: [
       { label: "News & Press Releases", href: "/insights/news" },
+      { label: "Awards & Accolades", href: "/insights/awards" },
       { label: "Certificates", href: "/insights/certificates" },
       { label: "Blogs", href: "/insights/blogs" },
       { label: "Gallery", href: "/insights/gallery" },
