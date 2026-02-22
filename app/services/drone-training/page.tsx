@@ -50,7 +50,7 @@ export default function DroneTrainingPage() {
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-20 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-28 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -609,63 +609,6 @@ export default function DroneTrainingPage() {
               </div>
             ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="mb-16 text-center"
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Success Stories</p>
-            <h2 className="mt-6 text-4xl font-light text-gray-900">
-              What They're Talking About
-              <span className="mt-2 block font-semibold text-[#EF2B2D]">Our Aerodrone Services</span>
-            </h2>
-            <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-          </motion.div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
-                viewport={{ once: true, margin: "-50px" }}
-                className="relative overflow-hidden rounded-lg border border-gray-200 bg-white p-8 transition-all duration-300 hover:shadow-lg"
-              >
-                <div className="absolute right-4 top-4 text-6xl font-light text-[#EF2B2D]/5">"</div>
-                <div className="relative">
-                  <div className="mb-4 flex gap-1">
-                    {[...Array(5)].map((_, index) => (
-                      <div key={index} className="h-3 w-3 text-[#EF2B2D]">
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-sm leading-relaxed text-gray-600">
-                    Excellent training program! The instructors were knowledgeable and the hands-on experience 
-                    was invaluable. I'm now a certified drone pilot ready to take on new opportunities.
-                  </p>
-                  <div className="mt-6 flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#EF2B2D] to-[#d62426]" />
-                    <div>
-                      <p className="font-semibold text-gray-900">Student Name</p>
-                      <p className="text-xs text-gray-500">Certified Drone Pilot</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
