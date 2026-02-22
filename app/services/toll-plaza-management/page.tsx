@@ -66,25 +66,6 @@ export default function TollPlazaManagementPage() {
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
 
-        {/* Animated road lines */}
-        <div className="absolute inset-0 overflow-hidden opacity-20">
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ x: "-100%" }}
-              animate={{ x: "100%" }}
-              transition={{
-                duration: 3,
-                delay: i * 0.5,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute h-1 w-32 bg-white"
-              style={{ top: `${20 + i * 15}%`, left: 0 }}
-            />
-          ))}
-        </div>
-
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -101,17 +82,17 @@ export default function TollPlazaManagementPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl"
+            className="mt-6 text-5xl font-light tracking-tight sm:text-6xl lg:text-7xl"
           >
-            TOLL PLAZA
-            <span className="mt-2 block text-[#EF2B2D]">MANAGEMENT</span>
+            Toll Plaza
+            <span className="mt-2 block font-semibold text-[#EF2B2D]">Management</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 max-w-3xl text-xl text-white/90"
+            className="mt-6 max-w-3xl text-lg text-white/90"
           >
             Leading the Way in Toll Operations and Management
           </motion.p>
@@ -119,54 +100,27 @@ export default function TollPlazaManagementPage() {
       </section>
 
       {/* Introduction Section - Road Design */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-white py-24 text-gray-900">
+      <section className="relative overflow-hidden bg-white py-24 text-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-12 text-center"
+            className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
               Toll Management through
-              <span className="mt-2 block text-[#EF2B2D]">Public-Private Partnerships</span>
+              <span className="mt-2 block font-semibold text-[#EF2B2D]">Public-Private Partnerships</span>
             </h2>
           </motion.div>
 
           {/* Elegant Timeline Layout */}
           <div className="relative">
-            {/* Elegant Center Column with Decorative Elements */}
-            <div className="absolute left-1/2 top-0 hidden h-full -translate-x-1/2 md:block">
-              {/* Main Elegant Bar */}
-              <div className="relative h-full w-1 bg-gradient-to-b from-[#EF2B2D] via-gray-800 to-[#EF2B2D]">
-                {/* Decorative diamonds at intervals */}
-                {[0, 1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="absolute left-1/2 -translate-x-1/2"
-                    style={{ top: `${i * 33.33}%` }}
-                  >
-                    {/* Diamond shape */}
-                    <div className="relative h-8 w-8">
-                      <div className="absolute inset-0 rotate-45 border-4 border-[#EF2B2D] bg-white shadow-lg" />
-                      <div className="absolute inset-2 rotate-45 bg-gradient-to-br from-[#EF2B2D] to-gray-800" />
-                    </div>
-                    
-                    {/* Connector lines */}
-                    {i % 2 === 0 ? (
-                      // Left connector
-                      <div className="absolute right-8 top-1/2 h-0.5 w-40 -translate-y-1/2 bg-gradient-to-l from-gray-800 to-transparent" />
-                    ) : (
-                      // Right connector
-                      <div className="absolute left-8 top-1/2 h-0.5 w-40 -translate-y-1/2 bg-gradient-to-r from-gray-800 to-transparent" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* Elegant Center Line */}
+            <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#EF2B2D]/20 via-gray-200 to-[#EF2B2D]/20 md:block" />
 
-            <div className="relative space-y-16">
+            <div className="relative space-y-12">
               {/* Section 1 - Text Left, Image Right */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -176,17 +130,19 @@ export default function TollPlazaManagementPage() {
                 className="grid gap-8 lg:grid-cols-2 items-center"
               >
                 {/* Text Card */}
-                <div className="group relative overflow-hidden border-4 border-gray-900 bg-white shadow-2xl transition-all hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
-                  <div className="absolute -right-2 -top-2 h-16 w-16 border-8 border-[#EF2B2D] z-10" />
+                <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+                  <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#EF2B2D]/10 text-sm font-semibold text-[#EF2B2D]">
+                    01
+                  </div>
                   
-                  <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-                    <div className="inline-block border-4 border-[#EF2B2D] bg-[#EF2B2D] px-8 py-3 text-2xl font-bold text-white shadow-lg">
-                      01. OPPORTUNITY
-                    </div>
+                  <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      Opportunity
+                    </h3>
                   </div>
                   
                   <div className="p-8">
-                    <p className="text-lg leading-relaxed text-gray-700">
+                    <p className="text-base leading-relaxed text-gray-600">
                       Government policies are creating exciting opportunities for private players to engage in toll 
                       management through public-private partnerships (PPPs). Innovision Limited is at the forefront 
                       of this transformation, leveraging strategic expansions and operational expertise to emerge as 
@@ -196,14 +152,14 @@ export default function TollPlazaManagementPage() {
                 </div>
 
                 {/* Image */}
-                <div className="relative h-96 overflow-hidden border-4 border-gray-900 shadow-2xl">
+                <div className="relative h-80 overflow-hidden rounded-lg shadow-md">
                   <Image
                     src="/images/clients-services/tollmanagement.jpg"
                     alt="Toll Management Opportunities"
                     fill
-                    className="object-cover transition-transform duration-500 hover:scale-110"
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
                 </div>
               </motion.div>
 
@@ -211,33 +167,35 @@ export default function TollPlazaManagementPage() {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
                 className="grid gap-8 lg:grid-cols-2 items-center"
               >
                 {/* Image */}
-                <div className="relative h-96 overflow-hidden border-4 border-gray-900 shadow-2xl order-2 lg:order-1">
+                <div className="relative h-80 overflow-hidden rounded-lg shadow-md order-2 lg:order-1">
                   <Image
                     src="/images/clients-services/tollroad.jpg"
                     alt="Toll Road Industry"
                     fill
-                    className="object-cover transition-transform duration-500 hover:scale-110"
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
                 </div>
 
                 {/* Text Card */}
-                <div className="group relative overflow-hidden border-4 border-gray-900 bg-white shadow-2xl transition-all hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] order-1 lg:order-2">
-                  <div className="absolute -left-2 -top-2 h-16 w-16 border-8 border-[#EF2B2D] z-10" />
+                <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg order-1 lg:order-2">
+                  <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#EF2B2D]/10 text-sm font-semibold text-[#EF2B2D]">
+                    02
+                  </div>
                   
-                  <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-                    <div className="inline-block border-4 border-[#EF2B2D] bg-[#EF2B2D] px-8 py-3 text-2xl font-bold text-white shadow-lg">
-                      02. INDUSTRY
-                    </div>
+                  <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      Industry
+                    </h3>
                   </div>
                   
                   <div className="p-8">
-                    <p className="text-lg leading-relaxed text-gray-700">
+                    <p className="text-base leading-relaxed text-gray-600">
                       A toll road is a public or private roadway where users pay a fee for passage, implemented to 
                       recuperate the cost of construction and maintenance. Since 1992, various state governments have 
                       enacted legislation allowing the levy of toll fees on state highways and other roads constructed 
@@ -251,22 +209,24 @@ export default function TollPlazaManagementPage() {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
                 className="grid gap-8 lg:grid-cols-2 items-center"
               >
                 {/* Text Card */}
-                <div className="group relative overflow-hidden border-4 border-gray-900 bg-white shadow-2xl transition-all hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
-                  <div className="absolute -right-2 -top-2 h-16 w-16 border-8 border-[#EF2B2D] z-10" />
+                <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+                  <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#EF2B2D]/10 text-sm font-semibold text-[#EF2B2D]">
+                    03
+                  </div>
                   
-                  <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-                    <div className="inline-block border-4 border-[#EF2B2D] bg-[#EF2B2D] px-8 py-3 text-2xl font-bold text-white shadow-lg">
-                      03. JOURNEY
-                    </div>
+                  <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      Journey
+                    </h3>
                   </div>
                   
                   <div className="p-8">
-                    <p className="text-lg leading-relaxed text-gray-700">
+                    <p className="text-base leading-relaxed text-gray-600">
                       Innovision's journey in toll plaza management showcases strategic expansions and operational prowess. 
                       The company has navigated the dynamic industry landscape, adapting to market conditions and consistently 
                       delivering value to clients.
@@ -275,14 +235,14 @@ export default function TollPlazaManagementPage() {
                 </div>
 
                 {/* Image */}
-                <div className="relative h-96 overflow-hidden border-4 border-gray-900 shadow-2xl">
+                <div className="relative h-80 overflow-hidden rounded-lg shadow-md">
                   <Image
                     src="/images/clients-services/tollplazamanagement.jpg"
                     alt="Toll Plaza Management Journey"
                     fill
-                    className="object-cover transition-transform duration-500 hover:scale-110"
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
                 </div>
               </motion.div>
 
@@ -290,33 +250,35 @@ export default function TollPlazaManagementPage() {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
                 className="grid gap-8 lg:grid-cols-2 items-center"
               >
                 {/* Image */}
-                <div className="relative h-96 overflow-hidden border-4 border-gray-900 shadow-2xl order-2 lg:order-1">
+                <div className="relative h-80 overflow-hidden rounded-lg shadow-md order-2 lg:order-1">
                   <Image
                     src="/images/clients-services/operationalexcellence.jpg"
                     alt="Operational Excellence"
                     fill
-                    className="object-cover transition-transform duration-500 hover:scale-110"
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
                 </div>
 
                 {/* Text Card */}
-                <div className="group relative overflow-hidden border-4 border-gray-900 bg-white shadow-2xl transition-all hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] order-1 lg:order-2">
-                  <div className="absolute -left-2 -top-2 h-16 w-16 border-8 border-[#EF2B2D] z-10" />
+                <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg order-1 lg:order-2">
+                  <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#EF2B2D]/10 text-sm font-semibold text-[#EF2B2D]">
+                    04
+                  </div>
                   
-                  <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 p-6">
-                    <div className="inline-block border-4 border-[#EF2B2D] bg-[#EF2B2D] px-8 py-3 text-2xl font-bold text-white shadow-lg">
-                      04. EXCELLENCE
-                    </div>
+                  <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      Excellence
+                    </h3>
                   </div>
                   
                   <div className="p-8">
-                    <p className="text-lg leading-relaxed text-gray-700">
+                    <p className="text-base leading-relaxed text-gray-600">
                       Innovision exemplifies adaptability and operational excellence. The company has consistently adapted 
                       to new challenges and opportunities, ensuring seamless operations and high customer satisfaction. 
                       Our toll plaza management segment reflects adaptive spirit, operational excellence, and ability to 
@@ -331,19 +293,19 @@ export default function TollPlazaManagementPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-24 text-white">
+      <section className="bg-gradient-to-br from-gray-50 to-white py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-16 text-center text-4xl font-bold sm:text-5xl"
+            className="mb-16 text-center text-4xl font-light tracking-tight text-gray-900 sm:text-5xl"
           >
-            Our Core Strengths
+            Our Core <span className="font-semibold text-[#EF2B2D]">Strengths</span>
           </motion.h2>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -351,13 +313,13 @@ export default function TollPlazaManagementPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative overflow-hidden border-4 border-white/20 bg-white/5 p-8 backdrop-blur-sm transition-all hover:border-[#EF2B2D]"
+                className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-[#EF2B2D]/30 hover:shadow-md"
               >
-                <div className="absolute -right-8 -top-8 h-24 w-24 border-4 border-[#EF2B2D]/20 transition-transform duration-500 group-hover:rotate-45" />
+                <div className="absolute right-0 top-0 h-24 w-24 bg-gradient-to-br from-[#EF2B2D]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="relative">
-                  <div className="mb-6 text-6xl">{feature.icon}</div>
-                  <h3 className="mb-4 text-xl font-bold text-[#EF2B2D]">{feature.title}</h3>
-                  <p className="text-gray-300">{feature.description}</p>
+                  <div className="mb-4 text-4xl opacity-80">{feature.icon}</div>
+                  <h3 className="mb-3 text-lg font-semibold text-gray-900">{feature.title}</h3>
+                  <p className="text-sm leading-relaxed text-gray-600">{feature.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -366,7 +328,7 @@ export default function TollPlazaManagementPage() {
       </section>
 
       {/* Projects Section - Map Style */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-24 text-gray-900">
+      <section className="bg-white py-24 text-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -375,42 +337,39 @@ export default function TollPlazaManagementPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="mb-4 text-4xl font-bold sm:text-5xl">
-              Our <span className="text-[#EF2B2D]">Projects</span>
+            <h2 className="mb-4 text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Our <span className="font-semibold text-[#EF2B2D]">Projects</span>
             </h2>
-            <p className="text-xl text-gray-600">Strategic locations across India</p>
+            <p className="text-lg text-gray-600">Strategic locations across India</p>
           </motion.div>
 
           {/* Project Cards - Location Pins Style */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {projects.map((project, index) => (
               <motion.div
                 key={project.name}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="group relative overflow-hidden border-4 border-gray-900 bg-white shadow-xl transition-all hover:shadow-2xl"
+                className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:border-[#EF2B2D]/30 hover:shadow-md"
               >
                 {/* Location Pin Top */}
-                <div className="flex h-32 items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-                  <div className="text-8xl transition-transform duration-300 group-hover:scale-110">
+                <div className="flex h-20 items-center justify-center bg-gradient-to-br from-gray-50 to-white">
+                  <div className="text-4xl opacity-70 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100">
                     {project.icon}
                   </div>
                 </div>
 
                 {/* Project Info */}
-                <div className="border-t-4 border-[#EF2B2D] bg-white p-6">
-                  <h3 className="mb-2 text-2xl font-bold text-gray-900">{project.name}</h3>
+                <div className="border-t-2 border-[#EF2B2D] bg-white p-5">
+                  <h3 className="mb-2 text-base font-semibold text-gray-900">{project.name}</h3>
                   <div className="flex items-center gap-2">
-                    <span className="h-px flex-1 bg-gray-300" />
-                    <span className="text-lg font-semibold text-[#EF2B2D]">{project.location}</span>
-                    <span className="h-px flex-1 bg-gray-300" />
+                    <span className="h-px flex-1 bg-gray-200" />
+                    <span className="text-sm font-medium text-[#EF2B2D]">{project.location}</span>
+                    <span className="h-px flex-1 bg-gray-200" />
                   </div>
                 </div>
-
-                {/* Hover Effect Corner */}
-                <div className="absolute -bottom-4 -right-4 h-16 w-16 border-8 border-[#EF2B2D] opacity-0 transition-all duration-300 group-hover:opacity-100" />
               </motion.div>
             ))}
           </div>
@@ -420,25 +379,26 @@ export default function TollPlazaManagementPage() {
   
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#EF2B2D] via-red-600 to-[#EF2B2D] py-20">
-        <div className="mx-auto max-w-5xl px-6 text-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#EF2B2D] to-[#d62628] py-20">
+        <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-10" />
+        <div className="relative mx-auto max-w-5xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-white sm:text-5xl">
-              Partner with Us for Toll Plaza Excellence
+            <h2 className="text-4xl font-light tracking-tight text-white sm:text-5xl">
+              Partner with Us for <span className="font-semibold">Toll Plaza Excellence</span>
             </h2>
-            <p className="mx-auto mt-6 text-xl text-white/95">
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90">
               Experience seamless toll operations and management with India's leading toll plaza management company
             </p>
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-10 inline-block border-4 border-white bg-white px-12 py-4 text-lg font-bold text-[#EF2B2D] shadow-2xl transition-all hover:bg-transparent hover:text-white"
+              className="mt-10 inline-block rounded-lg border-2 border-white bg-white px-10 py-4 text-base font-semibold text-[#EF2B2D] shadow-lg transition-all hover:bg-transparent hover:text-white"
             >
               Get in Touch
             </motion.a>

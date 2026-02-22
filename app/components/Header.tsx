@@ -42,7 +42,7 @@ const navItems = [
       },
       { label: "Manpower Sourcing & Payroll", href: "/services/manpower-sourcing" },
       { label: "Overseas Recruitment", href: "/services/overseas-recruitment" },
-      { label: "Drone Flying Training", href: "/services#drone" },
+      { label: "Drone Flying Training", href: "/services/drone-training" },
     ],
   },
   { label: "Investors", href: "/investors" },

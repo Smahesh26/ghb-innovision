@@ -375,11 +375,7 @@ export default function AwardsPage() {
 							))}
 						</div>
 
-						<div className="mt-8 text-center">
-							<p className="text-sm text-neutral-500">
-								* Replace placeholder images with actual award ceremony photos
-							</p>
-						</div>
+					
 					</section>
 
 					{/* Call to Action - Split Layout */}

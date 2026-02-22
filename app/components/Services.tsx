@@ -38,7 +38,7 @@ const services = [
 		description:
 			"Recruitment, onboarding, payroll, and compliance handled in one flow.",
 		link: "/services/manpower-sourcing",
-		image: "/images/clients-services/vista.png",
+		image: "/images/services-home/Manpower Sourcing and Payroll.png",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<circle cx="9" cy="8" r="3" />
@@ -79,7 +79,7 @@ const services = [
 		description:
 			"Global sourcing, documentation, and deployment support.",
 		link: "/services/overseas-recruitment",
-		image: "/images/clients-services/yaxis.png",
+		image: "/images/services-home/Overseas Recruitment.png",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<circle cx="12" cy="12" r="9" />

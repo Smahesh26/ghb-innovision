@@ -9,6 +9,15 @@ import { motion } from "framer-motion";
 export default function SkillDevelopmentProjectPage() {
   return (
     <>
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        * {
+          scroll-margin-top: 80px;
+        }
+      `}</style>
+      
       <Header />
 
       {/* Hero Section */}
@@ -16,29 +25,11 @@ export default function SkillDevelopmentProjectPage() {
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
 
-        {/* Animated grid pattern */}
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{
-                duration: 3,
-                delay: i * 0.2,
-                repeat: Infinity,
-              }}
-              className="absolute h-px w-full bg-white"
-              style={{ top: `${i * 5}%` }}
-            />
-          ))}
-        </div>
-
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-20 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
             className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70"
           >
             <span className="h-px w-12 bg-[#EF2B2D]" />
@@ -49,17 +40,17 @@ export default function SkillDevelopmentProjectPage() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+            className="mt-6 text-5xl font-light sm:text-6xl lg:text-7xl"
           >
-            GOVERNMENT
-            <span className="mt-2 block text-[#EF2B2D]">SCHEMES</span>
+            Government
+            <span className="mt-2 block font-semibold text-[#EF2B2D]">Schemes</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
             className="mt-6 max-w-3xl text-2xl font-light text-white/90"
           >
             Undertaken by Innovision Limited
@@ -73,40 +64,37 @@ export default function SkillDevelopmentProjectPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-20 text-center"
           >
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
-              Government Schemes <span className="text-[#EF2B2D]">Undertaken By</span>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Programs</p>
+            <h2 className="text-4xl font-light leading-tight text-gray-900 sm:text-5xl">
+              Government Schemes
+              <span className="mt-2 block font-semibold text-[#EF2B2D]">Undertaken By Innovision Limited</span>
             </h2>
-            <h3 className="text-3xl font-bold text-[#EF2B2D]">Innovision Limited</h3>
-            <div className="mx-auto mt-6 h-1 w-32 bg-[#EF2B2D]" />
+            <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-[#EF2B2D] to-transparent" />
           </motion.div>
 
           {/* Three Scheme Cards */}
-          <div className="mb-20 grid gap-8 md:grid-cols-3">
+          <div className="mb-24 grid gap-6 md:grid-cols-3">
             {[
-              { name: "Recognition of Prior Learning", abbr: "RPL", icon: "🎓", color: "from-gray-800 to-gray-700" },
-              { name: "Short Term Training", abbr: "STT", icon: "⏱️", color: "from-gray-700 to-gray-600" },
-              { name: "Corporate Social Responsibility", abbr: "CSR", icon: "🤝", color: "from-gray-600 to-gray-500" },
+              { name: "Recognition of Prior Learning", abbr: "RPL", num: "01" },
+              { name: "Short Term Training", abbr: "STT", num: "02" },
+              { name: "Corporate Social Responsibility", abbr: "CSR", num: "03" },
             ].map((scheme, index) => (
               <motion.div
                 key={scheme.abbr}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative overflow-hidden border-4 border-gray-900 bg-white shadow-xl transition-all hover:shadow-2xl"
+                transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="group relative overflow-hidden bg-white p-8 transition-all hover:bg-gray-50"
               >
-                <div className={`bg-gradient-to-br ${scheme.color} p-8 text-center text-white`}>
-                  <div className="mb-4 text-7xl">{scheme.icon}</div>
-                  <div className="text-4xl font-bold">{scheme.abbr}</div>
-                </div>
-                <div className="border-t-4 border-[#EF2B2D] bg-white p-6 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900">{scheme.name}</h3>
-                </div>
-                <div className="absolute -bottom-2 -right-2 h-12 w-12 border-4 border-[#EF2B2D] opacity-0 transition-all duration-300 group-hover:opacity-100" />
+                <div className="absolute left-0 top-0 h-full w-1 bg-[#EF2B2D] opacity-0 transition-all group-hover:opacity-100" />
+                <div className="mb-6 text-8xl font-light text-gray-200 transition-all group-hover:text-[#EF2B2D]/10">{scheme.num}</div>
+                <div className="mb-3 text-2xl font-semibold text-gray-900">{scheme.abbr}</div>
+                <h3 className="text-base font-light text-gray-600">{scheme.name}</h3>
               </motion.div>
             ))}
           </div>
@@ -115,187 +103,183 @@ export default function SkillDevelopmentProjectPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="space-y-16"
           >
             {/* MSDE Introduction */}
-            <div className="relative border-4 border-gray-900 bg-gradient-to-br from-gray-50 to-white p-12 shadow-2xl">
-              <div className="absolute -left-4 -top-4 h-20 w-20 border-8 border-[#EF2B2D]" />
-              <div className="absolute -bottom-4 -right-4 h-20 w-20 border-8 border-[#EF2B2D]" />
-              
-              <h3 className="mb-6 text-center text-3xl font-bold text-gray-900">
-                Empower Your Future with <span className="text-[#EF2B2D]">Skill Certification from MSDE</span>
+            <div className="mx-auto max-w-4xl py-16 text-center">
+              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Ministry of Skill Development</p>
+              <h3 className="mb-6 text-3xl font-light leading-tight text-gray-900 sm:text-4xl">
+                Empower Your Future with
+                <span className="mt-2 block font-semibold text-[#EF2B2D]">Skill Certification from MSDE</span>
               </h3>
-              <p className="mb-4 text-center text-xl font-semibold text-gray-700">
-                Unlock Industry-Relevant Skills and Secure a Better Livelihood
-              </p>
-              <p className="text-lg leading-relaxed text-gray-700">
+              <p className="mb-8 text-lg font-light leading-relaxed text-gray-600">
                 The Ministry of Skill Development and Entrepreneurship (MSDE) has launched numerous Skill Certification Schemes aimed at enabling Indian youth to acquire industry-relevant skills. These certifications can significantly enhance your employment opportunities and ensure a better future.
               </p>
+              <div className="mx-auto h-px w-24 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
             </div>
 
             {/* ========== RPL SECTION ========== */}
-            <div className="space-y-12">
-              <div className="flex items-center gap-4">
-                <div className="flex-1 border-t-4 border-gray-300" />
-                <div className="flex items-center gap-4 border-4 border-gray-900 bg-gradient-to-br from-gray-800 to-gray-700 px-8 py-4 shadow-xl">
-                  <span className="text-5xl">🎓</span>
-                  <h3 className="text-3xl font-bold text-white">RPL - Recognition of Prior Learning</h3>
-                </div>
-                <div className="flex-1 border-t-4 border-gray-300" />
+            <div className="space-y-16">
+              <div className="text-center">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Certification Program</p>
+                <h3 className="text-3xl font-light text-gray-900">
+                  <span className="font-semibold">RPL</span> — Recognition of Prior Learning
+                </h3>
+                <div className="mx-auto mt-6 h-px w-16 bg-[#EF2B2D]" />
               </div>
 
               {/* RPL Description */}
-              <div className="grid gap-8 lg:grid-cols-2">
+              <div className="grid gap-12 lg:grid-cols-2">
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="relative overflow-hidden border-4 border-gray-900 bg-white p-8 shadow-xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="space-y-6"
                 >
-                  <div className="absolute -right-3 -top-3 h-16 w-16 border-4 border-[#EF2B2D]" />
-                  <h3 className="mb-6 text-2xl font-bold text-[#EF2B2D]">Recognition of Prior Learning (RPL)</h3>
-                  <p className="text-lg leading-relaxed text-gray-700">
-                    Do You Already Possess Valuable Skills And Experience? The Recognition Of Prior Learning (RPL) Program Allows You To Get Certified For What You Know. Covering Over 2000 Job Roles Aligned With The National Skills Qualifications Framework (NSQF), RPL Helps You Formalize Your Expertise And Improve Your Job Prospects.
+                  <h4 className="text-2xl font-light text-gray-900">
+                    What is <span className="font-semibold text-[#EF2B2D]">RPL?</span>
+                  </h4>
+                  <p className="text-base leading-relaxed text-gray-600">
+                    The Recognition Of Prior Learning (RPL) Program allows you to get certified for the skills and experience you already possess. Covering over 2,000 job roles aligned with the National Skills Qualifications Framework (NSQF), RPL helps you formalize your expertise and improve your job prospects.
                   </p>
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="relative overflow-hidden border-4 border-gray-900 bg-gradient-to-br from-[#EF2B2D] to-red-600 p-8 text-white shadow-xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="space-y-6"
                 >
-                  <div className="absolute -left-3 -top-3 h-16 w-16 border-4 border-white" />
-                  <h3 className="mb-6 text-2xl font-bold">Our Training Centers</h3>
-                  <p className="mb-4 text-lg leading-relaxed">
-                    We at Innovision are proud to offer the RPL program at our six state-of-the-art Pradhan Mantri Kaushal Kendras (PMKK) across Haryana, located in:
+                  <h4 className="text-2xl font-light text-gray-900">
+                    Our <span className="font-semibold text-[#EF2B2D]">Training Centers</span>
+                  </h4>
+                  <p className="text-base leading-relaxed text-gray-600">
+                    We at Innovision offer the RPL program at our six state-of-the-art Pradhan Mantri Kaushal Kendras (PMKK) across Haryana:
                   </p>
-                  <ul className="space-y-2 text-lg">
+                  <div className="grid grid-cols-2 gap-3">
                     {["Gurgaon", "Faridabad", "Mewat", "Rewari", "Mahendergarh", "Palwal"].map((city) => (
-                      <li key={city} className="flex items-center gap-3">
-                        <span className="h-2 w-2 bg-white" />
+                      <div key={city} className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="h-1 w-1 rounded-full bg-[#EF2B2D]" />
                         {city}
-                      </li>
+                      </div>
                     ))}
-                  </ul>
-                  <p className="mt-4 text-lg">
-                    These centers provide the perfect environment to enhance your skills and secure certification.
-                  </p>
+                  </div>
                 </motion.div>
               </div>
 
               {/* RPL Process */}
-              <div className="relative border-4 border-gray-900 bg-gray-900 p-12 shadow-2xl">
-                <h3 className="mb-12 text-center text-3xl font-bold text-white">
-                  The <span className="text-[#EF2B2D]">RPL Process</span>
-                </h3>
-                <p className="mb-12 text-center text-lg text-gray-300">
-                  Our Comprehensive 5-Step Process Ensures You Receive The Certification You Deserve
-                </p>
+              <div className="bg-gradient-to-br from-gray-50 to-white py-16">
+                <div className="mx-auto max-w-5xl text-center">
+                  <h4 className="mb-4 text-2xl font-light text-gray-900">
+                    The <span className="font-semibold text-[#EF2B2D]">RPL Process</span>
+                  </h4>
+                  <p className="mb-12 text-base text-gray-600">
+                    Our comprehensive 5-step certification process
+                  </p>
 
-                <div className="grid gap-6 md:grid-cols-5">
-                  {[
-                    { num: "01", label: "Mobilization" },
-                    { num: "02", label: "Counseling & Pre-Screening" },
-                    { num: "03", label: "Orientation" },
-                    { num: "04", label: "Final Assessment" },
-                    { num: "05", label: "Certification, Grading, and Reward" },
-                  ].map((step, index) => (
-                    <motion.div
-                      key={step.num}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="relative border-4 border-[#EF2B2D] bg-white p-6 text-center"
-                    >
-                      <div className="mb-4 text-5xl font-bold text-[#EF2B2D]">{step.num}</div>
-                      <div className="text-sm font-semibold text-gray-900">{step.label}</div>
-                      {index < 4 && (
-                        <div className="absolute -right-8 top-1/2 hidden h-1 w-8 bg-[#EF2B2D] md:block" />
-                      )}
-                    </motion.div>
-                  ))}
+                  <div className="grid gap-8 md:grid-cols-5">
+                    {[
+                      { num: "01", label: "Mobilization" },
+                      { num: "02", label: "Counseling & Pre-Screening" },
+                      { num: "03", label: "Orientation" },
+                      { num: "04", label: "Final Assessment" },
+                      { num: "05", label: "Certification, Grading, and Reward" },
+                    ].map((step, index) => (
+                      <motion.div
+                        key={step.num}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="group relative text-center"
+                      >
+                        <div className="mb-4 text-4xl font-light text-[#EF2B2D] transition-all group-hover:scale-110">{step.num}</div>
+                        <div className="text-xs font-light leading-relaxed text-gray-600">{step.label}</div>
+                        {index < 4 && (
+                          <div className="absolute -right-4 top-8 hidden h-px w-8 bg-gradient-to-r from-[#EF2B2D] to-transparent md:block" />
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Eligibility */}
-              <div className="relative overflow-hidden border-4 border-gray-900 bg-gradient-to-br from-white to-gray-50 p-12 shadow-2xl">
-                <div className="absolute -right-6 -top-6 h-24 w-24 border-8 border-[#EF2B2D] opacity-20" />
-                <h3 className="mb-8 text-3xl font-bold text-gray-900">
-                  <span className="text-[#EF2B2D]">Eligibility</span> Criteria
-                </h3>
-                <p className="mb-6 text-lg text-gray-700">To enroll in the RPL program, you must:</p>
-                <ul className="space-y-4 text-lg text-gray-700">
-                  <li className="flex items-start gap-4">
-                    <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
+              <div className="mx-auto max-w-3xl space-y-6">
+                <h4 className="text-2xl font-light text-gray-900">
+                  <span className="font-semibold text-[#EF2B2D]">Eligibility</span> Criteria
+                </h4>
+                <p className="text-base text-gray-600">To enroll in the RPL program, you must:</p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 text-base text-gray-600">
+                    <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
                     <span>Be of Indian nationality and meet the minimum age criteria for the relevant Qualification Pack (QP).</span>
                   </li>
-                  <li className="flex items-start gap-4">
-                    <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
+                  <li className="flex items-start gap-3 text-base text-gray-600">
+                    <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
                     <span>Possess an Aadhaar Card (or alternate IDs like PAN or Voter ID for specific regions) and a bank account.</span>
                   </li>
-                  <li className="flex items-start gap-4">
-                    <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
+                  <li className="flex items-start gap-3 text-base text-gray-600">
+                    <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
                     <span>Meet the pre-screening criteria for your job role.</span>
                   </li>
                 </ul>
               </div>
 
               {/* Why Choose RPL */}
-              <div className="grid gap-8 lg:grid-cols-2">
+              <div className="grid gap-12 lg:grid-cols-2">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="border-4 border-gray-900 bg-white p-8 shadow-xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="space-y-6"
                 >
-                  <h3 className="mb-6 text-2xl font-bold text-[#EF2B2D]">FOR EMPLOYERS</h3>
-                  <ul className="space-y-4 text-lg text-gray-700">
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">✓</span>
-                      <span>Fast-track worker certification.</span>
+                  <h4 className="text-xl font-semibold text-[#EF2B2D]">For Employers</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3 text-base text-gray-600">
+                      <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                      <span>Fast-track worker certification</span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">✓</span>
-                      <span>Reduce training costs and downtime.</span>
+                    <li className="flex items-start gap-3 text-base text-gray-600">
+                      <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                      <span>Reduce training costs and downtime</span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">✓</span>
-                      <span>Identify skill gaps efficiently.</span>
+                    <li className="flex items-start gap-3 text-base text-gray-600">
+                      <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                      <span>Identify skill gaps efficiently</span>
                     </li>
                   </ul>
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="border-4 border-gray-900 bg-white p-8 shadow-xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="space-y-6"
                 >
-                  <h3 className="mb-6 text-2xl font-bold text-[#EF2B2D]">FOR EMPLOYEES</h3>
-                  <ul className="space-y-4 text-lg text-gray-700">
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">✓</span>
-                      <span>Identify and fill knowledge gaps.</span>
+                  <h4 className="text-xl font-semibold text-[#EF2B2D]">For Employees</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3 text-base text-gray-600">
+                      <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                      <span>Identify and fill knowledge gaps</span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">✓</span>
-                      <span>Meet job roles or qualification requirements.</span>
+                    <li className="flex items-start gap-3 text-base text-gray-600">
+                      <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                      <span>Meet job roles or qualification requirements</span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">✓</span>
-                      <span>Encourage continuous skill and knowledge development.</span>
+                    <li className="flex items-start gap-3 text-base text-gray-600">
+                      <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                      <span>Encourage continuous skill and knowledge development</span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-2xl">✓</span>
-                      <span>Improve employment opportunities.</span>
+                    <li className="flex items-start gap-3 text-base text-gray-600">
+                      <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                      <span>Improve employment opportunities</span>
                     </li>
                   </ul>
                 </motion.div>
@@ -305,174 +289,147 @@ export default function SkillDevelopmentProjectPage() {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="relative overflow-hidden border-4 border-[#EF2B2D] bg-gradient-to-br from-gray-900 to-gray-800 p-12 text-center text-white shadow-2xl"
+                transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20 text-center"
               >
-                <div className="absolute -left-8 -top-8 h-32 w-32 border-8 border-white/10" />
-                <div className="absolute -bottom-8 -right-8 h-32 w-32 border-8 border-white/10" />
-                
-                <h3 className="mb-6 text-3xl font-bold">
-                  DISCOVER YOUR <span className="text-[#EF2B2D]">POTENTIAL</span>
-                </h3>
-                <p className="mb-8 text-lg leading-relaxed">
-                  RPL is about recognizing your existing knowledge and skills, regardless of how you acquired them. This process ensures you receive formal acknowledgment for your expertise, paving the way for better job opportunities and career growth.
-                </p>
-                
-                <div className="border-t-4 border-[#EF2B2D] pt-8">
-                  <h4 className="mb-4 text-2xl font-bold text-[#EF2B2D]">Join Us at Innovision</h4>
-                  <p className="text-lg leading-relaxed">
-                    Take The Next Step Towards A Brighter Future. Join The RPL Program At Innovision's PMKK Centers And Get The Recognition You Deserve. Empower Your Skills, Enhance Your Career, And Unlock New Opportunities.
+                <div className="mx-auto max-w-3xl px-6">
+                  <h4 className="mb-6 text-3xl font-light text-white">
+                    Discover Your <span className="font-semibold text-[#EF2B2D]">Potential</span>
+                  </h4>
+                  <p className="mb-8 text-base leading-relaxed text-white/80">
+                    RPL is about recognizing your existing knowledge and skills, regardless of how you acquired them. This process ensures you receive formal acknowledgment for your expertise, paving the way for better job opportunities and career growth.
+                  </p>
+                  
+                  <div className="mb-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  
+                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#EF2B2D]">Join Us at Innovision</p>
+                  <p className="mt-4 text-base leading-relaxed text-white/70">
+                    Take the next step towards a brighter future. Join the RPL Program at Innovision's PMKK Centers and get the recognition you deserve.
                   </p>
                 </div>
               </motion.div>
             </div>
 
             {/* ========== STT SECTION ========== */}
-            <div className="space-y-12">
-              <div className="flex items-center gap-4">
-                <div className="flex-1 border-t-4 border-gray-300" />
-                <div className="flex items-center gap-4 border-4 border-gray-900 bg-gradient-to-br from-gray-700 to-gray-600 px-8 py-4 shadow-xl">
-                  <span className="text-5xl">⏱️</span>
-                  <h3 className="text-3xl font-bold text-white">STT - Short Term Training</h3>
-                </div>
-                <div className="flex-1 border-t-4 border-gray-300" />
+            <div className="space-y-16">
+              <div className="text-center">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Training Program</p>
+                <h3 className="text-3xl font-light text-gray-900">
+                  <span className="font-semibold">STT</span> — Short Term Training
+                </h3>
+                <div className="mx-auto mt-6 h-px w-16 bg-[#EF2B2D]" />
               </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="relative border-4 border-gray-900 bg-gradient-to-br from-white to-gray-50 p-12 shadow-2xl"
+                transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="mx-auto max-w-4xl space-y-6"
               >
-                <div className="absolute -right-4 -top-4 h-24 w-24 border-8 border-[#EF2B2D]" />
-                
-                <div className="mb-8 flex items-center gap-6">
-                  <div className="flex h-24 w-24 shrink-0 items-center justify-center border-4 border-gray-900 bg-gradient-to-br from-gray-700 to-gray-600 text-4xl font-bold text-white shadow-xl">
-                    STT
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-bold text-gray-900">
-                      Short Term <span className="text-[#EF2B2D]">Training</span>
-                    </h3>
-                    <p className="mt-2 text-lg text-gray-600">Pradhan Mantri Kaushal Vikas Yojana (PMKVY)</p>
-                  </div>
-                </div>
-                
-                <p className="text-lg leading-relaxed text-gray-700">
+                <h4 className="text-2xl font-light text-gray-900">
+                  Pradhan Mantri Kaushal Vikas Yojana <span className="font-semibold text-[#EF2B2D]">(PMKVY)</span>
+                </h4>
+                <p className="text-base leading-relaxed text-gray-600">
                   Short Term Training (STT) is a component of the Pradhan Mantri Kaushal Vikas Yojana (PMKVY), aimed at providing skill development to candidates in India, particularly targeting school and college dropouts as well as unemployed individuals aged 15-45. The training is delivered through PMKVY Training Centres (TCs) and focuses on enhancing employability by equipping participants with relevant skills as per the National Skills Qualification Framework (NSQF).
                 </p>
               </motion.div>
             </div>
 
             {/* ========== CSR SECTION ========== */}
-            <div className="space-y-12">
-              <div className="flex items-center gap-4">
-                <div className="flex-1 border-t-4 border-gray-300" />
-                <div className="flex items-center gap-4 border-4 border-gray-900 bg-gradient-to-br from-gray-600 to-gray-500 px-8 py-4 shadow-xl">
-                  <span className="text-5xl">🤝</span>
-                  <h3 className="text-3xl font-bold text-white">CSR - Corporate Social Responsibility</h3>
-                </div>
-                <div className="flex-1 border-t-4 border-gray-300" />
+            <div className="space-y-16">
+              <div className="text-center">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Social Initiative</p>
+                <h3 className="text-3xl font-light text-gray-900">
+                  <span className="font-semibold">CSR</span> — Corporate Social Responsibility
+                </h3>
+                <div className="mx-auto mt-6 h-px w-16 bg-[#EF2B2D]" />
               </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="relative border-4 border-gray-900 bg-white p-12 shadow-2xl"
+                transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="mx-auto max-w-4xl space-y-6"
               >
-                <div className="absolute -left-4 -top-4 h-24 w-24 border-8 border-[#EF2B2D]" />
-                <div className="absolute -bottom-4 -right-4 h-16 w-16 border-4 border-gray-900" />
-                
-                <div className="mb-8 flex items-center gap-6">
-                  <div className="flex h-24 w-24 shrink-0 items-center justify-center border-4 border-gray-900 bg-gradient-to-br from-gray-600 to-gray-500 text-4xl font-bold text-white shadow-xl">
-                    CSR
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-bold text-gray-900">
-                      Corporate Social <span className="text-[#EF2B2D]">Responsibility</span>
-                    </h3>
-                    <p className="mt-2 text-lg text-gray-600">Corporate Conscience & Citizenship</p>
-                  </div>
-                </div>
-                
-                <p className="text-lg leading-relaxed text-gray-700">
+                <h4 className="text-2xl font-light text-gray-900">
+                  Corporate Conscience & <span className="font-semibold text-[#EF2B2D]">Citizenship</span>
+                </h4>
+                <p className="text-base leading-relaxed text-gray-600">
                   Corporate Social Responsibility (CSR), also known as corporate conscience or corporate citizenship, is the integration of socially beneficial programs and practices into a corporation's business model and culture. CSR aims to increase long-term profits for online and offline businesses by enabling them to become more efficient and attract positive attention for their efforts.
                 </p>
               </motion.div>
 
               {/* CSR Benefits */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="relative border-4 border-[#EF2B2D] bg-gradient-to-br from-gray-900 to-gray-800 p-12 shadow-2xl"
-              >
-                <div className="absolute -right-6 -top-6 h-20 w-20 border-8 border-white/20" />
-                
-                <h3 className="mb-6 text-center text-3xl font-bold text-white">
-                  What Benefits Does <span className="text-[#EF2B2D]">CSR Offer</span> to Businesses?
-                </h3>
-                <p className="mb-12 text-center text-lg text-gray-300">
-                  Both ecommerce and brick-and-mortar businesses stand to benefit from the implementation of CSR strategies. Some activities that fall under the umbrella of CSR, with their corresponding benefits:
-                </p>
+              <div className="bg-gradient-to-br from-gray-50 to-white py-16">
+                <div className="mx-auto max-w-6xl">
+                  <h4 className="mb-4 text-center text-2xl font-light text-gray-900">
+                    What Benefits Does <span className="font-semibold text-[#EF2B2D]">CSR Offer</span> to Businesses?
+                  </h4>
+                  <p className="mb-12 text-center text-base text-gray-600">
+                    Key advantages of implementing CSR strategies
+                  </p>
 
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {[
-                    {
-                      title: "Prevent Financial Ramifications",
-                      icon: "⚖️",
-                      description: "Compliance With The Spirit And Letter Of The Law — Both Nationally And Internationally — Through Self-Regulatory Processes Will Prevent Fines, Put Your Business \"Low On Regulators' Radar Screens,\" And Lower Legal Expenses."
-                    },
-                    {
-                      title: "Increase Employee Loyalty",
-                      icon: "🤝",
-                      description: "Treating Your Employees Fairly And Generously Is A Part Of Corporate Social Responsibility. By Providing Good Jobs And Encouraging High Professional And Moral Standards, You Increase Employee Loyalty, And By Procuring Only Those Overseas Products Produced At Factories Where Workers Were Treated Ethically, You Gain Support Among \"Fair Trade\" Advocates."
-                    },
-                    {
-                      title: "Maintain A Positive Reputation",
-                      icon: "⭐",
-                      description: "Demonstrated Consciousness In A Variety Of Areas Can Garner Publicity And Give A Business Tangible Proof Of Their Conduct, Which Can Be Proudly Displayed On A Company Website."
-                    },
-                    {
-                      title: "Environmental Consciousness",
-                      icon: "🌍",
-                      description: "Reducing Waste, Recycling, Minimizing Carbon Footprint, And Other Best Practices Can. Using Or Producing Only Sustainable Products, Lowering Energy Usage, And Supporting Environmental Causes Will Boost A Business's \"Green Reputation\" Among Environmentally Concerned Clients."
-                    },
-                    {
-                      title: "Social Concern",
-                      icon: "❤️",
-                      description: "Donating To Humanitarian Causes That Fight Persistent Poverty, Help The Victims Of Epidemics Like AIDS Or Ebola, Or Assist Those Displaced By Hurricanes Or Earthquakes Shows Concern For Issues That Consumers Are More And More Aware Of In Our Modern, Interconnected World."
-                    },
-                  ].map((benefit, index) => (
-                    <motion.div
-                      key={benefit.title}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="group relative overflow-hidden border-4 border-white/20 bg-white p-8 shadow-xl transition-all hover:border-[#EF2B2D] hover:shadow-2xl"
-                    >
-                      <div className="absolute -right-4 -top-4 h-16 w-16 border-4 border-[#EF2B2D] opacity-0 transition-all duration-300 group-hover:opacity-100" />
-                      
-                      <div className="mb-4 text-5xl">{benefit.icon}</div>
-                      <h4 className="mb-4 text-xl font-bold text-[#EF2B2D]">{benefit.title}</h4>
-                      <p className="text-sm leading-relaxed text-gray-700">{benefit.description}</p>
-                    </motion.div>
-                  ))}
+                  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {[
+                      {
+                        title: "Prevent Financial Ramifications",
+                        num: "01",
+                        description: "Compliance with regulatory standards nationally and internationally through self-regulatory processes will prevent fines and lower legal expenses."
+                      },
+                      {
+                        title: "Increase Employee Loyalty",
+                        num: "02",
+                        description: "Treating employees fairly and generously increases loyalty and supports ethical procurement practices, gaining support among fair trade advocates."
+                      },
+                      {
+                        title: "Maintain A Positive Reputation",
+                        num: "03",
+                        description: "Demonstrated consciousness in various areas can garner publicity and provide tangible proof of conduct for company branding."
+                      },
+                      {
+                        title: "Environmental Consciousness",
+                        num: "04",
+                        description: "Reducing waste, minimizing carbon footprint, and supporting environmental causes will boost your business's reputation among environmentally concerned clients."
+                      },
+                      {
+                        title: "Social Concern",
+                        num: "05",
+                        description: "Donating to humanitarian causes shows concern for issues that consumers are increasingly aware of in our modern, interconnected world."
+                      },
+                    ].map((benefit, index) => (
+                      <motion.div
+                        key={benefit.title}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="group space-y-4"
+                      >
+                        <div className="text-5xl font-light text-gray-200 transition-all group-hover:text-[#EF2B2D]/20">{benefit.num}</div>
+                        <h5 className="text-lg font-semibold text-gray-900">{benefit.title}</h5>
+                        <p className="text-sm leading-relaxed text-gray-600">{benefit.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
       <CTA />
-      <Contact />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <Contact />
+      </motion.div>
       <Footer />
     </>
   );

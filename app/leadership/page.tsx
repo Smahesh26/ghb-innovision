@@ -24,16 +24,17 @@ const boardOfDirectors = [
 ];
 
 const independentDirectors = [
+   {
+    name: "Ms. Sudha Hooda",
+    role: "Independent Director (Non-Executive)",
+    image: "/images/sudhahooda.png",
+  },
   {
     name: "Captain Pawan Kumar",
     role: "Independent Director (Non-Executive)",
     image: "/images/pawankumar.png",
   },
-  {
-    name: "Ms. Sudha Hooda",
-    role: "Independent Director (Non-Executive)",
-    image: "/images/sudhahooda.png",
-  },
+ 
   {
     name: "Ms. Sulekha Sharma",
     role: "Independent Director (Non-Executive)",

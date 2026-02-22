@@ -155,6 +155,15 @@ export default function FacilityManagementPage() {
 
   return (
     <>
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        section {
+          scroll-margin-top: 80px;
+        }
+      `}</style>
+
       <Header />
 
       {/* Hero Section */}
@@ -178,10 +187,10 @@ export default function FacilityManagementPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl"
+            className="mt-6 text-5xl font-light tracking-tight sm:text-6xl lg:text-7xl"
           >
-            INTEGRATED FACILITY
-            <span className="mt-2 block text-[#EF2B2D]">MANAGEMENT SERVICES</span>
+            Integrated Facility
+            <span className="mt-2 block font-semibold text-[#EF2B2D]">Management Services</span>
           </motion.h1>
 
           <motion.p
@@ -196,22 +205,22 @@ export default function FacilityManagementPage() {
       </section>
 
       {/* Introduction Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-24 text-gray-900">
+      <section className="bg-white py-24 text-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-6 text-4xl font-bold sm:text-5xl">
+            <h2 className="mb-6 text-4xl font-light tracking-tight sm:text-5xl">
               Transforming Spaces,
-              <span className="mt-2 block text-[#EF2B2D]">Enhancing Experiences</span>
+              <span className="mt-2 block font-semibold text-[#EF2B2D]">Enhancing Experiences</span>
             </h2>
-            <p className="mx-auto max-w-4xl text-lg leading-relaxed text-gray-700">
+            <p className="mx-auto max-w-4xl text-lg leading-relaxed text-gray-600">
               Are you tired of dealing with the hassle and stress of managing your facility? Look no further than{" "}
-              <span className="font-bold text-[#EF2B2D]">Innovision Limited</span>, your one-stop solution for all your facility management needs. 
+              <span className="font-semibold text-[#EF2B2D]">Innovision Limited</span>, your one-stop solution for all your facility management needs. 
               With our comprehensive services and expert team, we ensure that your facility runs smoothly and efficiently, 
               allowing you to focus on your core business.
             </p>
@@ -221,11 +230,11 @@ export default function FacilityManagementPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
             className="flex justify-center"
           >
-            <div className="overflow-hidden border-4 border-gray-300 shadow-2xl bg-white max-w-4xl w-full">
+            <div className="overflow-hidden rounded-lg border border-gray-200 shadow-lg bg-white max-w-4xl w-full">
               <Image
                 src="/images/clients-services/facilitymanagement1.png"
                 alt="Professional Facility Management Solutions"
@@ -239,21 +248,21 @@ export default function FacilityManagementPage() {
       </section>
 
       {/* Single-Window Solution */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-24 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-24 text-white">
         <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
+        <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-[#EF2B2D]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-12 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">
+            <h2 className="text-4xl font-light tracking-tight text-white sm:text-5xl">
               Simplify Facility Management with a
-              <span className="mt-2 block text-[#EF2B2D]">Single-Window Solution</span>
+              <span className="mt-2 block font-semibold text-[#EF2B2D]">Single-Window Solution</span>
             </h2>
           </motion.div>
 
@@ -261,18 +270,18 @@ export default function FacilityManagementPage() {
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-100px" }}
               className="flex flex-col justify-center"
             >
-              <div className="border-2 border-white/20 bg-white/5 p-10 backdrop-blur-sm">
-                <p className="mb-6 text-lg leading-relaxed text-gray-200">
+              <div className="rounded-lg border border-white/10 bg-white/5 p-10 backdrop-blur-sm">
+                <p className="mb-6 text-lg leading-relaxed text-white/90">
                   More vendors mean more contracts, multipartite coordination, and increased hassle. To bypass that, 
                   Innovision Limited offers a single-window solution, making facility management a fret-free task.
                 </p>
-                <p className="text-lg leading-relaxed text-gray-200">
+                <p className="text-lg leading-relaxed text-white/90">
                   We are committed to providing integrated infrastructural and facility management services to corporates, 
                   industrial houses, and top-of-the-line brands. Our bespoke services are designed to suit your geography, 
                   business profile, and working culture, creating an ecosystem with the highest standards of operation at 
@@ -283,13 +292,13 @@ export default function FacilityManagementPage() {
 
             {/* Featured Image */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-100px" }}
               className="flex items-center justify-center"
             >
-              <div className="overflow-hidden border-4 border-white/30 shadow-2xl bg-gray-900">
+              <div className="overflow-hidden rounded-lg border border-white/10 shadow-xl bg-black/50">
                 <Image
                   src="/images/clients-services/facilitymanagement2.png"
                   alt="Single Window Integrated Solution"
@@ -303,22 +312,21 @@ export default function FacilityManagementPage() {
 
           {/* Key Features Grid */}
           <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {[
-              { icon: "📋", title: "Single Contract", desc: "One vendor, one contract for all services" },
-              { icon: "🎯", title: "Customized Solutions", desc: "Tailored to your business needs" },
-              { icon: "💼", title: "Hassle-Free", desc: "Simplified coordination and management" },
+            {[              { icon: "🎯", title: "Single Contract", desc: "One vendor, one contract for all services" },
+              { icon: "⚙️", title: "Customized Solutions", desc: "Tailored to your business needs" },
+              { icon: "✓", title: "Hassle-Free", desc: "Simplified coordination and management" },
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group border-2 border-white/20 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-[#EF2B2D] hover:bg-white/10"
+                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="group rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:border-[#EF2B2D] hover:shadow-lg"
               >
                 <div className="mb-4 text-4xl">{feature.icon}</div>
-                <h3 className="mb-2 text-xl font-bold">{feature.title}</h3>
-                <p className="text-sm text-gray-300">{feature.desc}</p>
+                <h3 className="mb-2 text-xl font-semibold text-white">{feature.title}</h3>
+                <p className="text-sm text-white/70">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -326,16 +334,18 @@ export default function FacilityManagementPage() {
       </section>
 
       {/* Our Services Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-24 text-gray-900">
+      <section className="bg-white py-24 text-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">Our Facility Management Services</h2>
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Our <span className="font-semibold text-[#EF2B2D]">Facility Management Services</span>
+            </h2>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600">
               At Innovision Limited, we offer a wide range of facility management services tailored to meet your specific needs
             </p>
@@ -345,20 +355,20 @@ export default function FacilityManagementPage() {
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative overflow-hidden border-2 border-gray-200 bg-white p-8 shadow-lg transition-all hover:border-[#EF2B2D] hover:shadow-2xl"
+                transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-[#EF2B2D] hover:shadow-lg"
               >
                 {/* Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 transition-opacity duration-500 group-hover:opacity-10`} />
                 
                 <div className="relative">
-                  <div className={`mb-6 inline-flex bg-gradient-to-br ${service.color} p-4 text-white shadow-lg transition-transform duration-300 group-hover:scale-110`}>
+                  <div className={`mb-6 inline-flex rounded-lg bg-gradient-to-br ${service.color} p-4 text-white shadow-md transition-transform duration-300 group-hover:scale-110`}>
                     {service.icon}
                   </div>
-                  <h3 className="mb-4 text-xl font-bold text-gray-900">{service.title}</h3>
+                  <h3 className="mb-4 text-xl font-semibold text-gray-900">{service.title}</h3>
                   <p className="text-sm leading-relaxed text-gray-600">{service.description}</p>
                 </div>
               </motion.div>
@@ -368,16 +378,18 @@ export default function FacilityManagementPage() {
       </section>
 
       {/* Core Services with Tabs */}
-      <section className="bg-gray-100 py-24">
+      <section className="bg-gray-50 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-12 text-center"
           >
-            <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">Our Core Services</h2>
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Our <span className="font-semibold text-[#EF2B2D]">Core Services</span>
+            </h2>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600">
               Comprehensive facility management solutions designed for excellence
             </p>
@@ -385,20 +397,20 @@ export default function FacilityManagementPage() {
 
           {/* Tab Navigation */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
             className="mb-12 flex flex-wrap justify-center gap-4"
           >
             {tabServices.map((tab, index) => (
               <button
                 key={tab.title}
                 onClick={() => setActiveTab(index)}
-                className={`px-8 py-4 text-lg font-bold transition-all duration-300 ${
+                className={`rounded-lg px-8 py-4 text-lg font-semibold transition-all duration-300 ${
                   activeTab === index
-                    ? "bg-[#EF2B2D] text-white shadow-lg"
-                    : "bg-white text-gray-700 shadow hover:bg-gray-50"
+                    ? "bg-[#EF2B2D] text-white shadow-md"
+                    : "bg-white text-gray-700 shadow-sm hover:bg-gray-50"
                 }`}
               >
                 {tab.title}
@@ -409,23 +421,23 @@ export default function FacilityManagementPage() {
           {/* Tab Content */}
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
             className="grid gap-8 md:grid-cols-2"
           >
             {tabServices[activeTab].services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group border-2 border-gray-300 bg-white p-8 shadow-lg transition-all hover:border-[#EF2B2D] hover:shadow-xl"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                className="group rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-[#EF2B2D] hover:shadow-md"
               >
                 <div className="mb-4 text-5xl transition-transform duration-300 group-hover:scale-110">
                   {service.icon}
                 </div>
-                <h3 className="mb-4 text-2xl font-bold text-[#EF2B2D]">{service.title}</h3>
+                <h3 className="mb-4 text-2xl font-semibold text-[#EF2B2D]">{service.title}</h3>
                 <p className="text-base leading-relaxed text-gray-700">{service.description}</p>
               </motion.div>
             ))}
@@ -434,21 +446,21 @@ export default function FacilityManagementPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-24 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-24 text-white">
         <div className="absolute top-20 left-1/4 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#EF2B2D]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">
-              Why Choose Innovision Limited
-              <span className="mt-2 block text-[#EF2B2D]">for Facility Management?</span>
+            <h2 className="text-4xl font-light tracking-tight text-white sm:text-5xl">
+              Why Choose <span className="font-semibold text-[#EF2B2D]">Innovision Limited</span>
+              <span className="mt-2 block font-light">for Facility Management?</span>
             </h2>
           </motion.div>
 
@@ -456,15 +468,15 @@ export default function FacilityManagementPage() {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group border-2 border-white/20 bg-white/5 p-8 backdrop-blur-sm transition-all hover:border-[#EF2B2D] hover:bg-white/10"
+                transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="group rounded-lg border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:border-[#EF2B2D] hover:shadow-lg"
               >
                 <div className="mb-4 text-5xl transition-transform duration-300 group-hover:scale-110">{benefit.icon}</div>
-                <h3 className="mb-4 text-xl font-bold text-[#EF2B2D]">{benefit.title}</h3>
-                <p className="leading-relaxed text-gray-300">{benefit.description}</p>
+                <h3 className="mb-4 text-xl font-semibold text-[#EF2B2D]">{benefit.title}</h3>
+                <p className="leading-relaxed text-white/80">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
@@ -475,24 +487,24 @@ export default function FacilityManagementPage() {
       <section className="bg-gradient-to-r from-[#EF2B2D] to-red-700 py-20">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-4xl font-bold text-white sm:text-5xl">
-              Ready to Transform Your Facility?
+            <h2 className="text-4xl font-light tracking-tight text-white sm:text-5xl">
+              Ready to <span className="font-semibold">Transform Your Facility?</span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-xl text-white/90">
               Let us handle your facility management needs while you focus on growing your business
             </p>
             <motion.a
               href="#contact"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="mt-8 inline-block bg-white px-12 py-4 text-lg font-semibold text-[#EF2B2D] shadow-2xl transition-all hover:scale-105 hover:bg-gray-100"
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="mt-8 inline-block rounded-lg bg-white px-12 py-4 text-lg font-semibold text-[#EF2B2D] shadow-xl transition-all hover:scale-105 hover:bg-gray-100"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -503,9 +515,15 @@ export default function FacilityManagementPage() {
       </section>
 
       {/* Contact Form */}
-      <div id="contact">
+      <motion.div
+        id="contact"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
         <Contact />
-      </div>
+      </motion.div>
 
       <Footer />
     </>

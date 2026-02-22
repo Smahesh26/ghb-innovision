@@ -190,18 +190,19 @@ export default function MannedPrivateSecurityPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl"
+            className="mt-6 text-5xl font-light tracking-tight sm:text-6xl lg:text-7xl"
           >
-            MANNED PRIVATE SECURITY SERVICES
+            Manned Private
+            <span className="mt-2 block font-semibold text-[#EF2B2D]">Security Services</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-5 max-w-3xl text-lg text-white/80"
+            className="mt-6 max-w-3xl text-lg text-white/90"
           >
-            India&apos;s Most Preferred Security Services
+            India's Most Preferred Security Services
           </motion.p>
         </div>
       </section>
@@ -216,8 +217,8 @@ export default function MannedPrivateSecurityPage() {
             viewport={{ once: true }}
             className="max-w-4xl"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">
-              Innovision Limited: India&apos;s Most Preferred Security Services
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Innovision Limited: <span className="font-semibold text-[#EF2B2D]">India's Most Preferred Security Services</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-gray-600">
               Welcome to Innovision Limited, your trusted partner in providing top-notch security services. With years of experience and a team of highly trained professionals, we are dedicated to safeguarding your people, assets, and premises. We understand that security is paramount for the safety and success of your business. With increasing risks and evolving threats, having a reliable and professional security service is crucial. Innovision Limited offers top-tier security services tailored to meet your specific needs, ensuring peace of mind and protection for your assets, personnel, and property.
@@ -236,7 +237,9 @@ export default function MannedPrivateSecurityPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">Our Services</h2>
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Our <span className="font-semibold text-[#EF2B2D]">Services</span>
+            </h2>
           </motion.div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -284,12 +287,12 @@ export default function MannedPrivateSecurityPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">
-              Why Choose Innovision Limited for Your Security Needs?
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Why Choose <span className="font-semibold text-[#EF2B2D]">Innovision Limited</span> for Your Security Needs?
             </h2>
           </motion.div>
 
-          <div className="space-y-12">
+          <div className="space-y-8">
             {whyChoosePoints.map((point, index) => (
               <motion.div
                 key={point.title}
@@ -297,12 +300,15 @@ export default function MannedPrivateSecurityPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="border-l-4 border-[#EF2B2D] pl-6"
+                className="group rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-[#EF2B2D]/30 hover:shadow-md"
               >
-                <h3 className="mb-3 text-2xl font-bold text-gray-900">
-                  {point.title}
-                </h3>
-                <p className="text-lg leading-relaxed text-gray-600">
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#EF2B2D]" />
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {point.title}
+                  </h3>
+                </div>
+                <p className="text-base leading-relaxed text-gray-600">
                   {point.description}
                 </p>
               </motion.div>
@@ -321,8 +327,8 @@ export default function MannedPrivateSecurityPage() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">
-              Businesses That We Cater
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Businesses That <span className="font-semibold text-[#EF2B2D]">We Cater</span>
             </h2>
           </motion.div>
 
@@ -359,17 +365,17 @@ export default function MannedPrivateSecurityPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="rounded-2xl border border-gray-200 bg-gray-50 p-12 text-center"
+            className="text-center"
           >
-            <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-              Holding PSARA Licenses
+            <h2 className="mb-6 text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Holding <span className="font-semibold text-[#EF2B2D]">PSARA Licenses</span>
             </h2>
             <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600">
               As a licensed private security agency under the Private Security Agencies (Regulation) Act, 2005 (PSARA), we ensure compliance with the highest standards of professionalism and accountability. Our PSARA license is a testament to our commitment to providing exceptional security services and maintaining a strong reputation in the industry.
             </p>
 
             {/* Certifications Grid */}
-            <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {[
                 { src: "/images/certifications/CMMI Maturity level.jpg", alt: "CMMI Maturity Level", badge: "Level 3" },
                 { src: "/images/certifications/ISO 9001.2015.jpg", alt: "ISO 9001:2015", badge: "Quality" },
@@ -385,64 +391,39 @@ export default function MannedPrivateSecurityPage() {
               ].map((cert, index) => (
                 <motion.div
                   key={cert.alt}
-                  initial={{ opacity: 0, y: 40, rotateX: -15 }}
-                  whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ 
-                    duration: 0.6, 
-                    delay: index * 0.08,
-                    ease: [0.4, 0, 0.2, 1]
+                    duration: 0.5, 
+                    delay: index * 0.05
                   }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -12, scale: 1.02 }}
-                  className="group relative flex flex-col"
+                  className="group relative"
                 >
-                  {/* Gradient Border Effect */}
-                  <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#EF2B2D]/40 via-[#EF2B2D]/10 to-transparent opacity-0 blur-sm transition-all duration-500 group-hover:opacity-100" />
-                  
-                  {/* Card */}
-                  <div className="relative overflow-hidden rounded-2xl border border-gray-200/80 bg-gradient-to-br from-white to-gray-50/50 p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl transition-all duration-500 group-hover:border-[#EF2B2D]/30 group-hover:shadow-[0_20px_60px_rgba(239,43,45,0.15)]">
-                    
+                  <div className="overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-[#EF2B2D]/30 hover:shadow-md">
                     {/* Badge */}
-                    <div className="absolute right-4 top-4 z-10">
-                      <span className="rounded-full bg-gradient-to-r from-[#EF2B2D] to-[#d41f21] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg">
+                    <div className="absolute right-3 top-3 z-10">
+                      <span className="rounded-full bg-[#EF2B2D] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
                         {cert.badge}
                       </span>
                     </div>
-
-                    {/* Shine Effect */}
-                    <div className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-[100%]" />
                     
                     {/* Image Container */}
-                    <div className="relative h-64 w-full">
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-100/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="relative h-48 w-full">
                       <Image
                         src={cert.src}
                         alt={cert.alt}
                         fill
-                        className="object-contain p-2 drop-shadow-lg transition-all duration-700 group-hover:scale-110 group-hover:drop-shadow-2xl"
+                        className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
                     
-                    {/* Title with Icon */}
-                    <div className="relative mt-4 flex items-center justify-center gap-2 border-t border-gray-200/50 pt-4">
-                      <div className="h-1.5 w-1.5 rounded-full bg-[#EF2B2D]" />
-                      <p className="text-center text-xs font-bold uppercase tracking-[0.15em] text-gray-700 transition-colors group-hover:text-[#EF2B2D]">
+                    {/* Title */}
+                    <div className="mt-4 border-t border-gray-100 pt-4">
+                      <p className="text-center text-xs font-semibold uppercase tracking-wide text-gray-700">
                         {cert.alt}
                       </p>
-                      <div className="h-1.5 w-1.5 rounded-full bg-[#EF2B2D]" />
                     </div>
-
-                    {/* Decorative Corner */}
-                    <div className="absolute bottom-0 left-0 h-12 w-12 border-b-2 border-l-2 border-[#EF2B2D]/0 transition-all duration-500 group-hover:border-[#EF2B2D]/20" />
-                    <div className="absolute right-0 top-0 h-12 w-12 border-r-2 border-t-2 border-[#EF2B2D]/0 transition-all duration-500 group-hover:border-[#EF2B2D]/20" />
-                  </div>
-
-                  {/* Verified Badge */}
-                  <div className="mt-3 flex items-center justify-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <svg viewBox="0 0 24 24" className="h-4 w-4 text-[#EF2B2D]" fill="currentColor">
-                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                    </svg>
-                    <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-500">Certified</span>
                   </div>
                 </motion.div>
               ))}
@@ -452,7 +433,7 @@ export default function MannedPrivateSecurityPage() {
       </section>
 
       {/* Closing Statement */}
-      <section className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-24 text-white">
+      <section className="bg-gray-50 py-24 text-gray-900">
         <div className="mx-auto max-w-7xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -460,13 +441,13 @@ export default function MannedPrivateSecurityPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-              Trusted by Industry Leaders
+            <h2 className="mb-6 text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Trusted by <span className="font-semibold text-[#EF2B2D]">Industry Leaders</span>
             </h2>
-            <p className="mx-auto mb-12 max-w-3xl text-lg text-white/80">
+            <p className="mx-auto mb-12 max-w-3xl text-lg text-gray-600">
               We are ready to secure your business and people. Contact Innovision Limited today and let us tailor a comprehensive security solution that meets your unique needs.
             </p>
-            <p className="text-lg text-white/60">
+            <p className="text-lg text-gray-500">
               Innovision Limited has a proven track record of providing exceptional security services to a diverse range of clients, from multinational corporations to government agencies. Our commitment to excellence and customer satisfaction has earned us the trust of industry leaders across various sectors.
             </p>
           </motion.div>
@@ -474,8 +455,8 @@ export default function MannedPrivateSecurityPage() {
           {/* Client Logos Marquee */}
           <div className="relative mt-16 overflow-hidden">
             {/* Fade Edges */}
-            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-40 bg-gradient-to-r from-[#0d0d0f] via-[#0d0d0f]/80 to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-40 bg-gradient-to-l from-[#1a1a1d] via-[#1a1a1d]/80 to-transparent" />
+            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-40 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-40 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent" />
 
             <div className="clients-marquee">
               {[
@@ -522,14 +503,13 @@ export default function MannedPrivateSecurityPage() {
                 { name: "Y-Axis", logo: "/images/clients-services/yaxis.png" },
               ]).map((client, index) => (
                 <div key={`${client.name}-${index}`} className="client-logo-card">
-                  <div className="relative h-32 w-64">
+                  <div className="relative h-40 w-80">
                     <Image
                       src={client.logo}
                       alt={client.name}
                       fill
-                      className="object-contain opacity-80 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0"
-                      style={{ filter: 'brightness(0) saturate(100%) invert(1) brightness(1.2)' }}
-                      sizes="256px"
+                      className="object-contain opacity-95 transition-all duration-500 hover:opacity-100"
+                      sizes="320px"
                       unoptimized
                     />
                   </div>
@@ -555,15 +535,17 @@ export default function MannedPrivateSecurityPage() {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.02);
-            transition: all 0.5s ease;
+            padding: 28px;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
           }
 
           .client-logo-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            transform: translateY(-4px);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
           }
 
           @keyframes marquee-scroll {

@@ -17,28 +17,7 @@ export default function OverseasRecruitmentPage() {
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
 
-        {/* Animated particles */}
-        <div className="absolute inset-0 overflow-hidden opacity-20">
-          {[...Array(30)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: [0, 1, 0], scale: [0, 1, 0] }}
-              transition={{
-                duration: 4,
-                delay: i * 0.2,
-                repeat: Infinity,
-              }}
-              className="absolute h-2 w-2 rounded-full bg-[#EF2B2D]"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-20 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,83 +47,102 @@ export default function OverseasRecruitmentPage() {
           >
             Explore Global Opportunities
           </motion.p>
-        </div>
-      </section>
 
-      {/* Introduction Section */}
-      <section className="relative bg-gradient-to-b from-white to-gray-50 py-24">
-        <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-12"
           >
-            <div className="absolute -left-12 -top-12 h-64 w-64 bg-[#EF2B2D] opacity-5" />
-            <div className="absolute -bottom-12 -right-12 h-64 w-64 bg-gray-900 opacity-5" />
-            
-            <div className="relative border-8 border-gray-900 bg-white p-12 shadow-2xl lg:p-16">
-              <h2 className="mb-8 text-4xl font-bold text-gray-900 lg:text-5xl">
-                Explore Global Opportunities with <span className="text-[#EF2B2D]">Overseas Recruitment</span>
-              </h2>
-              <div className="space-y-6 text-lg leading-relaxed text-gray-700">
-                <p>
-                  We specialize in bridging the gap between global companies and India&apos;s skilled workforce. As a licensed RA agency, we are authorized to deploy Indian talent across the globe, providing seamless recruitment solutions for international employers.
-                </p>
-                <p>
-                  With a robust PAN-India network, we deliver highly skilled professionals tailored to meet the diverse needs of businesses worldwide. Our unwavering commitment to excellence and proven track record position us as a trusted leader in global workforce solutions.
-                </p>
-              </div>
-              
-              {/* Image placeholder */}
-              <div className="mt-12 border-4 border-gray-900">
-                <div className="relative h-[400px] w-full bg-gray-100">
-                  <Image
-                    src="/images/overseas-recruitment1.jpg"
-                    alt="Global Opportunities"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+            <a href="#content" className="group inline-flex flex-col items-center gap-2">
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">Scroll</span>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="h-8 w-px bg-gradient-to-b from-[#EF2B2D] to-transparent"
+              />
+            </a>
           </motion.div>
         </div>
       </section>
 
+      {/* Introduction Section */}
+      <section id="content" className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="relative"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                <Image
+                  src="/images/services-home/Overseas Recruitment.png"
+                  alt="Global Workforce"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Global Workforce</p>
+              <h2 className="mt-6 text-4xl font-light text-gray-900">
+                Explore Global Opportunities with
+                <span className="mt-2 block font-semibold text-[#EF2B2D]">Overseas Recruitment</span>
+              </h2>
+              <div className="mt-8 space-y-6">
+                <p className="text-base leading-relaxed text-gray-600">
+                  We specialize in bridging the gap between global companies and India's skilled workforce. 
+                  As a licensed RA agency, we are authorized to deploy Indian talent across the globe, 
+                  providing seamless recruitment solutions for international employers.
+                </p>
+                <p className="text-base leading-relaxed text-gray-600">
+                  With a robust PAN-India network, we deliver highly skilled professionals tailored to meet 
+                  the diverse needs of businesses worldwide. Our unwavering commitment to excellence and 
+                  proven track record position us as a trusted leader in global workforce solutions.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission and Vision */}
-      <section className="bg-gray-900 py-24">
+      <section className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-8 lg:grid-cols-2">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="group relative overflow-hidden border-4 border-white bg-gradient-to-br from-[#EF2B2D] to-red-700 p-12 text-white shadow-2xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="rounded-lg border border-[#EF2B2D]/30 bg-gradient-to-br from-[#EF2B2D]/10 to-transparent p-12 text-white"
             >
-              <div className="absolute -right-8 -top-8 h-40 w-40 border-8 border-white opacity-10" />
-              
-              <div className="mb-6 text-6xl">🎯</div>
-              <h2 className="mb-6 text-3xl font-bold">Our Mission</h2>
-              <p className="text-lg leading-relaxed">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Mission</p>
+              <h2 className="mb-6 text-2xl font-light">Connecting India&apos;s Talent with Global Opportunities</h2>
+              <p className="text-sm leading-relaxed text-gray-300">
                 At Innovision International, we aim to connect India&apos;s talent with global opportunities, empowering individuals and driving economic growth through skilled international placements.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="group relative overflow-hidden border-4 border-white bg-gradient-to-br from-gray-800 to-gray-700 p-12 text-white shadow-2xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="rounded-lg border border-white/10 bg-white/5 p-12 text-white"
             >
-              <div className="absolute -left-8 -bottom-8 h-40 w-40 border-8 border-[#EF2B2D] opacity-20" />
-              
-              <div className="mb-6 text-6xl">🌍</div>
-              <h2 className="mb-6 text-3xl font-bold">Our Vision</h2>
-              <p className="text-lg leading-relaxed">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Vision</p>
+              <h2 className="mb-6 text-2xl font-light">Breaking Barriers, Building Futures</h2>
+              <p className="text-sm leading-relaxed text-gray-300">
                 To be a trusted leader in international recruitment, breaking barriers to create a world where talent thrives beyond borders.
               </p>
             </motion.div>
@@ -153,32 +151,30 @@ export default function OverseasRecruitmentPage() {
       </section>
 
       {/* Our Unique Approach */}
-      <section className="bg-white py-24">
+      <section className="bg-gray-50 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
-              Our Unique <span className="text-[#EF2B2D]">Approach</span>
+            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">What Sets Us Apart</p>
+            <h2 className="mt-6 text-4xl font-light text-gray-900">
+              Our Unique <span className="font-semibold text-[#EF2B2D]">Approach</span>
             </h2>
-            <div className="mx-auto mt-6 h-2 w-32 bg-[#EF2B2D]" />
+            <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative border-4 border-gray-900 bg-gradient-to-br from-gray-50 to-white p-12 shadow-2xl"
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="mx-auto max-w-4xl rounded-lg border border-gray-200 bg-white p-12"
           >
-            <div className="absolute -left-4 -top-4 h-24 w-24 border-8 border-[#EF2B2D]" />
-            <div className="absolute -bottom-4 -right-4 h-24 w-24 border-8 border-gray-900" />
-            
-            <div className="space-y-6 text-lg leading-relaxed text-gray-700">
+            <div className="space-y-6 text-base leading-relaxed text-gray-600">
               <p>
                 At Innovision International, we distinguish ourselves through our comprehensive approach to international recruitment. As an authorized Recruiting Agent from India, we hold an <strong className="text-[#EF2B2D]">RA License (Delhi/Company/5815365/2023)</strong> certified under section 11 of the Emigration Act 1983 by the Ministry of External Affairs, Government of India.
               </p>
@@ -194,44 +190,40 @@ export default function OverseasRecruitmentPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-24">
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
-              Why Choose <span className="text-[#EF2B2D]">Innovision International?</span>
+            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">The Advantage</p>
+            <h2 className="mt-6 text-4xl font-light text-gray-900">
+              Why Choose <span className="font-semibold text-[#EF2B2D]">Innovision International?</span>
             </h2>
           </motion.div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                icon: "📜",
                 title: "Licensed and Authorized",
                 description: "Innovision International is licensed and authorized by the government to send skilled workers abroad, ensuring compliance with legal and regulatory requirements.",
               },
               {
-                icon: "🌐",
                 title: "Extensive Network",
                 description: "With a vast network of skilled workers in India and international clients, we have the resources and capabilities to fulfill high-volume recruitment needs efficiently.",
               },
               {
-                icon: "⚖️",
                 title: "Compliance and Legality",
                 description: "We operate with full compliance and legality, ensuring peace of mind for our clients and candidates alike.",
               },
               {
-                icon: "🎯",
                 title: "Comprehensive Services",
                 description: "From initial screening and shortlisting to conducting interviews and facilitating placements, we offer end-to-end recruitment solutions tailored to the needs of our clients.",
               },
               {
-                icon: "🤝",
                 title: "Dedicated Support",
                 description: "At Innovision International, we are committed to providing personalized and dedicated support to our clients throughout the recruitment process, ensuring a seamless experience.",
               },
@@ -240,15 +232,12 @@ export default function OverseasRecruitmentPage() {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative border-4 border-gray-900 bg-white p-8 shadow-xl transition-all hover:shadow-2xl"
+                transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="rounded-lg border border-gray-200 bg-white p-8 transition-all duration-300 hover:border-[#EF2B2D] hover:shadow-lg"
               >
-                <div className="absolute -right-2 -top-2 h-16 w-16 border-4 border-[#EF2B2D] opacity-0 transition-all duration-300 group-hover:opacity-100" />
-                
-                <div className="mb-4 text-6xl">{benefit.icon}</div>
-                <h3 className="mb-4 text-xl font-bold text-gray-900">{benefit.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{benefit.description}</p>
+                <h3 className="mb-4 text-base font-semibold text-gray-900">{benefit.title}</h3>
+                <p className="text-sm leading-relaxed text-gray-600">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
@@ -256,74 +245,69 @@ export default function OverseasRecruitmentPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-gray-900 py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20">
+        <div className="mx-auto max-w-5xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden border-4 border-[#EF2B2D] bg-gradient-to-br from-white to-gray-50 p-12 text-center shadow-2xl lg:p-16"
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
           >
-            <div className="absolute -left-8 -top-8 h-32 w-32 border-8 border-gray-900 opacity-10" />
-            <div className="absolute -bottom-8 -right-8 h-32 w-32 border-8 border-[#EF2B2D] opacity-20" />
-            
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 lg:text-4xl">
-              Streamline Your Overseas Recruitment Process
+            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Get Started</p>
+            <h2 className="text-4xl font-light text-white">
+              Streamline Your <span className="font-semibold text-[#EF2B2D]">Overseas Recruitment Process</span>
             </h2>
-            <p className="mb-8 text-xl text-gray-700">
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/80">
               Let us connect you with skilled professionals worldwide customized to meet your business requirements.
             </p>
             
-            <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-              <button className="border-4 border-gray-900 bg-[#EF2B2D] px-8 py-4 text-lg font-bold text-white shadow-xl transition-all hover:bg-red-700 hover:shadow-2xl">
+            <div className="mt-10 flex flex-wrap justify-center gap-6">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="rounded border border-[#EF2B2D] bg-[#EF2B2D] px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:bg-transparent hover:text-[#EF2B2D]"
+              >
                 Download Brochure
-              </button>
-              <a
+              </motion.button>
+              <motion.a
                 href="/contact"
-                className="border-4 border-gray-900 bg-gray-900 px-8 py-4 text-lg font-bold text-white shadow-xl transition-all hover:bg-gray-800 hover:shadow-2xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="rounded border border-white/30 bg-transparent px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:border-white hover:bg-white hover:text-gray-900"
               >
                 Contact Us
-              </a>
+              </motion.a>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Recruitment Process */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-5xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-12 text-center"
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center"
           >
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
-              Recruitment <span className="text-[#EF2B2D]">Process</span>
-            </h2>
-            <div className="mx-auto mt-6 h-2 w-32 bg-[#EF2B2D]" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative border-4 border-gray-900 bg-gradient-to-br from-gray-900 to-gray-800 p-12 text-center text-white shadow-2xl"
-          >
-            <div className="absolute -left-4 -top-4 h-20 w-20 border-8 border-[#EF2B2D]" />
-            <div className="absolute -bottom-4 -right-4 h-20 w-20 border-8 border-white opacity-20" />
-            
-            <p className="text-xl leading-relaxed lg:text-2xl">
-              We are ready to secure your business and people. Contact <span className="font-bold text-[#EF2B2D]">Innovision Limited</span> today and let us tailor a comprehensive security solution that meets your unique needs.
+            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Ready to Help</p>
+            <p className="text-xl leading-relaxed text-gray-600">
+              We are ready to secure your business and people. Contact <span className="font-semibold text-[#EF2B2D]">Innovision Limited</span> today and let us tailor a comprehensive recruitment solution that meets your unique needs.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <Contact />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <Contact />
+      </motion.div>
       <Footer />
     </>
   );

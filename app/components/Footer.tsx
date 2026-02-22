@@ -89,9 +89,10 @@ export default function Footer() {
             </div>
 
             <p className="text-sm leading-relaxed text-white/70">
-              Founded in 2007, Innovision has grown into one of India’s leading
-              security and manpower solution providers with nationwide presence
-              and disciplined service execution.
+              Established in 2007, Innovision has evolved into one of India’s
+              prominent toll management and infrastructure operations companies,
+              delivering nationwide manpower solutions and skilled workforce
+              services through structured systems and disciplined execution.
             </p>
 
             {/* SOCIAL ICONS - Enhanced 3D */}

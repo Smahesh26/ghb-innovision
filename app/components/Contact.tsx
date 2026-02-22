@@ -33,11 +33,11 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+          <h3 className="mb-4 text-center text-3xl font-light text-gray-900 sm:text-4xl">
             Our Footprints
           </h3>
           
-          <p className="mx-auto mb-6 max-w-3xl text-center text-sm text-gray-600">
+          <p className="mx-auto mb-8 max-w-3xl text-center text-base leading-relaxed text-gray-600">
             Pan-India operational footprint with a clearly marked corporate headquarters in Gurugram.
           </p>
           
@@ -76,12 +76,12 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-16 text-center mt-5"
+          className="mt-10 mb-16 text-center"
         >
-          <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl">
+          <h2 className="text-4xl font-light text-gray-900 sm:text-5xl lg:text-6xl">
             Get In Touch!
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-gray-600 sm:text-lg">
             We look forward to hearing from you. If you have any questions or need support, please feel free to reach out.
           </p>
         </motion.div>
@@ -116,7 +116,7 @@ export default function Contact() {
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
               Registered Phone No.
             </h3>
-            <p className="text-sm text-gray-700">‪+91-9289063231‬</p>
+            <p className="text-sm leading-relaxed text-gray-700">+91-9289063231</p>
           </motion.div>
 
           {/* Mail Address */}
@@ -160,7 +160,7 @@ export default function Contact() {
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
               Corporate Phone No.
             </h3>
-            <p className="text-sm text-gray-700">
+            <p className="text-sm leading-relaxed text-gray-700">
               0124-4387354<br />
               0124-2341602 (F)
             </p>
@@ -190,7 +190,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="mb-16 rounded-2xl border border-gray-200 bg-white p-8 shadow-lg lg:p-12"
         >
-          <h3 className="mb-8 text-center text-2xl font-bold text-gray-900 sm:text-3xl">
+          <h3 className="mb-8 text-center text-3xl font-light text-gray-900 sm:text-4xl">
             What Are You Looking For?
           </h3>
 
@@ -212,22 +212,22 @@ export default function Contact() {
             </select>
 
             {/* Name */}
-            <input
-              type="text"
-              name="name"
-              placeholder="NAME"
-              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
-            />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <input
+                type="text"
+                name="name"
+                placeholder="NAME"
+                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
+              />
 
-            {/* Email */}
-            <input
-              type="email"
-              name="email"
-              placeholder="E-MAIL"
-              className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
-            />
+              <input
+                type="email"
+                name="email"
+                placeholder="E-MAIL"
+                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 transition focus:border-[#EF2B2D] focus:outline-none focus:ring-1 focus:ring-[#EF2B2D]/50"
+              />
+            </div>
 
-            {/* Phone */}
             <input
               type="tel"
               name="phone"

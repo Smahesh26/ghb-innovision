@@ -71,11 +71,12 @@ export default function WhyChooseUs() {
 					<div className="relative">
 						{/* Animated Vertical Line */}
 						<motion.div
-							initial={{ height: 0 }}
-							whileInView={{ height: "100%" }}
+							initial={{ scaleY: 0 }}
+							whileInView={{ scaleY: 1 }}
 							transition={{ duration: 1 }}
 							viewport={{ once: true }}
-							className="absolute left-3 top-0 w-[2px] bg-[#EF2B2D]"
+							style={{ originY: 0 }}
+							className="absolute bottom-4 left-4 top-4 w-px bg-[#EF2B2D]"
 						/>
 
 						<motion.div
@@ -85,14 +86,14 @@ export default function WhyChooseUs() {
 							viewport={{ once: true }}
 							className="space-y-14"
 						>
-							{highlights.map((item, index) => (
+							{highlights.map((item) => (
 								<motion.div
 									key={item.label}
 									variants={itemVariants}
-									className="relative flex gap-8"
+									className="relative grid grid-cols-[2rem_1fr] items-start gap-6"
 								>
 									{/* Animated Dot */}
-									<div className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-[#EF2B2D] bg-white">
+									<div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#EF2B2D] bg-white">
 										<motion.div
 											animate={{ scale: [1, 1.4, 1] }}
 											transition={{

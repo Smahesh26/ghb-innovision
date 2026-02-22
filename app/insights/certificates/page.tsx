@@ -9,97 +9,134 @@ export const metadata = {
 export default function CertificatesPage() {
 	const certificates = [
 		{
+			sr: "1",
 			name: "ISO 9001:2015",
-			category: "Quality Management",
-			description: "International Organization for Standardization certification for quality management systems.",
+			body: "Euro UK Accreditation Licensing Services",
+			number: "QMS/230620/5715",
+			validFrom: "01-May-25",
+			validTill: "30-Apr-28",
 		},
 		{
-			name: "PSARA Certification",
-			category: "Security",
-			description: "Private Security Agency Registration Authority certification for professional security services.",
+			sr: "2",
+			name: "SA 8000:2014",
+			body: "Euro UK Accreditation Licensing Services",
+			number: "SA/230620/7846",
+			validFrom: "21-Aug-25",
+			validTill: "20-Aug-28",
 		},
 		{
-			name: "ISO 27001:2013",
-			category: "Information Security",
-			description: "Information Security Management System certification ensuring data protection standards.",
+			sr: "3",
+			name: "ISO 18788:2015",
+			body: "Accreditation Board For Certification Bodies",
+			number: "ICI/1197026/25",
+			validFrom: "21-Aug-25",
+			validTill: "20-Aug-28",
 		},
-		// {
-		// 	name: "NASSCOM Accreditation",
-		// 	category: "Training & Development",
-		// 	description: "National Association of Software and Services Companies recognition for training excellence.",
-		// },
 		{
+			sr: "4",
+			name: "ISO 28000:2007",
+			body: "Accreditation Board For Certification Bodies",
+			number: "ICI/1197151/25",
+			validFrom: "21-Aug-25",
+			validTill: "20-Aug-28",
+		},
+		{
+			sr: "5",
+			name: "ISO 14001:2015",
+			body: "QCL Certification Pvt. Ltd.",
+			number: "QEMS24070432",
+			validFrom: "04-Jul-24",
+			validTill: "03-Jul-27",
+		},
+		{
+			sr: "6",
+			name: "ISO 27001:2022",
+			body: "QCL Certification Pvt. Ltd.",
+			number: "QCLIS2407041105",
+			validFrom: "04-Jul-24",
+			validTill: "03-Jul-27",
+		},
+		{
+			sr: "7",
 			name: "ISO 45001:2018",
-			category: "Occupational Health & Safety",
-			description: "Occupational Health and Safety Management System certification for employee safety.",
+			body: "QCL Certification Pvt. Ltd.",
+			number: "QO24070491108",
+			validFrom: "04-Jul-24",
+			validTill: "03-Jul-27",
 		},
-		// {
-		// 	name: "FICCI Membership",
-		// 	category: "Industry Association",
-		// 	description: "Federation of Indian Chambers of Commerce and Industry membership and recognition.",
-		// },
+		{
+			sr: "8",
+			name: "CMMI Maturity Level 3",
+			body: "UK Certification & Inspection Ltd.",
+			number: "QU-2024070426",
+			validFrom: "04-Jul-24",
+			validTill: "03-Jul-27",
+		},
+		{
+			sr: "9",
+			name: "ISO 10667-2:2011",
+			body: "QVA Certification",
+			number: "QVA-ISLE-24-174250",
+			validFrom: "17-Jan-24",
+			validTill: "16-Jan-27",
+		},
+		{
+			sr: "10",
+			name: "ISO 21001:2018",
+			body: "QVA Certification",
+			number: "QVA-ISLE-24-174248",
+			validFrom: "17-Jan-24",
+			validTill: "16-Jan-27",
+		},
 	];
 
 	return (
 		<>
 			<Header />
-			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
+			<main className="min-h-screen bg-white pt-32 pb-20">
 				<div className="mx-auto max-w-6xl px-6">
 					{/* Header */}
 					<div className="mb-16">
 						<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 							Insights
 						</p>
-						<h1 className="mt-4 text-5xl font-bold text-white">
+						<h1 className="mt-4 text-5xl font-bold text-neutral-900">
 							Certifications & Compliance
 						</h1>
-						<p className="mt-6 max-w-2xl text-lg text-white/70">
+						<p className="mt-6 max-w-3xl text-lg text-neutral-600">
 							Innovision Security holds industry-recognized certifications and compliance standards, demonstrating our commitment to excellence and governance.
 						</p>
 						<div className="mt-8 h-1 w-16 bg-[#EF2B2D]" />
 					</div>
 
-					{/* Certificates Grid */}
-					<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-						{certificates.map((cert, index) => (
-							<div
-								key={cert.name}
-								className="group rounded-xl border border-white/10 bg-gradient-to-br from-[#0b0b0d] to-white/5 p-8 backdrop-blur-md transition hover:border-[#EF2B2D]/50 hover:shadow-[0_0_40px_rgba(239,43,45,0.2)]"
-							>
-								{/* Certificate Icon */}
-								<div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-[#EF2B2D]/20">
-									<svg className="h-6 w-6 text-[#EF2B2D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-									</svg>
-								</div>
-
-								<p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D]">
-									{cert.category}
-								</p>
-								<h3 className="mt-3 text-xl font-bold text-white">
-									{cert.name}
-								</h3>
-								<p className="mt-4 text-sm text-white/70">
-									{cert.description}
-								</p>
-							</div>
-						))}
-					</div>
-
-					{/* Download Section */}
-					<div className="mt-20 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-12 text-center">
-						<h3 className="text-2xl font-bold text-white">
-							Comprehensive Documentation
-						</h3>
-						<p className="mt-4 text-white/70">
-							For detailed certification documents and compliance documentation, please contact our compliance team.
-						</p>
-						<a
-							href="/contact"
-							className="mt-6 inline-block rounded-md bg-[#EF2B2D] px-8 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-[#d62426]"
-						>
-							Request Documents
-						</a>
+					{/* Certificates Table */}
+					<div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+						<div className="overflow-x-auto">
+							<table className="w-full text-left text-sm text-neutral-700">
+								<thead className="bg-neutral-50 text-xs font-semibold uppercase tracking-wide text-neutral-600">
+									<tr>
+										<th className="px-6 py-4">No.</th>
+										<th className="px-6 py-4">Certificate / Name</th>
+										<th className="px-6 py-4">Certification Body</th>
+										<th className="px-6 py-4">Certificate Number</th>
+										<th className="px-6 py-4">Valid From</th>
+										<th className="px-6 py-4">Valid Till</th>
+									</tr>
+								</thead>
+								<tbody className="divide-y divide-neutral-200">
+									{certificates.map((cert) => (
+										<tr key={cert.number} className="transition hover:bg-neutral-50">
+											<td className="px-6 py-4 font-semibold text-neutral-900">{cert.sr}</td>
+											<td className="px-6 py-4 font-semibold text-neutral-900">{cert.name}</td>
+											<td className="px-6 py-4">{cert.body}</td>
+											<td className="px-6 py-4">{cert.number}</td>
+											<td className="px-6 py-4">{cert.validFrom}</td>
+											<td className="px-6 py-4">{cert.validTill}</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</main>

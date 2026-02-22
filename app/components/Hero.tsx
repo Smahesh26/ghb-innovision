@@ -18,13 +18,13 @@ const slides = [
 			"Trusted teams, proven processes, and uncompromising safety standards.",
 	},
 	{
-		image: "/images/banner2.png",
+		image: "/images/Integrated Facility Management.png",
 		title: "Integrated facility management",
 		description:
 			"Your go-to partner for premium facility management that runs smoothly.",
 	},
 	{
-		image: "/images/banner3.png",
+		image: "/images/Skill Hub.png",
 		title: "Transforming India into a global hub of skills",
 		description:
 			"Building trained, dependable workforces for every industry we serve.",

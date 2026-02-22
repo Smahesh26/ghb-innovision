@@ -9,6 +9,15 @@ import { motion } from "framer-motion";
 export default function SkillDevelopmentTrainingPage() {
   return (
     <>
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        * {
+          scroll-margin-top: 80px;
+        }
+      `}</style>
+      
       <Header />
 
       {/* Hero Section */}
@@ -16,29 +25,11 @@ export default function SkillDevelopmentTrainingPage() {
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
 
-        {/* Animated grid pattern */}
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{
-                duration: 3,
-                delay: i * 0.2,
-                repeat: Infinity,
-              }}
-              className="absolute h-px w-full bg-white"
-              style={{ top: `${i * 5}%` }}
-            />
-          ))}
-        </div>
-
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-20 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
             className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70"
           >
             <span className="h-px w-12 bg-[#EF2B2D]" />
@@ -49,20 +40,20 @@ export default function SkillDevelopmentTrainingPage() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+            className="mt-6 text-5xl font-light sm:text-6xl lg:text-7xl"
           >
-            SKILL DEVELOPMENT
-            <span className="mt-2 block text-[#EF2B2D]">TRAINING</span>
+            Skill Development
+            <span className="mt-2 block font-semibold text-[#EF2B2D]">Training</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
             className="mt-6 max-w-3xl text-2xl font-light text-white/90"
           >
-            Empowering India&apos;s Workforce
+            Empowering India’s Workforce
           </motion.p>
         </div>
       </section>
@@ -71,174 +62,174 @@ export default function SkillDevelopmentTrainingPage() {
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
           {/* Introduction with Image */}
-          <div className="mb-20 grid gap-12 lg:grid-cols-2">
+          <div className="mb-32 grid gap-16 lg:grid-cols-5">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative overflow-hidden border-4 border-gray-900 shadow-2xl"
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="lg:col-span-2"
             >
-              <div className="relative h-[500px] w-full bg-gray-100">
+              <div className="relative h-[600px] w-full overflow-hidden bg-gray-100">
                 <img
                   src="/images/skill-training1.png"
                   alt="Skill Development"
                   className="h-full w-full object-contain"
                 />
+                <div className="absolute bottom-0 left-0 h-1 w-32 bg-[#EF2B2D]" />
               </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative border-4 border-gray-900 bg-gradient-to-br from-white to-gray-50 p-12 shadow-2xl"
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="flex flex-col justify-center lg:col-span-3"
             >
-              <div className="absolute -right-4 -top-4 h-20 w-20 border-8 border-[#EF2B2D]" />
-              
-              <h2 className="mb-6 text-4xl font-bold text-gray-900">
-                Innovision: Empowering <span className="text-[#EF2B2D]">India&apos;s Workforce</span>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">About Our Training</p>
+              <h2 className="mb-8 text-4xl font-light leading-tight text-gray-900">
+                Innovision: Empowering
+                <span className="mt-2 block font-semibold text-[#EF2B2D]">India's Workforce</span>
               </h2>
-              <p className="text-lg leading-relaxed text-gray-700">
+              <p className="text-base leading-relaxed text-gray-600">
                 Skills and knowledge are the driving forces of economic growth and social development for every country. At Innovision, our employment-oriented skill training programs have been developed in line with the current skill sets demanded by the industry. Our proven team of skilled professionals, known for their competence and integrity, impart comprehensive training and share their vast and rich experience in the classroom.
               </p>
+              <div className="mt-8 h-px w-24 bg-gradient-to-r from-[#EF2B2D] to-transparent" />
             </motion.div>
           </div>
 
           {/* Training Approach */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-20"
-          >
-            <h2 className="mb-12 text-center text-4xl font-bold text-gray-900 sm:text-5xl">
-              Our Training <span className="text-[#EF2B2D]">Approach</span>
-            </h2>
-            <p className="mb-12 text-center text-xl text-gray-700">
-              The training process at Innovision involves the following steps:
-            </p>
+          <div className="mb-32">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="mb-16 text-center"
+            >
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Process</p>
+              <h2 className="text-4xl font-light text-gray-900 sm:text-5xl">
+                Training <span className="font-semibold text-[#EF2B2D]">Approach</span>
+              </h2>
+              <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-[#EF2B2D] to-transparent" />
+            </motion.div>
 
-            <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-6">
-              {[
-                { num: "01", label: "MOBILIZATION" },
-                { num: "02", label: "COUNSELLING" },
-                { num: "03", label: "TRAINING" },
-                { num: "04", label: "ASSESSMENT" },
-                { num: "05", label: "ON THE JOB TRAINING" },
-                { num: "06", label: "PLACEMENTS" },
-              ].map((step, index) => (
-                <motion.div
-                  key={step.num}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative border-4 border-gray-900 bg-white p-6 text-center shadow-xl"
-                >
-                  <div className="mb-4 text-5xl font-bold text-[#EF2B2D]">{step.num}</div>
-                  <div className="text-sm font-bold text-gray-900">{step.label}</div>
-                  <div className="absolute -bottom-2 -right-2 h-8 w-8 border-4 border-[#EF2B2D]" />
-                </motion.div>
-              ))}
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-1/2 top-16 hidden h-px w-full -translate-x-1/2 bg-gradient-to-r from-transparent via-gray-300 to-transparent lg:block" />
+              
+              <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+                {[
+                  { num: "01", label: "Mobilization" },
+                  { num: "02", label: "Counselling" },
+                  { num: "03", label: "Training" },
+                  { num: "04", label: "Assessment" },
+                  { num: "05", label: "On The Job Training" },
+                  { num: "06", label: "Placements" },
+                ].map((step, index) => (
+                  <motion.div
+                    key={step.num}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="group relative text-center"
+                  >
+                    <div className="relative mx-auto mb-6 flex h-16 w-16 items-center justify-center">
+                      <div className="absolute inset-0 bg-white" />
+                      <div className="relative text-2xl font-light text-[#EF2B2D] transition-all group-hover:scale-110">{step.num}</div>
+                    </div>
+                    <h3 className="text-sm font-light uppercase tracking-wider text-gray-900">{step.label}</h3>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* CTA Banner */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="relative mb-20 overflow-hidden border-4 border-[#EF2B2D] bg-gradient-to-br from-gray-900 to-gray-800 p-12 text-center text-white shadow-2xl"
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-32 bg-gradient-to-br from-gray-50 to-white py-16 text-center"
           >
-            <div className="absolute -left-8 -top-8 h-32 w-32 border-8 border-white/10" />
-            <div className="absolute -bottom-8 -right-8 h-32 w-32 border-8 border-white/10" />
-            
-            <p className="text-2xl font-light leading-relaxed">
-              Ready to secure your business and people? Contact <span className="font-bold text-[#EF2B2D]">Innovision Limited</span> today and let us tailor a comprehensive security solution that meets your unique needs.
-            </p>
+            <div className="mx-auto max-w-3xl px-6">
+              <p className="text-base leading-relaxed text-gray-900">
+                Ready to secure your business and people? Contact <span className="font-semibold text-[#EF2B2D]">Innovision Limited</span> today and let us tailor a comprehensive security solution that meets your unique needs.
+              </p>
+            </div>
           </motion.div>
 
           {/* State-of-the-Art Facilities */}
-          <div className="mb-20 grid gap-12 lg:grid-cols-2">
+          <div className="mb-32 grid gap-16 lg:grid-cols-5">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative border-4 border-gray-900 bg-white p-12 shadow-2xl"
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="flex flex-col justify-center lg:col-span-2"
             >
-              <div className="absolute -left-4 -top-4 h-20 w-20 border-8 border-[#EF2B2D]" />
-              
-              <h2 className="mb-8 text-3xl font-bold text-gray-900">
-                State-of-the-Art <span className="text-[#EF2B2D]">Training Facilities</span>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Facilities</p>
+              <h2 className="mb-8 text-3xl font-light text-gray-900">
+                State-of-the-Art
+                <span className="mt-2 block font-semibold text-[#EF2B2D]">Training Centers</span>
               </h2>
-              <p className="mb-6 text-lg text-gray-700">
+              <p className="mb-8 text-base text-gray-600">
                 At Innovision, we believe in providing the best learning environment for our students. Our training centers are equipped with:
               </p>
-              <ul className="space-y-4 text-lg text-gray-700">
-                <li className="flex items-start gap-4">
-                  <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
-                  <span>Smart classrooms and advanced teaching methodologies</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
-                  <span>Highly competitive trainers</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
-                  <span>Fully equipped labs</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
-                  <span>Five-star infrastructure</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
-                  <span>Hostel and food facilities for residential centers</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="mt-2 flex h-3 w-3 shrink-0 bg-[#EF2B2D]" />
-                  <span>Prime locations for easy access</span>
-                </li>
+              <ul className="space-y-3">
+                {[
+                  "Smart classrooms and advanced teaching methodologies",
+                  "Highly competitive trainers",
+                  "Fully equipped labs",
+                  "Five-star infrastructure",
+                  "Hostel and food facilities for residential centers",
+                  "Prime locations for easy access",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3 text-base text-gray-600">
+                    <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative overflow-hidden border-4 border-gray-900 shadow-2xl"
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="lg:col-span-3"
             >
-              <div className="relative h-full min-h-[500px] bg-gray-100">
+              <div className="relative h-[600px] w-full overflow-hidden bg-gray-100">
                 <img
                   src="/images/skill-training2.jpg"
                   alt="Training Facilities"
                   className="h-full w-full object-contain"
                 />
+                <div className="absolute bottom-0 right-0 h-1 w-32 bg-[#EF2B2D]" />
               </div>
             </motion.div>
           </div>
 
           {/* Comprehensive Training Delivery */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="relative mb-20 border-4 border-gray-900 bg-gradient-to-br from-gray-50 to-white p-12 shadow-2xl"
-          >
-            <div className="absolute -right-4 -top-4 h-20 w-20 border-8 border-[#EF2B2D]" />
+          <div className="mb-32">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="mb-16 text-center"
+            >
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">What We Offer</p>
+              <h2 className="text-4xl font-light text-gray-900">
+                Comprehensive Training <span className="font-semibold text-[#EF2B2D]">Delivery</span>
+              </h2>
+            </motion.div>
             
-            <h2 className="mb-8 text-center text-4xl font-bold text-gray-900">
-              Comprehensive Training <span className="text-[#EF2B2D]">Delivery</span>
-            </h2>
-            
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
                 "Industry visits",
                 "Guest lectures",
@@ -248,64 +239,65 @@ export default function SkillDevelopmentTrainingPage() {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-4 border-4 border-gray-900 bg-white p-6 shadow-lg"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="group space-y-4"
                 >
-                  <span className="text-3xl text-[#EF2B2D]">✓</span>
-                  <span className="text-lg text-gray-700">{item}</span>
+                  <div className="text-6xl font-light text-gray-200 transition-all group-hover:text-[#EF2B2D]/20">0{index + 1}</div>
+                  <p className="text-base text-gray-600">{item}</p>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
           {/* Rigorous Assessment */}
-          <div className="mb-20 grid gap-12 lg:grid-cols-2">
+          <div className="mb-32 grid gap-16 lg:grid-cols-5">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative overflow-hidden border-4 border-gray-900 shadow-2xl"
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="lg:col-span-2"
             >
-              <div className="relative h-[500px] w-full bg-gray-100">
+              <div className="relative h-[600px] w-full overflow-hidden bg-gray-100">
                 <img
                   src="/images/skill-training3.jpeg"
                   alt="Certification"
                   className="h-full w-full object-contain"
                 />
+                <div className="absolute bottom-0 left-0 h-1 w-32 bg-[#EF2B2D]" />
               </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="relative border-4 border-[#EF2B2D] bg-white p-12 shadow-2xl"
+              transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="flex flex-col justify-center lg:col-span-3"
             >
-              <div className="absolute -right-4 -top-4 h-20 w-20 border-8 border-gray-900" />
-              
-              <h2 className="mb-6 text-3xl font-bold text-gray-900">
-                Rigorous Assessment and <span className="text-[#EF2B2D]">Certification</span>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Quality Assurance</p>
+              <h2 className="mb-8 text-3xl font-light text-gray-900">
+                Rigorous Assessment and
+                <span className="mt-2 block font-semibold text-[#EF2B2D]">Certification</span>
               </h2>
-              <p className="mb-8 text-lg text-gray-700">
+              <p className="mb-8 text-base text-gray-600">
                 We follow a robust assessment process to ensure the quality of our training:
               </p>
               
-              <ul className="space-y-6 text-lg text-gray-700">
-                <li className="flex items-start gap-4">
-                  <span className="flex h-2 w-2 shrink-0 bg-[#EF2B2D] mt-3" />
-                  <span><strong>Internal assessments:</strong> Two fortnightly tests after 15 and 45 days, and two monthly tests after 30 and 60 days of training</span>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-base text-gray-600">
+                  <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                  <span><span className="font-semibold text-gray-900">Internal assessments:</span> Two fortnightly tests after 15 and 45 days, and two monthly tests after 30 and 60 days of training</span>
                 </li>
-                <li className="flex items-start gap-4">
-                  <span className="flex h-2 w-2 shrink-0 bg-[#EF2B2D] mt-3" />
-                  <span><strong>On-the-Job Training (OJT)</strong></span>
+                <li className="flex items-start gap-3 text-base text-gray-600">
+                  <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                  <span><span className="font-semibold text-gray-900">On-the-Job Training</span> (OJT)</span>
                 </li>
-                <li className="flex items-start gap-4">
-                  <span className="flex h-2 w-2 shrink-0 bg-[#EF2B2D] mt-3" />
-                  <span><strong>Certification</strong> upon successful completion of the program</span>
+                <li className="flex items-start gap-3 text-base text-gray-600">
+                  <div className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#EF2B2D]" />
+                  <span><span className="font-semibold text-gray-900">Certification</span> upon successful completion of the program</span>
                 </li>
               </ul>
             </motion.div>
@@ -315,31 +307,41 @@ export default function SkillDevelopmentTrainingPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="relative border-4 border-gray-900 bg-gradient-to-br from-gray-900 to-gray-800 p-12 text-center text-white shadow-2xl"
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20 text-center"
           >
-            <div className="absolute -left-4 -top-4 h-20 w-20 border-8 border-[#EF2B2D]" />
-            <div className="absolute -right-4 -bottom-4 h-20 w-20 border-8 border-[#EF2B2D]" />
-            
-            <h2 className="mb-8 text-4xl font-bold">
-              The Innovision <span className="text-[#EF2B2D]">Advantage</span>
-            </h2>
-            <p className="mb-4 text-lg leading-relaxed">
-              Innovision began its journey with the mission to provide skilled training to the Indian youth. Apart from the training, we facilitate the placement of our students in leading organizations, helping them shape their careers and contribute to the growth of the nation.
-            </p>
-            <p className="mb-4 text-lg leading-relaxed">
-              Our highly educated team of skilled professionals impart meaningful training with industry-driven skill sets, ensuring the grooming of our students.
-            </p>
-            <p className="text-lg leading-relaxed">
-              By the end of the course, our students are ready and capable of joining respectable positions in any firm, ready to make a difference.
-            </p>
+            <div className="mx-auto max-w-4xl px-6">
+              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Mission</p>
+              <h2 className="mb-12 text-4xl font-light text-white">
+                The Innovision <span className="font-semibold text-[#EF2B2D]">Advantage</span>
+              </h2>
+              <div className="space-y-6 text-base leading-relaxed text-white/80">
+                <p>
+                  Innovision began its journey with the mission to provide skilled training to the Indian youth. Apart from the training, we facilitate the placement of our students in leading organizations, helping them shape their careers and contribute to the growth of the nation.
+                </p>
+                <p>
+                  Our highly educated team of skilled professionals impart meaningful training with industry-driven skill sets, ensuring the grooming of our students.
+                </p>
+                <p>
+                  By the end of the course, our students are ready and capable of joining respectable positions in any firm, ready to make a difference.
+                </p>
+              </div>
+              <div className="mx-auto mt-12 h-px w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            </div>
           </motion.div>
         </div>
       </section>
 
       <CTA />
-      <Contact />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <Contact />
+      </motion.div>
       <Footer />
     </>
   );

@@ -132,12 +132,12 @@ export default function AboutPage() {
 
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" aria-hidden="true" />
-            <span>Journey Timeline</span>
+            <span>Company Overview</span>
             <span className="h-px w-12 bg-[#EF2B2D]" aria-hidden="true" />
           </div>
 
           <h1 className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl">
-            Our Journey
+            Company Overview
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg text-white/80">

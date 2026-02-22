@@ -34,7 +34,7 @@ export default function SkillDevelopmentPlacementPage() {
           ))}
         </div>
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-20 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,23 +64,40 @@ export default function SkillDevelopmentPlacementPage() {
           >
             Connecting Skilled Talent with Opportunities
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-12"
+          >
+            <a href="#content" className="group inline-flex flex-col items-center gap-2">
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">Scroll</span>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="h-8 w-px bg-gradient-to-b from-[#EF2B2D] to-transparent"
+              />
+            </a>
+          </motion.div>
         </div>
       </section>
 
       {/* Placement Plan Section */}
-      <section className="bg-white py-24">
+      <section id="content" className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
-              Comprehensive <span className="text-[#EF2B2D]">Placement Plan</span>
+            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Approach</p>
+            <h2 className="mt-6 text-4xl font-light text-gray-900">
+              Comprehensive <span className="font-semibold text-[#EF2B2D]">Placement Plan</span>
             </h2>
-            <div className="mx-auto mt-6 h-1 w-32 bg-[#EF2B2D]" />
+            <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
           </motion.div>
 
           {/* Placement Steps */}
@@ -154,17 +171,18 @@ export default function SkillDevelopmentPlacementPage() {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative overflow-hidden border-4 border-gray-900 bg-white p-8 shadow-xl transition-all hover:shadow-2xl"
+                transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="group space-y-4"
               >
-                <div className="absolute -right-2 -top-2 h-12 w-12 border-4 border-[#EF2B2D] opacity-0 transition-all duration-300 group-hover:opacity-100" />
-                
-                <h3 className="mb-4 text-xl font-bold text-[#EF2B2D]">{step.title}</h3>
+                <div className="text-6xl font-light text-gray-200 transition-colors duration-300 group-hover:text-[#EF2B2D]">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+                <h3 className="text-base font-semibold text-gray-900">{step.title}</h3>
                 <ul className="space-y-3">
                   {step.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700">
-                      <span className="mt-2 flex h-2 w-2 shrink-0 bg-gray-900" />
+                    <li key={i} className="flex items-start gap-3 text-gray-600">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gray-400" />
                       <span className="text-sm leading-relaxed">{point}</span>
                     </li>
                   ))}
@@ -175,19 +193,18 @@ export default function SkillDevelopmentPlacementPage() {
 
           {/* Strategy Section */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-16"
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-16 bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20 text-center"
           >
-            <div className="relative border-4 border-[#EF2B2D] bg-gradient-to-br from-gray-900 to-gray-800 p-12 text-center text-white shadow-2xl">
-              <div className="absolute -left-4 -top-4 h-20 w-20 border-8 border-white/20" />
-              <div className="absolute -bottom-4 -right-4 h-20 w-20 border-8 border-white/20" />
-              
-              <h2 className="mb-4 text-4xl font-bold">
-                Strategy to Place the <span className="text-[#EF2B2D]">Trained Candidate</span>
+            <div className="mx-auto max-w-4xl px-6">
+              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Strategy</p>
+              <h2 className="text-4xl font-light text-white">
+                Strategy to Place the <span className="font-semibold text-[#EF2B2D]">Trained Candidate</span>
               </h2>
+              <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             </div>
           </motion.div>
 
@@ -267,19 +284,17 @@ export default function SkillDevelopmentPlacementPage() {
             ].map((strategy, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="relative border-4 border-gray-900 bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
+                className="rounded-lg border border-gray-200 bg-white p-8 transition-all duration-300 hover:border-[#EF2B2D] hover:shadow-lg"
               >
-                <div className="absolute -left-2 -top-2 h-8 w-8 border-4 border-[#EF2B2D]" />
-                
-                <h3 className="mb-4 text-lg font-bold text-gray-900">{strategy.title}</h3>
+                <h3 className="mb-4 text-base font-semibold text-gray-900">{strategy.title}</h3>
                 <ul className="space-y-3">
                   {strategy.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700">
-                      <span className="text-[#EF2B2D]">•</span>
+                    <li key={i} className="flex items-start gap-3 text-gray-600">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gray-400" />
                       <span className="text-sm leading-relaxed">{point}</span>
                     </li>
                   ))}
@@ -291,7 +306,14 @@ export default function SkillDevelopmentPlacementPage() {
       </section>
 
       <CTA />
-      <Contact />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <Contact />
+      </motion.div>
       <Footer />
     </>
   );

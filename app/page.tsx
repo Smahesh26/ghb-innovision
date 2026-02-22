@@ -10,7 +10,6 @@ import MDMessage from "./components/MDMessage";
 import CTA from "./components/CTA";
 import Services from "./components/Services";
 import Reviews from "./components/Reviews";
-import Testimonials from "./components/Testimonials";
 import Clients from "./components/Clients";
 import Contact from "./components/Contact";
 import News from "./components/News";
@@ -260,8 +259,7 @@ export default function Home() {
         {/* 9. Client Reviews */}
         <Reviews />
 
-        {/* 9.5. Client Testimonials */}
-        <Testimonials />
+        {/* 9.5. Client Testimonials (hidden for now) */}
         
         {/* 10. IPO Ready */}
         <CTA />

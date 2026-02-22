@@ -166,6 +166,16 @@ export default function TrainingPage() {
 
   return (
     <>
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        * {
+          scroll-margin-top: 80px;
+        }
+      `}</style>
+      
       <Header />
 
       {/* Hero Section */}
@@ -186,19 +196,20 @@ export default function TrainingPage() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+            className="mt-6 text-5xl font-light tracking-tight sm:text-6xl lg:text-7xl"
           >
-            SECURITY TRAINING
+            Security
+            <span className="mt-2 block font-semibold text-[#EF2B2D]">Training</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-5 max-w-3xl text-lg text-white/80"
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
+            className="mt-6 max-w-3xl text-lg text-white/90"
           >
             Professional Security Manpower Grooming and Training
           </motion.p>
@@ -213,16 +224,24 @@ export default function TrainingPage() {
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">Training Rationale</h2>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600">
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Training <span className="font-semibold text-[#EF2B2D]">Rationale</span>
+            </h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600"
+            >
               Innovision has standardized the recruitment and training criteria for their personnel in order to maintain high quality and consistency in the services and experience they provide to their customers. There are strict guidelines that must be adhered to in order to ensure the training of the best candidates.
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Benefits Diagram */}
@@ -249,10 +268,16 @@ export default function TrainingPage() {
               ].map((benefit, index) => (
                 <motion.div
                   key={benefit.title}
-                  initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.15, type: "spring", bounce: 0.4 }}
-                  viewport={{ once: true }}
+                  initial={{ opacity: 0, scale: 0.5, y: 50 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.7, 
+                    delay: index * 0.1, 
+                    type: "spring", 
+                    stiffness: 100,
+                    damping: 15
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
                   className="group flex flex-col items-center"
                 >
                   <div className="relative flex h-56 w-56 items-center justify-center">
@@ -300,10 +325,16 @@ export default function TrainingPage() {
                 ].map((benefit, index) => (
                   <motion.div
                     key={benefit.title}
-                    initial={{ opacity: 0, scale: 0.5, y: 30 }}
+                    initial={{ opacity: 0, scale: 0.5, y: 50 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 + index * 0.15, type: "spring", bounce: 0.4 }}
-                    viewport={{ once: true }}
+                    transition={{ 
+                      duration: 0.7, 
+                      delay: 0.5 + index * 0.1, 
+                      type: "spring", 
+                      stiffness: 100,
+                      damping: 15
+                    }}
+                    viewport={{ once: true, margin: "-50px" }}
                     className="group flex flex-col items-center"
                   >
                     <div className="relative flex h-56 w-56 items-center justify-center">
@@ -346,23 +377,29 @@ export default function TrainingPage() {
       <section className="bg-gray-50 py-24 text-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">Various Training Conducted</h2>
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Various Training <span className="font-semibold text-[#EF2B2D]">Conducted</span>
+            </h2>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {trainingTypes.map((training, index) => (
               <motion.div
                 key={training.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.05,
+                  ease: [0.22, 0.61, 0.36, 1]
+                }}
+                viewport={{ once: true, margin: "-50px" }}
                 className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-all hover:border-[#EF2B2D] hover:shadow-lg"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#EF2B2D]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -385,26 +422,38 @@ export default function TrainingPage() {
       <section className="bg-white py-24 text-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">Training Methods</h2>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600">
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Training <span className="font-semibold text-[#EF2B2D]">Methods</span>
+            </h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600"
+            >
               We employ diverse, proven methodologies to ensure comprehensive skill development
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {trainingMethods.map((method, index) => (
               <motion.div
                 key={method.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  ease: [0.22, 0.61, 0.36, 1]
+                }}
+                viewport={{ once: true, margin: "-50px" }}
                 className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#EF2B2D]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -430,26 +479,32 @@ export default function TrainingPage() {
       <section className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-24 text-white">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">
-              Innovision Training for Manpower: Elevate Your Security Standards
+            <h2 className="text-4xl font-light tracking-tight sm:text-5xl">
+              Innovision Training for Manpower: <span className="font-semibold text-[#EF2B2D]">Elevate Your Security Standards</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-white/80">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-white/80"
+            >
               At Innovision Limited, we are dedicated to enhancing the standards of service in the security industry through comprehensive and innovative training programs for security personnel. Our training modules are designed to equip security guards and officers with world-class skills in threat detection, protection, combat, fire-fighting, materials control & accounting, and soft skills such as courtesy, positive attitude, and loyalty towards clients.
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Training Image */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mt-16 overflow-hidden rounded-3xl border border-white/10 bg-black/20 shadow-2xl backdrop-blur-sm"
           >
             <div className="relative h-[450px] w-full bg-gradient-to-br from-gray-900 to-gray-800">
@@ -462,9 +517,9 @@ export default function TrainingPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-10">
                 <motion.h3 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
+                  transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
                   viewport={{ once: true }}
                   className="text-4xl font-bold text-white drop-shadow-lg"
                 >
@@ -473,7 +528,7 @@ export default function TrainingPage() {
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
+                  transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
                   viewport={{ once: true }}
                   className="mt-3 text-lg text-white/90 drop-shadow-md"
                 >
@@ -489,26 +544,38 @@ export default function TrainingPage() {
       <section className="bg-gray-50 py-24 text-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">Professional Training Programs</h2>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600">
+            <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
+              Professional Training <span className="font-semibold text-[#EF2B2D]">Programs</span>
+            </h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600"
+            >
               Before being placed on assignment, all Innovision security personnel undergo a comprehensive training program
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="space-y-8">
             {professionalTraining.map((program, index) => (
               <motion.div
                 key={program.title}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  ease: [0.22, 0.61, 0.36, 1]
+                }}
+                viewport={{ once: true, margin: "-50px" }}
                 className="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-[#EF2B2D]/30 hover:shadow-lg"
               >
                 <div className="flex items-start gap-4">
@@ -533,36 +600,45 @@ export default function TrainingPage() {
       </section>
 
       {/* Manpower Grooming and Training Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-24 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-24 text-white overflow-hidden">
         {/* Background Decorative Elements */}
         <div className="absolute top-0 right-1/4 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
         <div className="absolute bottom-0 left-1/4 h-96 w-96 rounded-full bg-purple-600/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-20 text-center"
           >
-            <h2 className="text-4xl font-bold sm:text-5xl">
+            <h2 className="text-4xl font-light tracking-tight text-white sm:text-5xl">
               Manpower Grooming and Training
-              <span className="mt-2 block text-3xl text-[#EF2B2D]">Security Excellence</span>
+              <span className="mt-2 block text-3xl font-semibold text-[#EF2B2D]">Security Excellence</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-300">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-300"
+            >
               Comprehensive training programs designed to develop highly skilled and professional security personnel
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="grid gap-16 lg:grid-cols-2">
             {/* Circular Training Flow */}
             <div className="relative">
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, scale: 0.7, rotate: -45 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ 
+                  duration: 1, 
+                  ease: [0.22, 0.61, 0.36, 1]
+                }}
+                viewport={{ once: true, margin: "-100px" }}
                 className="relative mx-auto flex h-[600px] w-full max-w-[600px] items-center justify-center"
               >
                 {/* Center Circle */}
@@ -622,14 +698,20 @@ export default function TrainingPage() {
                   };
 
                   return (
-                    <motion.div
-                      key={training.title}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: training.delay }}
-                      viewport={{ once: true }}
-                      className={`group absolute ${positions[training.position as keyof typeof positions]} z-10`}
-                    >
+                <motion.div
+                  key={training.title}
+                  initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: training.delay,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className={`group absolute ${positions[training.position as keyof typeof positions]} z-10`}
+                >
                       <div className="relative w-44">
                         <div className={`rounded-xl border-2 border-white bg-gradient-to-br ${training.color} p-4 shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl`}>
                           <h4 className="mb-2 text-xs font-bold uppercase leading-tight">{training.title}</h4>
@@ -655,8 +737,12 @@ export default function TrainingPage() {
                       strokeDashoffset={i * 72}
                       initial={{ pathLength: 0, opacity: 0 }}
                       whileInView={{ pathLength: 1, opacity: 0.3 }}
-                      transition={{ duration: 2, delay: i * 0.2 }}
-                      viewport={{ once: true }}
+                      transition={{ 
+                        duration: 1.5, 
+                        delay: i * 0.15,
+                        ease: [0.22, 0.61, 0.36, 1]
+                      }}
+                      viewport={{ once: true, margin: "-100px" }}
                     />
                   ))}
                   <defs>
@@ -673,10 +759,10 @@ export default function TrainingPage() {
             {/* Much More Section */}
             <div className="flex flex-col justify-center">
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 60 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 <h3 className="mb-8 text-5xl font-bold text-[#EF2B2D]">MUCH MORE</h3>
                 <div className="space-y-4">
@@ -694,10 +780,14 @@ export default function TrainingPage() {
                   ].map((item, index) => (
                     <motion.div
                       key={item}
-                      initial={{ opacity: 0, x: 50 }}
+                      initial={{ opacity: 0, x: 60 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      viewport={{ once: true }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: index * 0.08,
+                        ease: [0.22, 0.61, 0.36, 1]
+                      }}
+                      viewport={{ once: true, margin: "-30px" }}
                       className="group flex items-center gap-4"
                     >
                       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#EF2B2D] transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#EF2B2D]/50">
@@ -720,10 +810,10 @@ export default function TrainingPage() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+                viewport={{ once: true, margin: "-50px" }}
                 className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
               >
                 <p className="text-base leading-relaxed text-gray-300">
@@ -738,7 +828,14 @@ export default function TrainingPage() {
       </section>
 
       {/* Contact Form */}
-      <Contact />
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <Contact />
+      </motion.div>
 
       <Footer />
     </>
