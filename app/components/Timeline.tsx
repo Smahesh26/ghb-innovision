@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef } from "react";
 
 const milestones = [
 	{
@@ -47,8 +46,6 @@ const milestones = [
 ];
 
 export default function Timeline() {
-	const scrollRef = useRef<HTMLDivElement>(null);
-
 	return (
 		<section className="relative bg-[#0d0d0f] py-32 text-white overflow-hidden">
 			

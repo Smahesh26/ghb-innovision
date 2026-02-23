@@ -8,17 +8,17 @@ const About = () => {
     {
       title: "Expertise",
       description:
-        "Innovision excels with 18+ years of experience, ISO certifications, and PSARA licenses. We've served 500+ clients with a nationwide team led by experienced professionals and leadership under Lt Col Randeep Hundal and Mr. Uday Pal Singh, ensuring top-tier service."
+        "Innovision excels with 19+ years of experience, ISO certifications, and PSARA licenses. We've served 1000+ clients with a nationwide team led by experienced professionals and leadership under Lt Col Randeep Hundal and Mr. Uday Pal Singh, ensuring top-tier service."
     },
     {
       title: "Compliance",
       description:
-        "Registered with all statutory regulatory bodies, ensuring full compliance with legal requirements. Operations adhere to 100% statutory compliance, with the internal audit team overseeing risk mitigation and quality control efforts."
+        "Registered with statutory regulatory bodies, ensuring compliance with legal requirements. Operations follow strict statutory compliance, with the internal audit team overseeing risk mitigation and quality control efforts."
     },
     {
       title: "Geographical Reach",
       description:
-        "We have established a strong presence across India, with 55 offices nationwide and over 70 training centers in Pan-India. The headquarters is situated in Gurugram, serving as the central hub for operations."
+        "We have established a strong presence across India, with 55+ locations nationwide and 70+ training centers in Pan-India. The headquarters is situated in Gurugram, serving as the central hub for operations."
     },
     {
       title: "Licensing",

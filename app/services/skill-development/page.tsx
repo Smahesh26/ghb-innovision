@@ -143,7 +143,7 @@ export default function SkillDevelopmentPage() {
               </p>
               
               <p>
-                Our network of over 60 skill development centers spans the length and breadth of India, allowing us to provide specialized training in media, telecommunications, electronics, healthcare, beauty & wellness, construction, and furniture & fittings. This extensive reach and our adaptability in tailoring training programs to meet regional needs highlight our strengths.
+                Our network of 70+ training centers spans the length and breadth of India, allowing us to provide specialized training in media, telecommunications, electronics, healthcare, beauty & wellness, construction, and furniture & fittings. This extensive reach and our adaptability in tailoring training programs to meet regional needs highlight our strengths.
               </p>
               
               <p>

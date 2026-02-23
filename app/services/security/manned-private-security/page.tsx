@@ -145,7 +145,7 @@ export default function MannedPrivateSecurityPage() {
   const whyChoosePoints = [
     {
       title: "Unmatched Expertise and Experience",
-      description: "With more than 18 years of expertise in the security industry, Innovision Limited has built a strong reputation for excellence. Our team consists of certified and highly trained professionals, specializing in risk evaluation, threat management, and protection strategies, ensuring comprehensive security for our clients.",
+      description: "With 19+ years of expertise in the security industry, Innovision Limited has built a strong reputation for excellence. Our team consists of certified and highly trained professionals, specializing in risk evaluation, threat management, and protection strategies, ensuring comprehensive security for our clients.",
     },
     {
       title: "Commitment to Excellence and Reliability",
@@ -202,7 +202,7 @@ export default function MannedPrivateSecurityPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-6 max-w-3xl text-lg text-white/90"
           >
-            India's Most Preferred Security Services
+            India&apos;s Most Preferred Security Services
           </motion.p>
         </div>
       </section>
@@ -218,7 +218,7 @@ export default function MannedPrivateSecurityPage() {
             className="max-w-4xl"
           >
             <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
-              Innovision Limited: <span className="font-semibold text-[#EF2B2D]">India's Most Preferred Security Services</span>
+              Innovision Limited: <span className="font-semibold text-[#EF2B2D]">India&apos;s Most Preferred Security Services</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-gray-600">
               Welcome to Innovision Limited, your trusted partner in providing top-notch security services. With years of experience and a team of highly trained professionals, we are dedicated to safeguarding your people, assets, and premises. We understand that security is paramount for the safety and success of your business. With increasing risks and evolving threats, having a reliable and professional security service is crucial. Innovision Limited offers top-tier security services tailored to meet your specific needs, ensuring peace of mind and protection for your assets, personnel, and property.

@@ -3,7 +3,6 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Contact from "../../components/Contact";
-import CTA from "../../components/CTA";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -100,7 +99,7 @@ export default function OverseasRecruitmentPage() {
               </h2>
               <div className="mt-8 space-y-6">
                 <p className="text-base leading-relaxed text-gray-600">
-                  We specialize in bridging the gap between global companies and India's skilled workforce. 
+                  We specialize in bridging the gap between global companies and India&apos;s skilled workforce. 
                   As a licensed RA agency, we are authorized to deploy Indian talent across the globe, 
                   providing seamless recruitment solutions for international employers.
                 </p>
@@ -217,7 +216,7 @@ export default function OverseasRecruitmentPage() {
               },
               {
                 title: "Compliance and Legality",
-                description: "We operate with full compliance and legality, ensuring peace of mind for our clients and candidates alike.",
+                description: "We operate with strict compliance and legality, ensuring peace of mind for our clients and candidates alike.",
               },
               {
                 title: "Comprehensive Services",
