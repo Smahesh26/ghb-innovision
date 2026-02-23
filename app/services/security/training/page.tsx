@@ -509,7 +509,7 @@ export default function TrainingPage() {
           >
             <div className="relative h-[450px] w-full bg-gradient-to-br from-gray-900 to-gray-800">
               <Image
-                src="/images/clients-services/ser.jpg"
+                src="/images/clients-services/ser.JPG"
                 alt="Security Training"
                 fill
                 className="object-cover opacity-80"

@@ -14,19 +14,20 @@ const highlights = [
 	{ label: "Risk Management & Audit" },
 ];
 
-const stats = [
-	{ value: 19, label: "Years of Experience", suffix: "+", icon: "⏱" },
-	{ value: 1000, label: "Corporate Clients", suffix: "+", icon: "🏢" },
+const stats: Array<{ value: number; label: string; suffix: string; icon: string; size?: "small" | "default" }> = [
+	{ value: 19, label: "Years of Experience", suffix: "+", icon: "⏱", size: "small" },
+	{ value: 1000, label: "Corporate Clients", suffix: "+", icon: "🏢", size: "small" },
 	{ value: 100000, label: "Trained Candidates", suffix: "+", icon: "👥" },
 	{ value: 80, label: "Revenue CAGR", suffix: "%+", icon: "📈" },
 ];
 
-function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
+function Counter({ value, suffix = "", size = "default" }: { value: number; suffix?: string; size?: "small" | "default" }) {
 	const [isInView, setIsInView] = useState(false);
 	const count = useMotionValue(0);
 	const rounded = useTransform(count, (latest) => Math.round(latest));
 	const [displayValue, setDisplayValue] = useState(0);
 	const ref = useRef<HTMLDivElement>(null);
+	const numberSizeClass = size === "small" ? "text-3xl sm:text-4xl lg:text-5xl" : "text-4xl sm:text-5xl lg:text-6xl";
 
 	useEffect(() => {
 		if (isInView) {
@@ -53,7 +54,7 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 			viewport={{ once: true }}
 			onViewportEnter={() => setIsInView(true)}
 		>
-			<span className="text-7xl font-black text-white sm:text-8xl">
+			<span className={`${numberSizeClass} block whitespace-nowrap leading-none font-black text-white`}>
 				{displayValue.toLocaleString()}{suffix}
 			</span>
 		</motion.div>
@@ -155,7 +156,7 @@ export default function Stats() {
 									{index + 1}
 								</motion.div>
 
-								<Counter value={stat.value} suffix={stat.suffix} />
+								<Counter value={stat.value} suffix={stat.suffix} size={stat.size ?? "default"} />
 								<p className="mt-6 text-xs font-semibold uppercase tracking-[0.15em] text-white/90">
 									{stat.label}
 								</p>

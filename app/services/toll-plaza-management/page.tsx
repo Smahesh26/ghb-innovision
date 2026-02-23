@@ -188,7 +188,7 @@ export default function TollPlazaManagementPage() {
                     02
                   </div>
                   
-                  <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6">
+                  <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6 pl-16">
                     <h3 className="text-xl font-semibold text-gray-900">
                       Industry
                     </h3>

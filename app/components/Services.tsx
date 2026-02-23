@@ -6,6 +6,20 @@ import Image from "next/image";
 
 const services = [
 	{
+		title: "Toll Plaza Management",
+		benefit: "TMS-integrated operations with real-time traffic management.",
+		description:
+			"Complete toll operations with TMS, ATMS, traffic management, and 24/7 incident response.",
+		link: "/services/toll-plaza-management",
+		image: "/images/clients-services/tollmanagement.jpg",
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+				<path d="M3 20h18" />
+				<path d="M5 20V8h14v12" />
+			</svg>
+		),
+	},
+	{
 		title: "Manned Private Security Services",
 		benefit: "PSARA-certified guards with rapid deployment capability.",
 		description:
@@ -33,6 +47,19 @@ const services = [
 		),
 	},
 	{
+		title: "Skill Development",
+		benefit: "Industry-aligned training with 100K+ certified graduates.",
+		description:
+			"Training programs aligned to industry-ready standards and safety.",
+		link: "/services/skill-development",
+		image: "/images/services-home/skilldevservice1.jpeg",
+		icon: (
+			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+				<path d="M4 7l8-3 8 3-8 3-8-3z" />
+			</svg>
+		),
+	},
+	{
 		title: "Manpower Sourcing & Payroll",
 		benefit: "End-to-end recruitment, compliance, and payroll integration.",
 		description:
@@ -46,33 +73,8 @@ const services = [
 			</svg>
 		),
 	},
-	{
-		title: "Toll Plaza Management",
-		benefit: "TMS-integrated operations with real-time traffic management.",
-		description:
-			"Complete toll operations with TMS, ATMS, traffic management, and 24/7 incident response.",
-		link: "/services/toll-plaza-management",
-		image: "/images/clients-services/tollmanagement.jpg",
-		icon: (
-			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
-				<path d="M3 20h18" />
-				<path d="M5 20V8h14v12" />
-			</svg>
-		),
-	},
-	{
-		title: "Skill Development",
-		benefit: "Industry-aligned training with 100K+ certified graduates.",
-		description:
-			"Training programs aligned to industry-ready standards and safety.",
-		link: "/services/skill-development",
-		image: "/images/services-home/skilldevservice1.jpeg",
-		icon: (
-			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
-				<path d="M4 7l8-3 8 3-8 3-8-3z" />
-			</svg>
-		),
-	},
+	
+	
 	{
 		title: "Overseas Recruitment",
 		benefit: "Global sourcing with visa and compliance support.",

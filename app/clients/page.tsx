@@ -19,42 +19,42 @@ export default function ClientsPage() {
       <Header />
       
       {/* Hero Banner for Clients Page */}
-      <section className="relative h-[60vh] w-full overflow-hidden bg-white">
-        <div className="absolute inset-0 opacity-[0.03]">
+      <section className="relative h-[60vh] w-full overflow-hidden bg-black">
+        <div className="absolute inset-0 opacity-[0.06]">
           <div className="absolute inset-0" style={{
-            backgroundImage: `repeating-linear-gradient(0deg, #000 0px, #000 1px, transparent 1px, transparent 40px),
-            repeating-linear-gradient(90deg, #000 0px, #000 1px, transparent 1px, transparent 40px)`
+            backgroundImage: `repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 40px),
+            repeating-linear-gradient(90deg, #fff 0px, #fff 1px, transparent 1px, transparent 40px)`
           }} />
         </div>
         
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center">
-          <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-gray-500">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-14 sm:pt-20 text-center">
+          <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <span>Trusted Partnerships</span>
             <span className="h-px w-12 bg-[#EF2B2D]" />
           </div>
 
-          <h1 className="mt-6 text-5xl font-bold text-gray-900 sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
             Our Clients
           </h1>
 
-          <p className="mt-5 max-w-3xl text-lg text-gray-600">
+          <p className="mt-5 max-w-3xl text-lg text-white/75">
             Serving 1000+ leading organizations with excellence, reliability, and unwavering commitment
           </p>
 
           {/* Quick Stats */}
-          <div className="mt-12 grid grid-cols-3 gap-8">
+          <div className="mt-12 grid grid-cols-3 gap-8 mb-10">
             <div>
-              <div className="text-4xl font-bold text-[#EF2B2D]">1000+</div>
-              <div className="mt-2 text-sm text-gray-600">Active Clients</div>
+              <div className="text-3xl font-bold text-[#EF2B2D] sm:text-4xl">1000+</div>
+              <div className="mt-2 text-sm text-white/70">Active Clients</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-[#EF2B2D]">2,000+</div>
-              <div className="mt-2 text-sm text-gray-600">Sites Managed</div>
+              <div className="text-3xl font-bold text-[#EF2B2D] sm:text-4xl">2,000+</div>
+              <div className="mt-2 text-sm text-white/70">Sites Managed</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-[#EF2B2D]">19+</div>
-              <div className="mt-2 text-sm text-gray-600">Years Experience</div>
+              <div className="text-3xl font-bold text-[#EF2B2D] sm:text-4xl">19+</div>
+              <div className="mt-2 text-sm text-white/70">Years Experience</div>
             </div>
           </div>
         </div>

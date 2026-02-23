@@ -7,6 +7,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function DroneTrainingPage() {
+  const galleryImages = [1, 2, 3, 4, 5, 6, 7, 8].map((index) => `/images/drone/${index}.jpg`);
+  const trainingVideos = [1, 2, 3].map((index) => `/images/drone/video${index}.mp4`);
+
   const features = [
     {
       title: "Top-Notch Instructors",
@@ -542,7 +545,7 @@ export default function DroneTrainingPage() {
             <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
           </motion.div>
 
-          {/* Large Video/Image */}
+          {/* Featured Video Player */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -550,41 +553,46 @@ export default function DroneTrainingPage() {
             viewport={{ once: true, margin: "-50px" }}
             className="mb-8"
           >
-            <div className="relative aspect-video overflow-hidden rounded-lg border border-gray-200 bg-gray-200">
-              <Image
-                src="/images/banner2.png"
-                alt="Training Video"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                <div className="h-16 w-16 rounded-full border-2 border-white/80 flex items-center justify-center">
-                  <div className="h-0 w-0 border-l-8 border-t-4 border-b-4 border-l-white border-t-transparent border-b-transparent ml-1" />
-                </div>
+            <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+              <div className="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-5 py-3">
+                <p className="mb-0 text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D]">Featured Video</p>
+                <span className="text-xs font-medium text-gray-500">Drone Training Highlights</span>
+              </div>
+              <div className="relative aspect-video overflow-hidden bg-black">
+                <iframe
+                  src="https://www.youtube.com/embed/WdNgFv9Edzk"
+                  title="Drone Training Highlights"
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </div>
             </div>
           </motion.div>
 
-          {/* Video Row */}
+          {/* Attached Videos */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 0.61, 0.36, 1] }}
             viewport={{ once: true, margin: "-50px" }}
-            className="mb-8 grid grid-cols-3 gap-4"
+            className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
           >
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="relative aspect-video overflow-hidden rounded-lg border border-gray-200 bg-gray-200">
-                <Image
-                  src="/images/banner2.png"
-                  alt={`Training Video ${i}`}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                  <div className="h-12 w-12 rounded-full border-2 border-white/80 flex items-center justify-center">
-                    <div className="h-0 w-0 border-l-6 border-t-3 border-b-3 border-l-white border-t-transparent border-b-transparent ml-1" />
-                  </div>
+            {trainingVideos.map((videoSrc, index) => (
+              <div key={videoSrc} className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+                <div className="relative aspect-video overflow-hidden bg-black">
+                  <video
+                    className="h-full w-full object-contain"
+                    controls
+                    preload="metadata"
+                    playsInline
+                  >
+                    <source src={videoSrc} type="video/mp4" />
+                  </video>
+                </div>
+                <div className="border-t border-gray-200 px-3 py-2">
+                  <p className="mb-0 text-xs font-medium text-gray-700">Training Video {index + 1}</p>
                 </div>
               </div>
             ))}
@@ -598,11 +606,11 @@ export default function DroneTrainingPage() {
             viewport={{ once: true, margin: "-50px" }}
             className="grid grid-cols-2 gap-4 md:grid-cols-4"
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="relative aspect-square overflow-hidden rounded-lg border border-gray-200 bg-gray-200">
+            {galleryImages.map((imageSrc, index) => (
+              <div key={imageSrc} className="relative aspect-square overflow-hidden rounded-lg border border-gray-200 bg-gray-200">
                 <Image
-                  src="/images/banner2.png"
-                  alt={`Training Image ${i}`}
+                  src={imageSrc}
+                  alt={`Drone Training Image ${index + 1}`}
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-110"
                 />

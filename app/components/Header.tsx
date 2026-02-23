@@ -10,7 +10,7 @@ const navItems = [
   {
     label: "About Us",
     children: [
-      { label: "Company Overview", href: "/about#story" },
+      { label: "Company Overview", href: "/about" },
       { label: "Leadership", href: "/leadership" },
     ],
   },
