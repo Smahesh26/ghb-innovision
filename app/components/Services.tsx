@@ -11,7 +11,7 @@ const services = [
 		description:
 			"Complete toll operations with TMS, ATMS, traffic management, and 24/7 incident response.",
 		link: "/services/toll-plaza-management",
-		image: "/images/clients-services/tollmanagement.jpg",
+		image: "/images/services-home/tollplazaservicehoma.jpg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M3 20h18" />
@@ -52,7 +52,7 @@ const services = [
 		description:
 			"Training programs aligned to industry-ready standards and safety.",
 		link: "/services/skill-development",
-		image: "/images/services-home/skilldevservice1.jpeg",
+		image: "/images/services-home/skilldevelopmentservicehome.jpg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<path d="M4 7l8-3 8 3-8 3-8-3z" />
@@ -65,7 +65,7 @@ const services = [
 		description:
 			"Recruitment, onboarding, payroll, and compliance handled in one flow.",
 		link: "/services/manpower-sourcing",
-		image: "/images/services-home/Manpower Sourcing and Payroll.png",
+		image: "/images/services-home/ManpwerandSourcing.jpg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<circle cx="9" cy="8" r="3" />
@@ -81,7 +81,7 @@ const services = [
 		description:
 			"Global sourcing, documentation, and deployment support.",
 		link: "/services/overseas-recruitment",
-		image: "/images/services-home/Overseas Recruitment.png",
+		image: "/images/services-home/Overseas.jpg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<circle cx="12" cy="12" r="9" />
@@ -89,12 +89,12 @@ const services = [
 		),
 	},
 	{
-		title: "Drone Flying Training",
+		title: "Drone Manufacturing & Training",
 		benefit: "Government-certified operators for surveillance and inspection.",
 		description:
 			"Certified drone training for surveillance and inspection tasks.",
 		link: "/services#drone",
-		image: "/images/services-home/droneservices1.jpeg",
+		image: "/images/services-home/drone.jpg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<rect x="8" y="9" width="8" height="6" rx="1" />

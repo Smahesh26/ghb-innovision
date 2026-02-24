@@ -27,7 +27,7 @@ export default function ClientsPage() {
           }} />
         </div>
         
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-14 sm:pt-20 text-center">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-24 sm:pt-28 text-center">
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <span>Trusted Partnerships</span>

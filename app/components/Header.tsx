@@ -78,7 +78,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-6">
 
         <div
-          className={`mt-4 flex items-center justify-between rounded-xl border border-white/10 px-8 transition-all duration-500
+          className={`mt-0 flex items-center justify-between rounded-xl border border-white/10 px-8 transition-all duration-500
           ${isScrolled ? "bg-black/80 backdrop-blur-xl shadow-2xl" : "bg-black/40 backdrop-blur-md"}
           h-20`}
         >

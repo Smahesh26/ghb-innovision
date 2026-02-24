@@ -73,13 +73,14 @@ export default function Footer() {
 
       <div className="relative mx-auto max-w-7xl px-6 py-20">
 
+        <div className="mb-12 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
         {/* TOP GRID */}
-        <div className="grid gap-16 lg:grid-cols-5">
+        <div className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-12">
 
           {/* COMPANY INFO */}
-          <div className="lg:col-span-1">
-            {/* Logo */}
-            <div className="relative mb-8 h-16 w-56">
+          <div className="lg:col-span-4">
+            <div className="relative mb-8 h-16 w-56 max-w-full">
               <Image
                 src="/images/logo.png"
                 alt="Innovision Security"
@@ -95,8 +96,7 @@ export default function Footer() {
               services through structured systems and disciplined execution.
             </p>
 
-            {/* SOCIAL ICONS - Enhanced 3D */}
-            <div className="mt-8 flex gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -106,11 +106,8 @@ export default function Footer() {
                   className="group relative"
                   aria-label={social.name}
                 >
-                  {/* Glow effect */}
-                  <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#EF2B2D] to-red-600 opacity-0 blur transition-opacity duration-300 group-hover:opacity-75" />
-                  
-                  {/* Button */}
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-white/10 to-white/5 text-white/60 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:border-[#EF2B2D]/50 group-hover:text-white group-hover:shadow-[0_0_25px_rgba(239,43,45,0.4)] group-hover:scale-110">
+                  <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#EF2B2D] to-red-600 opacity-0 blur transition-opacity duration-300 group-hover:opacity-70" />
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/60 shadow-[0_10px_20px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-300 group-hover:border-[#EF2B2D]/50 group-hover:text-white group-hover:shadow-[0_0_25px_rgba(239,43,45,0.35)] group-hover:-translate-y-0.5">
                     {social.icon}
                   </div>
                 </a>
@@ -119,19 +116,19 @@ export default function Footer() {
           </div>
 
           {/* CONTACT */}
-          <div>
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/80 border-l-4 border-[#EF2B2D] pl-3">
+          <div className="lg:col-span-2">
+            <h3 className="mb-6 border-l-4 border-[#EF2B2D] pl-3 text-sm font-bold uppercase tracking-[0.3em] text-white/80">
               Contact
             </h3>
 
             <ul className="space-y-4 text-sm text-white/70">
               <li className="flex items-start gap-3 transition hover:text-white">
                 <span className="text-[#EF2B2D] text-lg">📞</span>
-                <span>0124-2341602</span>
+                <a href="tel:01242341602" className="break-words">0124-2341602</a>
               </li>
               <li className="flex items-start gap-3 transition hover:text-white">
                 <span className="text-[#EF2B2D] text-lg">📧</span>
-                <span>contact@innovision.co.in</span>
+                <a href="mailto:contact@innovision.co.in" className="whitespace-nowrap text-xs sm:text-sm">contact@innovision.co.in</a>
               </li>
               <li className="flex items-start gap-3 transition hover:text-white">
                 <span className="text-[#EF2B2D] text-lg">📍</span>
@@ -144,73 +141,80 @@ export default function Footer() {
           </div>
 
           {/* QUICK LINKS */}
-          <div>
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/80 border-l-4 border-[#EF2B2D] pl-3">
+          <div className="lg:col-span-2">
+            <h3 className="mb-6 border-l-4 border-[#EF2B2D] pl-3 text-sm font-bold uppercase tracking-[0.3em] text-white/80">
               Quick Links
             </h3>
 
             <ul className="space-y-3 text-sm text-white/70">
               <li>
-                <Link href="/services/toll-plaza-management" className="transition hover:text-white hover:translate-x-1 inline-block">→ Toll Plaza Management</Link>
+                <Link href="/quick-links" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Quick Links Page</Link>
               </li>
               <li>
-                <Link href="/services/security/manned-private-security" className="transition hover:text-white hover:translate-x-1 inline-block">→ Manned Private Security Services</Link>
+                <Link href="/services/toll-plaza-management" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Toll Plaza Management</Link>
               </li>
               <li>
-                <Link href="/services/facility-management" className="transition hover:text-white hover:translate-x-1 inline-block">→ Integrated Facility Management</Link>
+                <Link href="/services/security/manned-private-security" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Manned Private Security Services</Link>
               </li>
               <li>
-                <Link href="/services/skill-development" className="transition hover:text-white hover:translate-x-1 inline-block">→ Skill Development</Link>
+                <Link href="/services/facility-management" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Integrated Facility Management</Link>
               </li>
               <li>
-                <Link href="/services/manpower-sourcing" className="transition hover:text-white hover:translate-x-1 inline-block">→ Manpower Sourcing & Payroll</Link>
+                <Link href="/services/skill-development" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Skill Development</Link>
               </li>
               <li>
-                <Link href="/services/overseas-recruitment" className="transition hover:text-white hover:translate-x-1 inline-block">→ Overseas Recruitment</Link>
+                <Link href="/services/manpower-sourcing" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Manpower Sourcing & Payroll</Link>
               </li>
               <li>
-                <Link href="/services#drone" className="transition hover:text-white hover:translate-x-1 inline-block">→ Drone Flying Training</Link>
+                <Link href="/services/overseas-recruitment" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Overseas Recruitment</Link>
               </li>
             </ul>
           </div>
 
           {/* INVESTOR RELATIONS */}
-          <div>
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/80 border-l-4 border-[#EF2B2D] pl-3">
+          <div className="lg:col-span-2">
+            <h3 className="mb-6 border-l-4 border-[#EF2B2D] pl-3 text-sm font-bold uppercase tracking-[0.3em] text-white/80">
               Investor Relations
             </h3>
 
             <ul className="space-y-3 text-sm text-white/70">
               <li>
-                <Link href="/investors" className="transition hover:text-white hover:translate-x-1 inline-block">→ Financial Statements</Link>
+                <Link href="/investors" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Financial Statements</Link>
               </li>
               <li>
-                <Link href="/investors" className="transition hover:text-white hover:translate-x-1 inline-block">→ Annual Report</Link>
+                <Link href="/investors" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Annual Report</Link>
               </li>
               <li>
-                <Link href="/investors" className="transition hover:text-white hover:translate-x-1 inline-block">→ IPO Information</Link>
+                <Link href="/investors" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ IPO Information</Link>
               </li>
               <li>
-                <Link href="/investors" className="transition hover:text-white hover:translate-x-1 inline-block">→ Governance</Link>
-              </li>
-              <li>
-                <Link href="/investors/ipo-disclaimer/confirm" className="transition hover:text-white hover:translate-x-1 inline-block">→ Corporate Video</Link>
+                <Link href="/investors/ipo-disclaimer/confirm" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Corporate Video</Link>
               </li>
             </ul>
           </div>
 
           {/* CORPORATE */}
-          <div>
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/80 border-l-4 border-[#EF2B2D] pl-3">
+          <div className="lg:col-span-2">
+            <h3 className="mb-6 border-l-4 border-[#EF2B2D] pl-3 text-sm font-bold uppercase tracking-[0.3em] text-white/80">
               Corporate
             </h3>
 
             <ul className="space-y-3 text-sm text-white/70">
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Compliance</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Awards & Recognition</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Innovision International</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Aerodrone Robotics</li>
-              <li className="transition hover:text-white hover:translate-x-1 cursor-pointer">→ Careers</li>
+              <li>
+                <Link href="/insights/certificates" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Compliance</Link>
+              </li>
+              <li>
+                <Link href="/insights/awards" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Awards & Recognition</Link>
+              </li>
+              <li>
+                <Link href="/insights/blogs" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Blogs</Link>
+              </li>
+              <li>
+                <Link href="/services/drone-training" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Aerodrone Robotics</Link>
+              </li>
+              <li>
+                <Link href="/careers" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Careers</Link>
+              </li>
             </ul>
           </div>
 
@@ -223,9 +227,12 @@ export default function Footer() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent h-px" />
         
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-white/50 sm:flex-row">
-          <span>© 2024 Innovision Limited. All rights reserved.</span>
+          <span className="text-center sm:text-left">© 2024 Innovision Limited. All rights reserved.</span>
 
-          <div className="flex gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:justify-end sm:gap-6">
+            <Link href="/quick-links" className="cursor-pointer transition hover:text-white">
+              Quick Links
+            </Link>
             <span className="cursor-pointer transition hover:text-white">
               Privacy Policy
             </span>

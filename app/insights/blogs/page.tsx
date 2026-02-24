@@ -1,5 +1,8 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { blogPosts } from "./data";
+import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
 	title: "Blogs & Articles - Innovision Security",
@@ -7,133 +10,87 @@ export const metadata = {
 };
 
 export default function BlogsPage() {
-	const blogs = [
-		{
-			category: "Security Trends",
-			date: "February 20, 2026",
-			title: "The Future of Private Security: Technology & Human Expertise",
-			excerpt: "Exploring how AI and advanced technology are reshaping the private security industry while maintaining the human touch.",
-			readTime: "5 min read",
-		},
-		{
-			category: "Workforce Development",
-			date: "February 15, 2026",
-			title: "Building a Skilled Security Workforce: Interview & Training Methods",
-			excerpt: "Best practices in identifying, training, and retaining top security talent for modern enterprises.",
-			readTime: "7 min read",
-		},
-		{
-			category: "Industry Insights",
-			date: "February 10, 2026",
-			title: "Risk Assessment in Corporate Security: A Comprehensive Guide",
-			excerpt: "Understanding modern threat landscapes and implementing effective risk mitigation strategies.",
-			readTime: "6 min read",
-		},
-		{
-			category: "Business Growth",
-			date: "February 5, 2026",
-			title: "Scaling Security Services Across India: The Innovision Strategy",
-			excerpt: "How we built a nationwide security and staffing network reaching 100,000+ trained professionals.",
-			readTime: "8 min read",
-		},
-		{
-			category: "Technology",
-			date: "January 30, 2026",
-			title: "Digital Tools for Modern Security Management",
-			excerpt: "Leveraging technology to improve efficiency, compliance, and service delivery in security operations.",
-			readTime: "6 min read",
-		},
-		{
-			category: "Compliance",
-			date: "January 25, 2026",
-			title: "Understanding PSARA Compliance Requirements",
-			excerpt: "A deep dive into Private Security Agency Registration Authority standards and compliance obligations.",
-			readTime: "9 min read",
-		},
-	];
+	const blogs = blogPosts;
 
 	return (
 		<>
 			<Header />
-			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
-				<div className="mx-auto max-w-6xl px-6">
-					{/* Header */}
-					<div className="mb-20">
-						<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-							Insights
-						</p>
-						<h1 className="mt-4 text-5xl font-bold text-white">
+			<main className="min-h-screen bg-black pb-20">
+				<section className="relative min-h-[62vh] w-full overflow-hidden bg-gradient-to-br from-black to-[#1a1a1d]">
+					<div className="absolute inset-0 bg-[url('/images/blog1.jpg')] bg-cover bg-center opacity-20" />
+					<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+
+					<div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-32 pb-12 text-center text-white">
+						<div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
+							<span className="h-px w-12 bg-[#EF2B2D]" />
+							<span>Insights</span>
+							<span className="h-px w-12 bg-[#EF2B2D]" />
+						</div>
+						<h1 className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl">
 							Latest Articles & Blogs
 						</h1>
-						<p className="mt-6 max-w-2xl text-lg text-white/70">
-							Expert insights, industry trends, and thought leadership on security, workforce development, and business innovation.
+						<p className="mt-5 max-w-3xl text-lg text-white/80">
+							Explore Innovision updates, industry perspectives, and practical guidance across security, toll operations, and skill development.
 						</p>
-						<div className="mt-8 h-1 w-16 bg-[#EF2B2D]" />
 					</div>
+				</section>
 
-					{/* Blog Grid */}
-					<div className="grid gap-8 md:grid-cols-2">
-						{blogs.map((blog, index) => (
-							<article
-								key={blog.title}
-								className="group flex flex-col rounded-xl border border-white/10 bg-gradient-to-br from-[#0b0b0d] to-white/5 p-8 backdrop-blur-md transition hover:border-[#EF2B2D]/50"
+				<section className="bg-white py-20">
+					<div className="mx-auto max-w-6xl px-6">
+						<div className="mb-10 flex items-center gap-4">
+							<span className="h-px w-12 bg-[#EF2B2D]" />
+							<p className="text-xs font-semibold uppercase tracking-[0.4em] text-black/60">
+								News & Articles
+							</p>
+							<span className="h-px flex-1 bg-black/10" />
+						</div>
+
+					<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+						{blogs.map((blog) => (
+							<Link
+								key={blog.slug}
+								href={`/insights/blogs/${blog.slug}`}
+								className="block"
 							>
-								{/* Category & Date */}
-								<div className="flex items-center justify-between gap-4">
-									<span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D]">
-										{blog.category}
-									</span>
-									<span className="text-xs text-white/60">{blog.readTime}</span>
-								</div>
+								<article className="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)] transition hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(0,0,0,0.16)]">
+									<div className="relative h-56 w-full overflow-hidden">
+										<Image
+											src={blog.image}
+											alt={blog.title}
+											fill
+											className="object-cover transition duration-500 group-hover:scale-105"
+										/>
+										<div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+										<div className="absolute bottom-4 left-4 rounded-full border border-white/30 bg-black/55 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+											{blog.category}
+										</div>
+									</div>
 
-								{/* Date */}
-								<p className="mt-3 text-xs text-white/50">{blog.date}</p>
+									<div className="flex flex-col p-7">
+										<div className="flex items-center justify-between gap-4">
+											<p className="text-xs text-black/50">{blog.date}</p>
+											<span className="text-xs text-black/60">{blog.readTime}</span>
+										</div>
 
-								{/* Title */}
-								<h3 className="mt-4 flex-1 text-2xl font-bold text-white group-hover:text-[#EF2B2D] transition">
-									{blog.title}
-								</h3>
+										<h3 className="mt-4 min-h-[92px] text-2xl font-bold text-[#111111] transition group-hover:text-[#EF2B2D]">
+											{blog.title}
+										</h3>
 
-								{/* Excerpt */}
-								<p className="mt-4 text-sm text-white/70">
-									{blog.excerpt}
-								</p>
+										<p className="mt-4 text-sm leading-relaxed text-black/70">
+											{blog.excerpt}
+										</p>
 
-								{/* Read More */}
-								<a
-									href="#"
-									className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D] hover:gap-3 transition"
-								>
-									Read Article
-									<span>→</span>
-								</a>
-							</article>
+										<div className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D] transition group-hover:gap-3">
+											Read Article
+											<span>→</span>
+										</div>
+									</div>
+								</article>
+							</Link>
 						))}
 					</div>
-
-					{/* Newsletter Section */}
-					<div className="mt-24 rounded-xl border border-white/10 bg-gradient-to-r from-[#EF2B2D]/10 via-transparent to-[#EF2B2D]/5 backdrop-blur-md p-12 text-center">
-						<h3 className="text-2xl font-bold text-white">
-							Subscribe to Our Newsletter
-						</h3>
-						<p className="mt-4 text-white/70">
-							Get the latest insights and industry updates delivered to your inbox.
-						</p>
-						<form className="mt-8 flex gap-3 justify-center">
-							<input
-								type="email"
-								placeholder="Enter your email"
-								className="rounded-md bg-white/10 px-6 py-3 text-sm text-white placeholder:text-white/50 backdrop-blur-md border border-white/10 focus:outline-none focus:border-[#EF2B2D]"
-							/>
-							<button
-								type="submit"
-								className="rounded-md bg-[#EF2B2D] px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-[#d62426]"
-							>
-								Subscribe
-							</button>
-						</form>
 					</div>
-				</div>
+				</section>
 			</main>
 			<Footer />
 		</>
