@@ -2,8 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import CTA from "@/app/components/CTA";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const pagesWithInlineCTA = new Set([
+    "/clients",
+    "/careers",
+    "/services",
+    "/services/security/manned-private-security",
+    "/services/skill-development",
+    "/services/skill-development/placement",
+    "/services/skill-development/project",
+    "/services/skill-development/training",
+  ]);
+
+  const showGlobalCTA = pathname !== "/" && !pagesWithInlineCTA.has(pathname);
+
   const socialLinks = [
     {
       name: "Facebook",
@@ -53,7 +70,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-[#0b0b0d] via-[#111113] to-black text-white">
+    <>
+      {showGlobalCTA && <CTA />}
+      <footer className="relative overflow-hidden bg-gradient-to-b from-[#0b0b0d] via-[#111113] to-black text-white">
 
       {/* 3D Background Effects */}
       <div className="absolute inset-0">
@@ -246,6 +265,7 @@ export default function Footer() {
         </div>
       </div>
 
-    </footer>
+      </footer>
+    </>
   );
 }

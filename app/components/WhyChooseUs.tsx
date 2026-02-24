@@ -153,8 +153,9 @@ export default function WhyChooseUs() {
 
 			const rect = sequenceRef.current.getBoundingClientRect();
 			const viewportHeight = window.innerHeight;
-			const startOffset = viewportHeight * 0.64;
-			const scrollableDistance = Math.max(1, rect.height - viewportHeight * 0.35);
+			const startOffset = viewportHeight * 0.82;
+			const endOffset = viewportHeight * 0.22;
+			const scrollableDistance = Math.max(1, rect.height - (startOffset - endOffset));
 			const rawProgress = (startOffset - rect.top) / scrollableDistance;
 			const safeProgress = Number.isFinite(rawProgress) ? rawProgress : 0;
 			const progress = Math.min(1, Math.max(0, safeProgress));
@@ -247,10 +248,10 @@ export default function WhyChooseUs() {
 						{/* RIGHT SIDE - STICKY SCROLL TIMELINE */}
 						<div
 							ref={sequenceRef}
-							className="relative pt-20 pb-36"
-							style={{ minHeight: `calc(100vh + ${(highlights.length - 1) * 40}vh)` }}
+							className="relative pt-8 pb-10"
+							style={{ minHeight: `calc(100vh + ${(highlights.length - 1) * 18}vh)` }}
 						>
-							<div className="sticky top-[176px] pt-10 lg:top-[188px] lg:pt-12">
+							<div className="sticky top-28 pt-2 lg:top-32 lg:pt-3">
 								<div className="relative">
 									<div className="absolute bottom-4 left-4 top-4 w-px bg-[#EF2B2D]/25" />
 
@@ -326,19 +327,6 @@ export default function WhyChooseUs() {
 				<div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#EF2B2D]/20 to-transparent" />
 				
 				<div className="mx-auto max-w-7xl px-6">
-					<motion.div 
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6 }}
-						className="mb-12 text-center"
-					>
-						{/* <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-[#EF2B2D]">
-							Our Impact
-						</h2> */}
-						{/* <div className="mx-auto mt-2 h-1 w-16 bg-[#EF2B2D]" /> */}
-					</motion.div>
-
 					<div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6">
 						{statsData.map((item, index) => (
 							<motion.div
