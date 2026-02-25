@@ -153,8 +153,8 @@ export default function WhyChooseUs() {
 
 			const rect = sequenceRef.current.getBoundingClientRect();
 			const viewportHeight = window.innerHeight;
-			const startOffset = viewportHeight * 0.82;
-			const endOffset = viewportHeight * 0.22;
+			const startOffset = viewportHeight * 0.78;
+			const endOffset = viewportHeight * 0.26;
 			const scrollableDistance = Math.max(1, rect.height - (startOffset - endOffset));
 			const rawProgress = (startOffset - rect.top) / scrollableDistance;
 			const safeProgress = Number.isFinite(rawProgress) ? rawProgress : 0;
@@ -167,8 +167,11 @@ export default function WhyChooseUs() {
 
 			setActiveIndex(Number.isFinite(nextIndex) ? nextIndex : 0);
 			setRevealedCount((prev) => {
-				const nextCount = Number.isFinite(nextIndex) ? nextIndex + 1 : 1;
-				return Math.max(1, Math.max(prev, nextCount));
+				const targetCount = Number.isFinite(nextIndex) ? nextIndex + 1 : 1;
+				if (targetCount <= prev) {
+					return prev;
+				}
+				return Math.min(targetCount, prev + 1);
 			});
 		};
 
@@ -194,7 +197,7 @@ export default function WhyChooseUs() {
 
 	return (
 		<>
-			<section className="relative overflow-hidden bg-white py-32 text-neutral-900">
+			<section className="relative overflow-hidden bg-white pt-32 pb-14 text-neutral-900">
 				<div className="mx-auto max-w-7xl px-6">
 					<div className="grid gap-20 lg:grid-cols-[0.9fr_1.1fr]">
 						{/* LEFT SIDE - HEADING AND VIDEO */}
@@ -231,16 +234,14 @@ export default function WhyChooseUs() {
 								className="relative rounded-2xl overflow-hidden shadow-2xl mt-12"
 							>
 								<div className="relative bg-black aspect-video w-full">
-									<iframe
-										width="100%"
-										height="100%"
-										src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
-										title="Innovision Services Video"
-										frameBorder="0"
-										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-										allowFullScreen
-										className="rounded-2xl"
-									/>
+									<video
+										className="h-full w-full rounded-2xl object-cover"
+										controls
+										preload="metadata"
+									>
+										<source src="/images/drone/Innovision%20Company%20Brief.mp4" type="video/mp4" />
+										Your browser does not support the video tag.
+									</video>
 								</div>
 							</motion.div>
 						</motion.div>
@@ -251,7 +252,7 @@ export default function WhyChooseUs() {
 							className="relative pt-8 pb-10"
 							style={{ minHeight: `calc(100vh + ${(highlights.length - 1) * 18}vh)` }}
 						>
-							<div className="sticky top-28 pt-2 lg:top-32 lg:pt-3">
+							<div className="sticky top-36 pt-2 lg:top-40 lg:pt-3">
 								<div className="relative">
 									<div className="absolute bottom-4 left-4 top-4 w-px bg-[#EF2B2D]/25" />
 
@@ -267,9 +268,10 @@ export default function WhyChooseUs() {
 													initial={false}
 													animate={{
 														opacity: isVisible ? 1 : 0.3,
-														x: isVisible ? 0 : 28,
+															x: isVisible ? 0 : 30,
+															y: isVisible ? 0 : 10,
 													}}
-													transition={{ duration: 0.45, ease: [0.0, 0.0, 0.2, 1.0] }}
+														transition={{ duration: 0.5, ease: [0.0, 0.0, 0.2, 1.0] }}
 												>
 													<motion.div
 														className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#EF2B2D] bg-white"
@@ -321,7 +323,7 @@ export default function WhyChooseUs() {
 			</section>
 
 			{/* STATS SECTION */}
-			<section className="relative w-full overflow-hidden bg-gradient-to-b from-white to-gray-50 py-20">
+			<section className="relative w-full overflow-hidden bg-gradient-to-b from-white to-gray-50 py-14">
 				{/* Decorative background elements */}
 				<div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#EF2B2D]/20 to-transparent" />
 				<div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#EF2B2D]/20 to-transparent" />
