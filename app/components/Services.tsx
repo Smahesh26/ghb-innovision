@@ -94,7 +94,7 @@ const services = [
 		description:
 			"Certified drone training for surveillance and inspection tasks.",
 		link: "/services#drone",
-		image: "/images/services-home/drone.jpg",
+		image: "/images/services-home/Drone.jpg",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
 				<rect x="8" y="9" width="8" height="6" rx="1" />

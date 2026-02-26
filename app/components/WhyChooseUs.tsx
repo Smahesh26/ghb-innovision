@@ -260,6 +260,7 @@ export default function WhyChooseUs() {
 										ref={videoRef}
 										className="h-full w-full rounded-2xl object-cover"
 										preload="metadata"
+										poster="/images/drone/1.jpg"
 										onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
 										onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
 										onPlay={() => setIsPlaying(true)}
@@ -267,7 +268,7 @@ export default function WhyChooseUs() {
 										onEnded={() => setIsPlaying(false)}
 										playsInline
 									>
-										<source src="/images/Innovision%20Video.mp4" type="video/mp4" />
+										<source src="/images/drone/video1.mp4" type="video/mp4" />
 										Your browser does not support the video tag.
 									</video>
 
