@@ -1,47 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const industries = [
 	{
 		title: "Corporate & IT Parks",
 		description: "Security, facility management, and support staff for enterprise campuses",
-		image: "/images/banner1.png",
+		image: "/images/IndustriesServed/Corporate & IT Parks.jpg",
 	},
 	{
 		title: "Manufacturing & Warehousing",
 		description: "Industrial security, logistics support, and operational manpower services",
-		image: "/images/clients-services/operationalexcellence.jpg",
+		image: "/images/IndustriesServed/Manufacturing & Warehousing.jpg",
 	},
 	{
 		title: "Government & PSUs",
 		description: "Manpower deployment, facility services, and compliance-driven operations",
-		image: "/images/banner2.png",
+		image: "/images/IndustriesServed/Government & PSUs.jpg",
 	},
 	{
 		title: "Healthcare & Hospitals",
 		description: "Patient care support, hygiene services, and security for medical facilities",
-		image: "/images/banner3.png",
+		image: "/images/IndustriesServed/Healthcare & Hospitals.jpg",
 	},
 	{
 		title: "Retail & Hospitality",
 		description: "Customer-facing staff, loss prevention, and property maintenance teams",
-		image: "/images/banner4.png",
+		image: "/images/IndustriesServed/Retail & Hospitality.jpg",
 	},
 	{
 		title: "Education & Institutions",
 		description: "Campus security, housekeeping, and administrative support services",
-		image: "/images/skill-training2.jpg",
+		image: "/images/IndustriesServed/Education & Institutions.jpg",
 	},
 	{
 		title: "Infrastructure & Real Estate",
 		description: "Construction support, toll operations, and integrated facility management",
-		image: "/images/clients-services/tollroad.jpg",
+		image: "/images/IndustriesServed/Infrastructure & Real Estate.jpg",
 	},
 	{
 		title: "Aviation & Transportation",
 		description: "Airport services, ground handling staff, and transport logistics support",
-		image: "/images/drone/7.jpg",
+		image: "/images/IndustriesServed/Aviation & Transportation.jpg",
 	},
 ];
 
@@ -100,32 +101,38 @@ export default function Industries() {
 					<div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
 				</motion.div>
 
-				{/* INDUSTRIES - Unique Compact Grid with Icon Emphasis */}
+				{/* INDUSTRIES */}
 				<motion.div
 					variants={containerVariants}
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
-					className="grid grid-cols-1 gap-4 justify-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+					className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 				>
 					{industries.map((industry, index) => (
 						<motion.div
 							key={index}
 							variants={cardVariants}
-							whileHover={{ y: -4, scale: 1.02 }}
-							className="group relative h-[200px] w-full max-w-[300px] overflow-hidden rounded-2xl border border-white/20 shadow-xl"
+							whileHover={{ y: -6 }}
+							className="group relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-[0_10px_30px_rgba(17,24,39,0.08)] transition-all duration-300 hover:border-[#EF2B2D]/35 hover:shadow-[0_16px_40px_rgba(17,24,39,0.14)]"
 						>
-							<div
-								className="absolute inset-0 bg-center bg-cover"
-								style={{ backgroundImage: `url(${industry.image})` }}
-							/>
-							<div className="absolute inset-0 bg-black/55 transition-colors duration-300 group-hover:bg-black/45" />
+							<div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+								<Image
+									src={encodeURI(industry.image)}
+									alt={industry.title}
+									fill
+									sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+									className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+								/>
+								<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
+							</div>
 
-							<div className="relative z-10 flex h-full flex-col justify-end p-5 text-white">
-								<h3 className="mb-2 text-base font-bold leading-tight">
+							<div className="p-5">
+								<div className="mb-3 h-0.5 w-10 rounded-full bg-[#EF2B2D]/70 transition-all duration-300 group-hover:w-14 group-hover:bg-[#EF2B2D]" />
+								<h3 className="text-base font-bold leading-snug text-gray-900">
 									{industry.title}
 								</h3>
-								<p className="mb-0 text-sm leading-relaxed text-white/90">
+								<p className="mt-2 mb-0 text-sm leading-relaxed text-gray-600">
 									{industry.description}
 								</p>
 							</div>

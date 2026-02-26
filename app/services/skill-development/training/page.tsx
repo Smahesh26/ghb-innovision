@@ -5,6 +5,7 @@ import Footer from "../../../components/Footer";
 import Contact from "../../../components/Contact";
 import CTA from "../../../components/CTA";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function SkillDevelopmentTrainingPage() {
   return (
@@ -24,6 +25,16 @@ export default function SkillDevelopmentTrainingPage() {
       <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <motion.div
+          className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#EF2B2D]/12 blur-3xl"
+          animate={{ x: [0, 20, 0], y: [0, -12, 0] }}
+          transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-8 right-8 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+          animate={{ x: [0, -14, 0], y: [0, 10, 0] }}
+          transition={{ duration: 8.2, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
@@ -70,11 +81,13 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-50px" }}
               className="lg:col-span-2"
             >
-              <div className="relative h-[600px] w-full overflow-hidden bg-gray-100">
-                <img
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-[0_14px_40px_rgba(17,24,39,0.10)]">
+                <Image
                   src="/images/skill-training1.png"
                   alt="Skill Development"
-                  className="h-full w-full object-contain"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-center"
                 />
                 <div className="absolute bottom-0 left-0 h-1 w-32 bg-[#EF2B2D]" />
               </div>
@@ -134,7 +147,8 @@ export default function SkillDevelopmentTrainingPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="group relative text-center"
+                    whileHover={{ y: -4 }}
+                    className="group relative rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-all hover:border-[#EF2B2D]/50 hover:shadow-md"
                   >
                     <div className="relative mx-auto mb-6 flex h-16 w-16 items-center justify-center">
                       <div className="absolute inset-0 bg-white" />
@@ -203,11 +217,13 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-50px" }}
               className="lg:col-span-3"
             >
-              <div className="relative h-[600px] w-full overflow-hidden bg-gray-100">
-                <img
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-[0_14px_40px_rgba(17,24,39,0.10)]">
+                <Image
                   src="/images/skill-training2.jpg"
                   alt="Training Facilities"
-                  className="h-full w-full object-contain"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover object-center"
                 />
                 <div className="absolute bottom-0 right-0 h-1 w-32 bg-[#EF2B2D]" />
               </div>
@@ -243,7 +259,8 @@ export default function SkillDevelopmentTrainingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
                   viewport={{ once: true, margin: "-50px" }}
-                  className="group space-y-4"
+                  whileHover={{ y: -3 }}
+                  className="group space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-[#EF2B2D]/50 hover:shadow-md"
                 >
                   <div className="text-6xl font-light text-gray-200 transition-all group-hover:text-[#EF2B2D]/20">0{index + 1}</div>
                   <p className="text-base text-gray-600">{item}</p>
@@ -260,11 +277,13 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-50px" }}
               className="lg:col-span-2"
             >
-              <div className="relative h-[600px] w-full overflow-hidden bg-gray-100">
-                <img
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-[0_14px_40px_rgba(17,24,39,0.10)]">
+                <Image
                   src="/images/skill-training3.jpeg"
                   alt="Certification"
-                  className="h-full w-full object-contain"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-center"
                 />
                 <div className="absolute bottom-0 left-0 h-1 w-32 bg-[#EF2B2D]" />
               </div>
@@ -340,7 +359,7 @@ export default function SkillDevelopmentTrainingPage() {
         transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Contact showFootprints={false} />
       </motion.div>
       <Footer />
     </>

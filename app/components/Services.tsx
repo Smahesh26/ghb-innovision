@@ -135,7 +135,7 @@ export default function Services() {
 					viewport={{ once: true }}
 					className="text-center"
 				>
-					<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+					<p className="text-xs font-semibold uppercase tracking-[0.5em] text-rose-600">
 						Our Services
 					</p>
 
@@ -148,7 +148,7 @@ export default function Services() {
 						and operational excellence across industries.
 					</p>
 
-					<div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
+					<div className="mx-auto mt-6 h-1 w-16 rounded-full bg-rose-600" />
 				</motion.div>
 
 				{/* GRID */}
@@ -167,13 +167,19 @@ export default function Services() {
 							<motion.div
 								variants={cardVariants}
 								whileHover={{ y: -12, scale: 1.03 }}
-								className={`group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#151517] to-[#1c1c1f] p-8 transition duration-500 hover:border-[#EF2B2D]/50 hover:shadow-[0_30px_80px_rgba(239,43,45,0.2)] cursor-pointer
+								className={`group relative overflow-hidden rounded-xl border border-white/20 bg-white/[0.06] p-8 backdrop-blur-xl transition duration-500 hover:border-rose-600 hover:bg-white/[0.08] hover:shadow-[0_24px_60px_rgba(225,29,72,0.3)] cursor-pointer
 									${index === 6 ? "md:col-span-2 lg:col-span-1 lg:col-start-2" : ""}`}
 							>
+								<motion.div
+									className="pointer-events-none absolute -left-1/2 top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-white/[0.2] to-transparent"
+									animate={{ x: ["-120%", "320%"] }}
+									transition={{ duration: 5.5, repeat: Infinity, ease: "linear", delay: index * 0.25 }}
+								/>
+								<div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.14] via-white/[0.03] to-transparent opacity-80" />
 
 								{/* Glow */}
 								<div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
-									<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.2),transparent_70%)]" />
+									<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(225,29,72,0.26),transparent_72%)]" />
 								</div>
 
 								<div className="relative">
@@ -191,8 +197,9 @@ export default function Services() {
 									<div className="flex items-center justify-between gap-4">
 										<div className="flex items-center gap-4">
 											<motion.span
-												whileHover={{ scale: 1.1, rotate: 5 }}
-												className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-[#EF2B2D]/40 bg-[#EF2B2D]/10 text-[#EF2B2D] transition group-hover:bg-[#EF2B2D] group-hover:text-white"
+												animate={{ y: [0, -2, 0] }}
+												transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: index * 0.1 }}
+												className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-rose-600/70 bg-rose-600/15 text-rose-600 transition group-hover:border-rose-600 group-hover:bg-rose-600 group-hover:text-white"
 											>
 												{service.icon}
 											</motion.span>
@@ -202,13 +209,13 @@ export default function Services() {
 											</h3>
 										</div>
 
-										<span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-[#EF2B2D]/40 bg-[#EF2B2D]/10 px-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#EF2B2D]">
+										<span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-rose-600/70 bg-rose-600/15 px-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-rose-600">
 											{String(index + 1).padStart(2, "0")}
 										</span>
 									</div>
 
 									{/* Benefit Line */}
-									<p className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#EF2B2D]">
+									<p className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-rose-600">
 										{service.benefit}
 									</p>
 
@@ -216,9 +223,14 @@ export default function Services() {
 										{service.description}
 									</p>
 
-									<span className="mt-6 inline-flex items-center gap-2 rounded-sm border border-[#EF2B2D]/30 bg-[#EF2B2D]/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D] transition group-hover:gap-3 group-hover:border-[#EF2B2D] group-hover:text-white">
+									<span className="mt-6 inline-flex items-center gap-2 rounded-sm border border-rose-600/70 bg-rose-600/15 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-rose-600 transition group-hover:border-rose-600 group-hover:bg-rose-600 group-hover:text-white">
 										Learn More
-										<span>→</span>
+										<motion.span
+											animate={{ x: [0, 4, 0] }}
+											transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: index * 0.08 }}
+										>
+											→
+										</motion.span>
 									</span>
 
 								</div>

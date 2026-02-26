@@ -88,6 +88,16 @@ export default function News() {
 
         </div>
 
+        <div className="mt-12 flex justify-center">
+          <Link
+            href="/insights/blogs"
+            className="inline-flex items-center gap-2 rounded-full bg-[#EF2B2D] px-7 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-[#d62426]"
+          >
+            More Blogs
+            <span>→</span>
+          </Link>
+        </div>
+
       </div>
     </section>
   );

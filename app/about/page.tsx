@@ -1,8 +1,5 @@
 import Header from "../components/Header";
-import About from "../components/About";
-import MDMessage from "../components/MDMessage";
-import News from "../components/News";
-import Timeline from "../components/Timeline";
+import AboutPageSections from "../components/AboutPageSections";
 import Footer from "../components/Footer";
 import { Metadata } from "next";
 
@@ -147,12 +144,7 @@ export default function AboutPage() {
       </section>
 
       {/* Main Content Sections */}
-      <main id="main-content" role="main">
-      <MDMessage />
-      <About />
-      <Timeline />
-      <News />
-      </main>
+      <AboutPageSections />
       <Footer />
     </>
   );

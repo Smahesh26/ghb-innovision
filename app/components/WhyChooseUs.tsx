@@ -2,6 +2,7 @@
 
 import {
 	motion,
+	AnimatePresence,
 	useMotionValue,
 	useTransform,
 	animate,
@@ -139,59 +140,81 @@ function Counter({ value, suffix = "", size = "default" }: { value: number; suff
 }
 
 export default function WhyChooseUs() {
-	const sequenceRef = useRef<HTMLDivElement>(null);
-	const [activeIndex, setActiveIndex] = useState(0);
-	const [revealedCount, setRevealedCount] = useState(1);
+	const [sliderIndex, setSliderIndex] = useState(0);
+	const playerRef = useRef<HTMLDivElement>(null);
+	const videoRef = useRef<HTMLVideoElement>(null);
+	const [isPlaying, setIsPlaying] = useState(false);
+	const [isMuted, setIsMuted] = useState(false);
+	const [isFullscreen, setIsFullscreen] = useState(false);
+	const [currentTime, setCurrentTime] = useState(0);
+	const [duration, setDuration] = useState(0);
+
+	const togglePlay = async () => {
+		if (!videoRef.current) return;
+		if (videoRef.current.paused) {
+			await videoRef.current.play();
+			setIsPlaying(true);
+			return;
+		}
+		videoRef.current.pause();
+		setIsPlaying(false);
+	};
+
+	const toggleMute = () => {
+		if (!videoRef.current) return;
+		videoRef.current.muted = !videoRef.current.muted;
+		setIsMuted(videoRef.current.muted);
+	};
+
+	const toggleFullscreen = async () => {
+		if (!playerRef.current) return;
+		if (document.fullscreenElement) {
+			await document.exitFullscreen();
+			return;
+		}
+		await playerRef.current.requestFullscreen();
+	};
+
+	const handleSeek = (nextTime: number) => {
+		if (!videoRef.current) return;
+		videoRef.current.currentTime = nextTime;
+		setCurrentTime(nextTime);
+	};
+
+	const formatTime = (value: number) => {
+		if (!Number.isFinite(value)) return "00:00";
+		const mins = Math.floor(value / 60)
+			.toString()
+			.padStart(2, "0");
+		const secs = Math.floor(value % 60)
+			.toString()
+			.padStart(2, "0");
+		return `${mins}:${secs}`;
+	};
+
+	const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
 	useEffect(() => {
-		let rafId: number | null = null;
+		const sliderInterval = window.setInterval(() => {
+			setSliderIndex((prev) => (prev + 1) % highlights.length);
+		}, 2600);
 
-		const updateTimeline = () => {
-			if (!sequenceRef.current) {
-				return;
-			}
+		return () => window.clearInterval(sliderInterval);
+	}, []);
 
-			const rect = sequenceRef.current.getBoundingClientRect();
-			const viewportHeight = window.innerHeight;
-			const startOffset = viewportHeight * 0.78;
-			const endOffset = viewportHeight * 0.26;
-			const scrollableDistance = Math.max(1, rect.height - (startOffset - endOffset));
-			const rawProgress = (startOffset - rect.top) / scrollableDistance;
-			const safeProgress = Number.isFinite(rawProgress) ? rawProgress : 0;
-			const progress = Math.min(1, Math.max(0, safeProgress));
+	useEffect(() => {
+		if (!videoRef.current) return;
+		videoRef.current.muted = isMuted;
+	}, [isMuted]);
 
-			const nextIndex = Math.min(
-				highlights.length - 1,
-				Math.floor(progress * highlights.length)
-			);
-
-			setActiveIndex(Number.isFinite(nextIndex) ? nextIndex : 0);
-			setRevealedCount((prev) => {
-				const targetCount = Number.isFinite(nextIndex) ? nextIndex + 1 : 1;
-				if (targetCount <= prev) {
-					return prev;
-				}
-				return Math.min(targetCount, prev + 1);
-			});
+	useEffect(() => {
+		const handleFullscreenChange = () => {
+			setIsFullscreen(document.fullscreenElement === playerRef.current);
 		};
 
-		const onScroll = () => {
-			if (rafId !== null) {
-				cancelAnimationFrame(rafId);
-			}
-			rafId = requestAnimationFrame(updateTimeline);
-		};
-
-		updateTimeline();
-		window.addEventListener("scroll", onScroll, { passive: true });
-		window.addEventListener("resize", updateTimeline);
-
+		document.addEventListener("fullscreenchange", handleFullscreenChange);
 		return () => {
-			window.removeEventListener("scroll", onScroll);
-			window.removeEventListener("resize", updateTimeline);
-			if (rafId !== null) {
-				cancelAnimationFrame(rafId);
-			}
+			document.removeEventListener("fullscreenchange", handleFullscreenChange);
 		};
 	}, []);
 
@@ -199,13 +222,14 @@ export default function WhyChooseUs() {
 		<>
 			<section className="relative overflow-hidden bg-white pt-32 pb-14 text-neutral-900">
 				<div className="mx-auto max-w-7xl px-6">
-					<div className="grid gap-20 lg:grid-cols-[0.9fr_1.1fr]">
+					<div className="grid gap-12 lg:grid-cols-[0.9fr_auto_1.1fr] lg:items-stretch lg:gap-10">
 						{/* LEFT SIDE - HEADING AND VIDEO */}
 						<motion.div
 							initial={{ opacity: 0, y: 40 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8 }}
 							viewport={{ once: true }}
+							className="h-full lg:sticky lg:top-28 lg:self-start"
 						>
 							<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 								Why Choose Us
@@ -223,8 +247,6 @@ export default function WhyChooseUs() {
 								reliable toll operations, skilled manpower, and security services.
 							</p>
 
-							<div className="mt-10 h-1 w-16 bg-[#EF2B2D]" />
-
 							{/* Video Section */}
 							<motion.div
 								initial={{ opacity: 0, y: 40 }}
@@ -233,91 +255,174 @@ export default function WhyChooseUs() {
 								viewport={{ once: true }}
 								className="relative rounded-2xl overflow-hidden shadow-2xl mt-12"
 							>
-								<div className="relative bg-black aspect-video w-full">
+								<div ref={playerRef} className="group/player relative w-full overflow-hidden rounded-2xl bg-black aspect-video">
 									<video
+										ref={videoRef}
 										className="h-full w-full rounded-2xl object-cover"
-										controls
 										preload="metadata"
+										onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
+										onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
+										onPlay={() => setIsPlaying(true)}
+										onPause={() => setIsPlaying(false)}
+										onEnded={() => setIsPlaying(false)}
+										playsInline
 									>
-										<source src="/images/drone/Innovision%20Company%20Brief.mp4" type="video/mp4" />
+										<source src="/images/Innovision%20Video.mp4" type="video/mp4" />
 										Your browser does not support the video tag.
 									</video>
+
+									<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
+
+									<button
+										type="button"
+										onClick={togglePlay}
+										className="absolute inset-0 z-10 flex items-center justify-center"
+										aria-label={isPlaying ? "Pause video" : "Play video"}
+									>
+										<span className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white backdrop-blur-sm transition duration-300 hover:scale-105 hover:bg-black/60">
+											{isPlaying ? (
+												<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
+													<rect x="6" y="5" width="4" height="14" rx="1" />
+													<rect x="14" y="5" width="4" height="14" rx="1" />
+												</svg>
+											) : (
+												<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
+													<path d="M8 5v14l11-7-11-7z" />
+												</svg>
+											)}
+										</span>
+									</button>
+
+									<div className="absolute inset-x-0 bottom-0 z-20 p-4 transition-opacity duration-300 group-hover/player:opacity-100 group-focus-within/player:opacity-100 lg:opacity-95">
+										<div className="rounded-xl border border-white/15 bg-black/55 px-3 py-2 backdrop-blur-md">
+											<input
+												type="range"
+												min={0}
+												max={duration || 0}
+												step={0.1}
+												value={currentTime}
+												onChange={(event) => handleSeek(Number(event.target.value))}
+												className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-[#EF2B2D]"
+												style={{
+													background: `linear-gradient(to right, #EF2B2D ${progress}%, rgba(255,255,255,0.2) ${progress}%)`,
+												}}
+												aria-label="Video progress"
+											/>
+											<div className="mt-2 flex items-center justify-between gap-3">
+												<div className="text-xs font-semibold tracking-[0.12em] text-white/90 tabular-nums">
+													{formatTime(currentTime)} / {formatTime(duration)}
+												</div>
+
+												<div className="flex items-center gap-2">
+													<button
+														type="button"
+														onClick={toggleMute}
+														className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10"
+														aria-label={isMuted ? "Unmute video" : "Mute video"}
+													>
+														{isMuted ? (
+															<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+																<path d="M11 5 6 9H3v6h3l5 4V5z" />
+																<path d="m23 9-6 6" />
+																<path d="m17 9 6 6" />
+															</svg>
+														) : (
+															<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+																<path d="M11 5 6 9H3v6h3l5 4V5z" />
+																<path d="M15.5 8.5a5 5 0 0 1 0 7" />
+																<path d="M18.5 6a9 9 0 0 1 0 12" />
+															</svg>
+														)}
+													</button>
+
+													<button
+														type="button"
+														onClick={toggleFullscreen}
+														className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10"
+														aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+													>
+														{isFullscreen ? (
+															<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+																<path d="M9 15H5v4" />
+																<path d="M15 15h4v4" />
+																<path d="M9 9H5V5" />
+																<path d="M15 9h4V5" />
+															</svg>
+														) : (
+															<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+																<path d="M9 3H3v6" />
+																<path d="M15 3h6v6" />
+																<path d="M9 21H3v-6" />
+																<path d="M15 21h6v-6" />
+															</svg>
+														)}
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</motion.div>
 						</motion.div>
 
-						{/* RIGHT SIDE - STICKY SCROLL TIMELINE */}
-						<div
-							ref={sequenceRef}
-							className="relative pt-8 pb-10"
-							style={{ minHeight: `calc(100vh + ${(highlights.length - 1) * 18}vh)` }}
+						<motion.div
+							className="hidden w-px self-stretch rounded-full bg-gradient-to-b from-[#EF2B2D]/15 via-[#EF2B2D] to-[#EF2B2D]/15 lg:block"
+							initial={{ opacity: 0, scaleY: 0.2 }}
+							whileInView={{ opacity: 1, scaleY: 1 }}
+							transition={{ duration: 0.8, ease: "easeOut" }}
+							viewport={{ once: true, amount: 0.3 }}
+						/>
+
+						{/* RIGHT SIDE - ANIMATED POINTERS */}
+						<motion.div
+							className="relative pt-8 pb-4 lg:py-0"
+							initial={{ opacity: 0, y: 24 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.7, delay: 0.1 }}
+							viewport={{ once: true, amount: 0.25 }}
 						>
-							<div className="sticky top-36 pt-2 lg:top-40 lg:pt-3">
-								<div className="relative">
-									<div className="absolute bottom-4 left-4 top-4 w-px bg-[#EF2B2D]/25" />
-
-									<div className="space-y-14">
-										{highlights.map((item, index) => {
-											const isVisible = index < revealedCount;
-											const isCurrent = index === activeIndex;
-
-											return (
+							<div className="relative mx-auto h-full min-h-[460px] w-full max-w-2xl overflow-hidden rounded-2xl bg-white/80 p-6 backdrop-blur-md sm:p-7">
+								<AnimatePresence mode="wait">
+									<motion.div
+										key={highlights[sliderIndex].label}
+										initial={{ opacity: 0, y: 36 }}
+										animate={{ opacity: 1, y: 0 }}
+										exit={{ opacity: 0, y: -36 }}
+										transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+										className="flex h-full flex-col justify-center"
+									>
+										<div className="flex items-start gap-4">
+											<div className="relative mt-0.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#EF2B2D] bg-white">
 												<motion.div
+													className="h-2.5 w-2.5 rounded-full bg-[#EF2B2D]"
+													animate={{ scale: [1, 1.25, 1], opacity: [1, 0.85, 1] }}
+													transition={{ repeat: Infinity, duration: 1.3, ease: "easeInOut" }}
+												/>
+											</div>
+											<div className="min-w-0">
+												<h3 className="text-2xl font-bold leading-tight text-neutral-900 sm:text-3xl">
+													{highlights[sliderIndex].label}
+												</h3>
+												<p className="mt-4 max-w-xl text-base leading-relaxed text-neutral-600">
+													{highlights[sliderIndex].detail}
+												</p>
+											</div>
+										</div>
+
+										<div className="mt-10 flex gap-2">
+											{highlights.map((item, index) => (
+												<span
 													key={item.label}
-													className="relative grid grid-cols-[2rem_1fr] items-start gap-6"
-													initial={false}
-													animate={{
-														opacity: isVisible ? 1 : 0.3,
-															x: isVisible ? 0 : 30,
-															y: isVisible ? 0 : 10,
-													}}
-														transition={{ duration: 0.5, ease: [0.0, 0.0, 0.2, 1.0] }}
-												>
-													<motion.div
-														className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#EF2B2D] bg-white"
-														initial={false}
-														animate={{
-															scale: isVisible ? 1 : 0.85,
-															opacity: isVisible ? 1 : 0.55,
-														}}
-														transition={{ duration: 0.35 }}
-													>
-														<motion.div
-															className="h-2 w-2 rounded-full bg-[#EF2B2D]"
-															animate={
-																isCurrent
-																	? { scale: [1, 1.35, 1], opacity: [1, 0.8, 1] }
-																	: { scale: 1, opacity: isVisible ? 1 : 0.45 }
-															}
-															transition={
-																isCurrent
-																	? { repeat: Infinity, duration: 1.4 }
-																	: { duration: 0.2 }
-															}
-														/>
-													</motion.div>
-
-													<motion.div
-														className="pb-2"
-														initial={false}
-														animate={{ opacity: isVisible ? 1 : 0.45, y: isVisible ? 0 : 8 }}
-														transition={{ duration: 0.35 }}
-													>
-														<h3 className="text-lg font-semibold text-neutral-900">
-															{item.label}
-														</h3>
-
-														<p className="mt-3 text-sm leading-relaxed text-neutral-600">
-															{item.detail}
-														</p>
-													</motion.div>
-												</motion.div>
-											);
-										})}
-									</div>
-								</div>
+													className={`h-1.5 rounded-full transition-all duration-500 ${
+														index === sliderIndex ? "w-10 bg-[#EF2B2D]" : "w-3 bg-[#EF2B2D]/25"
+													}`}
+												/>
+											))}
+										</div>
+									</motion.div>
+								</AnimatePresence>
 							</div>
-						</div>
+						</motion.div>
 					</div>
 				</div>
 			</section>

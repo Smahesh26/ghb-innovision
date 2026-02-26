@@ -3,14 +3,14 @@ import Footer from "@/app/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPosts, getBlogBySlug } from "../data";
+import { getBlogBySlug, orderedBlogPosts } from "../data";
 
 type BlogDetailPageProps = {
 	params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-	return blogPosts.map((blog) => ({ slug: blog.slug }));
+	return orderedBlogPosts.map((blog) => ({ slug: blog.slug }));
 }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
@@ -21,7 +21,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 		notFound();
 	}
 
-	const relatedBlogs = blogPosts.filter((item) => item.slug !== blog.slug);
+	const relatedBlogs = orderedBlogPosts.filter((item) => item.slug !== blog.slug);
 
 	return (
 		<>
@@ -54,7 +54,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 				<section className="bg-white py-16">
 					<div className="mx-auto max-w-5xl px-6">
 						<article>
-							<div className="relative h-[380px] w-full overflow-hidden rounded-2xl">
+							<div className="relative h-[380px] w-full overflow-hidden rounded-3xl border border-black/10 shadow-[0_18px_42px_rgba(0,0,0,0.12)]">
 								<Image
 									src={blog.image}
 									alt={blog.title}
@@ -63,11 +63,16 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 								/>
 							</div>
 
-							<div className="mx-auto max-w-4xl py-10 sm:py-12">
-								<div className="mb-8 h-px w-full bg-black/10" />
-								{blog.content.map((paragraph) => (
+							<div className="mx-auto mt-8 max-w-4xl rounded-3xl border border-black/10 bg-white p-7 shadow-[0_16px_40px_rgba(0,0,0,0.08)] sm:p-10">
+								<div className="mb-8 flex flex-wrap items-center gap-3 border-b border-black/10 pb-6">
+									<span className="rounded-full bg-[#EF2B2D]/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#EF2B2D]">{blog.category}</span>
+									<span className="text-xs font-semibold text-black/50">{blog.date}</span>
+									<span className="text-xs text-black/40">•</span>
+									<span className="text-xs font-semibold text-black/50">{blog.readTime}</span>
+								</div>
+								{blog.content.map((paragraph, index) => (
 									<p
-										key={paragraph.slice(0, 24)}
+										key={`${blog.slug}-${index}`}
 										className="mb-8 text-[17px] leading-relaxed text-black/80 last:mb-0"
 									>
 										{paragraph}
@@ -90,7 +95,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
 							<div className="-mx-2 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 								<div className="flex snap-x snap-mandatory gap-6 px-2">
-									{relatedBlogs.map((item) => (
+									{relatedBlogs.map((item, index) => (
 										<Link
 											key={item.slug}
 											href={`/insights/blogs/${item.slug}`}
@@ -104,6 +109,9 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 														fill
 														className="object-cover transition duration-500 group-hover:scale-105"
 													/>
+													<div className="absolute top-3 right-3 rounded-full border border-white/35 bg-black/50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+														#{String(index + 1).padStart(2, "0")}
+													</div>
 												</div>
 												<div className="p-6">
 													<p className="text-xs text-black/60">{item.date}</p>

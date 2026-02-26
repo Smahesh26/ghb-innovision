@@ -100,9 +100,7 @@ export default function Timeline() {
 							>
 								{/* Dot */}
 								<div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 border-[#EF2B2D] bg-[#0d0d0f] shadow-[0_0_30px_rgba(239,43,45,0.4)]">
-									<span className="text-xl font-bold text-[#EF2B2D]">
-										{milestone.year.slice(2)}
-									</span>
+									<span className="h-3.5 w-3.5 rounded-full bg-[#EF2B2D]" />
 								</div>
 
 								{/* Content Card */}
@@ -137,9 +135,7 @@ export default function Timeline() {
 								{/* Left: Year Dot */}
 								<div className="flex flex-col items-center">
 									<div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-4 border-[#EF2B2D] bg-[#0d0d0f] shadow-[0_0_30px_rgba(239,43,45,0.4)]">
-										<span className="text-xl font-bold text-[#EF2B2D]">
-											{milestone.year.slice(2)}
-										</span>
+										<span className="h-3.5 w-3.5 rounded-full bg-[#EF2B2D]" />
 									</div>
 									{index < milestones.length - 1 && (
 										<div className="w-[2px] flex-1 bg-gradient-to-b from-[#EF2B2D]/50 to-transparent mt-4" />

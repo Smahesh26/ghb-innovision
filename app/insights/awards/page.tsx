@@ -3,7 +3,7 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 // Note: Metadata export removed as this is a client component
@@ -129,7 +129,12 @@ export default function AwardsPage() {
 			<Header />
 			
 			{/* Hero Section with Parallax */}
-			<section className="relative min-h-[62vh] bg-gradient-to-br from-neutral-900 via-black to-neutral-900 pt-32 pb-12 overflow-hidden">
+			<motion.section
+				initial={{ opacity: 0, y: 16 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+				className="relative min-h-[62vh] bg-gradient-to-br from-neutral-900 via-black to-neutral-900 pt-32 pb-12 overflow-hidden"
+			>
 				{/* Animated Background Elements */}
 				<div className="absolute inset-0">
 					<motion.div 
@@ -150,23 +155,24 @@ export default function AwardsPage() {
 					/>
 					
 					{/* Floating particles */}
-					{[...Array(20)].map((_, i) => (
+					{[...Array(10)].map((_, i) => (
 						<motion.div
 							key={i}
 							className="absolute w-1 h-1 bg-[#EF2B2D] rounded-full"
 							initial={{ 
-								x: Math.random() * 100 + "%", 
-								y: Math.random() * 100 + "%",
+								x: `${(i * 11) % 100}%`, 
+								y: `${(i * 17) % 100}%`,
 								opacity: 0 
 							}}
 							animate={{
-								y: [null, (Math.random() - 0.5) * 200],
+								y: [0, i % 2 === 0 ? -40 : 40, 0],
 								opacity: [0, 1, 0],
 							}}
 							transition={{
-								duration: 3 + Math.random() * 2,
+								duration: 4 + (i % 3),
 								repeat: Infinity,
-								delay: Math.random() * 2,
+								delay: i * 0.18,
+								ease: "easeInOut",
 							}}
 						/>
 					))}
@@ -253,9 +259,14 @@ export default function AwardsPage() {
 						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
 					</svg>
 				</motion.div>
-			</section>
+			</motion.section>
 
-			<main className="bg-gradient-to-b from-white via-neutral-50 to-white pb-20">
+			<motion.main
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+				className="bg-gradient-to-b from-white via-neutral-50 to-white pb-20"
+			>
 				<div className="mx-auto max-w-7xl px-6">
 
 					{/* Lt. Col. Hundal Awards - Enhanced 3D Cards */}
@@ -294,18 +305,18 @@ export default function AwardsPage() {
 							{ltColAwards.map((award, index) => (
 								<motion.div
 									key={index}
-									initial={{ opacity: 0, y: 50, rotateX: -15 }}
-									whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+									initial={{ opacity: 0, y: 28 }}
+									whileInView={{ opacity: 1, y: 0 }}
 									transition={{ 
-										duration: 0.6, 
+										duration: 0.65, 
 										delay: index * 0.1,
-										type: "spring",
-										stiffness: 100
+										ease: [0.22, 1, 0.36, 1]
 									}}
 									viewport={{ once: true }}
 									whileHover={{ 
-										y: -10,
-										transition: { duration: 0.3 }
+										y: -6,
+										scale: 1.01,
+										transition: { duration: 0.25, ease: "easeOut" }
 									}}
 									className="group relative"
 								>
@@ -413,16 +424,15 @@ export default function AwardsPage() {
 							{companyAwards.map((award, index) => (
 								<motion.div
 									key={index}
-									initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-									whileInView={{ opacity: 1, x: 0 }}
+									initial={{ opacity: 0, y: 26 }}
+									whileInView={{ opacity: 1, y: 0 }}
 									transition={{ 
 										duration: 0.7, 
 										delay: index * 0.1,
-										type: "spring",
-										stiffness: 80
+										ease: [0.22, 1, 0.36, 1]
 									}}
 									viewport={{ once: true }}
-									whileHover={{ scale: 1.02 }}
+									whileHover={{ y: -4, scale: 1.01 }}
 									className="group relative"
 								>
 									{/* Premium card with gradient border */}
@@ -534,15 +544,15 @@ export default function AwardsPage() {
 							{teamAwards.map((award, index) => (
 								<motion.div
 									key={index}
-									initial={{ opacity: 0, scale: 0.9, rotateY: -20 }}
-									whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+									initial={{ opacity: 0, y: 30, scale: 0.98 }}
+									whileInView={{ opacity: 1, y: 0, scale: 1 }}
 									transition={{ 
-										duration: 0.8, 
+										duration: 0.75, 
 										delay: index * 0.2,
-										type: "spring"
+										ease: [0.22, 1, 0.36, 1]
 									}}
 									viewport={{ once: true }}
-									whileHover={{ y: -8, rotateY: 2 }}
+									whileHover={{ y: -6, scale: 1.01 }}
 									className="group relative"
 								>
 									{/* Card glow */}
@@ -672,33 +682,21 @@ export default function AwardsPage() {
 							{awardImages.map((award, index) => (
 								<motion.div
 									key={index}
-									initial={{ 
-										opacity: 0, 
-										y: 60,
-										scale: 0.8,
-										rotateY: -20
-									}}
-									whileInView={{ 
-										opacity: 1, 
-										y: 0,
-										scale: 1,
-										rotateY: 0
-									}}
+									initial={{ opacity: 0, y: 28 }}
+									whileInView={{ opacity: 1, y: 0 }}
 									transition={{ 
-										duration: 0.8, 
+										duration: 0.7, 
 										delay: index * 0.1,
-										type: "spring",
-										stiffness: 100
+										ease: [0.22, 0.61, 0.36, 1]
 									}}
 									viewport={{ once: true }}
 									className="group relative cursor-pointer"
 									onClick={() => setSelectedImage(index)}
-									whileHover={{ y: -12 }}
+									whileHover={{ y: -8, scale: 1.01 }}
 								>
 									{/* Outer glow effect */}
-									<motion.div 
+									<div 
 										className="absolute -inset-2 bg-gradient-to-r from-[#EF2B2D] via-red-600 to-[#EF2B2D] rounded-3xl opacity-0 group-hover:opacity-40 blur-xl transition-all duration-700"
-										whileHover={{ scale: 1.05 }}
 									/>
 									
 									{/* Card container */}
@@ -776,41 +774,35 @@ export default function AwardsPage() {
 										/>
 									</div>
 
-									{/* Photo number badge */}
-									<motion.div 
-										className="absolute -top-3 -left-3 w-12 h-12 rounded-full bg-gradient-to-br from-[#EF2B2D] to-red-600 shadow-lg flex items-center justify-center text-white font-bold border-4 border-white"
-										whileHover={{ scale: 1.2, rotate: 360 }}
-										transition={{ duration: 0.6 }}
-									>
-										{index + 1}
-									</motion.div>
 								</motion.div>
 							))}
 						</div>
 
 						{/* Lightbox Modal */}
-						{selectedImage !== null && (
-							<motion.div
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								exit={{ opacity: 0 }}
-								className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-6"
-								onClick={() => setSelectedImage(null)}
-							>
+						<AnimatePresence>
+							{selectedImage !== null && (
 								<motion.div
-									initial={{ scale: 0.8, rotateY: -30 }}
-									animate={{ scale: 1, rotateY: 0 }}
-									exit={{ scale: 0.8, rotateY: 30 }}
-									transition={{ type: "spring", stiffness: 200 }}
-									className="relative max-w-5xl w-full"
-									onClick={(e) => e.stopPropagation()}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									exit={{ opacity: 0 }}
+									transition={{ duration: 0.25, ease: "easeOut" }}
+									className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-3 sm:p-6"
+									onClick={() => setSelectedImage(null)}
 								>
+									<motion.div
+										initial={{ opacity: 0, scale: 0.94, y: 12 }}
+										animate={{ opacity: 1, scale: 1, y: 0 }}
+										exit={{ opacity: 0, scale: 0.96, y: 8 }}
+										transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+										className="relative w-full max-w-4xl"
+										onClick={(e) => e.stopPropagation()}
+									>
 									{/* Close button */}
 									<motion.button
 										whileHover={{ scale: 1.1, rotate: 90 }}
 										whileTap={{ scale: 0.9 }}
 										onClick={() => setSelectedImage(null)}
-										className="absolute -top-4 -right-4 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-[#EF2B2D] to-red-600 text-white flex items-center justify-center shadow-2xl border-4 border-white"
+										className="absolute top-3 right-3 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#EF2B2D] to-red-600 text-white flex items-center justify-center shadow-2xl border-2 sm:border-4 border-white"
 									>
 										<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -818,34 +810,18 @@ export default function AwardsPage() {
 									</motion.button>
 
 									{/* Image container */}
-									<div className="relative aspect-video overflow-hidden rounded-3xl shadow-2xl border-4 border-white">
+									<div className="relative h-[42vh] sm:h-[54vh] md:h-[60vh] overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border-4 border-white">
 										<Image
 											src={awardImages[selectedImage].src}
 											alt={awardImages[selectedImage].title}
 											fill
 											className="object-contain"
-											sizes="90vw"
+											sizes="(max-width: 640px) 92vw, (max-width: 1024px) 80vw, 70vw"
 										/>
 									</div>
 
-									{/* Info overlay */}
-									<motion.div 
-										initial={{ y: 20, opacity: 0 }}
-										animate={{ y: 0, opacity: 1 }}
-										transition={{ delay: 0.2 }}
-										className="mt-6 text-center"
-									>
-										<span className="inline-block px-4 py-1.5 mb-3 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#EF2B2D] to-red-600 text-white rounded-full">
-											{awardImages[selectedImage].category}
-										</span>
-										<h3 className="text-3xl font-bold text-white mb-2">
-											{awardImages[selectedImage].title}
-										</h3>
-										<p className="text-white/60">Photo {selectedImage + 1} of {awardImages.length}</p>
-									</motion.div>
-
 									{/* Navigation */}
-									<div className="flex items-center justify-center gap-4 mt-6">
+									<div className="flex items-center justify-center gap-4 mt-4">
 										<motion.button
 											whileHover={{ scale: 1.1, x: -5 }}
 											whileTap={{ scale: 0.9 }}
@@ -867,9 +843,10 @@ export default function AwardsPage() {
 											</svg>
 										</motion.button>
 									</div>
+									</motion.div>
 								</motion.div>
-							</motion.div>
-						)}
+							)}
+						</AnimatePresence>
 					</section>
 
 					{/* Call to Action - Split Layout */}
@@ -940,7 +917,7 @@ export default function AwardsPage() {
 					</motion.div>
 
 				</div>
-			</main>
+			</motion.main>
 			<Footer />
 		</>
 	);

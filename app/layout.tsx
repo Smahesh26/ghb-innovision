@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import FloatingSocialBar from "@/app/components/FloatingSocialBar";
+import PageTransition from "@/app/components/PageTransition";
+import GlobalScrollReveal from "@/app/components/GlobalScrollReveal";
 import "./globals.css";
 
 const inter = Inter({
@@ -87,7 +89,8 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="antialiased">
-        {children}
+        <GlobalScrollReveal />
+        <PageTransition>{children}</PageTransition>
         <FloatingSocialBar />
       </body>
     </html>

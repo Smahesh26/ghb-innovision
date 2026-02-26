@@ -2,121 +2,233 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
-import "leaflet/dist/leaflet.css";
+import Script from "next/script";
 
-const MapContainer = dynamic(
-  () => import("react-leaflet").then((mod) => mod.MapContainer),
-  { ssr: false }
-);
-const TileLayer = dynamic(
-  () => import("react-leaflet").then((mod) => mod.TileLayer),
-  { ssr: false }
-);
-const Marker = dynamic(
-  () => import("react-leaflet").then((mod) => mod.Marker),
-  { ssr: false }
-);
-const Popup = dynamic(
-  () => import("react-leaflet").then((mod) => mod.Popup),
-  { ssr: false }
-);
-
-// India boundaries (exact)
-const INDIA_BOUNDS: [[number, number], [number, number]] = [[8.0, 68.0], [37.0, 97.0]];
-
-const offices = [
-  { id: 1, name: "Gurugram HQ", lat: 28.4595, lng: 77.0266, type: "Corporate", region: "North" },
-  { id: 2, name: "Delhi", lat: 28.6139, lng: 77.2090, type: "Regional", region: "North" },
-  { id: 3, name: "Noida", lat: 28.5355, lng: 77.3910, type: "Regional", region: "North" },
-  { id: 4, name: "Ghaziabad", lat: 28.6692, lng: 77.4538, type: "Regional", region: "North" },
-  { id: 5, name: "Bangalore", lat: 12.9716, lng: 77.5946, type: "Regional", region: "South" },
-  { id: 6, name: "Hyderabad", lat: 17.3850, lng: 78.4867, type: "Regional", region: "South" },
-  { id: 7, name: "Chennai", lat: 13.0827, lng: 80.2707, type: "Regional", region: "South" },
-  { id: 8, name: "Pune", lat: 18.5204, lng: 73.8567, type: "Regional", region: "West" },
-  { id: 9, name: "Mumbai", lat: 19.0760, lng: 72.8777, type: "Regional", region: "West" },
-  { id: 10, name: "Ahmedabad", lat: 23.0225, lng: 72.5714, type: "Regional", region: "West" },
-  { id: 11, name: "Kolkata", lat: 22.5726, lng: 88.3639, type: "Regional", region: "East" },
-  { id: 12, name: "Jaipur", lat: 26.9124, lng: 75.7873, type: "Regional", region: "North" },
-  { id: 13, name: "Lucknow", lat: 26.8467, lng: 80.9462, type: "Regional", region: "North" },
-  { id: 14, name: "Chandigarh", lat: 30.7333, lng: 76.7794, type: "Regional", region: "North" },
-  { id: 15, name: "Indore", lat: 22.7196, lng: 75.8577, type: "Branch", region: "Central" },
-  { id: 16, name: "Bhopal", lat: 23.1815, lng: 79.9864, type: "Branch", region: "Central" },
-];
-
-export default function Contact() {
-  const [selectedOffice, setSelectedOffice] = useState<typeof offices[0] | null>(null);
-  const [isClient, setIsClient] = useState(false);
-  const [leafletIcons, setLeafletIcons] = useState<Record<string, any> | null>(null);
+export default function Contact({ showFootprints = true }: { showFootprints?: boolean }) {
+  const [scriptsReady, setScriptsReady] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [mapReady, setMapReady] = useState(false);
+  const [leafletInView, setLeafletInView] = useState(false);
   const mapRef = useRef<any>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const leafletContainerRef = useRef<HTMLDivElement>(null);
+  const leafletMapRef = useRef<any>(null);
+  const markerAnimationStartedRef = useRef(false);
+  const markerTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const leafletMarkerTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const statesWithMarkers = [
+    { name: "Haryana", lat: 29.0, lng: 77.5 },
+    { name: "West Bengal", lat: 24.0, lng: 88.0 },
+    { name: "Odisha", lat: 20.0, lng: 84.0 },
+    { name: "Rajasthan", lat: 27.5, lng: 73.0 },
+    { name: "Delhi", lat: 28.6, lng: 77.2 },
+    { name: "Punjab", lat: 31.5, lng: 75.5 },
+    { name: "Uttar Pradesh", lat: 26.0, lng: 80.0 },
+    { name: "Chhattisgarh", lat: 21.5, lng: 82.0 },
+    { name: "Bihar", lat: 25.5, lng: 85.5 },
+    { name: "Madhya Pradesh", lat: 23.0, lng: 78.0 },
+    { name: "Karnataka", lat: 15.5, lng: 76.0 },
+    { name: "Tamil Nadu", lat: 11.0, lng: 79.0 },
+    { name: "Telangana", lat: 17.5, lng: 78.5 },
+    { name: "Maharashtra", lat: 19.5, lng: 75.5 },
+    { name: "Gujarat", lat: 22.5, lng: 71.5 },
+  ];
+
+  const pinPath = "M28 4c-12.4 0-22.5 10.1-22.5 22.5C5.5 40.4 28 68 28 68s22.5-27.6 22.5-41.5C50.5 14.1 40.4 4 28 4z";
+
+  const markMapLibraryReady = () => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    const AmCharts = (window as any).AmCharts;
+    if (AmCharts?.AmMap && AmCharts?.maps?.indiaLow) {
+      setScriptsReady(true);
+    }
+  };
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    if (!showFootprints || typeof window === "undefined") {
+      return;
+    }
+
+    markMapLibraryReady();
+    const interval = setInterval(markMapLibraryReady, 250);
+
+    return () => clearInterval(interval);
+  }, [showFootprints]);
 
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!showFootprints) {
+      return;
+    }
 
-    const map = mapRef.current;
-    map.fitBounds(INDIA_BOUNDS, { padding: [50, 50] });
-    map.setMaxBounds(INDIA_BOUNDS);
-    map.options.maxBoundsViscosity = 1.0;
-  }, [isClient]);
+    if (mapRef.current || typeof window === "undefined") {
+      return;
+    }
+
+    const AmCharts = (window as any).AmCharts;
+    if (!AmCharts?.AmMap || !AmCharts?.maps?.indiaLow) {
+      return;
+    }
+
+    const map = new AmCharts.AmMap();
+    map.theme = "light";
+    map.panEventsEnabled = true;
+    map.backgroundColor = "transparent";
+    map.backgroundAlpha = 0;
+    map.zoomControl.panControlEnabled = false;
+    map.zoomControl.zoomControlEnabled = false;
+
+    map.dataProvider = {
+      map: "indiaLow",
+      getAreasFromMap: true,
+      images: [],
+    };
+
+    map.imagesSettings = {
+      rollOverScale: 1.08,
+      selectedScale: 1.08,
+      pauseDuration: 0.1,
+      animationDuration: 0.2,
+    };
+
+    map.areasSettings = {
+      autoZoom: false,
+      color: "#f2f4f8",
+      colorSolid: "#EF2B2D",
+      selectedColor: "#c81f24",
+      outlineColor: "#e5e7eb",
+      outlineThickness: 1.2,
+      rollOverColor: "#f8d7da",
+      rollOverOutlineColor: "#d1d5db",
+      selectable: true,
+    };
+
+    map.write("footprints-india-map");
+    mapRef.current = map;
+    setMapReady(true);
+
+    return () => {
+      if (mapRef.current?.clear) {
+        mapRef.current.clear();
+      }
+      markerTimeoutsRef.current.forEach((timeout) => clearTimeout(timeout));
+      markerTimeoutsRef.current = [];
+      markerAnimationStartedRef.current = false;
+      setMapReady(false);
+      mapRef.current = null;
+    };
+  }, [scriptsReady, showFootprints]);
 
   useEffect(() => {
-    let active = true;
+    if (!showFootprints || !inView || !mapReady || !mapRef.current || markerAnimationStartedRef.current) {
+      return;
+    }
 
-    const loadLeafletIcons = async () => {
-      const leaflet = await import("leaflet");
-      if (!active) {
+    markerAnimationStartedRef.current = true;
+
+    statesWithMarkers.forEach((state, index) => {
+      const timeout = setTimeout(() => {
+        if (!mapRef.current?.dataProvider?.images) {
+          return;
+        }
+
+        const marker = {
+          latitude: state.lat,
+          longitude: state.lng,
+          title: state.name,
+          svgPath: pinPath,
+          color: "#EF2B2D",
+          scale: 0.38,
+          alpha: 1,
+          label: state.name,
+          labelColor: "#1F2937",
+          labelFontSize: 11,
+          labelShiftY: 18,
+        };
+
+        mapRef.current.dataProvider.images.push(marker);
+        mapRef.current.validateData();
+      }, index * 220);
+
+      markerTimeoutsRef.current.push(timeout);
+    });
+
+    return () => {
+      markerTimeoutsRef.current.forEach((timeout) => clearTimeout(timeout));
+      markerTimeoutsRef.current = [];
+    };
+  }, [inView, mapReady, showFootprints]);
+
+  useEffect(() => {
+    if (!showFootprints || !leafletInView || !leafletContainerRef.current || leafletMapRef.current) {
+      return;
+    }
+
+    let cancelled = false;
+
+    const initLeaflet = async () => {
+      const leafletModule = await import("leaflet");
+      const L = leafletModule.default;
+
+      if (cancelled || !leafletContainerRef.current) {
         return;
       }
 
-      const colors: Record<string, string> = {
-        Corporate: "#EF2B2D",
-        Regional: "#3B82F6",
-        Branch: "#9CA3AF",
-      };
+      const map = L.map(leafletContainerRef.current, {
+        zoomControl: false,
+        scrollWheelZoom: false,
+        dragging: true,
+        attributionControl: true,
+      }).setView([22.8, 79.0], 5);
 
-      const makeIcon = (type: string) =>
-        leaflet.divIcon({
-          className: "custom-marker",
-          html: `
-            <div style="
-              background-color: ${colors[type]};
-              width: 30px;
-              height: 30px;
-              border-radius: 50%;
-              border: 3px solid white;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-              cursor: pointer;
-            ">
-              <div style="width: 8px; height: 8px; background-color: white; border-radius: 50%;"></div>
-            </div>
-          `,
-          iconSize: [30, 30],
-          iconAnchor: [15, 15],
-          popupAnchor: [0, -15],
-        });
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
 
-      setLeafletIcons({
-        Corporate: makeIcon("Corporate"),
-        Regional: makeIcon("Regional"),
-        Branch: makeIcon("Branch"),
+      leafletMapRef.current = map;
+
+      setTimeout(() => {
+        if (!cancelled && leafletMapRef.current) {
+          leafletMapRef.current.invalidateSize();
+        }
+      }, 120);
+
+      statesWithMarkers.forEach((state, index) => {
+        const timeout = setTimeout(() => {
+          if (cancelled || !leafletMapRef.current) {
+            return;
+          }
+
+          const icon = L.divIcon({
+            className: "innovision-leaflet-pin-wrapper",
+            html: '<span class="innovision-leaflet-pin"><span class="innovision-leaflet-pin-dot"></span></span>',
+            iconSize: [26, 34],
+            iconAnchor: [13, 34],
+          });
+
+          L.marker([state.lat, state.lng], { icon })
+            .addTo(leafletMapRef.current)
+            .bindTooltip(state.name, { direction: "top", offset: [0, -28], opacity: 0.9 });
+        }, index * 220);
+
+        leafletMarkerTimeoutsRef.current.push(timeout);
       });
     };
 
-    if (isClient) {
-      loadLeafletIcons();
-    }
+    initLeaflet();
 
     return () => {
-      active = false;
+      cancelled = true;
+      leafletMarkerTimeoutsRef.current.forEach((timeout) => clearTimeout(timeout));
+      leafletMarkerTimeoutsRef.current = [];
+      if (leafletMapRef.current) {
+        leafletMapRef.current.remove();
+        leafletMapRef.current = null;
+      }
     };
-  }, [isClient]);
+  }, [leafletInView, showFootprints]);
 
   const services = [
     "Security Services",
@@ -135,104 +247,86 @@ export default function Contact() {
       <div className="absolute bottom-0 right-10 h-96 w-96 rounded-full bg-[#EF2B2D]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="mb-4 text-center text-3xl font-light text-gray-900 sm:text-4xl">
-            Our Footprints
-          </h3>
-          
-          <p className="mx-auto mb-8 max-w-3xl text-center text-base leading-relaxed text-gray-600">
-            Pan-India operational footprint with 55+ offices across all major regions. Click markers to explore our network.
-          </p>
-          
+        {showFootprints && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            ref={sectionRef}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-4xl overflow-hidden rounded-xl border-2 border-[#EF2B2D]/20 bg-gray-50 shadow-lg"
+            onViewportEnter={() => setInView(true)}
+            className="pt-6"
           >
-            <div className="relative w-full h-[400px]">
-              {isClient && leafletIcons ? (
-                <>
-                  <MapContainer 
-                    ref={mapRef}
-                    bounds={INDIA_BOUNDS}
-                    boundsOptions={{ padding: [50, 50] }}
-                    zoom={5}
-                    minZoom={5}
-                    maxZoom={13}
-                    style={{ height: "100%", width: "100%" }}
-                  >
-                    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                    {offices.map((office) => (
-                      <Marker
-                        key={office.id}
-                        position={[office.lat, office.lng]}
-                        icon={leafletIcons[office.type]}
-                        eventHandlers={{
-                          click: () => setSelectedOffice(office),
-                        }}
-                      >
-                        <Popup>
-                          <div className="text-sm">
-                            <h4 className="font-bold text-[#EF2B2D]">{office.name}</h4>
-                            <p className="text-xs text-gray-600">{office.type}</p>
-                            <p className="text-xs text-gray-500">{office.region}</p>
-                          </div>
-                        </Popup>
-                      </Marker>
-                    ))}
-                  </MapContainer>
-                </>
-              ) : (
-                <div className="h-full bg-gray-200 flex items-center justify-center text-gray-600">
-                  Loading map...
-                </div>
-              )}
-            </div>
+            {/* <p className="mb-3 mt-2 text-center text-xs font-semibold uppercase tracking-[0.35em] text-[#EF2B2D]">
+              Pan-India Presence
+            </p> */}
+            <h3 className="mb-4 text-center text-3xl font-light text-gray-900 sm:text-4xl">
+              Our Footprints
+            </h3>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 border-t border-gray-200 bg-white px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-gray-700">
-              <span className="inline-flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#EF2B2D]" /> Corporate HQ
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-blue-500" /> Regional
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-gray-400" /> Branch
-              </span>
-            </div>
+            <p className="mx-auto mb-8 max-w-3xl text-center text-base leading-relaxed text-gray-600">
+              Pan-India operational footprint with 55+ offices across all major regions.
+            </p>
 
-            {selectedOffice && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="border-t border-gray-200 bg-gradient-to-r from-[#EF2B2D]/5 to-[#EF2B2D]/10 px-4 py-4 text-center"
-              >
-                <h4 className="text-lg font-bold text-[#EF2B2D]">{selectedOffice.name}</h4>
-                <p className="text-sm text-gray-600">{selectedOffice.type} • {selectedOffice.region}</p>
-                <button
-                  onClick={() => setSelectedOffice(null)}
-                  className="mt-2 text-xs text-gray-500 hover:text-gray-700 underline"
-                >
-                  Close
-                </button>
-              </motion.div>
-            )}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="mx-auto max-w-5xl overflow-hidden rounded-2xl transition duration-700"
+            >
+              <div className="relative h-[560px] w-full rounded-2xl bg-transparent">
+                <Script
+                  src="https://www.amcharts.com/lib/3/ammap.js"
+                  strategy="afterInteractive"
+                  onLoad={markMapLibraryReady}
+                  onReady={markMapLibraryReady}
+                />
+                <Script
+                  src="https://www.amcharts.com/lib/3/maps/js/indiaLow.js"
+                  strategy="afterInteractive"
+                  onLoad={markMapLibraryReady}
+                  onReady={markMapLibraryReady}
+                />
+                <Script
+                  src="https://www.amcharts.com/lib/3/themes/light.js"
+                  strategy="afterInteractive"
+                  onLoad={markMapLibraryReady}
+                  onReady={markMapLibraryReady}
+                />
+                <div id="footprints-india-map" className="h-full w-full" />
+                {!scriptsReady && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-600">
+                    Loading map...
+                  </div>
+                )}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.08 }}
+              viewport={{ once: true }}
+              onViewportEnter={() => setLeafletInView(true)}
+              className="mx-auto mt-10 max-w-5xl"
+            >
+              <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.3em] text-[#EF2B2D]">
+                Interactive Leaflet Map
+              </p>
+              <div className="h-[520px] w-full overflow-hidden rounded-2xl border border-[#EF2B2D]/20">
+                <div ref={leafletContainerRef} className="h-full w-full" />
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-10 mb-16 text-center"
+          className="mt-18 mb-16 text-center"
         >
           <h2 className="text-4xl font-light text-gray-900 sm:text-5xl lg:text-6xl">
             Get In Touch!

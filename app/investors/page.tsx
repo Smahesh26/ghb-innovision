@@ -11,27 +11,63 @@ export default function InvestorsPage() {
       <Header />
       
       {/* Hero Banner for Investors Page */}
-      <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f]" aria-label="Investors Hero">
+      <section className="relative min-h-[68vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f]" aria-label="Investors Hero">
+        <div className="pointer-events-none absolute -top-16 right-1/4 h-72 w-72 rounded-full bg-[#EF2B2D]/20 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 left-10 h-80 w-80 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
         <div className="absolute inset-0 bg-[url('/images/banner1.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.18),transparent_45%)]" />
         
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-28 text-center text-white">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 backdrop-blur-sm mb-6">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 pb-14 text-center text-white sm:pt-40">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 backdrop-blur-sm mb-6"
+          >
             <svg className="h-4 w-4 text-[#EF2B2D]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
             </svg>
             <span className="text-xs font-semibold uppercase tracking-[0.3em]">
               IPO Ready
             </span>
-          </div>
+          </motion.div>
 
-          <h1 className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl"
+          >
             Investor Relations
-          </h1>
+          </motion.h1>
 
-          <p className="mt-5 max-w-3xl text-lg text-white/80">
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-5 max-w-3xl text-lg text-white/80"
+          >
             Scalable, recurring revenue model with institutional-grade governance and 19+ years of proven operational excellence
-          </p>
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3"
+          >
+            {[
+              { value: "19+", label: "Years Track Record" },
+              { value: "IPO", label: "Growth Phase" },
+              { value: "Strong", label: "Governance Focus" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl border border-white/15 bg-white/5 px-4 py-4 backdrop-blur-sm">
+                <p className="text-xl font-semibold text-[#EF2B2D]">{item.value}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.16em] text-white/70">{item.label}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -51,7 +87,7 @@ export default function InvestorsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl border border-[#202228] bg-[#111216] p-10 shadow-[0_24px_64px_rgba(15,15,18,0.35)] sm:p-14"
+            className="relative overflow-hidden rounded-3xl border border-[#202228] bg-[#111216] p-10 shadow-[0_24px_64px_rgba(15,15,18,0.35)] sm:p-14"
           >
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute -top-20 right-0 h-56 w-56 rounded-full bg-[#EF2B2D]/12 blur-3xl" />
@@ -82,8 +118,8 @@ export default function InvestorsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="group rounded-xl border border-white/10 bg-[#191b21] p-6 transition hover:border-[#EF2B2D]/50 hover:bg-[#1d2027]"
-                whileHover={{ scale: 1.02 }}
+                className="group rounded-2xl border border-white/10 bg-[#191b21] p-6 transition hover:border-[#EF2B2D]/50 hover:bg-[#1d2027]"
+                whileHover={{ y: -6, scale: 1.01 }}
               >
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#EF2B2D]/20 text-[#EF2B2D]">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,8 +143,8 @@ export default function InvestorsPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="group rounded-xl border border-white/10 bg-[#191b21] p-6 transition hover:border-[#EF2B2D]/50 hover:bg-[#1d2027]"
-                whileHover={{ scale: 1.02 }}
+                className="group rounded-2xl border border-white/10 bg-[#191b21] p-6 transition hover:border-[#EF2B2D]/50 hover:bg-[#1d2027]"
+                whileHover={{ y: -6, scale: 1.01 }}
               >
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#EF2B2D]/20 text-[#EF2B2D]">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -15,6 +15,16 @@ export default function SkillDevelopmentPlacementPage() {
       <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <motion.div
+          className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#EF2B2D]/12 blur-3xl"
+          animate={{ x: [0, 20, 0], y: [0, -12, 0] }}
+          transition={{ duration: 9.2, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-8 right-8 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+          animate={{ x: [0, -16, 0], y: [0, 10, 0] }}
+          transition={{ duration: 8.4, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         {/* Animated grid pattern */}
         <div className="absolute inset-0 overflow-hidden opacity-10">
@@ -173,7 +183,8 @@ export default function SkillDevelopmentPlacementPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="group space-y-4"
+                whileHover={{ y: -4 }}
+                className="group space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#EF2B2D]/60 hover:shadow-md"
               >
                 <div className="text-6xl font-light text-gray-200 transition-colors duration-300 group-hover:text-[#EF2B2D]">
                   {String(index + 1).padStart(2, '0')}
@@ -197,7 +208,7 @@ export default function SkillDevelopmentPlacementPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-16 bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20 text-center"
+            className="mb-16 overflow-hidden rounded-2xl bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20 text-center shadow-[0_22px_45px_rgba(17,24,39,0.2)]"
           >
             <div className="mx-auto max-w-4xl px-6">
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Strategy</p>
@@ -288,7 +299,8 @@ export default function SkillDevelopmentPlacementPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="rounded-lg border border-gray-200 bg-white p-8 transition-all duration-300 hover:border-[#EF2B2D] hover:shadow-lg"
+                whileHover={{ y: -4 }}
+                className="rounded-xl border border-gray-200/90 bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#EF2B2D]/60 hover:shadow-[0_14px_35px_rgba(17,24,39,0.12)]"
               >
                 <h3 className="mb-4 text-base font-semibold text-gray-900">{strategy.title}</h3>
                 <ul className="space-y-3">
@@ -312,7 +324,7 @@ export default function SkillDevelopmentPlacementPage() {
         transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Contact showFootprints={false} />
       </motion.div>
       <Footer />
     </>

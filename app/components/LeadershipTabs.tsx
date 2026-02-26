@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 
 type Director = {
   name: string;
@@ -68,6 +69,33 @@ export default function LeadershipTabs({
 }) {
   const [activeTab, setActiveTab] = useState<"board" | "team">("board");
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
+    },
+  };
+
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 0.08 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 22, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+    },
+  };
+
   const teamMembers: TeamMember[] = [
     { name: "Bijender Yadav", role: "Chief Financial Officer", image: "/images/BijenderYadav.jpg" },
     { name: "Lt. Col. Permender Malik", role: "SVP-Manpower", image: "/images/PermenderMalik.jpeg" },
@@ -80,87 +108,143 @@ export default function LeadershipTabs({
   ];
 
   return (
-    <section className="relative bg-[#f7f7f5] py-24 text-neutral-900">
+    <motion.section
+      className="relative bg-[#f7f7f5] py-24 text-neutral-900"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,43,45,0.06),transparent_65%)]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Tabs */}
-        <div className="flex justify-center gap-4 mb-12">
-          <button
+        <div className="mb-12 flex justify-center gap-4">
+          <motion.button
             onClick={() => setActiveTab("board")}
-            className={`rounded-sm px-8 py-3 text-sm font-bold uppercase tracking-[0.15em] transition-all ${
+            className={`relative rounded-sm px-8 py-3 text-sm font-bold uppercase tracking-[0.15em] transition-all ${
               activeTab === "board"
                 ? "bg-[#EF2B2D] text-white shadow-lg"
                 : "bg-neutral-200 text-neutral-900 hover:bg-neutral-300"
             }`}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
           >
             Board of Directors
-          </button>
-          <button
+            {activeTab === "board" && (
+              <motion.span
+                layoutId="leadership-tab-glow"
+                className="absolute inset-0 -z-10 rounded-sm bg-[#EF2B2D]/20 blur-md"
+                transition={{ type: "spring", stiffness: 350, damping: 30 }}
+              />
+            )}
+          </motion.button>
+          <motion.button
             onClick={() => setActiveTab("team")}
-            className={`rounded-sm px-8 py-3 text-sm font-bold uppercase tracking-[0.15em] transition-all ${
+            className={`relative rounded-sm px-8 py-3 text-sm font-bold uppercase tracking-[0.15em] transition-all ${
               activeTab === "team"
                 ? "bg-[#EF2B2D] text-white shadow-lg"
                 : "bg-neutral-200 text-neutral-900 hover:bg-neutral-300"
             }`}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
           >
             Team Innovision
-          </button>
+            {activeTab === "team" && (
+              <motion.span
+                layoutId="leadership-tab-glow"
+                className="absolute inset-0 -z-10 rounded-sm bg-[#EF2B2D]/20 blur-md"
+                transition={{ type: "spring", stiffness: 350, damping: 30 }}
+              />
+            )}
+          </motion.button>
         </div>
 
-        {/* Board of Directors Tab */}
-        {activeTab === "board" && (
-          <div className="space-y-20">
-            <div>
-              <div className="text-center mb-14">
+        <AnimatePresence mode="wait">
+          {activeTab === "board" ? (
+            <motion.div
+              key="board"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="space-y-20"
+            >
+              <div>
+                <div className="mb-14 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+                    Corporate Leadership
+                  </p>
+                  <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Board of Directors</h2>
+                  <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
+                </div>
+                <motion.div
+                  className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+                  variants={gridVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {boardOfDirectors.map((director) => (
+                    <motion.div key={director.name} variants={cardVariants}>
+                      <DirectorCard director={director} />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+              <div>
+                <div className="mb-14 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+                    Governance Excellence
+                  </p>
+                  <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Independent Directors</h2>
+                  <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
+                </div>
+                <motion.div
+                  className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+                  variants={gridVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {independentDirectors.map((director) => (
+                    <motion.div key={director.name} variants={cardVariants}>
+                      <DirectorCard director={director} />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="team"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="mb-14 text-center">
                 <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-                  Corporate Leadership
+                  Executive Team
                 </p>
-                <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Board of Directors</h2>
+                <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Team Innovision</h2>
                 <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
               </div>
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {boardOfDirectors.map((director) => (
-                  <DirectorCard key={director.name} director={director} />
+              <motion.div
+                className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+                variants={gridVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {teamMembers.map((member) => (
+                  <motion.div key={member.name} variants={cardVariants}>
+                    <TeamCard member={member} />
+                  </motion.div>
                 ))}
-              </div>
-            </div>
-
-            <div>
-              <div className="text-center mb-14">
-                <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-                  Governance Excellence
-                </p>
-                <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Independent Directors</h2>
-                <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
-              </div>
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {independentDirectors.map((director) => (
-                  <DirectorCard key={director.name} director={director} />
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Team Innovision Tab */}
-        {activeTab === "team" && (
-          <div>
-            <div className="text-center mb-14">
-              <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-                Executive Team
-              </p>
-              <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Team Innovision</h2>
-              <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
-            </div>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {teamMembers.map((member) => (
-                <TeamCard key={member.name} member={member} />
-              ))}
-            </div>
-          </div>
-        )}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </section>
+    </motion.section>
   );
 }

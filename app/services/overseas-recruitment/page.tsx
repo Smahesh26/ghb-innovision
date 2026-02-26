@@ -15,6 +15,16 @@ export default function OverseasRecruitmentPage() {
       <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <motion.div
+          className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#EF2B2D]/12 blur-3xl"
+          animate={{ x: [0, 20, 0], y: [0, -10, 0] }}
+          transition={{ duration: 9.2, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-8 right-8 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+          animate={{ x: [0, -14, 0], y: [0, 10, 0] }}
+          transition={{ duration: 8.3, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
@@ -123,7 +133,8 @@ export default function OverseasRecruitmentPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
               viewport={{ once: true, margin: "-50px" }}
-              className="rounded-lg border border-[#EF2B2D]/30 bg-gradient-to-br from-[#EF2B2D]/10 to-transparent p-12 text-white"
+              whileHover={{ y: -4 }}
+              className="rounded-2xl border border-[#EF2B2D]/30 bg-gradient-to-br from-[#EF2B2D]/10 to-transparent p-12 text-white shadow-[0_14px_35px_rgba(239,43,45,0.14)] transition-all"
             >
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Mission</p>
               <h2 className="mb-6 text-2xl font-light">Connecting India&apos;s Talent with Global Opportunities</h2>
@@ -137,7 +148,8 @@ export default function OverseasRecruitmentPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 0.61, 0.36, 1] }}
               viewport={{ once: true, margin: "-50px" }}
-              className="rounded-lg border border-white/10 bg-white/5 p-12 text-white"
+              whileHover={{ y: -4 }}
+              className="rounded-2xl border border-white/10 bg-white/5 p-12 text-white shadow-[0_14px_35px_rgba(17,24,39,0.2)] transition-all"
             >
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Vision</p>
               <h2 className="mb-6 text-2xl font-light">Breaking Barriers, Building Futures</h2>
@@ -171,7 +183,7 @@ export default function OverseasRecruitmentPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
             viewport={{ once: true, margin: "-50px" }}
-            className="mx-auto max-w-4xl rounded-lg border border-gray-200 bg-white p-12"
+            className="mx-auto max-w-4xl rounded-2xl border border-gray-200 bg-white p-12 shadow-sm"
           >
             <div className="space-y-6 text-base leading-relaxed text-gray-600">
               <p>
@@ -233,7 +245,8 @@ export default function OverseasRecruitmentPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="rounded-lg border border-gray-200 bg-white p-8 transition-all duration-300 hover:border-[#EF2B2D] hover:shadow-lg"
+                whileHover={{ y: -4 }}
+                className="rounded-xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:border-[#EF2B2D]/60 hover:shadow-md"
               >
                 <h3 className="mb-4 text-base font-semibold text-gray-900">{benefit.title}</h3>
                 <p className="text-sm leading-relaxed text-gray-600">{benefit.description}</p>
@@ -243,69 +256,13 @@ export default function OverseasRecruitmentPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Get Started</p>
-            <h2 className="text-4xl font-light text-white">
-              Streamline Your <span className="font-semibold text-[#EF2B2D]">Overseas Recruitment Process</span>
-            </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/80">
-              Let us connect you with skilled professionals worldwide customized to meet your business requirements.
-            </p>
-            
-            <div className="mt-10 flex flex-wrap justify-center gap-6">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="rounded border border-[#EF2B2D] bg-[#EF2B2D] px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:bg-transparent hover:text-[#EF2B2D]"
-              >
-                Download Brochure
-              </motion.button>
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="rounded border border-white/30 bg-transparent px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:border-white hover:bg-white hover:text-gray-900"
-              >
-                Contact Us
-              </motion.a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Recruitment Process */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center"
-          >
-            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Ready to Help</p>
-            <p className="text-xl leading-relaxed text-gray-600">
-              We are ready to secure your business and people. Contact <span className="font-semibold text-[#EF2B2D]">Innovision Limited</span> today and let us tailor a comprehensive recruitment solution that meets your unique needs.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Contact showFootprints={false} />
       </motion.div>
       <Footer />
     </>

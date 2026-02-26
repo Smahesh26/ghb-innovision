@@ -272,10 +272,8 @@ export default function TrainingPage() {
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ 
                     duration: 0.7, 
-                    delay: index * 0.1, 
-                    type: "spring", 
-                    stiffness: 100,
-                    damping: 15
+                    delay: index * 0.1,
+                    ease: [0.22, 0.61, 0.36, 1]
                   }}
                   viewport={{ once: true, margin: "-50px" }}
                   className="group flex flex-col items-center"
@@ -329,10 +327,8 @@ export default function TrainingPage() {
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ 
                       duration: 0.7, 
-                      delay: 0.5 + index * 0.1, 
-                      type: "spring", 
-                      stiffness: 100,
-                      damping: 15
+                      delay: 0.5 + index * 0.1,
+                      ease: [0.22, 0.61, 0.36, 1]
                     }}
                     viewport={{ once: true, margin: "-50px" }}
                     className="group flex flex-col items-center"
@@ -705,9 +701,7 @@ export default function TrainingPage() {
                   transition={{ 
                     duration: 0.6, 
                     delay: training.delay,
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 15
+                    ease: [0.22, 0.61, 0.36, 1]
                   }}
                   viewport={{ once: true, margin: "-50px" }}
                   className={`group absolute ${positions[training.position as keyof typeof positions]} z-10`}
@@ -834,7 +828,7 @@ export default function TrainingPage() {
         transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Contact showFootprints={false} />
       </motion.div>
 
       <Footer />

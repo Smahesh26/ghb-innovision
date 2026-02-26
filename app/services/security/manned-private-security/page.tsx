@@ -7,6 +7,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function MannedPrivateSecurityPage() {
+  const sectionReveal = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    },
+  };
+
   const services = [
     {
       title: "Unarmed Security Services",
@@ -173,6 +182,16 @@ export default function MannedPrivateSecurityPage() {
       <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <motion.div
+          className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#EF2B2D]/12 blur-3xl"
+          animate={{ x: [0, 26, 0], y: [0, -14, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-10 right-10 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+          animate={{ x: [0, -18, 0], y: [0, 12, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
@@ -208,7 +227,13 @@ export default function MannedPrivateSecurityPage() {
       </section>
 
       {/* Introduction */}
-      <section className="bg-white py-24 text-gray-900">
+      <motion.section
+        className="bg-white py-24 text-gray-900"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.18 }}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -225,10 +250,16 @@ export default function MannedPrivateSecurityPage() {
             </p>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services Grid */}
-      <section className="bg-gray-50 py-24 text-gray-900">
+      <motion.section
+        className="bg-gray-50 py-24 text-gray-900"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.16 }}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -275,10 +306,16 @@ export default function MannedPrivateSecurityPage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Choose Us */}
-      <section className="bg-white py-24 text-gray-900">
+      <motion.section
+        className="bg-white py-24 text-gray-900"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.16 }}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -315,10 +352,16 @@ export default function MannedPrivateSecurityPage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Industries We Cater */}
-      <section className="bg-gray-50 py-24 text-gray-900">
+      <motion.section
+        className="bg-gray-50 py-24 text-gray-900"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.16 }}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -355,10 +398,16 @@ export default function MannedPrivateSecurityPage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* PSARA License */}
-      <section className="bg-white py-24 text-gray-900">
+      <motion.section
+        className="bg-white py-24 text-gray-900"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.16 }}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -430,10 +479,16 @@ export default function MannedPrivateSecurityPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Closing Statement */}
-      <section className="bg-gray-50 py-24 text-gray-900">
+      <motion.section
+        className="bg-gray-50 py-24 text-gray-900"
+        variants={sectionReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.16 }}
+      >
         <div className="mx-auto max-w-7xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -502,7 +557,14 @@ export default function MannedPrivateSecurityPage() {
                 { name: "Vista", logo: "/images/clients-services/vista.png" },
                 { name: "Y-Axis", logo: "/images/clients-services/yaxis.png" },
               ]).map((client, index) => (
-                <div key={`${client.name}-${index}`} className="client-logo-card">
+                <motion.div
+                  key={`${client.name}-${index}`}
+                  className="client-logo-card"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.02 }}
+                  viewport={{ once: true }}
+                >
                   <div className="relative h-40 w-80">
                     <Image
                       src={client.logo}
@@ -513,7 +575,7 @@ export default function MannedPrivateSecurityPage() {
                       unoptimized
                     />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -557,7 +619,7 @@ export default function MannedPrivateSecurityPage() {
             }
           }
         `}</style>
-      </section>
+      </motion.section>
 
       <CTA />
       <Footer />

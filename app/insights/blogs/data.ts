@@ -19,8 +19,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "4 min read",
 		excerpt:
 			"Innovision has officially commenced operations at the Nemili–Sriperumpudur Toll Plaza in Tamil Nadu, marking another proud step in our journey of managing highways that connect people and places.",
-		image: "/images/tollbanner.jpg",
-		bannerImage: "/images/tollbanner.jpg",
+		image: "/images/blogs/tollblog1.png",
+		bannerImage: "/images/blogs/tollblog1.png",
 		content: [
 			"Innovision has officially commenced operations at the Nemili–Sriperumpudur Toll Plaza in Tamil Nadu from 8th October 2025, marking another proud step in our journey of managing highways that connect people and places.",
 			"This landmark project, worth over ₹100 crore, integrates toll management with the maintenance of nearby public amenities — a responsibility we approach with both professionalism and care.",
@@ -37,8 +37,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "7 min read",
 		excerpt:
 			"The recent knife attack involving Saif Ali Khan highlights why proactive, professional security is essential for homes, families, and businesses in today’s risk environment.",
-		image: "/images/securitybanner.jpg",
-		bannerImage: "/images/securitybanner.jpg",
+		image: "/images/blogs/prrioritizingsafetyblog2.jpg",
+		bannerImage: "/images/blogs/prrioritizingsafetyblog2.jpg",
 		content: [
 			"Introduction: The recent knife attack involving Bollywood actor Saif Ali Khan has brought safety concerns to the forefront for many individuals and families. While Saif Ali Khan is now recovering, the incident highlights the importance of robust security measures.",
 			"At Innovision Limited, we are committed to providing top-tier security manpower services that ensure the safety of your loved ones, assets, and properties. Let’s delve into the importance of professional security in today’s world.",
@@ -60,8 +60,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "8 min read",
 		excerpt:
 			"RPL certification under PMKVY validates informal skills against national standards, improves employability, and creates stronger pathways to formal jobs, higher incomes, and further skilling.",
-		image: "/images/skillsbanner.jpg",
-		bannerImage: "/images/skillsbanner.jpg",
+		image: "/images/blogs/rplcertificateblog3.jpeg",
+		bannerImage: "/images/blogs/rplcertificateblog3.jpeg",
 		content: [
 			"In an era marked by the demand for highly skilled labor, the Pradhan Mantri Kaushal Vikas Yojana (PMKVY) emerges as a powerful government initiative designed to upskill the Indian workforce. Within this program, the Recognition of Prior Learning (RPL) certification plays a pivotal role by validating the skills of individuals in the informal sector, aligning their expertise with industry standards, and, consequently, enhancing their employability.",
 			"RPL under PMKVY: An Overview — RPL is a structured process that evaluates and certifies individuals based on existing skills and work experience, irrespective of whether these competencies were acquired formally or through informal avenues such as on-the-job training. By aligning these skills with the National Skills Qualification Framework (NSQF), the RPL program ensures industry-recognized certification, making skills more portable and employable.",
@@ -81,8 +81,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "8 min read",
 		excerpt:
 			"From pre-deployment certification to ongoing refresher drills, Innovision's comprehensive training program equips manned guarding staff with the skills needed to handle diverse security scenarios with professionalism.",
-		image: "/images/services-home/mannedservice1.jpeg",
-		bannerImage: "/images/securitybanner.jpg",
+		image: "/images/blogs/elevatingsecuritystandardsblog9.jpg",
+		bannerImage: "/images/blogs/elevatingsecuritystandardsblog9.jpg",
 		content: [
 			"Innovision Limited takes pride in its meticulous approach to training manned guarding staff, recognizing that well-prepared guards are the cornerstone of effective security operations. From pre-deployment to ongoing refresher training, Innovision's comprehensive program equips security personnel with the skills and knowledge needed to navigate a variety of security scenarios confidently.",
 			"Pre-Deployment Training — PSAR Act (2005) Compliance: Innovision adheres to the standards outlined in the Private Security Agencies Regulation Act of 2005, ensuring that guards meet industry requirements. First Aid Certification: Guards receive thorough training in first aid techniques, covering emergency response protocols and medical procedures to address a range of injuries and incidents.",
@@ -101,8 +101,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "8 min read",
 		excerpt:
 			"Choosing between armed and unarmed guards depends on your risk profile, customer environment, legal obligations, and budget—this guide helps businesses make the right decision.",
-		image: "/images/securitybanner.jpg",
-		bannerImage: "/images/securitybanner.jpg",
+		image: "/images/blogs/hiringsecurityguardsblog4.jpeg",
+		bannerImage: "/images/blogs/hiringsecurityguardsblog4.jpeg",
 		content: [
 			"When it comes to ensuring the safety and security of your business, one of the most critical decisions you will make is whether to hire armed or unarmed security personnel. Each option has its own set of advantages and considerations, and understanding these can help you make an informed choice that aligns with your specific security needs. At Innovision Limited, we provide trained security guards who are equipped to handle various scenarios effectively. Here's a breakdown of the key differences between armed and unarmed security, along with insights on why hiring trained professionals is essential for your business.",
 			"Understanding the Roles — Unarmed Security Guards: Unarmed security personnel are typically responsible for monitoring premises, deterring crime through their presence, and managing access control. They are trained in conflict resolution and emergency response but do not carry weapons. Their primary focus is on preventing incidents before they escalate.",
@@ -124,8 +124,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "7 min read",
 		excerpt:
 			"Outsourcing manned guarding to Innovision Limited provides visible deterrence, rapid response, expert monitoring, and 24/7 coverage—reducing liability while enhancing overall security.",
-		image: "/images/blog3.jpg",
-		bannerImage: "/images/securitybanner.jpg",
+		image: "/images/blogs/enhancingsecurityblog10.jpg",
+		bannerImage: "/images/blogs/enhancingsecurityblog10.jpg",
 		content: [
 			"In today's fast-paced world, ensuring the safety and security of premises, assets, and personnel is a top priority for businesses of all sizes. When it comes to manned guarding services, Innovision Limited stands out as a trusted partner offering tailored solutions to meet diverse security needs. Here are the key benefits of outsourcing manned guarding services to Innovision Limited.",
 			"1. Visible Deterrent — The presence of Innovision's trained security guards serves as a formidable deterrent to potential threats. Criminals are less likely to attempt unlawful activities knowing that they are being closely monitored by vigilant professionals, reducing the risk of security breaches and incidents.",
@@ -146,8 +146,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "7 min read",
 		excerpt:
 			"Through strategic partnerships with NSDC, PMKVY, and DDU-GKY, Innovision Limited delivers comprehensive training programs that empower Indian youth with industry-ready skills and employment opportunities.",
-		image: "/images/integratedfacilitybanner.jpg",
-		bannerImage: "/images/skillsbanner.jpg",
+		image: "/images/blogs/empoweringthenationblog11.jpg",
+		bannerImage: "/images/blogs/empoweringthenationblog11.jpg",
 		content: [
 			"Innovision Limited stands at the forefront of skill development in India, actively engaging in initiatives that bolster the talent and employability of the nation's youth. Innovision Limited collaborates closely with the National Skill Development Corporation (NSDC) to deliver comprehensive training programs tailored to both IT and non-IT sectors. With its ISO 9001:2008 certification as a testament to quality training and curriculum proficiency, Innovision Limited aligns seamlessly with government-led schemes such as the Pradhan Mantri Kaushal Vikas Yojana (PMKVY) and the Deen Dayal Upadhyaya Grameen Kaushalya Yojana (DDU-GKY), steadfast in its mission to equip Indian youth with employable skills.",
 			"A Comprehensive Approach to Skill Development — Innovision Limited's training methodology encompasses mobilization, counseling, rigorous training modules, assessments, on-the-job training (OJT), and robust placement assistance, ensuring a holistic approach to skill enhancement. With training centers strategically located across various states including Haryana, Rajasthan, Andhra Pradesh, West Bengal, Kerala, and Gujarat, Innovision Limited extends its reach to aspiring individuals from diverse socio-economic backgrounds, thereby fostering skill enhancement and employment opportunities across the length and breadth of the nation.",
@@ -164,8 +164,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "9 min read",
 		excerpt:
 			"With rising threats facing high-profile individuals, specialized Personal Security Officers provide tailored protection, threat assessment, and 24/7 vigilance—ensuring safety without compromise.",
-		image: "/images/securitybanner.jpg",
-		bannerImage: "/images/securitybanner.jpg",
+		image: "/images/blogs/guardingtheeliteblog5.jpeg",
+		bannerImage: "/images/blogs/guardingtheeliteblog5.jpeg",
 		content: [
 			"In today's landscape, the importance of personal security for high-profile individuals cannot be overstated. With threats to safety on the rise, hiring specialized protection is essential. As a premier security service provider, Innovision Limited is committed to meeting these needs through our highly trained Personal Security Officers (PSOs) who are ready to safeguard politicians, VIPs, celebrities, and other high-profile individuals.",
 			"The Growing Need for Security — Escalating Threats: In India, public figures increasingly face risks from rising criminal activities, political unrest, and targeted attacks. For politicians and VIPs, whose visibility and influence make them particularly vulnerable, the need for a proactive and robust approach to security is crucial. Innovision Limited addresses this through PSOs who go beyond the standard security provided by law enforcement, offering tailored, around-the-clock protection.",
@@ -186,8 +186,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "8 min read",
 		excerpt:
 			"Choosing the right security company requires evaluating licensing, experience, training protocols, and customer service—this guide helps businesses make informed decisions.",
-		image: "/images/securitybanner.jpg",
-		bannerImage: "/images/securitybanner.jpg",
+		image: "/images/blogs/bestsecurityguardblog6.jpg",
+		bannerImage: "/images/blogs/bestsecurityguardblog6.jpg",
 		content: [
 			"When it comes to safeguarding your business, hiring the right security guard company in India is crucial. With a multitude of options available, it can be challenging to find a provider that meets your needs. Here are five key factors to consider when selecting security services for businesses.",
 			"1. Define Your Security Needs — Begin by assessing your specific security requirements. Determine the services you need, such as patrolling, access control, surveillance, or event security. Consider the area to be secured and any unique risks or regulations. This clarity will help you find a company that specializes in the services you require.",
@@ -211,8 +211,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "9 min read",
 		excerpt:
 			"India's private security sector, valued at INR 350 billion and employing over 10 million people, is growing at 20% CAGR—discover the top companies leading this expansion.",
-		image: "/images/securitybanner.jpg",
-		bannerImage: "/images/securitybanner.jpg",
+		image: "/images/blogs/securitymanpowerblog7.jpg",
+		bannerImage: "/images/blogs/securitymanpowerblog7.jpg",
 		content: [
 			"India's private security industry, valued at approximately INR 350 billion, is a critical part of the country's infrastructure. Employing over 10 million people, it plays a pivotal role in safeguarding residential, commercial, and industrial assets. Driven by rapid urbanization, rising safety concerns, and technological advancements, the sector is experiencing remarkable growth. According to a CAPSI report, the industry is expected to grow at a compound annual growth rate (CAGR) of 20%, reaching INR 400 billion by 2025.",
 			"As cities grow and population density increases, there is an escalating demand for security guards and professional security services. The expanding middle class, coupled with rising crime rates in urban areas, has heightened the need for effective security solutions. Beyond its role in public safety, the security manpower sector also contributes significantly to India's economy, providing employment and acting as a major corporate taxpayer.",
@@ -239,8 +239,8 @@ export const blogPosts: BlogPost[] = [
 		readTime: "7 min read",
 		excerpt:
 			"Launched in 2021, PM-DAKSH empowers marginalized groups through skill training and job opportunities—Innovision Limited plays a key role in implementing these transformative programs.",
-		image: "/images/skillsbanner.jpg",
-		bannerImage: "/images/skillsbanner.jpg",
+		image: "/images/blogs/pmdakshblog8.jpg",
+		bannerImage: "/images/blogs/pmdakshblog8.jpg",
 		content: [
 			"The PM-DAKSH scheme, a government initiative in India, has been pivotal in providing skill development and employability opportunities for the youth of the nation. Launched on 7th August 2021 under the Ministry of Skill Development and Entrepreneurship, this scheme aims to address unemployment issues and promote skill development among the country's youth. The scheme targets marginalized groups like SCs, OBCs, EBCs, DNTs, and sanitation workers, offering training programs to enhance their job prospects and capabilities.",
 			"Impact of PM-DAKSH on Skill Development — The PM-DAKSH scheme has significantly impacted skill development in India by providing training opportunities to marginalized individuals, empowering them to enter self-employment and improve their economic status. Through programs such as the Recognition of Prior Learning Scheme, the initiative has directed its attention towards district-level skilling ecosystems and industry apprenticeship opportunities for graduates.",
@@ -254,3 +254,24 @@ export const blogPosts: BlogPost[] = [
 export function getBlogBySlug(slug: string) {
 	return blogPosts.find((blog) => blog.slug === slug);
 }
+
+export const blogDisplayOrder: string[] = [
+	"innovision-commences-operations-at-nemili-sriperumpudur-toll-plaza",
+	"prioritizing-your-safety-lessons-from-recent-incident",
+	"rpl-certification-under-pmkvy-transforms-employability",
+	"hiring-security-guards-choose-armed-vs-unarmed-services",
+	"guarding-elite-personal-security-officers-politicians-vips-india",
+	"how-to-select-best-security-guard-company-india-business-needs",
+	"top-10-security-manpower-companies-india-growing-market",
+	"influence-pm-daksh-skill-development-india-innovision-contribution",
+	"elevating-security-standards-manned-guarding-training-program",
+	"enhancing-security-with-innovision-advantages-of-manned-guarding",
+	"empowering-the-nation-role-in-fostering-skill-development",
+];
+
+export const orderedBlogPosts: BlogPost[] = [
+	...blogDisplayOrder
+		.map((slug) => blogPosts.find((blog) => blog.slug === slug))
+		.filter((blog): blog is BlogPost => Boolean(blog)),
+	...blogPosts.filter((blog) => !blogDisplayOrder.includes(blog.slug)),
+];

@@ -117,7 +117,11 @@ export default function InvestmentHighlights() {
 		<section className="relative bg-gradient-to-b from-[#0d0d0f] to-[#1a1a1d] py-32 text-white">
 			
 			{/* Background Glow */}
-			<div className="absolute top-1/4 right-1/4 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
+			<motion.div
+				className="absolute top-1/4 right-1/4 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+				animate={{ opacity: [0.35, 0.7, 0.35], scale: [0.95, 1.08, 0.95] }}
+				transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+			/>
 
 			<div className="relative mx-auto max-w-7xl px-6">
 
@@ -159,15 +163,25 @@ export default function InvestmentHighlights() {
 							whileHover={{ y: -8, scale: 1.02 }}
 							className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#1a1a1d] to-[#161618] p-6 transition-all duration-300 hover:border-[#EF2B2D]/40 hover:shadow-[0_20px_50px_rgba(239,43,45,0.15)]"
 						>
+							<motion.div
+								className="pointer-events-none absolute -left-1/2 top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-white/[0.12] to-transparent"
+								animate={{ x: ["-120%", "320%"] }}
+								transition={{ duration: 5.8, repeat: Infinity, ease: "linear", delay: index * 0.18 }}
+							/>
+
 							{/* Glow Effect */}
 							<div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
 								<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.1),transparent_70%)]" />
 							</div>
 
 							{/* Icon */}
-							<div className="relative mb-4 inline-flex items-center justify-center rounded-lg bg-[#EF2B2D]/10 p-3 text-[#EF2B2D] transition-all duration-300 group-hover:bg-[#EF2B2D]/20">
+							<motion.div
+								className="relative mb-4 inline-flex items-center justify-center rounded-lg bg-[#EF2B2D]/10 p-3 text-[#EF2B2D] transition-all duration-300 group-hover:bg-[#EF2B2D]/20"
+								animate={{ y: [0, -2, 0] }}
+								transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: index * 0.08 }}
+							>
 								{highlight.icon}
-							</div>
+							</motion.div>
 
 							{/* Metric */}
 							<div className="relative mb-2">

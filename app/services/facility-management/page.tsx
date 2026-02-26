@@ -170,6 +170,16 @@ export default function FacilityManagementPage() {
       <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <motion.div
+          className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#EF2B2D]/12 blur-3xl"
+          animate={{ x: [0, 24, 0], y: [0, -14, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-8 right-8 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+          animate={{ x: [0, -16, 0], y: [0, 10, 0] }}
+          transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
@@ -359,7 +369,8 @@ export default function FacilityManagementPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-[#EF2B2D] hover:shadow-lg"
+                whileHover={{ y: -6 }}
+                className="group relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-8 shadow-[0_12px_35px_rgba(17,24,39,0.08)] transition-all hover:border-[#EF2B2D]/60 hover:shadow-[0_18px_45px_rgba(17,24,39,0.14)]"
               >
                 {/* Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 transition-opacity duration-500 group-hover:opacity-10`} />
@@ -404,17 +415,19 @@ export default function FacilityManagementPage() {
             className="mb-12 flex flex-wrap justify-center gap-4"
           >
             {tabServices.map((tab, index) => (
-              <button
+              <motion.button
                 key={tab.title}
                 onClick={() => setActiveTab(index)}
                 className={`rounded-lg px-8 py-4 text-lg font-semibold transition-all duration-300 ${
                   activeTab === index
-                    ? "bg-[#EF2B2D] text-white shadow-md"
+                    ? "bg-gradient-to-r from-[#EF2B2D] to-red-700 text-white shadow-lg"
                     : "bg-white text-gray-700 shadow-sm hover:bg-gray-50"
                 }`}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {tab.title}
-              </button>
+              </motion.button>
             ))}
           </motion.div>
 
@@ -432,7 +445,8 @@ export default function FacilityManagementPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
-                className="group rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-[#EF2B2D] hover:shadow-md"
+                whileHover={{ y: -4 }}
+                className="group rounded-2xl border border-gray-200/90 bg-white p-8 shadow-[0_10px_30px_rgba(17,24,39,0.08)] transition-all hover:border-[#EF2B2D]/60 hover:shadow-[0_16px_40px_rgba(17,24,39,0.12)]"
               >
                 <div className="mb-4 text-5xl transition-transform duration-300 group-hover:scale-110">
                   {service.icon}
@@ -483,37 +497,6 @@ export default function FacilityManagementPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#EF2B2D] to-red-700 py-20">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-4xl font-light tracking-tight text-white sm:text-5xl">
-              Ready to <span className="font-semibold">Transform Your Facility?</span>
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-xl text-white/90">
-              Let us handle your facility management needs while you focus on growing your business
-            </p>
-            <motion.a
-              href="#contact"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="mt-8 inline-block rounded-lg bg-white px-12 py-4 text-lg font-semibold text-[#EF2B2D] shadow-xl transition-all hover:scale-105 hover:bg-gray-100"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started Today
-            </motion.a>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Contact Form */}
       <motion.div
         id="contact"
@@ -522,7 +505,7 @@ export default function FacilityManagementPage() {
         transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Contact showFootprints={false} />
       </motion.div>
 
       <Footer />

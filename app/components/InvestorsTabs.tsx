@@ -37,17 +37,22 @@ function ViewLink({ doc }: { doc: Doc }) {
 
 function DocList({ title, docs }: { title: string; docs: Doc[] }) {
   return (
-    <div className="rounded-sm border border-neutral-200/80 bg-white p-6 shadow-[0_12px_32px_rgba(15,15,18,0.06)]">
+    <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 shadow-[0_12px_32px_rgba(15,15,18,0.06)]">
       <h3 className="text-lg font-bold leading-snug text-neutral-900">{title}</h3>
       <div className="mt-5 space-y-3">
-        {docs.map((doc) => (
-          <div
+        {docs.map((doc, index) => (
+          <motion.div
             key={doc.title}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: index * 0.05 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -2 }}
             className="flex flex-col gap-3 rounded-sm border border-neutral-200/80 bg-[#fafaf9] p-4 transition hover:border-[#EF2B2D]/25 hover:bg-white sm:flex-row sm:items-center sm:justify-between"
           >
             <p className="text-sm font-medium text-neutral-700">{doc.title}</p>
             <ViewLink doc={doc} />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
@@ -56,7 +61,11 @@ function DocList({ title, docs }: { title: string; docs: Doc[] }) {
 
 function CompanyBlock({ item }: { item: CompanyDocs }) {
   return (
-    <div className="rounded-sm border border-neutral-200/80 bg-[#fafaf9] p-4 shadow-[0_6px_16px_rgba(15,15,18,0.04)]">
+    <motion.div
+      whileHover={{ y: -2 }}
+      transition={{ duration: 0.25 }}
+      className="rounded-2xl border border-neutral-200/80 bg-[#fafaf9] p-4 shadow-[0_6px_16px_rgba(15,15,18,0.04)]"
+    >
       <p className="font-semibold text-neutral-900">{item.company}</p>
       <div className="mt-3 space-y-2">
         {item.docs.map((doc) => (
@@ -66,7 +75,7 @@ function CompanyBlock({ item }: { item: CompanyDocs }) {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -82,16 +91,16 @@ function SmoothAccordion({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="rounded-sm border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
+    <div className="rounded-2xl border border-neutral-200/80 bg-blue-50 shadow-[0_8px_24px_rgba(15,15,18,0.04)]">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between rounded-sm bg-blue-100 px-5 py-3 text-left font-semibold text-neutral-900 transition-colors duration-300 hover:bg-blue-200/70"
+        className="flex w-full items-center justify-between rounded-2xl bg-blue-100 px-5 py-3 text-left font-semibold text-neutral-900 transition-colors duration-300 hover:bg-blue-200/70"
       >
         <span>{title}</span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
           className="text-neutral-600"
         >
           ▼
@@ -104,7 +113,7 @@ function SmoothAccordion({
             initial={{ height: 0, opacity: 0, y: -8 }}
             animate={{ height: "auto", opacity: 1, y: 0 }}
             exit={{ height: 0, opacity: 0, y: -8 }}
-            transition={{ duration: 0.42, ease: [0.34, 1.56, 0.64, 1] }}
+            transition={{ duration: 0.32, ease: "easeOut" }}
             className="overflow-hidden"
           >
             <div className={contentClassName}>{children}</div>
@@ -263,37 +272,46 @@ export default function InvestorsTabs() {
 
   return (
     <>
-      <main className="relative overflow-hidden bg-gradient-to-b from-[#fbfbfa] via-[#f7f7f5] to-[#f2f2f0] py-20">
+      <main className="relative overflow-x-hidden overflow-y-visible bg-gradient-to-b from-[#fbfbfa] via-[#f7f7f5] to-[#f2f2f0] py-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,43,45,0.08),transparent_45%)]" />
       <div className="pointer-events-none absolute left-[-120px] top-20 h-72 w-72 bg-black/5 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6">
-        <div className="sticky top-24 z-20 border-b border-neutral-200 bg-white/90 px-2 py-2 backdrop-blur-xl">
+        <div className="sticky top-24 z-20 rounded-2xl border border-neutral-200/80 bg-white/90 p-2 shadow-[0_12px_28px_rgba(15,15,18,0.08)] backdrop-blur-xl">
           <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-4">
             {tabs.map((tab) => (
-              <button
+              <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`rounded-none border-b-2 px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.98 }}
+                className={`relative rounded-xl border px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition-all duration-300 ${
                   activeTab === tab.id
-                    ? "border-[#EF2B2D] text-[#EF2B2D]"
-                    : "border-transparent text-neutral-700 hover:text-[#EF2B2D]"
+                    ? "border-[#EF2B2D]/30 bg-[#EF2B2D]/10 text-[#EF2B2D]"
+                    : "border-transparent text-neutral-700 hover:border-neutral-200 hover:text-[#EF2B2D]"
                 }`}
               >
+                {activeTab === tab.id && (
+                  <motion.span
+                    layoutId="investorTabPill"
+                    className="absolute inset-0 -z-10 rounded-xl border border-[#EF2B2D]/20 bg-[#EF2B2D]/5"
+                    transition={{ duration: 0.22, ease: "easeOut" }}
+                  />
+                )}
                 {tab.label}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
 
-        <div className="mt-16 space-y-8">
+        <div className="mt-16 space-y-8 overflow-x-hidden">
           <AnimatePresence mode="wait">
             {activeTab === "relations" && (
               <motion.section
                 key="relations"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.28, ease: "easeOut" }}
                 className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10"
               >
               <div>
@@ -371,10 +389,10 @@ export default function InvestorsTabs() {
           {activeTab === "financial" && (
             <motion.section
               key="financial"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
               className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10"
             >
               <div>
@@ -413,10 +431,10 @@ export default function InvestorsTabs() {
           {activeTab === "governance" && (
             <motion.section
               key="governance"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
               className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10"
             >
               <div>
@@ -675,10 +693,10 @@ export default function InvestorsTabs() {
           {activeTab === "stock" && (
             <motion.section
               key="stock"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
               className="space-y-8 rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-10"
             >
               <div>

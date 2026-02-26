@@ -24,6 +24,16 @@ export default function SkillDevelopmentProjectPage() {
       <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <motion.div
+          className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#EF2B2D]/12 blur-3xl"
+          animate={{ x: [0, 20, 0], y: [0, -10, 0] }}
+          transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-8 right-8 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+          animate={{ x: [0, -14, 0], y: [0, 10, 0] }}
+          transition={{ duration: 8.2, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
@@ -41,7 +51,7 @@ export default function SkillDevelopmentProjectPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
-            className="mt-6 text-5xl font-light sm:text-6xl lg:text-7xl"
+            className="mt-6 text-5xl font-medium tracking-tight sm:text-6xl lg:text-7xl"
           >
             Government
             <span className="mt-2 block font-semibold text-[#EF2B2D]">Schemes</span>
@@ -51,7 +61,7 @@ export default function SkillDevelopmentProjectPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
-            className="mt-6 max-w-3xl text-2xl font-light text-white/90"
+            className="mt-6 max-w-3xl text-2xl font-normal text-white/90"
           >
             Undertaken by Innovision Limited
           </motion.p>
@@ -69,7 +79,7 @@ export default function SkillDevelopmentProjectPage() {
             className="mb-20 text-center"
           >
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Programs</p>
-            <h2 className="text-4xl font-light leading-tight text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-medium leading-tight text-gray-900 sm:text-5xl">
               Government Schemes
               <span className="mt-2 block font-semibold text-[#EF2B2D]">Undertaken By Innovision Limited</span>
             </h2>
@@ -89,12 +99,13 @@ export default function SkillDevelopmentProjectPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.15, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="group relative overflow-hidden bg-white p-8 transition-all hover:bg-gray-50"
+                whileHover={{ y: -4 }}
+                className="group relative overflow-hidden rounded-xl border border-gray-200/70 bg-white p-8 shadow-sm transition-all hover:bg-gray-50 hover:shadow-md"
               >
                 <div className="absolute left-0 top-0 h-full w-1 bg-[#EF2B2D] opacity-0 transition-all group-hover:opacity-100" />
                 <div className="mb-6 text-8xl font-light text-gray-200 transition-all group-hover:text-[#EF2B2D]/10">{scheme.num}</div>
                 <div className="mb-3 text-2xl font-semibold text-gray-900">{scheme.abbr}</div>
-                <h3 className="text-base font-light text-gray-600">{scheme.name}</h3>
+                <h3 className="text-base font-normal text-gray-600">{scheme.name}</h3>
               </motion.div>
             ))}
           </div>
@@ -110,7 +121,7 @@ export default function SkillDevelopmentProjectPage() {
             {/* MSDE Introduction */}
             <div className="mx-auto max-w-4xl py-16 text-center">
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Ministry of Skill Development</p>
-              <h3 className="mb-6 text-3xl font-light leading-tight text-gray-900 sm:text-4xl">
+              <h3 className="mb-6 text-3xl font-medium leading-tight text-gray-900 sm:text-4xl">
                 Empower Your Future with
                 <span className="mt-2 block font-semibold text-[#EF2B2D]">Skill Certification from MSDE</span>
               </h3>
@@ -124,7 +135,7 @@ export default function SkillDevelopmentProjectPage() {
             <div className="space-y-16">
               <div className="text-center">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Certification Program</p>
-                <h3 className="text-3xl font-light text-gray-900">
+                <h3 className="text-3xl font-medium text-gray-900">
                   <span className="font-semibold">RPL</span> — Recognition of Prior Learning
                 </h3>
                 <div className="mx-auto mt-6 h-px w-16 bg-[#EF2B2D]" />
@@ -139,7 +150,7 @@ export default function SkillDevelopmentProjectPage() {
                   viewport={{ once: true, margin: "-50px" }}
                   className="space-y-6"
                 >
-                  <h4 className="text-2xl font-light text-gray-900">
+                  <h4 className="text-2xl font-medium text-gray-900">
                     What is <span className="font-semibold text-[#EF2B2D]">RPL?</span>
                   </h4>
                   <p className="text-base leading-relaxed text-gray-600">
@@ -154,7 +165,7 @@ export default function SkillDevelopmentProjectPage() {
                   viewport={{ once: true, margin: "-50px" }}
                   className="space-y-6"
                 >
-                  <h4 className="text-2xl font-light text-gray-900">
+                  <h4 className="text-2xl font-medium text-gray-900">
                     Our <span className="font-semibold text-[#EF2B2D]">Training Centers</span>
                   </h4>
                   <p className="text-base leading-relaxed text-gray-600">
@@ -174,7 +185,7 @@ export default function SkillDevelopmentProjectPage() {
               {/* RPL Process */}
               <div className="bg-gradient-to-br from-gray-50 to-white py-16">
                 <div className="mx-auto max-w-5xl text-center">
-                  <h4 className="mb-4 text-2xl font-light text-gray-900">
+                  <h4 className="mb-4 text-2xl font-medium text-gray-900">
                     The <span className="font-semibold text-[#EF2B2D]">RPL Process</span>
                   </h4>
                   <p className="mb-12 text-base text-gray-600">
@@ -294,7 +305,7 @@ export default function SkillDevelopmentProjectPage() {
                 className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20 text-center"
               >
                 <div className="mx-auto max-w-3xl px-6">
-                  <h4 className="mb-6 text-3xl font-light text-white">
+                  <h4 className="mb-6 text-3xl font-medium text-white">
                     Discover Your <span className="font-semibold text-[#EF2B2D]">Potential</span>
                   </h4>
                   <p className="mb-8 text-base leading-relaxed text-white/80">
@@ -315,7 +326,7 @@ export default function SkillDevelopmentProjectPage() {
             <div className="space-y-16">
               <div className="text-center">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Training Program</p>
-                <h3 className="text-3xl font-light text-gray-900">
+                <h3 className="text-3xl font-medium text-gray-900">
                   <span className="font-semibold">STT</span> — Short Term Training
                 </h3>
                 <div className="mx-auto mt-6 h-px w-16 bg-[#EF2B2D]" />
@@ -328,7 +339,7 @@ export default function SkillDevelopmentProjectPage() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="mx-auto max-w-4xl space-y-6"
               >
-                <h4 className="text-2xl font-light text-gray-900">
+                <h4 className="text-2xl font-medium text-gray-900">
                   Pradhan Mantri Kaushal Vikas Yojana <span className="font-semibold text-[#EF2B2D]">(PMKVY)</span>
                 </h4>
                 <p className="text-base leading-relaxed text-gray-600">
@@ -341,7 +352,7 @@ export default function SkillDevelopmentProjectPage() {
             <div className="space-y-16">
               <div className="text-center">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Social Initiative</p>
-                <h3 className="text-3xl font-light text-gray-900">
+                <h3 className="text-3xl font-medium text-gray-900">
                   <span className="font-semibold">CSR</span> — Corporate Social Responsibility
                 </h3>
                 <div className="mx-auto mt-6 h-px w-16 bg-[#EF2B2D]" />
@@ -354,7 +365,7 @@ export default function SkillDevelopmentProjectPage() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="mx-auto max-w-4xl space-y-6"
               >
-                <h4 className="text-2xl font-light text-gray-900">
+                <h4 className="text-2xl font-medium text-gray-900">
                   Corporate Conscience & <span className="font-semibold text-[#EF2B2D]">Citizenship</span>
                 </h4>
                 <p className="text-base leading-relaxed text-gray-600">
@@ -365,7 +376,7 @@ export default function SkillDevelopmentProjectPage() {
               {/* CSR Benefits */}
               <div className="bg-gradient-to-br from-gray-50 to-white py-16">
                 <div className="mx-auto max-w-6xl">
-                  <h4 className="mb-4 text-center text-2xl font-light text-gray-900">
+                  <h4 className="mb-4 text-center text-2xl font-medium text-gray-900">
                     What Benefits Does <span className="font-semibold text-[#EF2B2D]">CSR Offer</span> to Businesses?
                   </h4>
                   <p className="mb-12 text-center text-base text-gray-600">
@@ -428,7 +439,7 @@ export default function SkillDevelopmentProjectPage() {
         transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Contact showFootprints={false} />
       </motion.div>
       <Footer />
     </>

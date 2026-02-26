@@ -1,9 +1,9 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Header from "../components/Header";
 import News from "../components/News";
 import Footer from "../components/Footer";
 import LeadershipTabs from "../components/LeadershipTabs";
+import LeadershipHero from "../components/LeadershipHero";
 
 const boardOfDirectors = [
   {
@@ -42,32 +42,6 @@ const independentDirectors = [
   },
 ];
 
-type Director = {
-  name: string;
-  role: string;
-  image: string;
-};
-
-function DirectorCard({ director }: { director: Director }) {
-  return (
-    <article className="group rounded-2xl border border-neutral-200 bg-white/95 p-7 text-center shadow-[0_18px_40px_rgba(15,15,18,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,15,18,0.14)]">
-      <div className="mx-auto relative h-36 w-36 overflow-hidden rounded-full border border-neutral-200 bg-neutral-100 ring-4 ring-[#EF2B2D]/10">
-        <Image
-          src={director.image}
-          alt={director.name}
-          fill
-          className="object-cover object-top transition duration-700 group-hover:scale-105"
-          sizes="144px"
-        />
-      </div>
-
-      <h3 className="mt-6 text-xl font-bold leading-snug text-neutral-900">{director.name}</h3>
-      <div className="mx-auto mt-3 h-[2px] w-10 bg-[#EF2B2D]" />
-      <p className="mt-4 text-sm font-semibold uppercase tracking-[0.08em] text-[#EF2B2D]">{director.role}</p>
-    </article>
-  );
-}
-
 export const metadata: Metadata = {
   title: "Leadership | Innovision Limited",
   description:
@@ -82,26 +56,7 @@ export default function LeadershipPage() {
     <>
       <Header />
 
-      <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f]" aria-label="Leadership Hero">
-        <div className="absolute inset-0 bg-[url('/images/banner1.png')] bg-cover bg-center opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
-
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-28 text-center text-white">
-          <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
-            <span className="h-px w-12 bg-[#EF2B2D]" aria-hidden="true" />
-            <span>Corporate Governance</span>
-            <span className="h-px w-12 bg-[#EF2B2D]" aria-hidden="true" />
-          </div>
-
-          <h1 className="mt-6 text-5xl font-bold sm:text-6xl lg:text-7xl">
-            Leadership
-          </h1>
-
-          <p className="mt-5 max-w-3xl text-lg text-white/80">
-            Experienced leadership focused on governance, compliance, and sustainable growth.
-          </p>
-        </div>
-      </section>
+      <LeadershipHero />
 
       <LeadershipTabs boardOfDirectors={boardOfDirectors} independentDirectors={independentDirectors} />
 

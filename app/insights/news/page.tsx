@@ -9,22 +9,44 @@ export const metadata = {
 export default function NewsPage() {
 	const newsItems = [
 		{
-			date: "February 21, 2026",
-			title: "Innovision Security IPO Launch Announced",
-			excerpt: "Innovision Security Limited announces its upcoming IPO, marking a major milestone in the company's growth journey.",
-			category: "Corporate News",
+			title: "Innovision Commences Operations at Nemili–Sriperumpudur Toll Plaza, Tamil Nadu",
+			source: "Innovision Blog",
+			date: "10 November 2025",
+			excerpt:
+				"Innovision has officially commenced operations at the Nemili–Sriperumpudur Toll Plaza in Tamil Nadu from 8th October 2025, marking another proud step in our journey of managing highways that connect people and places. This landmark project, worth over ₹100 crore, integrates toll management with the maintenance of nearby public amenities with a strong focus on cleanliness, safety, and commuter comfort.",
+			href: "/insights/blogs/innovision-commences-operations-at-nemili-sriperumpudur-toll-plaza",
 		},
 		{
-			date: "January 15, 2026",
-			title: "Expansion into 5 New States",
-			excerpt: "Innovision Security expands its operations into 5 new states, strengthening its nationwide presence.",
-			category: "Business Expansion",
+			title: "Innovision Limited Poised For Successful IPO Launch",
+			source: "Evrimagaci",
+			date: "20 August 2024",
+			excerpt:
+				"The IPO market is set to welcome Innovision Limited, a company based out of Haryana, as it recently filed its draft Red Herring Prospectus (DRHP) with the Securities and Exchange Board of India (Sebi).",
+			href: "https://evrimagaci.org/tpg/innovision-limited-poised-for-successful-ipo-launch-33641",
 		},
 		{
-			date: "December 10, 2025",
-			title: "Industry Recognition: Best Security Training Provider",
-			excerpt: "Awarded as the Best Security Training Provider for the third consecutive year by industry peers.",
-			category: "Awards",
+			title: "Manpower service provider Innovision Limited filed DRHP for IPO",
+			source: "Microsoft star",
+			date: "21 August 2024",
+			excerpt:
+				"Haryana-based Innovision Limited, which provides manpower services, toll plaza management and skill development training, has filed its DRHP with SEBI to raise funds through an IPO. The IPO includes a fresh equity issue of ₹315 crore and an offer for sale by promoter selling shareholders.",
+			href: "",
+		},
+		{
+			title: "IPO rush continues: Unimech Aerospace, Innovision, Manjushree Technopack file DRHP with SEBI",
+			source: "FURTUNE INDIA",
+			date: "21 August 2024",
+			excerpt:
+				"The IPO flow continues as three companies, including Innovision, filed their DRHPs with SEBI to list shares on stock exchanges, with an expected collective raise of around ₹4,000 crore.",
+			href: "https://www.fortuneindia.com/investing/ipo-rush-continues-unimech-aerospace-innovision-manjushree-technopack-file-drhp-with-sebi/118086",
+		},
+		{
+			title: "Latest News | Haryana-based Innovision Files IPO Papers with Sebi; Eyes Rs 315-cr Via Fresh Issue",
+			source: "Latestly",
+			date: "20 August 2024",
+			excerpt:
+				"New Delhi, Aug 20 (PTI): Manpower services company Innovision Ltd filed draft papers with SEBI to raise funds via an initial public offering (IPO).",
+			href: "https://www.latestly.com/agency-news/latest-news-haryana-based-innovision-files-ipo-papers-with-sebi-eyes-rs-315-cr-via-fresh-issue-6203411.html",
 		},
 	];
 
@@ -48,26 +70,35 @@ export default function NewsPage() {
 					</div>
 
 					{/* News Grid */}
-					<div className="grid gap-8 md:grid-cols-3">
+					<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 						{newsItems.map((item, index) => (
 							<article
-								key={item.title}
+								key={`${item.title}-${index}`}
 								className="group rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition hover:border-[#EF2B2D]/50 hover:bg-white/10"
 							>
-								<p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D]">
-									{item.category}
-								</p>
-								<p className="mt-2 text-xs text-white/60">{item.date}</p>
+								<div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.2em]">
+									<p className="font-semibold text-[#EF2B2D]">{item.source}</p>
+									<span className="text-white/30">|</span>
+									<p className="text-white/60">{item.date}</p>
+								</div>
 								<h3 className="mt-4 text-xl font-bold text-white group-hover:text-[#EF2B2D] transition">
 									{item.title}
 								</h3>
 								<p className="mt-4 text-sm text-white/70">{item.excerpt}</p>
-								<a
-									href="#"
-									className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D] hover:text-white transition"
-								>
-									Read More →
-								</a>
+								{item.href ? (
+									<a
+										href={item.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#EF2B2D] hover:text-white transition"
+									>
+										Read More →
+									</a>
+								) : (
+									<span className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+										Read More
+									</span>
+								)}
 							</article>
 						))}
 					</div>

@@ -69,6 +69,16 @@ export default function ManpowerSourcingPage() {
       <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <motion.div
+          className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#EF2B2D]/12 blur-3xl"
+          animate={{ x: [0, 22, 0], y: [0, -12, 0] }}
+          transition={{ duration: 9.6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-8 right-8 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+          animate={{ x: [0, -14, 0], y: [0, 10, 0] }}
+          transition={{ duration: 8.3, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
@@ -157,7 +167,8 @@ export default function ManpowerSourcingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="rounded-lg border border-gray-200 bg-white p-8 text-center"
+                whileHover={{ y: -4 }}
+                className="rounded-2xl border border-gray-200/80 bg-white p-8 text-center shadow-sm transition-all hover:border-[#EF2B2D]/50 hover:shadow-md"
               >
                 <div className="mb-2 text-5xl font-light text-[#EF2B2D]">{stat.number}</div>
                 <div className="text-sm uppercase tracking-wider text-gray-500">{stat.label}</div>
@@ -195,7 +206,8 @@ export default function ManpowerSourcingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="group space-y-4"
+                whileHover={{ y: -4 }}
+                className="group space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#EF2B2D]/60 hover:shadow-md"
               >
                 <div className="text-6xl font-light text-gray-200 transition-colors duration-300 group-hover:text-[#EF2B2D]">
                   {String(index + 1).padStart(2, '0')}
@@ -232,44 +244,14 @@ export default function ManpowerSourcingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="rounded-lg border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:border-[#EF2B2D]"
+                whileHover={{ y: -4 }}
+                className="rounded-xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:border-[#EF2B2D]/70 hover:shadow-[0_14px_35px_rgba(239,43,45,0.16)]"
               >
                 <h3 className="mb-4 text-base font-semibold uppercase tracking-wider text-[#EF2B2D]">{benefit.title}</h3>
                 <p className="text-sm leading-relaxed text-gray-300">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Get Started</p>
-            <h2 className="text-4xl font-light text-white">
-              Ready to Optimize Your <span className="font-semibold text-[#EF2B2D]">HR Processes?</span>
-            </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/80">
-              Looking to optimize your HR processes and attract top talent? Partner with Innovision Limited for 
-              unmatched manpower sourcing and HR solutions. Get in touch with us today to discover how we can meet your business needs.
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-6">
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="rounded border border-[#EF2B2D] bg-[#EF2B2D] px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:bg-transparent hover:text-[#EF2B2D]"
-              >
-                Contact Us Today
-              </motion.a>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -281,7 +263,7 @@ export default function ManpowerSourcingPage() {
         transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Contact showFootprints={false} />
       </motion.div>
 
       <Footer />

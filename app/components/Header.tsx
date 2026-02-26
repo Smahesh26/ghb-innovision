@@ -58,7 +58,6 @@ const navItems = [
   },
   { label: "Clients", href: "/clients" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -195,6 +194,13 @@ export default function Header() {
             )}
 
             {/* CTA */}
+            <Link
+              href="/contact"
+              className="ml-2 rounded-md border border-[#EF2B2D]/60 bg-[#EF2B2D]/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#EF2B2D]/25"
+            >
+              Contact
+            </Link>
+
             <a
               href="/brochure.pdf"
               download
@@ -224,6 +230,23 @@ export default function Header() {
               transition={{ duration: 0.3 }}
               className="mt-4 rounded-xl border border-white/10 bg-[#0b0b0d]/95 p-6 backdrop-blur-xl text-white lg:hidden"
             >
+              <div className="mb-5 flex items-center gap-3">
+                <Link
+                  href="/contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="rounded-md border border-[#EF2B2D]/60 bg-[#EF2B2D]/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white"
+                >
+                  Contact
+                </Link>
+                <a
+                  href="/brochure.pdf"
+                  download
+                  className="rounded-md bg-[#EF2B2D] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white"
+                >
+                  Brochure
+                </a>
+              </div>
+
               <div className="space-y-4">
                 {navItems.map((item) =>
                   item.children ? (

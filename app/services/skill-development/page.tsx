@@ -80,6 +80,16 @@ export default function SkillDevelopmentPage() {
       <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
+        <motion.div
+          className="absolute -left-16 top-16 h-72 w-72 rounded-full bg-[#EF2B2D]/12 blur-3xl"
+          animate={{ x: [0, 22, 0], y: [0, -12, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-8 right-8 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl"
+          animate={{ x: [0, -16, 0], y: [0, 10, 0] }}
+          transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
@@ -173,7 +183,8 @@ export default function SkillDevelopmentPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:border-[#EF2B2D] hover:shadow-lg"
+                whileHover={{ y: -6 }}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:border-[#EF2B2D]/70 hover:shadow-[0_16px_40px_rgba(239,43,45,0.18)]"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#EF2B2D]/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="relative">
@@ -218,7 +229,7 @@ export default function SkillDevelopmentPage() {
               >
                 {[...Array(2)].map((_, setIndex) => (
                   <div key={setIndex} className="flex shrink-0 items-center gap-16">
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/nsdc.png"
                         alt="NSDC Partner"
@@ -226,7 +237,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/msde.png"
                         alt="MSDE Partner"
@@ -234,7 +245,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/pmkvy.png"
                         alt="PMKVY Partner"
@@ -242,7 +253,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/skillindia.png"
                         alt="Skill India Partner"
@@ -250,7 +261,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/pm.png"
                         alt="PM Partner"
@@ -258,7 +269,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/pradhanmantrikaushalkendra.png"
                         alt="Pradhan Mantri Kaushal Kendra"
@@ -266,7 +277,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/ddu-gky.png"
                         alt="DDU-GKY Partner"
@@ -274,7 +285,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/naps.png"
                         alt="NAPS Partner"
@@ -282,7 +293,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/sankalp.png"
                         alt="Sankalp Partner"
@@ -290,7 +301,7 @@ export default function SkillDevelopmentPage() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="relative h-32 w-48 grayscale transition-all hover:grayscale-0">
+                    <div className="relative h-32 w-48 rounded-xl border border-gray-200 bg-white/90 p-4 shadow-sm grayscale transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:grayscale-0">
                       <Image
                         src="/images/Skill Development/pm daksha.png"
                         alt="PM Daksha Partner"
@@ -329,7 +340,8 @@ export default function SkillDevelopmentPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="group rounded-lg border border-gray-200 bg-gray-50 p-8 shadow-sm transition-all hover:border-[#EF2B2D] hover:shadow-md"
+                whileHover={{ y: -4 }}
+                className="group rounded-2xl border border-gray-200/80 bg-gray-50 p-8 shadow-sm transition-all hover:border-[#EF2B2D]/60 hover:shadow-[0_14px_35px_rgba(17,24,39,0.12)]"
               >
                 <div className="mb-4 text-5xl">{benefit.icon}</div>
                 <h3 className="mb-4 text-xl font-semibold text-[#EF2B2D]">{benefit.title}</h3>
@@ -363,7 +375,8 @@ export default function SkillDevelopmentPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 0.61, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="group rounded-lg border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:border-[#EF2B2D] hover:shadow-lg"
+                whileHover={{ y: -4 }}
+                className="group relative rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition-all hover:border-[#EF2B2D]/70 hover:shadow-[0_14px_35px_rgba(239,43,45,0.16)]"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#EF2B2D]/0 to-[#EF2B2D]/0 transition-all duration-500 group-hover:from-[#EF2B2D]/10 group-hover:to-[#EF2B2D]/5" />
                 
@@ -385,7 +398,7 @@ export default function SkillDevelopmentPage() {
         transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Contact showFootprints={false} />
       </motion.div>
       
       <Footer />

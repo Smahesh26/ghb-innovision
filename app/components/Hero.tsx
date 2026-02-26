@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
 	{
-		image: "/images/tollbanner.jpg",
+		image: "/images/tollbanner.jpeg",
 		title: "Toll Plaza Management",
 		description:
 			"Comprehensive toll management, traffic systems, and highway maintenance for seamless operations.",
@@ -29,6 +29,24 @@ const slides = [
 		description:
 			"Building trained, dependable workforces for every industry we serve.",
 	},
+	// {
+	// 	image: "/images/services-home/ManpwerandSourcing.jpg",
+	// 	title: "Manpower Sourcing & Payroll",
+	// 	description:
+	// 		"End-to-end recruitment, onboarding, payroll, and compliance for scalable workforce deployment.",
+	// },
+	// {
+	// 	image: "/images/services-home/Overseas.jpg",
+	// 	title: "Overseas Recruitment",
+	// 	description:
+	// 		"Global talent sourcing, documentation, and deployment support with compliance-first processes.",
+	// },
+	// {
+	// 	image: "/images/services-home/drone.jpg",
+	// 	title: "Drone Manufacturing & Training",
+	// 	description:
+	// 		"Certified drone training and deployment support for surveillance, inspection, and critical operations.",
+	// },
 ];
 
 export default function Hero() {

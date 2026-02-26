@@ -2,44 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const About = () => {
-  const [activeMarker, setActiveMarker] = useState<number | null>(null);
-
-  const markerStyles = {
-    office: {
-      label: "Offices",
-      dot: "h-4 w-4 rounded-full border-2 border-[#EF2B2D] bg-white",
-    },
-    training: {
-      label: "Training Centers",
-      dot: "h-3.5 w-3.5 bg-[#EF2B2D]",
-    },
-    toll: {
-      label: "Toll Plazas",
-      dot: "h-4 w-4 rounded-full bg-[#EF2B2D]",
-    },
-  } as const;
-
-  const indiaMarkers = [
-    { id: 1, name: "Delhi NCR", type: "office", x: 49, y: 25 },
-    { id: 2, name: "Punjab Cluster", type: "office", x: 42, y: 22 },
-    { id: 3, name: "Rajasthan", type: "office", x: 36, y: 36 },
-    { id: 4, name: "Uttar Pradesh", type: "toll", x: 55, y: 35 },
-    { id: 5, name: "Madhya Pradesh", type: "training", x: 47, y: 45 },
-    { id: 6, name: "Gujarat", type: "office", x: 31, y: 49 },
-    { id: 7, name: "Maharashtra", type: "toll", x: 40, y: 57 },
-    { id: 8, name: "Telangana", type: "training", x: 49, y: 63 },
-    { id: 9, name: "Karnataka", type: "office", x: 43, y: 72 },
-    { id: 10, name: "Tamil Nadu", type: "training", x: 48, y: 84 },
-    { id: 11, name: "West Bengal", type: "toll", x: 63, y: 45 },
-    { id: 12, name: "Odisha", type: "office", x: 58, y: 53 },
-    { id: 13, name: "Assam", type: "training", x: 75, y: 38 },
-    { id: 14, name: "Arunachal", type: "office", x: 82, y: 34 },
-    { id: 15, name: "Andaman", type: "toll", x: 72, y: 84 },
-  ] as const;
-
   const whyChooseUsItems = [
     {
       title: "Expertise",
@@ -208,7 +172,7 @@ We position ourselves not merely as a service provider, but as a long-term opera
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/aboutus.JPG"
+                  src="/images/aboutus.png"
                   alt="Innovision Security team"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -222,100 +186,6 @@ We position ourselves not merely as a service provider, but as a long-term opera
             </motion.div>
           </div>
         </motion.div>
-
-        {/* INTERACTIVE GEOGRAPHICAL REACH MAP */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="relative left-1/2 right-1/2 mt-16 w-screen -translate-x-1/2 border-y border-neutral-200 bg-[linear-gradient(180deg,#f8f8f8,#f1f1f1)] py-12"
-        >
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-                Geographical Reach
-              </p>
-              <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
-                Pan India Presence
-              </h2>
-              <div className="mx-auto mt-5 h-1 w-16 bg-[#EF2B2D]" />
-            </div>
-
-            <div className="mt-10 grid items-start gap-10 lg:grid-cols-[1fr_260px]">
-              <div className="relative mx-auto w-full max-w-[640px] rounded-2xl border border-neutral-200 bg-white p-4 shadow-xl">
-                <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-[#f5f5f5]">
-                  <Image
-                    src="/images/footprints.png"
-                    alt="India map with offices, training centers and toll plazas"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 1024px) 100vw, 640px"
-                  />
-
-                  {indiaMarkers.map((marker) => {
-                    const style = markerStyles[marker.type];
-                    const isActive = activeMarker === marker.id;
-
-                    return (
-                      <button
-                        key={marker.id}
-                        type="button"
-                        className="group absolute -translate-x-1/2 -translate-y-1/2"
-                        style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
-                        onMouseEnter={() => setActiveMarker(marker.id)}
-                        onMouseLeave={() => setActiveMarker(null)}
-                        onFocus={() => setActiveMarker(marker.id)}
-                        onBlur={() => setActiveMarker(null)}
-                        aria-label={`${marker.name} - ${style.label}`}
-                      >
-                        <span
-                          className={`absolute left-1/2 top-1/2 -z-10 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#EF2B2D]/25 transition-all duration-300 ${
-                            isActive ? "scale-100 opacity-100" : "scale-75 opacity-0"
-                          }`}
-                        />
-                        <span className={`block ${style.dot} transition-all duration-200 ${isActive ? "scale-125 shadow-[0_0_0_6px_rgba(239,43,45,0.2)]" : ""}`} />
-
-                        <span
-                          className={`pointer-events-none absolute left-1/2 top-[-36px] -translate-x-1/2 whitespace-nowrap rounded-md bg-neutral-900 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition-all duration-200 ${
-                            isActive ? "opacity-100" : "opacity-0"
-                          }`}
-                        >
-                          {marker.name}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-neutral-300 bg-white p-6 shadow-lg">
-                <h3 className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-neutral-800">
-                  Legend
-                </h3>
-                <ul className="space-y-4 text-sm text-neutral-700">
-                  <li className="flex items-center gap-3">
-                    <span className={markerStyles.office.dot} />
-                    <span>Offices</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className={markerStyles.training.dot} />
-                    <span>Training Centers</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className={markerStyles.toll.dot} />
-                    <span>Toll Plazas</span>
-                  </li>
-                </ul>
-
-                <p className="mt-6 border-t border-neutral-200 pt-4 text-xs leading-relaxed text-neutral-500">
-                  Hover over markers to highlight locations across India and view deployment nodes.
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* CORE VALUES SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

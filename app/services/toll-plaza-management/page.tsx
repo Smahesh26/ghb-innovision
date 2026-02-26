@@ -375,40 +375,9 @@ export default function TollPlazaManagementPage() {
           </div>
         </div>
       </section>
-
-  
-
-      {/* CTA Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#EF2B2D] to-[#d62628] py-20">
-        <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-10" />
-        <div className="relative mx-auto max-w-5xl px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-light tracking-tight text-white sm:text-5xl">
-              Partner with Us for <span className="font-semibold">Toll Plaza Excellence</span>
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90">
-              Experience seamless toll operations and management with India's leading toll plaza management company
-            </p>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-10 inline-block rounded-lg border-2 border-white bg-white px-10 py-4 text-base font-semibold text-[#EF2B2D] shadow-lg transition-all hover:bg-transparent hover:text-white"
-            >
-              Get in Touch
-            </motion.a>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Contact Form */}
       <div id="contact">
-        <Contact />
+        <Contact showFootprints={false} />
       </div>
 
       <Footer />
