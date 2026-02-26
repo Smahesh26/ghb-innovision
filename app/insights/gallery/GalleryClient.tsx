@@ -8,6 +8,8 @@ type GalleryImage = {
   title: string;
   category: string;
   span?: string;
+  mediaType?: "image" | "video";
+  poster?: string;
 };
 
 type GalleryClientProps = {
@@ -134,13 +136,34 @@ export default function GalleryClient({ galleryImages, categories, tilePattern }
               className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] text-left ${item.span ?? ""} ${tilePattern[index % tilePattern.length]}`}
             >
               <div className="relative h-full w-full">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
+                {item.mediaType === "video" ? (
+                  <>
+                    {item.poster ? (
+                      <Image
+                        src={item.poster}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-110"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                    ) : (
+                      <div className="h-full w-full bg-black/35" />
+                    )}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black/55 text-lg text-white">
+                        ▶
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                )}
               </div>
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
@@ -187,14 +210,26 @@ export default function GalleryClient({ galleryImages, categories, tilePattern }
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <Image
-                src={filteredImages[selectedIndex].src}
-                alt={filteredImages[selectedIndex].title}
-                fill
-                className="object-contain"
-                sizes="100vw"
-                priority
-              />
+              {filteredImages[selectedIndex].mediaType === "video" ? (
+                <video
+                  src={filteredImages[selectedIndex].src}
+                  className="h-full w-full object-contain"
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="none"
+                  poster={filteredImages[selectedIndex].poster}
+                />
+              ) : (
+                <Image
+                  src={filteredImages[selectedIndex].src}
+                  alt={filteredImages[selectedIndex].title}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                  priority
+                />
+              )}
             </div>
 
             <button

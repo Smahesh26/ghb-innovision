@@ -2,13 +2,22 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import GalleryClient from "./GalleryClient";
 
+type GalleryMediaItem = {
+	src: string;
+	title: string;
+	category: string;
+	span?: string;
+	mediaType?: "image" | "video";
+	poster?: string;
+};
+
 export const metadata = {
 	title: "Gallery - Innovision Security",
 	description: "Gallery of Innovision Security operations, events, facilities, and team moments.",
 };
 
 export default function GalleryPage() {
-	const galleryImages = [
+	const galleryImages: GalleryMediaItem[] = [
 		{
 			src: "/images/gallery/gallery/integratedfacilitymanagement/ism1.jpg",
 			title: "Integrated Facility Management 1",
@@ -81,9 +90,33 @@ export default function GalleryPage() {
 			category: "Security",
 			span: "",
 		},
+		{
+			src: "/images/drone/video1.mp4",
+			title: "Operations Video 1",
+			category: "Videos",
+			span: "md:col-span-2",
+			mediaType: "video",
+			poster: "/images/drone/1.jpg",
+		},
+		{
+			src: "/images/drone/video2.mp4",
+			title: "Operations Video 2",
+			category: "Videos",
+			span: "",
+			mediaType: "video",
+			poster: "/images/drone/2.jpg",
+		},
+		{
+			src: "/images/drone/video3.mp4",
+			title: "Operations Video 3",
+			category: "Videos",
+			span: "",
+			mediaType: "video",
+			poster: "/images/drone/3.jpg",
+		},
 	];
 
-	const categories = ["All", "Integrated Facility Management", "Security"];
+	const categories = ["All", "Integrated Facility Management", "Security", "Videos"];
 
 	const tilePattern = [
 		"row-span-2",
