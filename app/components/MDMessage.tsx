@@ -29,7 +29,7 @@ export default function MDMessage() {
 					</p>
 
 					<h2 className="mt-5 text-4xl font-bold sm:text-5xl text-gray-900">
-						Message from the Managing Director
+						Message from the CMD
 					</h2>
 
 					<div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
@@ -94,15 +94,15 @@ export default function MDMessage() {
 						<div className="space-y-6 text-base text-gray-700 leading-relaxed -mt-12 pl-8">
 							
 							<p>
-								When we founded <span className="font-semibold text-gray-900">Innovision</span>, our objective was to build a disciplined and dependable services organization. Today, as we enter our next phase of institutional growth and public listing, our vision is broader.
+								When we founded Innovision, our objective was to build a disciplined and dependable services organization. Today, as we enter our next phase of institutional growth and public listing, our vision is broader.
 							</p>
 
-							<p className="text-lg font-semibold text-gray-900">
+							<p>
 								We aim to become India's most trusted integrated workforce and infrastructure support company—driven by technology, compliance, and operational scale.
 							</p>
 
 							<p>
-								Aligned with national priorities such as <span className="font-semibold text-gray-900">Viksit Bharat</span> and <span className="font-semibold text-gray-900">Digital India</span>, our next decade will focus on:
+								Aligned with national priorities such as Viksit Bharat and Digital India, our next decade will focus on:
 							</p>
 
 							{/* Focus Areas */}

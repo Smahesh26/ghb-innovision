@@ -2,46 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import WhyChooseUs from "./WhyChooseUs";
 
 const About = () => {
-  const whyChooseUsItems = [
-    {
-      title: "Expertise",
-      description:
-        "Innovision excels with 19+ years of experience, ISO certifications, and PSARA licenses. We've served 1000+ clients with a nationwide team led by experienced professionals and leadership under Lt Col Randeep Hundal and Mr. Uday Pal Singh, ensuring top-tier service."
-    },
-    {
-      title: "Compliance",
-      description:
-        "Registered with statutory regulatory bodies, ensuring compliance with legal requirements. Operations follow strict statutory compliance, with the internal audit team overseeing risk mitigation and quality control efforts."
-    },
-    {
-      title: "Geographical Reach",
-      description:
-        "We have established a strong presence across India, with 55+ locations nationwide and 70+ training centers in Pan-India. The headquarters is situated in Gurugram, serving as the central hub for operations."
-    },
-    {
-      title: "Licensing",
-      description:
-        "Hold licenses under the Private Security Agency Regulatory Act – 2005 (PSARA) in 24 states across India, demonstrating dedication to regulatory adherence and professionalism."
-    },
-    {
-      title: "Reputation",
-      description:
-        "Proud to be recognized as one of the top-rated service partners, serving a diverse clientele that includes leading corporates, government, and semi-government organizations."
-    },
-    {
-      title: "Skill Development",
-      description:
-        "We've collaborated with the National Skills Development Corporation (NSDC) to conduct training programs across various sector skill councils, contributing to the growth and development of skilled professionals nationwide. This partnership underscores our dedication to enhancing workforce skills and employability."
-    },
-    {
-      title: "PSARA Authorized Training Center",
-      description:
-        "The Training Centers are PSARA (Private Security Agencies Regulation Act) authorized, allowing us to deliver comprehensive, industry-leading Security Training programs. This enables us to provide certified, highly skilled manpower to businesses in diverse sectors."
-    }
-  ];
-
   return (
     <section id="story" className="relative scroll-mt-32 overflow-hidden bg-white py-24 text-neutral-900">
       
@@ -289,53 +252,7 @@ We position ourselves not merely as a service provider, but as a long-term opera
           </div>
         </motion.div>
 
-        {/* NEW WHY CHOOSE US SECTION */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="relative left-1/2 right-1/2 mt-16 w-screen -translate-x-1/2 border-y border-neutral-200 bg-[linear-gradient(180deg,#ffffff,#f7f7f6)] py-12"
-        >
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
-                Why Choose Us
-              </p>
-              <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
-                Why Choose Us?
-              </h2>
-              <div className="mx-auto mt-5 h-1 w-16 bg-[#EF2B2D]" />
-            </div>
-
-            <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
-              {whyChooseUsItems.map((item, index) => (
-                <article key={item.title} className="border-b border-neutral-300 pb-6">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#EF2B2D]/10 text-xs font-bold text-[#EF2B2D]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="text-lg font-semibold text-neutral-900">{item.title}</h3>
-                  </div>
-                  <p
-                    className="mt-4 text-sm leading-relaxed text-neutral-700"
-                    style={{
-                      hyphens: 'none',
-                      WebkitHyphens: 'none',
-                      msHyphens: 'none',
-                      wordBreak: 'keep-all',
-                      overflowWrap: 'break-word',
-                      textAlign: 'justify',
-                      textJustify: 'inter-word'
-                    }}
-                  >
-                    {item.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        <WhyChooseUs />
       </div>
     </section>
   );

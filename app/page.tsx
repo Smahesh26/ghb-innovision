@@ -2,17 +2,14 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import MoreAboutUs from "./components/MoreAboutUs";
 import BusinessModel from "./components/BusinessModel";
-import WhyChooseUs from "./components/WhyChooseUs";
 import InvestmentHighlights from "./components/InvestmentHighlights";
 import Technology from "./components/Technology";
 import Industries from "./components/Industries";
 import MDMessage from "./components/MDMessage";
 import CTA from "./components/CTA";
 import Services from "./components/Services";
-import Reviews from "./components/Reviews";
 import Clients from "./components/Clients";
 import Contact from "./components/Contact";
-import News from "./components/News";
 import Footer from "./components/Footer";
 import { Metadata } from "next";
 
@@ -242,7 +239,7 @@ export default function Home() {
         {/* 3. Our Services */}
         <Services />
         {/* 4. Why Choose Us */}
-        <WhyChooseUs />
+        {/* <WhyChooseUs /> */}
         
         {/* 5. Facts & Figures */}
         <InvestmentHighlights />
@@ -256,10 +253,7 @@ export default function Home() {
         {/* 8. Our Clients */}
         <Clients />
         
-        {/* 9. Client Reviews */}
-        <Reviews />
-
-        {/* 9.5. Client Testimonials (hidden for now) */}
+        {/* 9. Client Testimonials (hidden for now) */}
         
         {/* 10. IPO Ready */}
         <CTA />
@@ -267,8 +261,6 @@ export default function Home() {
         {/* 11-13. Our Footprints + Get in Touch + Contact Form */}
         <Contact />
         
-        {/* 14. News & Articles */}
-        <News />
       </main>
       <Footer />
     </>

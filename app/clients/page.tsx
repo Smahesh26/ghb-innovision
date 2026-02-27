@@ -19,7 +19,7 @@ export default function ClientsPage() {
       <Header />
       
       {/* Hero Banner for Clients Page */}
-      <section className="relative h-[60vh] w-full overflow-hidden bg-black">
+      <section className="relative w-full overflow-hidden bg-black py-20 sm:py-24 lg:py-28">
         <div className="absolute inset-0 opacity-[0.06]">
           <div className="absolute inset-0" style={{
             backgroundImage: `repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 40px),
@@ -27,7 +27,7 @@ export default function ClientsPage() {
           }} />
         </div>
         
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-24 sm:pt-28 text-center">
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center justify-center px-6 text-center">
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <span>Trusted Partnerships</span>
@@ -43,7 +43,7 @@ export default function ClientsPage() {
           </p>
 
           {/* Quick Stats */}
-          <div className="mt-12 grid grid-cols-3 gap-8 mb-10">
+          <div className="mb-2 mt-10 grid grid-cols-3 gap-8 sm:mt-12">
             <div>
               <div className="text-3xl font-bold text-[#EF2B2D] sm:text-4xl">1000+</div>
               <div className="mt-2 text-sm text-white/70">Active Clients</div>

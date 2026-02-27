@@ -143,7 +143,7 @@ export default function Contact({ showFootprints = true }: { showFootprints?: bo
           scale: 0.38,
           alpha: 1,
           label: state.name,
-          labelColor: "#1F2937",
+          labelColor: "#FFFFFF",
           labelFontSize: 11,
           labelShiftY: 18,
         };

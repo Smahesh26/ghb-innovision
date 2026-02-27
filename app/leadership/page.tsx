@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Header from "../components/Header";
-import News from "../components/News";
 import Footer from "../components/Footer";
 import LeadershipTabs from "../components/LeadershipTabs";
 import LeadershipHero from "../components/LeadershipHero";
@@ -59,8 +58,6 @@ export default function LeadershipPage() {
       <LeadershipHero />
 
       <LeadershipTabs boardOfDirectors={boardOfDirectors} independentDirectors={independentDirectors} />
-
-      <News />
       <Footer />
     </>
   );
