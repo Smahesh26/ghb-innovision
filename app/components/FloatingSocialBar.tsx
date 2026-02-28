@@ -55,7 +55,7 @@ const socialLinks = [
 
 export default function FloatingSocialBar() {
   return (
-    <div className="fixed bottom-6 right-4 z-[80]">
+    <div className="fixed bottom-3 right-12 z-[80]">
       <div className="group flex justify-end">
         <div className="flex h-14 w-14 items-center justify-end overflow-hidden rounded-full border border-white/20 bg-black/80 p-1.5 backdrop-blur-lg transition-all duration-300 group-hover:w-[320px] group-focus-within:w-[320px]">
           <div className="mr-2 flex items-center gap-2 whitespace-nowrap opacity-0 pointer-events-none translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-x-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-x-0">

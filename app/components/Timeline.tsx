@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState, type UIEvent, type WheelEvent } from "react";
 
 const milestones = [
 	{
@@ -46,13 +47,75 @@ const milestones = [
 ];
 
 export default function Timeline() {
+	const timelineScrollRef = useRef<HTMLDivElement>(null);
+	const [scrollProgress, setScrollProgress] = useState(0);
+	const [isScrollLockActive, setIsScrollLockActive] = useState(false);
+
+	const rowVariants = {
+		hidden: { opacity: 0, y: 32 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] as const },
+		},
+	};
+
+	useEffect(() => {
+		const target = timelineScrollRef.current;
+		if (!target || isScrollLockActive) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const entry = entries[0];
+				if (entry?.isIntersecting) {
+					setIsScrollLockActive(true);
+					observer.disconnect();
+				}
+			},
+			{ threshold: 0.35 }
+		);
+
+		observer.observe(target);
+
+		return () => observer.disconnect();
+	}, [isScrollLockActive]);
+
+	const handleSectionWheel = (event: WheelEvent<HTMLElement>) => {
+		if (!isScrollLockActive) return;
+
+		const scrollContainer = timelineScrollRef.current;
+		if (!scrollContainer) return;
+
+		const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+		if (maxScroll <= 0) return;
+
+		const deltaY = event.deltaY;
+		const atTop = scrollContainer.scrollTop <= 1;
+		const atBottom = scrollContainer.scrollTop >= maxScroll - 1;
+
+		if ((deltaY < 0 && !atTop) || (deltaY > 0 && !atBottom)) {
+			event.preventDefault();
+			scrollContainer.scrollBy({ top: deltaY, behavior: "auto" });
+		}
+	};
+
+	const handleTimelineScroll = (event: UIEvent<HTMLDivElement>) => {
+		const element = event.currentTarget;
+		const maxScroll = element.scrollHeight - element.clientHeight;
+		if (maxScroll <= 0) {
+			setScrollProgress(0);
+			return;
+		}
+		setScrollProgress(element.scrollTop / maxScroll);
+	};
+
 	return (
-		<section className="relative bg-[#0d0d0f] py-32 text-white overflow-hidden">
+		<section onWheel={handleSectionWheel} className="relative h-[100svh] min-h-[100svh] overflow-hidden bg-[#0d0d0f] text-white">
 			
 			{/* Background Glow */}
 			<div className="absolute top-1/2 left-1/4 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
 			
-			<div className="relative mx-auto max-w-7xl px-6">
+			<div className="relative mx-auto flex h-full max-w-7xl flex-col px-6">
 				
 				{/* HEADER */}
 				<motion.div
@@ -60,106 +123,66 @@ export default function Timeline() {
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 					viewport={{ once: true }}
-					className="text-center"
+					className="shrink-0 pt-12 text-center md:pt-14"
 				>
 					<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 						Corporate Evolution
 					</p>
 
 					<h2 className="mt-5 text-4xl font-bold sm:text-5xl">
-						Our Evolution: From Security Provider<br />to National Infrastructure Partner
+						From Security Provider<br />to Infrastructure Partner
 					</h2>
 
 					<p className="mx-auto mt-6 max-w-3xl text-base text-white/70 leading-relaxed">
-						Founded in 2007 as a manpower and security services company, Innovision has strategically expanded into integrated facility management, government skill development programs, toll operations, payroll management, and drone-enabled surveillance solutions.
-					</p>
-					
-					<p className="mx-auto mt-4 max-w-3xl text-base text-white/70 leading-relaxed">
-						Over 19+ years, the company has transitioned from a service provider to a diversified, recurring-revenue, infrastructure support platform serving mission-critical operations nationwide.
+						Since 2007, Innovision has evolved from manpower and security services into a diversified, recurring-revenue infrastructure platform supporting mission-critical operations across India.
 					</p>
 
 					<div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />
 				</motion.div>
 
 				{/* TIMELINE */}
-				<div className="mt-20 relative">
-					
-					{/* Horizontal Line */}
-					<div className="absolute top-8 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-					
-					{/* Desktop: Horizontal Grid */}
-					<div className="hidden lg:grid grid-cols-8 gap-4">
-						{milestones.map((milestone, index) => (
-							<motion.div
-								key={milestone.year}
-								initial={{ opacity: 0, y: 40 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: index * 0.15 }}
-								viewport={{ once: true }}
-								className="relative flex flex-col items-center"
-							>
-								{/* Dot */}
-								<div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-4 border-[#EF2B2D] bg-[#0d0d0f] shadow-[0_0_30px_rgba(239,43,45,0.4)]">
-									<span className="h-3.5 w-3.5 rounded-full bg-[#EF2B2D]" />
-								</div>
+				<div
+					ref={timelineScrollRef}
+					onScroll={handleTimelineScroll}
+					className="relative mt-10 flex-1 min-h-0 overflow-y-auto pr-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-12 md:pr-2"
+				>
+					<div className="relative pb-10 md:pb-16">
+						<div className="absolute bottom-0 left-[5px] top-0 w-px bg-white/15" />
+						<motion.div
+							className="absolute left-[5px] top-0 w-px bg-[#EF2B2D] shadow-[0_0_12px_rgba(239,43,45,0.7)]"
+							animate={{ height: `${scrollProgress * 100}%` }}
+							transition={{ duration: 0.18, ease: "linear" }}
+						/>
 
-								{/* Content Card */}
-								<div className="mt-6 rounded-lg border border-white/10 bg-[#161618] p-5 text-center h-full min-h-[200px] flex flex-col">
-									<h3 className="text-sm font-bold text-white uppercase tracking-wider">
-										{milestone.title}
-									</h3>
-									<p className="mt-3 text-xs text-white/60 leading-relaxed flex-1">
-										{milestone.description}
-									</p>
-									<div className="mt-4 pt-3 border-t border-white/10">
-										<span className="text-2xl font-bold text-[#EF2B2D]">
-											{milestone.year}
-										</span>
-									</div>
-								</div>
-							</motion.div>
-						))}
-					</div>
-
-					{/* Mobile/Tablet: Vertical Timeline */}
-					<div className="lg:hidden space-y-8">
-						{milestones.map((milestone, index) => (
-							<motion.div
-								key={milestone.year}
-								initial={{ opacity: 0, x: -40 }}
-								whileInView={{ opacity: 1, x: 0 }}
-								transition={{ duration: 0.6, delay: index * 0.1 }}
-								viewport={{ once: true }}
-								className="relative flex gap-6"
-							>
-								{/* Left: Year Dot */}
-								<div className="flex flex-col items-center">
-									<div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-4 border-[#EF2B2D] bg-[#0d0d0f] shadow-[0_0_30px_rgba(239,43,45,0.4)]">
-										<span className="h-3.5 w-3.5 rounded-full bg-[#EF2B2D]" />
-									</div>
-									{index < milestones.length - 1 && (
-										<div className="w-[2px] flex-1 bg-gradient-to-b from-[#EF2B2D]/50 to-transparent mt-4" />
-									)}
-								</div>
-
-								{/* Right: Content */}
-								<div className="flex-1 pb-8">
-									<div className="rounded-lg border border-white/10 bg-[#161618] p-6">
-										<div className="flex items-center justify-between mb-3">
-											<h3 className="text-lg font-bold text-white">
-												{milestone.title}
-											</h3>
-											<span className="text-xl font-bold text-[#EF2B2D]">
+						<div className="space-y-8 md:space-y-0">
+							{milestones.map((milestone, index) => (
+								<motion.div
+									key={milestone.year}
+									initial="hidden"
+									whileInView="visible"
+									viewport={{ once: false, amount: 0.35 }}
+									className="grid grid-cols-[1fr] gap-5 md:min-h-[calc(100vh-340px)] md:grid-cols-[220px_1fr] md:gap-10"
+								>
+									<div className="relative">
+										<motion.div variants={rowVariants} className="sticky top-1/2 z-10 flex -translate-y-1/2 items-center gap-3 md:gap-4">
+											<span className="inline-flex h-3 w-3 shrink-0 rounded-full bg-[#EF2B2D] shadow-[0_0_18px_rgba(239,43,45,0.55)]" />
+											<span className="text-xl font-bold tracking-[0.08em] text-[#EF2B2D] md:text-3xl">
 												{milestone.year}
 											</span>
-										</div>
-										<p className="text-sm text-white/60 leading-relaxed">
+										</motion.div>
+									</div>
+
+									<motion.article variants={rowVariants} className="flex h-full flex-col justify-center p-6 md:p-8">
+										<h3 className="text-2xl font-bold leading-tight text-white md:text-3xl">
+											{milestone.title}
+										</h3>
+										<p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
 											{milestone.description}
 										</p>
-									</div>
-								</div>
-							</motion.div>
-						))}
+									</motion.article>
+								</motion.div>
+							))}
+						</div>
 					</div>
 				</div>
 

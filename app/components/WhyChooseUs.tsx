@@ -2,12 +2,11 @@
 
 import {
 	motion,
-	AnimatePresence,
 	useMotionValue,
 	useTransform,
 	animate,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type WheelEvent } from "react";
 
 const highlights = [
 	{
@@ -104,7 +103,7 @@ function Counter({ value, suffix = "", size = "default" }: { value: number; suff
 	const rounded = useTransform(count, (latest) => Math.round(latest));
 	const [displayValue, setDisplayValue] = useState(0);
 	const ref = useRef<HTMLDivElement>(null);
-	const numberSizeClass = size === "small" ? "text-3xl sm:text-4xl lg:text-5xl" : "text-4xl sm:text-5xl lg:text-6xl";
+	const numberSizeClass = size === "small" ? "text-2xl sm:text-3xl lg:text-4xl" : "text-3xl sm:text-4xl lg:text-5xl";
 
 	useEffect(() => {
 		if (isInView) {
@@ -131,8 +130,9 @@ function Counter({ value, suffix = "", size = "default" }: { value: number; suff
 			onViewportEnter={() => setIsInView(true)}
 			viewport={{ once: true }}
 			transition={{ duration: 0.6 }}
+			className="flex min-h-[64px] w-full items-center justify-center"
 		>
-			<h3 className={`${numberSizeClass} font-bold text-[#EF2B2D] tabular-nums`}>
+			<h3 className={`${numberSizeClass} w-full text-center font-bold leading-none text-[#EF2B2D] tabular-nums`}>
 				{displayValue.toLocaleString()}{suffix}
 			</h3>
 		</motion.div>
@@ -140,14 +140,31 @@ function Counter({ value, suffix = "", size = "default" }: { value: number; suff
 }
 
 export default function WhyChooseUs() {
-	const [sliderIndex, setSliderIndex] = useState(0);
-	const playerRef = useRef<HTMLDivElement>(null);
 	const videoRef = useRef<HTMLVideoElement>(null);
+	const videoFrameRef = useRef<HTMLDivElement>(null);
+	const rightScrollRef = useRef<HTMLDivElement>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
-	const [isMuted, setIsMuted] = useState(false);
-	const [isFullscreen, setIsFullscreen] = useState(false);
-	const [currentTime, setCurrentTime] = useState(0);
-	const [duration, setDuration] = useState(0);
+	const [isScrollLockActive, setIsScrollLockActive] = useState(false);
+
+	useEffect(() => {
+		const target = videoFrameRef.current;
+		if (!target || isScrollLockActive) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const entry = entries[0];
+				if (entry?.isIntersecting) {
+					setIsScrollLockActive(true);
+					observer.disconnect();
+				}
+			},
+			{ threshold: 0.65, rootMargin: "0px 0px -8% 0px" }
+		);
+
+		observer.observe(target);
+
+		return () => observer.disconnect();
+	}, [isScrollLockActive]);
 
 	const togglePlay = async () => {
 		if (!videoRef.current) return;
@@ -160,76 +177,38 @@ export default function WhyChooseUs() {
 		setIsPlaying(false);
 	};
 
-	const toggleMute = () => {
-		if (!videoRef.current) return;
-		videoRef.current.muted = !videoRef.current.muted;
-		setIsMuted(videoRef.current.muted);
-	};
+	const handleSectionWheel = (event: WheelEvent<HTMLElement>) => {
+		if (!isScrollLockActive) return;
 
-	const toggleFullscreen = async () => {
-		if (!playerRef.current) return;
-		if (document.fullscreenElement) {
-			await document.exitFullscreen();
-			return;
+		const scrollContainer = rightScrollRef.current;
+		if (!scrollContainer) return;
+
+		const hasOverflow = scrollContainer.scrollHeight > scrollContainer.clientHeight;
+		if (!hasOverflow) return;
+
+		const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
+		const deltaY = event.deltaY;
+		const atTop = scrollTop <= 0;
+		const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+		if ((deltaY < 0 && !atTop) || (deltaY > 0 && !atBottom)) {
+			event.preventDefault();
+			scrollContainer.scrollTop += deltaY;
 		}
-		await playerRef.current.requestFullscreen();
 	};
-
-	const handleSeek = (nextTime: number) => {
-		if (!videoRef.current) return;
-		videoRef.current.currentTime = nextTime;
-		setCurrentTime(nextTime);
-	};
-
-	const formatTime = (value: number) => {
-		if (!Number.isFinite(value)) return "00:00";
-		const mins = Math.floor(value / 60)
-			.toString()
-			.padStart(2, "0");
-		const secs = Math.floor(value % 60)
-			.toString()
-			.padStart(2, "0");
-		return `${mins}:${secs}`;
-	};
-
-	const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
-
-	useEffect(() => {
-		const sliderInterval = window.setInterval(() => {
-			setSliderIndex((prev) => (prev + 1) % highlights.length);
-		}, 2600);
-
-		return () => window.clearInterval(sliderInterval);
-	}, []);
-
-	useEffect(() => {
-		if (!videoRef.current) return;
-		videoRef.current.muted = isMuted;
-	}, [isMuted]);
-
-	useEffect(() => {
-		const handleFullscreenChange = () => {
-			setIsFullscreen(document.fullscreenElement === playerRef.current);
-		};
-
-		document.addEventListener("fullscreenchange", handleFullscreenChange);
-		return () => {
-			document.removeEventListener("fullscreenchange", handleFullscreenChange);
-		};
-	}, []);
 
 	return (
 		<>
-			<section className="relative overflow-hidden bg-white pt-32 pb-14 text-neutral-900">
-				<div className="mx-auto max-w-7xl px-6">
-					<div className="grid gap-12 lg:grid-cols-[0.9fr_auto_1.1fr] lg:items-stretch lg:gap-10">
+			<section onWheel={handleSectionWheel} className="relative h-screen overflow-hidden bg-white text-neutral-900">
+				<div className="mx-auto h-full max-w-7xl px-6">
+					<div className="grid h-full min-h-0 gap-12 lg:grid-cols-[0.9fr_auto_1.1fr] lg:items-stretch lg:gap-10">
 						{/* LEFT SIDE - HEADING AND VIDEO */}
 						<motion.div
 							initial={{ opacity: 0, y: 40 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8 }}
 							viewport={{ once: true }}
-							className="h-full lg:sticky lg:top-28 lg:self-start"
+							className="h-full flex flex-col justify-start pt-8 pb-8 lg:sticky lg:top-0 lg:pt-12"
 						>
 							<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 								Why Choose Us
@@ -249,20 +228,19 @@ export default function WhyChooseUs() {
 
 							{/* Video Section */}
 							<motion.div
+								ref={videoFrameRef}
 								initial={{ opacity: 0, y: 40 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.8, delay: 0.2 }}
 								viewport={{ once: true }}
 								className="relative rounded-2xl overflow-hidden shadow-2xl mt-12"
 							>
-								<div ref={playerRef} className="group/player relative w-full overflow-hidden rounded-2xl bg-black aspect-video">
+								<div className="group/player relative w-full overflow-hidden rounded-2xl bg-black aspect-video">
 									<video
 										ref={videoRef}
 										className="h-full w-full rounded-2xl object-cover"
 										preload="metadata"
 										poster="/images/drone/1.jpg"
-										onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
-										onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
 										onPlay={() => setIsPlaying(true)}
 										onPause={() => setIsPlaying(false)}
 										onEnded={() => setIsPlaying(false)}
@@ -274,13 +252,26 @@ export default function WhyChooseUs() {
 
 									<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
 
-									<button
+									<motion.button
 										type="button"
 										onClick={togglePlay}
+										whileHover={{ scale: 1.04 }}
+										whileTap={{ scale: 0.96 }}
 										className="absolute inset-0 z-10 flex items-center justify-center"
 										aria-label={isPlaying ? "Pause video" : "Play video"}
 									>
-										<span className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white backdrop-blur-sm transition duration-300 hover:scale-105 hover:bg-black/60">
+										{!isPlaying && (
+											<motion.span
+												className="absolute h-20 w-20 rounded-full border border-white/30"
+												animate={{ scale: [1, 1.25, 1], opacity: [0.55, 0, 0.55] }}
+												transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
+											/>
+										)}
+										<motion.span
+											className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-black/45 text-white backdrop-blur-sm"
+											animate={isPlaying ? { scale: 1 } : { scale: [1, 1.08, 1] }}
+											transition={{ duration: 1.4, repeat: isPlaying ? 0 : Infinity, ease: "easeInOut" }}
+										>
 											{isPlaying ? (
 												<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
 													<rect x="6" y="5" width="4" height="14" rx="1" />
@@ -291,77 +282,8 @@ export default function WhyChooseUs() {
 													<path d="M8 5v14l11-7-11-7z" />
 												</svg>
 											)}
-										</span>
-									</button>
-
-									<div className="absolute inset-x-0 bottom-0 z-20 p-4 transition-opacity duration-300 group-hover/player:opacity-100 group-focus-within/player:opacity-100 lg:opacity-95">
-										<div className="rounded-xl border border-white/15 bg-black/55 px-3 py-2 backdrop-blur-md">
-											<input
-												type="range"
-												min={0}
-												max={duration || 0}
-												step={0.1}
-												value={currentTime}
-												onChange={(event) => handleSeek(Number(event.target.value))}
-												className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-[#EF2B2D]"
-												style={{
-													background: `linear-gradient(to right, #EF2B2D ${progress}%, rgba(255,255,255,0.2) ${progress}%)`,
-												}}
-												aria-label="Video progress"
-											/>
-											<div className="mt-2 flex items-center justify-between gap-3">
-												<div className="text-xs font-semibold tracking-[0.12em] text-white/90 tabular-nums">
-													{formatTime(currentTime)} / {formatTime(duration)}
-												</div>
-
-												<div className="flex items-center gap-2">
-													<button
-														type="button"
-														onClick={toggleMute}
-														className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10"
-														aria-label={isMuted ? "Unmute video" : "Mute video"}
-													>
-														{isMuted ? (
-															<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-																<path d="M11 5 6 9H3v6h3l5 4V5z" />
-																<path d="m23 9-6 6" />
-																<path d="m17 9 6 6" />
-															</svg>
-														) : (
-															<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-																<path d="M11 5 6 9H3v6h3l5 4V5z" />
-																<path d="M15.5 8.5a5 5 0 0 1 0 7" />
-																<path d="M18.5 6a9 9 0 0 1 0 12" />
-															</svg>
-														)}
-													</button>
-
-													<button
-														type="button"
-														onClick={toggleFullscreen}
-														className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10"
-														aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-													>
-														{isFullscreen ? (
-															<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-																<path d="M9 15H5v4" />
-																<path d="M15 15h4v4" />
-																<path d="M9 9H5V5" />
-																<path d="M15 9h4V5" />
-															</svg>
-														) : (
-															<svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-																<path d="M9 3H3v6" />
-																<path d="M15 3h6v6" />
-																<path d="M9 21H3v-6" />
-																<path d="M15 21h6v-6" />
-															</svg>
-														)}
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
+										</motion.span>
+									</motion.button>
 								</div>
 							</motion.div>
 						</motion.div>
@@ -374,54 +296,34 @@ export default function WhyChooseUs() {
 							viewport={{ once: true, amount: 0.3 }}
 						/>
 
-						{/* RIGHT SIDE - ANIMATED POINTERS */}
+						{/* RIGHT SIDE - SCROLLABLE POINTS */}
 						<motion.div
-							className="relative pt-8 pb-4 lg:py-0"
+							className="relative flex h-full min-h-0 flex-col py-8 lg:py-10"
 							initial={{ opacity: 0, y: 24 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.7, delay: 0.1 }}
 							viewport={{ once: true, amount: 0.25 }}
 						>
-							<div className="relative mx-auto h-full min-h-[460px] w-full max-w-2xl overflow-hidden rounded-2xl bg-white/80 p-6 backdrop-blur-md sm:p-7">
-								<AnimatePresence mode="wait">
-									<motion.div
-										key={highlights[sliderIndex].label}
-										initial={{ opacity: 0, y: 36 }}
-										animate={{ opacity: 1, y: 0 }}
-										exit={{ opacity: 0, y: -36 }}
-										transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-										className="flex h-full flex-col justify-center"
-									>
-										<div className="flex items-start gap-4">
-											<div className="relative mt-0.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#EF2B2D] bg-white">
-												<motion.div
-													className="h-2.5 w-2.5 rounded-full bg-[#EF2B2D]"
-													animate={{ scale: [1, 1.25, 1], opacity: [1, 0.85, 1] }}
-													transition={{ repeat: Infinity, duration: 1.3, ease: "easeInOut" }}
-												/>
-											</div>
-											<div className="min-w-0">
-												<h3 className="text-2xl font-bold leading-tight text-neutral-900 sm:text-3xl">
-													{highlights[sliderIndex].label}
-												</h3>
-												<p className="mt-4 max-w-xl text-base leading-relaxed text-neutral-600">
-													{highlights[sliderIndex].detail}
-												</p>
-											</div>
-										</div>
-
-										<div className="mt-10 flex gap-2">
-											{highlights.map((item, index) => (
-												<span
-													key={item.label}
-													className={`h-1.5 rounded-full transition-all duration-500 ${
-														index === sliderIndex ? "w-10 bg-[#EF2B2D]" : "w-3 bg-[#EF2B2D]/25"
-													}`}
-												/>
-											))}
-										</div>
-									</motion.div>
-								</AnimatePresence>
+							<div ref={rightScrollRef} className="relative mx-auto flex-1 min-h-0 w-full max-w-2xl overflow-y-auto p-6 sm:p-7 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+								<div className="space-y-3">
+									{highlights.map((item, index) => (
+										<motion.div
+											key={item.label}
+											initial={{ opacity: 0, y: 20 }}
+											whileInView={{ opacity: 1, y: 0 }}
+											viewport={{ once: true, amount: 0.25 }}
+											transition={{ duration: 0.45, delay: index * 0.05 }}
+											className="p-3"
+										>
+											<h3 className="text-2xl font-bold leading-tight text-neutral-900 sm:text-3xl">
+												{item.label}
+											</h3>
+											<p className="mt-3 text-base leading-relaxed text-neutral-600">
+												{item.detail}
+											</p>
+										</motion.div>
+									))}
+								</div>
 							</div>
 						</motion.div>
 					</div>

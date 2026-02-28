@@ -119,6 +119,18 @@ export default function Hero() {
 								{slides[activeIndex].description}
 							</p>
 
+							<div className="mx-auto mt-7 w-full max-w-2xl">
+								<div className="h-[3px] w-full bg-white/25">
+									<motion.div
+										key={activeIndex}
+										initial={{ width: "0%" }}
+										animate={{ width: "100%" }}
+										transition={{ duration: 6, ease: "linear" }}
+										className="h-full bg-[#EF2B2D]"
+									/>
+								</div>
+							</div>
+
 							<div className="mt-8 flex flex-wrap justify-center gap-4">
 								<Link
 									href="/services"
@@ -142,7 +154,7 @@ export default function Hero() {
 				<button
 					onClick={prevSlide}
 					aria-label="Previous slide"
-					className="absolute left-6 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/40 p-4 text-2xl text-white backdrop-blur-sm transition-all duration-300 hover:bg-[#EF2B2D] hover:scale-110"
+					className="absolute bottom-0 left-0 z-10 rounded-tr-xl bg-gradient-to-br from-[#EF2B2D]/55 to-black/70 p-4 text-2xl text-white shadow-[0_10px_22px_rgba(239,43,45,0.3)] backdrop-blur-sm transition-all duration-300 hover:from-[#EF2B2D] hover:to-[#991b1b]"
 				>
 					‹
 				</button>
@@ -150,26 +162,10 @@ export default function Hero() {
 				<button
 					onClick={nextSlide}
 					aria-label="Next slide"
-					className="absolute right-6 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/40 p-4 text-2xl text-white backdrop-blur-sm transition-all duration-300 hover:bg-[#EF2B2D] hover:scale-110"
+					className="absolute bottom-0 right-0 z-10 rounded-tl-xl bg-gradient-to-bl from-[#EF2B2D]/55 to-black/70 p-4 text-2xl text-white shadow-[0_10px_22px_rgba(239,43,45,0.3)] backdrop-blur-sm transition-all duration-300 hover:from-[#EF2B2D] hover:to-[#991b1b]"
 				>
 					›
 				</button>
-
-				{/* Dots */}
-				<div className="absolute bottom-16 left-1/2 z-10 flex -translate-x-1/2 gap-3">
-					{slides.map((_, index) => (
-						<button
-							key={index}
-							onClick={() => setActiveIndex(index)}
-							aria-label={`Go to slide ${index + 1}`}
-							className={`h-3 rounded-full transition-all duration-300 ${
-								index === activeIndex
-									? "w-10 bg-[#EF2B2D] shadow-lg shadow-[#EF2B2D]/50"
-									: "w-3 bg-white/50 hover:bg-white hover:w-6"
-							}`}
-						/>
-					))}
-				</div>
 			</section>
 
 

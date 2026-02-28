@@ -7,6 +7,7 @@ import Industries from "./components/Industries";
 import MDMessage from "./components/MDMessage";
 import CTA from "./components/CTA";
 import Services from "./components/Services";
+import ServicesTabsShowcase from "./components/ServicesTabsShowcase";
 import HomeClients from "./components/HomeClients";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -236,7 +237,8 @@ export default function Home() {
         <MoreAboutUs />
         
         {/* 3. Our Services */}
-        <Services />
+        {/* <Services /> */}
+        <ServicesTabsShowcase />
         {/* 4. Why Choose Us */}
         {/* <WhyChooseUs /> */}
         

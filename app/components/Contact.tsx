@@ -77,7 +77,7 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 text-gray-900">
+    <section className="relative overflow-hidden bg-white pt-24 pb-0 text-gray-900">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white" />
       <div className="absolute -top-20 left-10 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
       <div className="absolute bottom-0 right-10 h-96 w-96 rounded-full bg-[#EF2B2D]/5 blur-3xl" />
@@ -112,23 +112,24 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
         )}
 
         {!mapOnly && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-18 mb-16 text-center"
-          >
-            <h2 className="text-4xl font-light text-gray-900 sm:text-5xl lg:text-6xl">
-              Get In Touch!
-            </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              We look forward to hearing from you. If you have any questions or need support, please feel free to reach out.
-            </p>
-          </motion.div>
-        )}
+          <div className="relative left-1/2 right-1/2 mt-14 w-screen -translate-x-1/2 bg-[#EF2B2D]/[0.06] pt-10 pb-0">
+            <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-16 text-center"
+            >
+              <h2 className="text-4xl font-light text-gray-900 sm:text-5xl lg:text-6xl">
+                Get In Touch!
+              </h2>
+              <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-gray-600 sm:text-lg">
+                We look forward to hearing from you. If you have any questions or need support, please feel free to reach out.
+              </p>
+            </motion.div>
 
-        {!mapOnly && <div className="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -213,20 +214,20 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
             </h3>
             <p className="text-sm text-gray-700">U74910DL2007PLC157700</p>
           </motion.div>
-        </div>}
+            </div>
 
-        {!mapOnly && <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16 rounded-2xl border border-gray-200 bg-white p-8 shadow-lg lg:p-12"
-        >
-          <h3 className="mb-8 text-center text-3xl font-light text-gray-900 sm:text-4xl">
-            What Are You Looking For?
-          </h3>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="mb-0 rounded-2xl border border-gray-200 bg-white p-8 shadow-lg lg:p-12"
+            >
+              <h3 className="mb-8 text-center text-3xl font-light text-gray-900 sm:text-4xl">
+                What Are You Looking For?
+              </h3>
 
-          <form onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-6">
+              <form onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-6">
             <select
               name="service"
               value={formData.service}
@@ -300,8 +301,11 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
                 {submitMessage}
               </p>
             )}
-          </form>
-        </motion.div>}
+              </form>
+            </motion.div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

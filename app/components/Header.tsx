@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -61,26 +61,15 @@ const navItems = [
 ];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-6">
 
-        <div
-          className={`mt-0 flex items-center justify-between rounded-xl border border-white/10 px-8 transition-all duration-500
-          ${isScrolled ? "bg-black/80 backdrop-blur-xl shadow-2xl" : "bg-black/40 backdrop-blur-md"}
-          h-20`}
-        >
+        <div className="mt-0 flex h-20 items-center justify-between px-8">
 
           {/* LOGO */}
           <Link href="/">
@@ -219,6 +208,8 @@ export default function Header() {
             ☰
           </button>
         </div>
+
+        <div className="mt-2 border-b border-white/35" />
 
         {/* MOBILE MENU */}
         <AnimatePresence>
