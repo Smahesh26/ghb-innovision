@@ -3,7 +3,6 @@ import Hero from "./components/Hero";
 import MoreAboutUs from "./components/MoreAboutUs";
 import BusinessModel from "./components/BusinessModel";
 import InvestmentHighlights from "./components/InvestmentHighlights";
-import Technology from "./components/Technology";
 import Industries from "./components/Industries";
 import MDMessage from "./components/MDMessage";
 import CTA from "./components/CTA";
@@ -247,9 +246,6 @@ export default function Home() {
         {/* 6. Industries Served */}
         <Industries />
         
-        {/* 7. Technology & Innovation */}
-        <Technology />
-
         {/* 8. Our Clients (Home Page) */}
         <HomeClients />
         

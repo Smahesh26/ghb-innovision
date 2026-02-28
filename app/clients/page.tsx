@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Clients from "../components/Clients";
 import Reviews from "../components/Reviews";
-import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import { Metadata } from "next";
 
@@ -129,7 +128,6 @@ export default function ClientsPage() {
       {/* Main Content Sections */}
       <Clients />
       <Reviews />
-      <CTA />
       <Footer />
     </>
   );

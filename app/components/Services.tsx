@@ -157,7 +157,7 @@ export default function Services() {
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
-					className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+					className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4"
 				>
 					{services.map((service, index) => (
 						<Link
@@ -167,8 +167,7 @@ export default function Services() {
 							<motion.div
 								variants={cardVariants}
 								whileHover={{ y: -12, scale: 1.03 }}
-								className={`group relative overflow-hidden rounded-xl border border-white/20 bg-white/[0.06] p-8 backdrop-blur-xl transition duration-500 hover:border-rose-600 hover:bg-white/[0.08] hover:shadow-[0_24px_60px_rgba(225,29,72,0.3)] cursor-pointer
-									${index === 6 ? "md:col-span-2 lg:col-span-1 lg:col-start-2" : ""}`}
+								className="group relative overflow-hidden rounded-xl border border-white/20 bg-white/[0.06] p-8 backdrop-blur-xl transition duration-500 hover:border-rose-600 hover:bg-white/[0.08] hover:shadow-[0_24px_60px_rgba(225,29,72,0.3)] cursor-pointer"
 							>
 								<motion.div
 									className="pointer-events-none absolute -left-1/2 top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-white/[0.2] to-transparent"
@@ -204,18 +203,16 @@ export default function Services() {
 												{service.icon}
 											</motion.span>
 
-											<h3 className="text-lg font-semibold text-white">
+											<h3 className="text-base font-semibold leading-snug text-white sm:text-[17px]">
 												{service.title}
 											</h3>
 										</div>
 
-										<span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-rose-600/70 bg-rose-600/15 px-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-rose-600">
-											{String(index + 1).padStart(2, "0")}
-										</span>
+
 									</div>
 
 									{/* Benefit Line */}
-									<p className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-rose-600">
+									<p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-rose-600 sm:text-[11px]">
 										{service.benefit}
 									</p>
 

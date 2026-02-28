@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import MDMessage from "./MDMessage";
 import About from "./About";
 import Timeline from "./Timeline";
+import Technology from "./Technology";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 36 },
@@ -33,6 +34,15 @@ export default function AboutPageSections() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <About />
+      </motion.div>
+
+      <motion.div
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <Technology />
       </motion.div>
 
       <motion.div

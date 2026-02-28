@@ -454,7 +454,7 @@ export default function IndiaMapClient() {
               />
               <circle cx="10" cy="6" r="2.4" fill="#fff" />
             </svg>
-            <span className="symbol-guide-label">Legend of Office</span>
+            <span className="symbol-guide-label">Offices</span>
           </div>
 
           <div className="symbol-guide-row">
