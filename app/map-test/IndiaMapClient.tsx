@@ -149,8 +149,8 @@ export default function IndiaMapClient() {
   const [showSubordinates, setShowSubordinates] = useState(false);
 
   useEffect(() => {
-    let stateStartTimer: ReturnType<typeof setTimeout> | undefined;
-    let subordinateTimer: ReturnType<typeof setTimeout> | undefined;
+    let stateStartTimer: number | undefined;
+    let subordinateTimer: number | undefined;
 
     const startAnimationSequence = () => {
       if (animationStartedRef.current) {
