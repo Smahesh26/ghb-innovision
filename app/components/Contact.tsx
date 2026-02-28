@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef, type ChangeEvent, type FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import IndiaMapClient from "../map-test/IndiaMapClient";
 
 type ContactProps = {
   showFootprints?: boolean;
@@ -18,97 +19,6 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
   });
   const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [submitMessage, setSubmitMessage] = useState("");
-  const [leafletInView, setLeafletInView] = useState(false);
-  const leafletContainerRef = useRef<HTMLDivElement>(null);
-  const leafletMapRef = useRef<any>(null);
-  const leafletMarkerTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
-
-  const statesWithMarkers = [
-    { name: "Haryana", lat: 29.0, lng: 77.5 },
-    { name: "West Bengal", lat: 24.0, lng: 88.0 },
-    { name: "Odisha", lat: 20.0, lng: 84.0 },
-    { name: "Rajasthan", lat: 27.5, lng: 73.0 },
-    { name: "Delhi", lat: 28.6, lng: 77.2 },
-    { name: "Punjab", lat: 31.5, lng: 75.5 },
-    { name: "Uttar Pradesh", lat: 26.0, lng: 80.0 },
-    { name: "Chhattisgarh", lat: 21.5, lng: 82.0 },
-    { name: "Bihar", lat: 25.5, lng: 85.5 },
-    { name: "Madhya Pradesh", lat: 23.0, lng: 78.0 },
-    { name: "Karnataka", lat: 15.5, lng: 76.0 },
-    { name: "Tamil Nadu", lat: 11.0, lng: 79.0 },
-    { name: "Telangana", lat: 17.5, lng: 78.5 },
-    { name: "Maharashtra", lat: 19.5, lng: 75.5 },
-    { name: "Gujarat", lat: 22.5, lng: 71.5 },
-  ];
-
-  useEffect(() => {
-    if (!showFootprints || !leafletInView || !leafletContainerRef.current || leafletMapRef.current) {
-      return;
-    }
-
-    let cancelled = false;
-
-    const initLeaflet = async () => {
-      const leafletModule = await import("leaflet");
-      const L = leafletModule.default;
-
-      if (cancelled || !leafletContainerRef.current) {
-        return;
-      }
-
-      const map = L.map(leafletContainerRef.current, {
-        zoomControl: false,
-        scrollWheelZoom: false,
-        dragging: true,
-        attributionControl: true,
-      }).setView([22.8, 79.0], 5);
-
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
-      }).addTo(map);
-
-      leafletMapRef.current = map;
-
-      setTimeout(() => {
-        if (!cancelled && leafletMapRef.current) {
-          leafletMapRef.current.invalidateSize();
-        }
-      }, 120);
-
-      statesWithMarkers.forEach((state, index) => {
-        const timeout = setTimeout(() => {
-          if (cancelled || !leafletMapRef.current) {
-            return;
-          }
-
-          const icon = L.divIcon({
-            className: "innovision-leaflet-pin-wrapper",
-            html: '<span class="innovision-leaflet-pin"><span class="innovision-leaflet-pin-dot"></span></span>',
-            iconSize: [26, 34],
-            iconAnchor: [13, 34],
-          });
-
-          L.marker([state.lat, state.lng], { icon })
-            .addTo(leafletMapRef.current)
-            .bindTooltip(state.name, { direction: "top", offset: [0, -28], opacity: 0.9 });
-        }, index * 220);
-
-        leafletMarkerTimeoutsRef.current.push(timeout);
-      });
-    };
-
-    initLeaflet();
-
-    return () => {
-      cancelled = true;
-      leafletMarkerTimeoutsRef.current.forEach((timeout) => clearTimeout(timeout));
-      leafletMarkerTimeoutsRef.current = [];
-      if (leafletMapRef.current) {
-        leafletMapRef.current.remove();
-        leafletMapRef.current = null;
-      }
-    };
-  }, [leafletInView, showFootprints]);
 
   const services = [
     "Security Services",
@@ -179,7 +89,6 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            onViewportEnter={() => setLeafletInView(true)}
             className="pt-6"
           >
             <h3 className="mb-4 text-center text-3xl font-light text-gray-900 sm:text-4xl">
@@ -195,11 +104,9 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.08 }}
               viewport={{ once: true }}
-              className="mx-auto mt-10 max-w-5xl"
+              className="mx-auto mt-10 max-w-7xl"
             >
-              <div className="h-[520px] w-full overflow-hidden rounded-2xl border border-[#EF2B2D]/20">
-                <div ref={leafletContainerRef} className="h-full w-full" />
-              </div>
+              <IndiaMapClient />
             </motion.div>
           </motion.div>
         )}

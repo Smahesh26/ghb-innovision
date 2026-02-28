@@ -227,3 +227,128 @@ section p:not(:last-child) {
     transform: translateX(-50%);
   }
 }
+
+.state-pin-pop {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: state-pin-pop-in 440ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes state-pin-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes subordinate-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state-pin-pop {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+.india-map-section {
+  max-width: 1320px;
+  padding-right: 220px;
+}
+
+.india-map-stage {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  height: clamp(560px, 60vw, 700px);
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.symbol-guide-card {
+  position: absolute;
+  top: 18px;
+  right: -120px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 245, 246, 0.97) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.22);
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+  z-index: 8;
+  min-width: 280px;
+  backdrop-filter: blur(6px);
+}
+
+.symbol-guide-title {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  color: #991b1b;
+  margin-bottom: 10px;
+}
+
+.symbol-guide-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.symbol-guide-row:last-child {
+  margin-bottom: 0;
+}
+
+.symbol-guide-label {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 12px;
+  color: #334155;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .india-map-section {
+    max-width: 1180px;
+    padding-right: 110px;
+  }
+
+  .india-map-stage {
+    max-width: 900px;
+    height: clamp(520px, 62vw, 640px);
+  }
+
+  .symbol-guide-card {
+    right: 10px;
+    top: 10px;
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .india-map-stage {
+    height: clamp(420px, 80vw, 520px);
+  }
+
+  .symbol-guide-card {
+    position: static;
+    margin: 12px auto 0;
+    width: min(100%, 360px);
+  }
+}
