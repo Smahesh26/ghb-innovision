@@ -9,16 +9,19 @@ const boardOfDirectors = [
     name: "Lt Col Randeep Hundal",
     role: "CMD, Executive Director",
     image: "/images/Randeepsir.jpeg",
+    linkedin: "https://www.linkedin.com/in/lt-col-randeep-hundal-1a83ab12/",
   },
   {
     name: "Mr. Uday Pal Singh",
     role: "CEO, Executive Director",
     image: "/images/uday.jpeg",
+    linkedin: "https://www.linkedin.com/in/uday-pal-singh-b86648320/",
   },
   {
     name: "Lt Col Gurpal Singh",
     role: "Executive Director",
     image: "/images/gurpalsingh.jpg",
+    linkedin: "/leadership",
   },
 ];
 
@@ -27,17 +30,20 @@ const independentDirectors = [
     name: "Ms. Sudha Hooda",
     role: "Independent Director (Non-Executive)",
     image: "/images/sudhahooda.png",
+    linkedin: "https://www.linkedin.com/in/sudha-hooda/",
   },
   {
     name: "Captain Pawan Kumar",
     role: "Independent Director (Non-Executive)",
     image: "/images/pawankumar.png",
+    linkedin: "https://www.linkedin.com/in/pawankalkal/",
   },
  
   {
     name: "Ms. Sulekha Sharma",
     role: "Independent Director (Non-Executive)",
     image: "/images/sulekhasharma.png",
+    linkedin: "https://www.linkedin.com/in/sulekhas/",
   },
 ];
 

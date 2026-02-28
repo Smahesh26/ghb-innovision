@@ -83,7 +83,7 @@ export default function CareersPage() {
       <Header />
       
       {/* Hero Banner for Careers Page */}
-      <section className="relative min-h-[74vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#18181c] to-[#0d0d0f]">
+      <section className="relative min-h-[84vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#18181c] to-[#0d0d0f]">
         <div className="absolute inset-0 bg-[url('/images/banner1.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/45 to-black/35" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.16),transparent_46%)]" />

@@ -8,7 +8,7 @@ import Industries from "./components/Industries";
 import MDMessage from "./components/MDMessage";
 import CTA from "./components/CTA";
 import Services from "./components/Services";
-import Clients from "./components/Clients";
+import HomeClients from "./components/HomeClients";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { Metadata } from "next";
@@ -249,9 +249,9 @@ export default function Home() {
         
         {/* 7. Technology & Innovation */}
         <Technology />
-        
-        {/* 8. Our Clients */}
-        <Clients />
+
+        {/* 8. Our Clients (Home Page) */}
+        <HomeClients />
         
         {/* 9. Client Testimonials (hidden for now) */}
         

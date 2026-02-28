@@ -8,30 +8,36 @@ import Image from "next/image";
 
 export default function TollPlazaManagementPage() {
   const projects = [
-    { name: "Dumbarwadi", location: "Maharashtra", icon: "📍" },
-    { name: "Sabli", location: "Bareilly", icon: "📍" },
-    { name: "Tarwa Dewa 2", location: "Aligarh", icon: "📍" },
-    { name: "Newadakanthi", location: "Kannauj", icon: "📍" },
-    { name: "Pashim Madati", location: "Siliguri", icon: "📍" },
-    { name: "Sarawa", location: "Roorkee", icon: "📍" },
-    { name: "Dhareri Jattan", location: "Mohali", icon: "📍" },
-    { name: "Lathi", location: "Jaisalmer", icon: "📍" },
-    { name: "Simliya - Fatehpur", location: "Kota", icon: "📍" },
-    { name: "Aihar", location: "Raebareli", icon: "📍" },
-    { name: "Milk Majra 2", location: "Panchkula", icon: "📍" },
-    { name: "Ramnagar Gansiyari", location: "Allahabad", icon: "📍" },
-    { name: "Asroga 1", location: "Lucknow", icon: "📍" },
-    { name: "Sayeed Mazera", location: "Roorkee", icon: "📍" },
-    { name: "Asroga 2", location: "Lucknow", icon: "📍" },
-    { name: "Mashora 1", location: "Dhamtari", icon: "📍" },
-    { name: "Mashora 2", location: "Dhamtari", icon: "📍" },
-    { name: "Diengpashosh", location: "Shillong", icon: "📍" },
-    { name: "Mashora 3", location: "Dhamtari", icon: "📍" },
-    { name: "Saini Majra", location: "Ambala", icon: "📍" },
-    { name: "Ramnagar Gansiyari 2", location: "Allahabad", icon: "📍" },
-    { name: "Tarwa Dewa 1", location: "Aligarh", icon: "📍" },
-    { name: "Lachhiwala", location: "Dehradun", icon: "📍" },
-    { name: "Nazirakhat", location: "Guwahati", icon: "📍" },
+    { name: "Dumbarwadi", location: "Maharashtra" },
+    { name: "Sabli", location: "Bareilly" },
+    { name: "Tarwa Dewa 2", location: "Aligarh" },
+    { name: "Newadakanthi", location: "Kannauj" },
+    { name: "Pashim Madati", location: "Siliguri" },
+    { name: "Sarawa", location: "Roorkee" },
+    { name: "Dhareri Jattan", location: "Mohali" },
+    { name: "Lathi", location: "Jaisalmer" },
+    { name: "Simliya - Fatehpur", location: "Kota" },
+    { name: "Aihar", location: "Raebareli" },
+    { name: "Milk Majra 2", location: "Panchkula" },
+    { name: "Ramnagar Gansiyari", location: "Allahabad" },
+    { name: "Asroga 1", location: "Lucknow" },
+    { name: "Sayeed Mazera", location: "Roorkee" },
+    { name: "Asroga 2", location: "Lucknow" },
+    { name: "Mashora 1", location: "Dhamtari" },
+    { name: "Mashora 2", location: "Dhamtari" },
+    { name: "Diengpashosh", location: "Shillong" },
+    { name: "Mashora 3", location: "Dhamtari" },
+    { name: "Saini Majra", location: "Ambala" },
+    { name: "Ramnagar Gansiyari -2", location: "Allahabad" },
+    { name: "Tarwa Dewa 1", location: "Aligarh" },
+    { name: "Lachhiwala", location: "Dehradun" },
+    { name: "Nazirakhat", location: "Guwahati" },
+    { name: "Sarawa", location: "Roorkee" },
+    { name: "Pashim Madati", location: "Siliguri" },
+    { name: "Newadakanthi", location: "Kannauj" },
+    { name: "Tarwa Dewa 2", location: "Aligarh" },
+    { name: "Sabli", location: "Bareilly" },
+    { name: "Dumbarwadi", location: "Maharashtra" },
   ];
 
   const features = [
@@ -62,8 +68,11 @@ export default function TollPlazaManagementPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
-        <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
+      <section className="relative h-[74vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: "url('/all-banners/Banner ServicesTollPlazaManagement.jpg')" }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
@@ -343,41 +352,47 @@ export default function TollPlazaManagementPage() {
             <p className="text-lg text-gray-600">Strategic locations across India</p>
           </motion.div>
 
-          {/* Project Cards - Location Pins Style */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-6 shadow-sm sm:p-8">
+            <div className="pointer-events-none absolute -top-20 -right-10 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-10 h-56 w-56 rounded-full bg-[#EF2B2D]/8 blur-3xl" />
+
+            <div className="relative grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
               <motion.div
-                key={project.name}
+                key={`${project.name}-${project.location}-${index}`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:border-[#EF2B2D]/30 hover:shadow-md"
+                className="group flex items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#EF2B2D]/40 hover:shadow-md"
               >
-                {/* Location Pin Top */}
-                <div className="flex h-20 items-center justify-center bg-gradient-to-br from-gray-50 to-white">
-                  <div className="text-4xl opacity-70 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100">
-                    {project.icon}
+                <div className="flex min-w-0 items-center gap-3">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#EF2B2D]/25 bg-[#EF2B2D]/10 text-xs font-bold text-[#EF2B2D]">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  <div className="min-w-0">
+                    <h3 className="truncate text-sm font-semibold text-gray-900 sm:text-base">{project.name}</h3>
+                    <p className="mt-0.5 text-xs uppercase tracking-[0.08em] text-gray-500">{project.location}</p>
                   </div>
                 </div>
 
-                {/* Project Info */}
-                <div className="border-t-2 border-[#EF2B2D] bg-white p-5">
-                  <h3 className="mb-2 text-base font-semibold text-gray-900">{project.name}</h3>
-                  <div className="flex items-center gap-2">
-                    <span className="h-px flex-1 bg-gray-200" />
-                    <span className="text-sm font-medium text-[#EF2B2D]">{project.location}</span>
-                    <span className="h-px flex-1 bg-gray-200" />
-                  </div>
+                <div className="flex items-center gap-1 text-[#EF2B2D]">
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10Z" />
+                    <circle cx="12" cy="11" r="2" />
+                  </svg>
+                  <span className="text-xs font-semibold uppercase tracking-[0.08em]">Site</span>
                 </div>
               </motion.div>
             ))}
+            </div>
           </div>
         </div>
       </section>
       {/* Contact Form */}
       <div id="contact">
-        <Contact showFootprints={false} />
+        <Contact showFootprints={false as boolean} />
       </div>
 
       <Footer />

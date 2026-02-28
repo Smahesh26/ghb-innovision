@@ -231,10 +231,13 @@ export default function DroneTrainingPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[74vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#151519] to-[#1a1a1d]">
+      <section className="relative min-h-[84vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#151519] to-[#1a1a1d]">
         <div className="pointer-events-none absolute -top-24 right-1/4 h-64 w-64 rounded-full bg-[#EF2B2D]/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-20 left-1/4 h-72 w-72 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
-        <div className="absolute inset-0 bg-[url('/images/banner2.png')] bg-cover bg-center opacity-20" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: "url('/all-banners/BannerServicesProfessionalDroneFlyinTraining.jpg')" }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
 
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-44 sm:pt-48 lg:pt-52 pb-12 text-center text-white">

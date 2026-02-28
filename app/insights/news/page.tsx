@@ -53,7 +53,12 @@ export default function NewsPage() {
 	return (
 		<>
 			<Header />
-			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
+			<main className="relative min-h-screen bg-[#0d0d0f] pt-32 pb-20">
+				<div
+					className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-cover bg-center opacity-20"
+					style={{ backgroundImage: "url('/all-banners/BannerNews.jpg')" }}
+				/>
+				<div className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-black/60 via-black/35 to-transparent" />
 				<div className="mx-auto max-w-6xl px-6">
 					{/* Header */}
 					<div className="mb-16">

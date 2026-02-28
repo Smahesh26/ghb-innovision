@@ -58,7 +58,7 @@ export default function BlogsPage() {
 		<>
 			<Header />
 			<main className="min-h-screen bg-[#0f0f10] pb-24">
-				<section className="relative min-h-[72vh] w-full overflow-hidden bg-gradient-to-br from-[#0f0f10] via-[#151518] to-[#1b1b1f]">
+				<section className="relative min-h-[78vh] w-full overflow-hidden bg-gradient-to-br from-[#0f0f10] via-[#151518] to-[#1b1b1f]">
 					<div
 						className="absolute inset-0 bg-cover bg-center opacity-20"
 						style={{ backgroundImage: "url('/images/blogs/tollblog1.png')" }}

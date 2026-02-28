@@ -34,3 +34,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Contact Form Email Setup (Vercel + Resend)
+
+The contact form submits to `/api/contact` and sends email to `contact@innovision.co.in`.
+
+### 1) Required environment variables
+
+Add these in Vercel Project Settings → Environment Variables:
+
+- `RESEND_API_KEY`
+- `CONTACT_FROM_EMAIL` (example: `noreply@innovision.co.in`)
+- `CONTACT_TO_EMAIL` (set to `contact@innovision.co.in`)
+
+For local testing, create `.env.local` in the project root with the same keys.
+
+### 2) Resend domain verification
+
+- Add and verify your domain in Resend.
+- Configure required DNS records (SPF/DKIM) in your DNS provider.
+- Ensure `CONTACT_FROM_EMAIL` uses a verified sender/domain.
+
+### 3) Deploy
+
+- Push changes to GitHub.
+- Deploy on Vercel (Hobby/free plan is enough for starter usage).
+- Submit the form from the site and confirm receipt at `contact@innovision.co.in`.

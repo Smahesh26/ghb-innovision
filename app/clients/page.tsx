@@ -1,9 +1,6 @@
 import Header from "../components/Header";
 import Clients from "../components/Clients";
-import Stats from "../components/Stats";
 import Reviews from "../components/Reviews";
-import Industries from "../components/Industries";
-import News from "../components/News";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import { Metadata } from "next";
@@ -60,12 +57,78 @@ export default function ClientsPage() {
         </div>
       </section>
 
+      <section className="bg-white py-20 text-gray-900 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
+              Navigating Opportunities Across Multiple Sectors
+            </h2>
+            <p className="mt-3 text-lg font-medium text-[#EF2B2D]">
+              A Resilient Portfolio that Unlocks Various Avenues for Growth
+            </p>
+
+            <p className="mt-8 text-base leading-relaxed text-gray-700">
+              At Innovision, we pride ourselves on our diversified industry presence, which embodies our commitment to comprehensive
+              solutions across various domains, ensuring resilience and continual expansion.
+            </p>
+
+            <div className="mt-8 space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Diversified Portfolio:</h3>
+                <p className="mt-2 text-base leading-relaxed text-gray-700">
+                  Innovision boasts a robust presence across various sectors, including Healthcare, Government, Power, Logistics, and more.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Adaptability in Action:</h3>
+                <p className="mt-2 text-base leading-relaxed text-gray-700">
+                  The company&apos;s ability to cater to unique demands in Healthcare, Government, Power, Warehousing, and Logistics showcases
+                  its adaptability and expertise.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Stability Amplified:</h3>
+                <p className="mt-2 text-base leading-relaxed text-gray-700">
+                  Significant footprint in Government, PSUs, Private, and Global sectors enhances stability and reinforces the foundation for growth.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Versatility Unleashed:</h3>
+                <p className="mt-2 text-base leading-relaxed text-gray-700">
+                  Stronghold in BFSI, Retail, Manufacturing, Warehousing, Corporates, Utility, Healthcare, and other segments positions Innovision
+                  as a versatile partner catering to diverse industry needs.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Risk Mitigation:</h3>
+                <p className="mt-2 text-base leading-relaxed text-gray-700">
+                  Cross-sectoral resilience minimizes risks associated with single-sector dependence, fostering sustained growth.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Unlocking Opportunities:</h3>
+                <p className="mt-2 text-base leading-relaxed text-gray-700">
+                  Agile expansion and industry-spanning expertise position Innovision as a preferred choice for businesses seeking tailored solutions.
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-8 text-base leading-relaxed text-gray-700">
+              Our local roots and nationwide presence, woven expertise across diverse markets, and the essence of our commitment to comprehensive
+              solutions across domains ensure resilience and continual expansion.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content Sections */}
       <Clients />
-      <Industries />
       <Reviews />
-      <Stats />
-      <News />
       <CTA />
       <Footer />
     </>

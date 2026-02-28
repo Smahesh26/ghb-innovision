@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
       {
         pathname: '/images/**',
       },
+      {
+        pathname: '/clients-page/**',
+      },
     ],
   },
 };

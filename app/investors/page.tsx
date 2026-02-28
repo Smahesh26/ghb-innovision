@@ -11,10 +11,13 @@ export default function InvestorsPage() {
       <Header />
       
       {/* Hero Banner for Investors Page */}
-      <section className="relative min-h-[68vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f]" aria-label="Investors Hero">
+      <section className="relative min-h-[78vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f]" aria-label="Investors Hero">
         <div className="pointer-events-none absolute -top-16 right-1/4 h-72 w-72 rounded-full bg-[#EF2B2D]/20 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-10 h-80 w-80 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
-        <div className="absolute inset-0 bg-[url('/images/banner1.png')] bg-cover bg-center opacity-20" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: "url('/all-banners/BannerInvestors.jpg')" }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.18),transparent_45%)]" />
         
