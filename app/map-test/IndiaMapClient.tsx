@@ -445,7 +445,7 @@ export default function IndiaMapClient() {
           <div className="symbol-guide-title">Symbol Guide</div>
 
           <div className="symbol-guide-row">
-            <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+            <svg width="20" height="20" viewBox="-1 -1 22 22" aria-hidden="true" style={{ overflow: "visible" }}>
               <path
                 d="M 10,18 C 14,12 17,9 17,6 A 7 7 0 1 0 3,6 C 3,9 6,12 10,18 Z"
                 fill="#ee2430"
@@ -454,28 +454,21 @@ export default function IndiaMapClient() {
               />
               <circle cx="10" cy="6" r="2.4" fill="#fff" />
             </svg>
-            <span className="symbol-guide-label">State Footprint</span>
+            <span className="symbol-guide-label">Offices</span>
           </div>
 
           <div className="symbol-guide-row">
             <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
               <rect x="4" y="4" width="12" height="12" rx="2" fill="#ef4444" stroke="#fff" strokeWidth="1.6" />
             </svg>
-            <span className="symbol-guide-label">UPSDM / PMGKVK Centers</span>
-          </div>
-
-          <div className="symbol-guide-row">
-            <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
-              <rect x="4" y="4" width="12" height="12" rx="2" fill="#ef4444" stroke="#fff" strokeWidth="1.6" />
-            </svg>
-            <span className="symbol-guide-label">MMKVY Centers (Chhattisgarh)</span>
+            <span className="symbol-guide-label">Training Centers</span>
           </div>
 
           <div className="symbol-guide-row">
             <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
               <circle cx="10" cy="10" r="6.2" fill="#ef4444" stroke="#fff" strokeWidth="1.6" />
             </svg>
-            <span className="symbol-guide-label">PMKK / PMKVY Centers (Haryana)</span>
+            <span className="symbol-guide-label">Toll Plazas</span>
           </div>
         </div>
 

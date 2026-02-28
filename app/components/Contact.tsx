@@ -95,7 +95,7 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
               Our Footprints
             </h3>
 
-            <p className="mx-auto mb-8 max-w-3xl text-center text-base leading-relaxed text-gray-600">
+            <p className="mx-auto mb-8 max-w-3xl text-center text-base leading-relaxed text-gray-600" style={{ textAlign: "center" }}>
               Pan-India operational footprint with 55+ offices across all major regions.
             </p>
 

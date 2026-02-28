@@ -275,7 +275,7 @@ section p:not(:last-child) {
   position: relative;
   width: 100%;
   max-width: 980px;
-  height: clamp(560px, 60vw, 700px);
+  height: clamp(500px, 56vw, 640px);
   margin: 0 auto;
   overflow: visible;
 }
@@ -331,7 +331,7 @@ section p:not(:last-child) {
 
   .india-map-stage {
     max-width: 900px;
-    height: clamp(520px, 62vw, 640px);
+    height: clamp(460px, 58vw, 580px);
   }
 
   .symbol-guide-card {
@@ -343,7 +343,7 @@ section p:not(:last-child) {
 
 @media (max-width: 768px) {
   .india-map-stage {
-    height: clamp(420px, 80vw, 520px);
+    height: clamp(380px, 76vw, 460px);
   }
 
   .symbol-guide-card {
