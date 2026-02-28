@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import India from "@svg-maps/india";
 
 type StatePin = {
@@ -141,24 +141,61 @@ const pinOffsetByState: Record<string, { x: number; y: number }> = {
 };
 
 export default function IndiaMapClient() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const animationStartedRef = useRef(false);
   const [tooltipContent, setTooltipContent] = useState("");
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [animateStatePins, setAnimateStatePins] = useState(false);
   const [showSubordinates, setShowSubordinates] = useState(false);
 
   useEffect(() => {
-    const stateStartTimer = window.setTimeout(() => {
-      setAnimateStatePins(true);
-    }, 80);
+    let stateStartTimer: ReturnType<typeof setTimeout> | undefined;
+    let subordinateTimer: ReturnType<typeof setTimeout> | undefined;
 
-    const stateAnimationDuration = 80 + (footprintPins.length - 1) * 140 + 460;
-    const subordinateTimer = window.setTimeout(() => {
-      setShowSubordinates(true);
-    }, stateAnimationDuration + 120);
+    const startAnimationSequence = () => {
+      if (animationStartedRef.current) {
+        return;
+      }
+
+      animationStartedRef.current = true;
+      stateStartTimer = window.setTimeout(() => {
+        setAnimateStatePins(true);
+      }, 80);
+
+      const stateAnimationDuration = 80 + (footprintPins.length - 1) * 140 + 460;
+      subordinateTimer = window.setTimeout(() => {
+        setShowSubordinates(true);
+      }, stateAnimationDuration + 120);
+    };
+
+    const observedSection = sectionRef.current;
+    if (!observedSection) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting) {
+          startAnimationSequence();
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.35,
+      }
+    );
+
+    observer.observe(observedSection);
 
     return () => {
-      window.clearTimeout(stateStartTimer);
-      window.clearTimeout(subordinateTimer);
+      observer.disconnect();
+      if (stateStartTimer) {
+        window.clearTimeout(stateStartTimer);
+      }
+      if (subordinateTimer) {
+        window.clearTimeout(subordinateTimer);
+      }
     };
   }, []);
 
@@ -226,7 +263,7 @@ export default function IndiaMapClient() {
   }, []);
 
   return (
-    <div className="india-map-section mx-auto w-full max-w-[900px]">
+    <div ref={sectionRef} className="india-map-section mx-auto w-full max-w-[900px]">
       <div className="india-map-stage" style={{ position: "relative" }}>
         <svg
           viewBox={viewBox}
