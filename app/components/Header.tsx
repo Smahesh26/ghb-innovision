@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -64,9 +64,20 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 12);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 shadow-[0_10px_30px_rgba(15,15,18,0.08)] backdrop-blur-md" : "bg-transparent"}`}>
       <div className="mx-auto max-w-7xl px-6">
 
         <div className="mt-0 flex h-20 items-center justify-between px-8">
@@ -84,7 +95,7 @@ export default function Header() {
           </Link>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden items-center gap-8 text-sm font-semibold tracking-[0.12em] text-white lg:flex">
+          <nav className={`hidden items-center gap-8 text-sm font-semibold tracking-[0.12em] lg:flex ${isScrolled ? "text-neutral-900" : "text-white"}`}>
 
             {navItems.map((item) =>
               item.children ? (
@@ -97,7 +108,7 @@ export default function Header() {
                     setActiveSubmenu(null);
                   }}
                 >
-                  <button className="relative flex items-center gap-1 hover:text-white">
+                  <button className={`relative flex items-center gap-1 transition ${isScrolled ? "hover:text-[#EF2B2D]" : "hover:text-white"}`}>
                     {item.label}
                     <span className="text-xs">&#9662;</span>
 
@@ -175,7 +186,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative transition hover:text-white"
+                  className={`relative transition ${isScrolled ? "hover:text-[#EF2B2D]" : "hover:text-white"}`}
                 >
                   {item.label}
                 </Link>
@@ -202,14 +213,14 @@ export default function Header() {
 
           {/* MOBILE MENU BUTTON */}
           <button
-            className="lg:hidden text-white"
+            className={`lg:hidden ${isScrolled ? "text-neutral-900" : "text-white"}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             ☰
           </button>
         </div>
 
-        <div className="mt-2 border-b border-white/35" />
+        <div className={`mt-2 border-b ${isScrolled ? "border-neutral-200" : "border-white/35"}`} />
 
         {/* MOBILE MENU */}
         <AnimatePresence>
