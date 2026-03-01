@@ -38,7 +38,7 @@ function DirectorCard({
 
   return (
     <article
-      className="group cursor-pointer rounded-2xl border border-neutral-200 bg-white/95 p-7 text-center shadow-[0_18px_40px_rgba(15,15,18,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,15,18,0.14)]"
+      className="group flex h-full cursor-pointer flex-col rounded-2xl border border-neutral-200 bg-white/95 p-7 text-center shadow-[0_18px_40px_rgba(15,15,18,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,15,18,0.14)]"
       onClick={() => onOpenBio(director)}
       role="button"
       tabIndex={0}
@@ -66,31 +66,33 @@ function DirectorCard({
       <div className="mx-auto mt-3 h-[2px] w-10 bg-[#EF2B2D]" />
       <p className="mt-4 text-sm font-semibold uppercase tracking-[0.08em] text-[#EF2B2D]">{director.role}</p>
 
-      {director.linkedin && (
-        <a
-          href={director.linkedin}
-          onClick={(event) => event.stopPropagation()}
-          target={isExternalLinkedIn ? "_blank" : undefined}
-          rel={isExternalLinkedIn ? "noopener noreferrer" : undefined}
-          aria-label={`${director.name} LinkedIn profile`}
-          className="mx-auto mt-5 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#EF2B2D]/30 text-[#EF2B2D] transition hover:border-[#EF2B2D] hover:bg-[#EF2B2D] hover:text-white"
-        >
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-            <path d="M20.45 20.45h-3.56v-5.59c0-1.33-.03-3.03-1.84-3.03-1.85 0-2.13 1.45-2.13 2.94v5.68H9.36V9h3.42v1.56h.05c.48-.9 1.63-1.85 3.35-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" />
-          </svg>
-        </a>
-      )}
+      <div className="mt-5 flex items-center justify-center gap-3">
+        {director.linkedin && (
+          <a
+            href={director.linkedin}
+            onClick={(event) => event.stopPropagation()}
+            target={isExternalLinkedIn ? "_blank" : undefined}
+            rel={isExternalLinkedIn ? "noopener noreferrer" : undefined}
+            aria-label={`${director.name} LinkedIn profile`}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#EF2B2D]/30 text-[#EF2B2D] transition hover:border-[#EF2B2D] hover:bg-[#EF2B2D] hover:text-white"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.59c0-1.33-.03-3.03-1.84-3.03-1.85 0-2.13 1.45-2.13 2.94v5.68H9.36V9h3.42v1.56h.05c.48-.9 1.63-1.85 3.35-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" />
+            </svg>
+          </a>
+        )}
 
-      <button
-        type="button"
-        onClick={(event) => {
-          event.stopPropagation();
-          onOpenBio(director);
-        }}
-        className="mt-5 inline-flex items-center justify-center border border-neutral-300 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-800 transition hover:border-[#EF2B2D] hover:text-[#EF2B2D]"
-      >
-        Read Bio
-      </button>
+        <button
+          type="button"
+          onClick={(event) => {
+            event.stopPropagation();
+            onOpenBio(director);
+          }}
+          className="inline-flex h-10 items-center justify-center rounded-none px-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-800 transition hover:text-[#EF2B2D]"
+        >
+          Read Bio
+        </button>
+      </div>
     </article>
   );
 }
