@@ -140,15 +140,17 @@ function Counter({ value, suffix = "", size = "default" }: { value: number; suff
 }
 
 export default function WhyChooseUs() {
+	const sectionRef = useRef<HTMLElement>(null);
 	const videoRef = useRef<HTMLVideoElement>(null);
-	const videoFrameRef = useRef<HTMLDivElement>(null);
 	const rightScrollRef = useRef<HTMLDivElement>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [isScrollLockActive, setIsScrollLockActive] = useState(false);
+	const [rightScrollProgress, setRightScrollProgress] = useState(0);
+	const [hasCompletedHighlights, setHasCompletedHighlights] = useState(false);
 
 	useEffect(() => {
-		const target = videoFrameRef.current;
-		if (!target || isScrollLockActive) return;
+		const target = sectionRef.current;
+		if (!target || isScrollLockActive || hasCompletedHighlights) return;
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -158,13 +160,13 @@ export default function WhyChooseUs() {
 					observer.disconnect();
 				}
 			},
-			{ threshold: 0.65, rootMargin: "0px 0px -8% 0px" }
+			{ threshold: 0.45 }
 		);
 
 		observer.observe(target);
 
 		return () => observer.disconnect();
-	}, [isScrollLockActive]);
+	}, [hasCompletedHighlights, isScrollLockActive]);
 
 	const togglePlay = async () => {
 		if (!videoRef.current) return;
@@ -184,22 +186,63 @@ export default function WhyChooseUs() {
 		if (!scrollContainer) return;
 
 		const hasOverflow = scrollContainer.scrollHeight > scrollContainer.clientHeight;
-		if (!hasOverflow) return;
+		if (!hasOverflow) {
+			setHasCompletedHighlights(true);
+			setIsScrollLockActive(false);
+			return;
+		}
 
 		const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
-		const deltaY = event.deltaY;
+		const primaryDelta =
+			Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+		const isFullyCompleted = rightScrollProgress >= 1;
 		const atTop = scrollTop <= 0;
 		const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
 
-		if ((deltaY < 0 && !atTop) || (deltaY > 0 && !atBottom)) {
-			event.preventDefault();
-			scrollContainer.scrollTop += deltaY;
+		event.preventDefault();
+
+		if (primaryDelta > 0 && atBottom && isFullyCompleted) {
+			setHasCompletedHighlights(true);
+			setIsScrollLockActive(false);
+			window.scrollBy({ top: primaryDelta, behavior: "auto" });
+			return;
+		}
+
+		if (primaryDelta > 0 && atBottom && !isFullyCompleted) {
+			scrollContainer.scrollTop = scrollHeight - clientHeight;
+			return;
+		}
+
+		if (primaryDelta < 0 && atTop) {
+			setIsScrollLockActive(false);
+			window.scrollBy({ top: primaryDelta, behavior: "auto" });
+			return;
+		}
+
+		scrollContainer.scrollTop += primaryDelta;
+	};
+
+	const handleRightScroll = () => {
+		const element = rightScrollRef.current;
+		if (!element) return;
+
+		const maxScroll = element.scrollHeight - element.clientHeight;
+		if (maxScroll <= 0) {
+			setRightScrollProgress(1);
+			setHasCompletedHighlights(true);
+			return;
+		}
+
+		const progress = element.scrollTop / maxScroll;
+		setRightScrollProgress(progress);
+		if (progress >= 1) {
+			setHasCompletedHighlights(true);
 		}
 	};
 
 	return (
 		<>
-			<section onWheel={handleSectionWheel} className="relative h-screen overflow-hidden bg-white text-neutral-900">
+			<section ref={sectionRef} onWheelCapture={handleSectionWheel} className="relative h-screen overflow-hidden bg-white text-neutral-900">
 				<div className="mx-auto h-full max-w-7xl px-6">
 					<div className="grid h-full min-h-0 gap-12 lg:grid-cols-[0.9fr_auto_1.1fr] lg:items-stretch lg:gap-10">
 						{/* LEFT SIDE - HEADING AND VIDEO */}
@@ -228,7 +271,6 @@ export default function WhyChooseUs() {
 
 							{/* Video Section */}
 							<motion.div
-								ref={videoFrameRef}
 								initial={{ opacity: 0, y: 40 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.8, delay: 0.2 }}
@@ -304,7 +346,7 @@ export default function WhyChooseUs() {
 							transition={{ duration: 0.7, delay: 0.1 }}
 							viewport={{ once: true, amount: 0.25 }}
 						>
-							<div ref={rightScrollRef} className="relative mx-auto flex-1 min-h-0 w-full max-w-2xl overflow-y-auto p-6 sm:p-7 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+							<div ref={rightScrollRef} onScroll={handleRightScroll} className="relative mx-auto flex-1 min-h-0 w-full max-w-2xl overflow-y-auto p-6 sm:p-7 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 								<div className="space-y-3">
 									{highlights.map((item, index) => (
 										<motion.div

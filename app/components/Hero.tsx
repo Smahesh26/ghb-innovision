@@ -56,12 +56,6 @@ export default function Hero() {
 		setActiveIndex((prev) => (prev + 1) % slides.length);
 	}, []);
 
-	const prevSlide = useCallback(() => {
-		setActiveIndex((prev) =>
-			prev === 0 ? slides.length - 1 : prev - 1
-		);
-	}, []);
-
 	useEffect(() => {
 		const interval = setInterval(nextSlide, 6000);
 		return () => clearInterval(interval);
@@ -146,26 +140,24 @@ export default function Hero() {
 									Contact Us
 								</Link>
 							</div>
+
+							<div className="mt-7 flex items-center justify-center gap-2">
+								{slides.map((slide, index) => (
+									<button
+										key={slide.title}
+										type="button"
+										onClick={() => setActiveIndex(index)}
+										aria-label={`Go to slide ${index + 1}`}
+										className={`h-2 w-2 rounded-full transition ${
+											activeIndex === index ? "bg-[#EF2B2D]" : "bg-white/45 hover:bg-white/70"
+										}`}
+									/>
+								))}
+							</div>
 						</motion.div>
 					</AnimatePresence>
 				</div>
 
-				{/* Arrows */}
-				<button
-					onClick={prevSlide}
-					aria-label="Previous slide"
-					className="absolute bottom-0 left-0 z-10 rounded-tr-xl bg-gradient-to-br from-[#EF2B2D]/55 to-black/70 p-4 text-2xl text-white shadow-[0_10px_22px_rgba(239,43,45,0.3)] backdrop-blur-sm transition-all duration-300 hover:from-[#EF2B2D] hover:to-[#991b1b]"
-				>
-					‹
-				</button>
-
-				<button
-					onClick={nextSlide}
-					aria-label="Next slide"
-					className="absolute bottom-0 right-0 z-10 rounded-tl-xl bg-gradient-to-bl from-[#EF2B2D]/55 to-black/70 p-4 text-2xl text-white shadow-[0_10px_22px_rgba(239,43,45,0.3)] backdrop-blur-sm transition-all duration-300 hover:from-[#EF2B2D] hover:to-[#991b1b]"
-				>
-					›
-				</button>
 			</section>
 
 

@@ -47,9 +47,11 @@ const milestones = [
 ];
 
 export default function Timeline() {
+	const sectionRef = useRef<HTMLElement>(null);
 	const timelineScrollRef = useRef<HTMLDivElement>(null);
 	const [scrollProgress, setScrollProgress] = useState(0);
 	const [isScrollLockActive, setIsScrollLockActive] = useState(false);
+	const [hasCompletedTimeline, setHasCompletedTimeline] = useState(false);
 
 	const rowVariants = {
 		hidden: { opacity: 0, y: 32 },
@@ -61,8 +63,8 @@ export default function Timeline() {
 	};
 
 	useEffect(() => {
-		const target = timelineScrollRef.current;
-		if (!target || isScrollLockActive) return;
+		const target = sectionRef.current;
+		if (!target || isScrollLockActive || hasCompletedTimeline) return;
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -78,7 +80,7 @@ export default function Timeline() {
 		observer.observe(target);
 
 		return () => observer.disconnect();
-	}, [isScrollLockActive]);
+	}, [hasCompletedTimeline, isScrollLockActive]);
 
 	const handleSectionWheel = (event: WheelEvent<HTMLElement>) => {
 		if (!isScrollLockActive) return;
@@ -92,11 +94,29 @@ export default function Timeline() {
 		const deltaY = event.deltaY;
 		const atTop = scrollContainer.scrollTop <= 1;
 		const atBottom = scrollContainer.scrollTop >= maxScroll - 1;
+		const isFullyCompleted = scrollProgress >= 1;
 
-		if ((deltaY < 0 && !atTop) || (deltaY > 0 && !atBottom)) {
-			event.preventDefault();
-			scrollContainer.scrollBy({ top: deltaY, behavior: "auto" });
+		event.preventDefault();
+
+		if (deltaY > 0 && atBottom && isFullyCompleted) {
+			setHasCompletedTimeline(true);
+			setIsScrollLockActive(false);
+			window.scrollBy({ top: deltaY, behavior: "auto" });
+			return;
 		}
+
+		if (deltaY > 0 && atBottom && !isFullyCompleted) {
+			scrollContainer.scrollTop = maxScroll;
+			return;
+		}
+
+		if (deltaY < 0 && atTop) {
+			setIsScrollLockActive(false);
+			window.scrollBy({ top: deltaY, behavior: "auto" });
+			return;
+		}
+
+		scrollContainer.scrollBy({ top: deltaY, behavior: "auto" });
 	};
 
 	const handleTimelineScroll = (event: UIEvent<HTMLDivElement>) => {
@@ -106,11 +126,15 @@ export default function Timeline() {
 			setScrollProgress(0);
 			return;
 		}
-		setScrollProgress(element.scrollTop / maxScroll);
+		const progress = element.scrollTop / maxScroll;
+		setScrollProgress(progress);
+		if (progress >= 1) {
+			setHasCompletedTimeline(true);
+		}
 	};
 
 	return (
-		<section onWheel={handleSectionWheel} className="relative h-[100svh] min-h-[100svh] overflow-hidden bg-[#0d0d0f] text-white">
+		<section ref={sectionRef} onWheelCapture={handleSectionWheel} className="relative h-[100svh] min-h-[100svh] overflow-hidden bg-[#0d0d0f] text-white">
 			
 			{/* Background Glow */}
 			<div className="absolute top-1/2 left-1/4 h-96 w-96 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
@@ -154,13 +178,25 @@ export default function Timeline() {
 							transition={{ duration: 0.18, ease: "linear" }}
 						/>
 
+						<div className="pointer-events-none sticky bottom-3 z-20 mt-4 flex justify-end pr-2">
+							<span
+								className={`rounded-md border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] transition ${
+									scrollProgress >= 1
+										? "border-[#EF2B2D]/70 bg-[#EF2B2D]/20 text-[#EF2B2D]"
+										: "border-white/20 bg-black/35 text-white/55"
+								}`}
+							>
+								{scrollProgress >= 1 ? "Completed" : "In Progress"}
+							</span>
+						</div>
+
 						<div className="space-y-8 md:space-y-0">
-							{milestones.map((milestone, index) => (
+							{milestones.map((milestone) => (
 								<motion.div
 									key={milestone.year}
 									initial="hidden"
 									whileInView="visible"
-									viewport={{ once: false, amount: 0.35 }}
+									viewport={{ once: true, amount: 0.35, root: timelineScrollRef }}
 									className="grid grid-cols-[1fr] gap-5 md:min-h-[calc(100vh-340px)] md:grid-cols-[220px_1fr] md:gap-10"
 								>
 									<div className="relative">

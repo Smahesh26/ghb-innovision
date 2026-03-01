@@ -17,6 +17,16 @@ type ServiceTab = {
 
 const serviceTabs: ServiceTab[] = [
   {
+    id: "toll",
+    tabLabel: "Toll Operations",
+    title: "Toll Plaza Management",
+    description:
+      "TMS-enabled toll operations with lane optimization, incident response, and real-time operational supervision.",
+    points: ["ATMS/TMS integrated workflows", "Revenue-assurance focused controls", "Round-the-clock incident management"],
+    image: "/images/services-home/tollplazaservicehoma.jpg",
+    href: "/services/toll-plaza-management",
+  },
+  {
     id: "security",
     tabLabel: "Manned Security",
     title: "Manned Private Security Services",
@@ -37,6 +47,16 @@ const serviceTabs: ServiceTab[] = [
     href: "/services/facility-management",
   },
   {
+    id: "skill",
+    tabLabel: "Skill Development",
+    title: "Skill Development",
+    description:
+      "Industry-aligned learning tracks that build employable capabilities with certified training outcomes.",
+    points: ["Demand-led curriculum design", "Assessment and certification support", "Placement-oriented ecosystem"],
+    image: "/images/services-home/skilldevelopmentservicehome.jpg",
+    href: "/services/skill-development",
+  },
+  {
     id: "manpower",
     tabLabel: "Manpower & Payroll",
     title: "Manpower Sourcing & Payroll",
@@ -47,29 +67,9 @@ const serviceTabs: ServiceTab[] = [
     href: "/services/manpower-sourcing",
   },
   {
-    id: "toll",
-    tabLabel: "Toll Operations",
-    title: "Toll Plaza Management",
-    description:
-      "TMS-enabled toll operations with lane optimization, incident response, and real-time operational supervision.",
-    points: ["ATMS/TMS integrated workflows", "Revenue-assurance focused controls", "Round-the-clock incident management"],
-    image: "/images/services-home/tollplazaservicehoma.jpg",
-    href: "/services/toll-plaza-management",
-  },
-  {
-    id: "skill",
-    tabLabel: "Skill Development",
-    title: "Skill Development Programs",
-    description:
-      "Industry-aligned learning tracks that build employable capabilities with certified training outcomes.",
-    points: ["Demand-led curriculum design", "Assessment and certification support", "Placement-oriented ecosystem"],
-    image: "/images/services-home/skilldevelopmentservicehome.jpg",
-    href: "/services/skill-development",
-  },
-  {
     id: "overseas",
     tabLabel: "Overseas Recruitment",
-    title: "Overseas Recruitment Solutions",
+    title: "Overseas Recruitment",
     description:
       "Global talent sourcing and deployment support with documentation, compliance, and onboarding precision.",
     points: ["International candidate pipeline", "Visa and document coordination", "Deployment-ready compliance workflows"],
@@ -79,7 +79,7 @@ const serviceTabs: ServiceTab[] = [
   {
     id: "drone",
     tabLabel: "Drone Training",
-    title: "Drone Manufacturing & Training",
+    title: "Drone Flying Training",
     description:
       "Advanced drone capability building for surveillance, inspection, and modern field operations.",
     points: ["DGCA-aligned operator training", "Simulation plus live-flight modules", "Mission-specific deployment readiness"],

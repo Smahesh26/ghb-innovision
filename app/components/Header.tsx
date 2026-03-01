@@ -65,6 +65,10 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
+  const [brochureEmail, setBrochureEmail] = useState("");
+  const [brochureStatusMessage, setBrochureStatusMessage] = useState("");
+  const [isBrochureSubmitting, setIsBrochureSubmitting] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,6 +79,57 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const openBrochureModal = () => {
+    setBrochureStatusMessage("");
+    setIsBrochureModalOpen(true);
+  };
+
+  const closeBrochureModal = () => {
+    if (isBrochureSubmitting) return;
+    setIsBrochureModalOpen(false);
+    setBrochureEmail("");
+    setBrochureStatusMessage("");
+  };
+
+  const handleBrochureSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const email = brochureEmail.trim();
+    if (!email) {
+      setBrochureStatusMessage("Please enter your email address.");
+      return;
+    }
+
+    setIsBrochureSubmitting(true);
+    setBrochureStatusMessage("");
+
+    try {
+      const response = await fetch("/api/brochure", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = (await response.json()) as { success?: boolean; message?: string };
+
+      if (!response.ok || !data.success) {
+        setBrochureStatusMessage(data.message ?? "Unable to send brochure link right now.");
+        return;
+      }
+
+      setBrochureStatusMessage(data.message ?? "Brochure link sent successfully. Please check your email.");
+      setBrochureEmail("");
+      setTimeout(() => {
+        setIsBrochureModalOpen(false);
+        setBrochureStatusMessage("");
+      }, 1200);
+    } catch {
+      setBrochureStatusMessage("Unable to send brochure link right now.");
+    } finally {
+      setIsBrochureSubmitting(false);
+    }
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 shadow-[0_10px_30px_rgba(15,15,18,0.08)] backdrop-blur-md" : "bg-transparent"}`}>
@@ -201,13 +256,13 @@ export default function Header() {
               Contact
             </Link>
 
-            <a
-              href="/brochure.pdf"
-              download
+            <button
+              type="button"
+              onClick={openBrochureModal}
               className="ml-4 rounded-md bg-[#EF2B2D] px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-[#d62426] hover:shadow-[0_0_20px_rgba(239,43,45,0.6)]"
             >
               Brochure
-            </a>
+            </button>
 
           </nav>
 
@@ -240,13 +295,13 @@ export default function Header() {
                 >
                   Contact
                 </Link>
-                <a
-                  href="/brochure.pdf"
-                  download
+                <button
+                  type="button"
+                  onClick={openBrochureModal}
                   className="rounded-md bg-[#EF2B2D] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white"
                 >
                   Brochure
-                </a>
+                </button>
               </div>
 
               <div className="space-y-4">
@@ -305,6 +360,73 @@ export default function Header() {
                   )
                 )}
               </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {isBrochureModalOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 px-4"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+                className="w-full max-w-md rounded-xl border border-white/10 bg-[#0b0b0d] p-6 text-white shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-semibold">Get Brochure Link</h3>
+                    <p className="mt-1 text-sm text-white/70">Enter your email and we&apos;ll send the download link.</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={closeBrochureModal}
+                    className="text-white/70 transition hover:text-white"
+                    aria-label="Close brochure popup"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                <form onSubmit={handleBrochureSubmit} className="mt-5 space-y-4">
+                  <input
+                    type="email"
+                    value={brochureEmail}
+                    onChange={(event) => setBrochureEmail(event.target.value)}
+                    placeholder="Enter your email"
+                    className="w-full rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/45 outline-none transition focus:border-[#EF2B2D]"
+                    required
+                  />
+
+                  {brochureStatusMessage ? (
+                    <p className="text-xs text-white/80">{brochureStatusMessage}</p>
+                  ) : null}
+
+                  <div className="flex items-center justify-end gap-3">
+                    <button
+                      type="button"
+                      onClick={closeBrochureModal}
+                      className="rounded-md border border-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/85 transition hover:bg-white/10"
+                      disabled={isBrochureSubmitting}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className="rounded-md bg-[#EF2B2D] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#d62426] disabled:cursor-not-allowed disabled:opacity-70"
+                      disabled={isBrochureSubmitting}
+                    >
+                      {isBrochureSubmitting ? "Sending..." : "Send Link"}
+                    </button>
+                  </div>
+                </form>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
