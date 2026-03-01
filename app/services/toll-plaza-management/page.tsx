@@ -411,7 +411,7 @@ export default function TollPlazaManagementPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
-            className="mt-8 mb-16 text-center"
+            className="mb-12 text-center"
           >
             <h2 className="mb-4 flex items-center justify-center gap-3 text-4xl font-light tracking-[-0.015em] text-white sm:text-5xl">
               <svg viewBox="0 0 24 24" className="h-8 w-8 text-[#EF2B2D] sm:h-9 sm:w-9" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
@@ -427,7 +427,7 @@ export default function TollPlazaManagementPage() {
             </p>
           </motion.div>
 
-          <div className="relative overflow-hidden border border-white/10 bg-gradient-to-br from-[#0d0d10] via-[#0a0a0d] to-[#050507] p-6 pt-20 shadow-[0_28px_70px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-8 sm:pt-24">
+          <div className="relative overflow-hidden border border-white/10 bg-gradient-to-br from-[#0d0d10] via-[#0a0a0d] to-[#050507] p-6 pt-8 shadow-[0_28px_70px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-8 sm:pt-10">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.12),transparent_35%),radial-gradient(circle_at_80%_78%,rgba(239,43,45,0.08),transparent_42%)]" />
             <motion.div
               className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#EF2B2D]/70 to-transparent"
@@ -445,7 +445,7 @@ export default function TollPlazaManagementPage() {
               transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            <div className="relative z-20 mt-20 mb-8 flex flex-wrap items-center justify-center gap-3 border border-white/12 bg-white/5 p-3 backdrop-blur-md sm:mt-24 lg:mt-28">
+            <div className="relative z-20 mb-8 flex flex-wrap items-center justify-center gap-3 border border-white/12 bg-white/5 p-3 backdrop-blur-md">
               {statusFilters.map((status) => (
                 <button
                   key={status}
@@ -467,51 +467,39 @@ export default function TollPlazaManagementPage() {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={`${project.name}-${project.location}-${index}`}
-                initial={{ opacity: 0, y: 18, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.72, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true }}
-                whileHover={{ y: -3, scale: 1.01 }}
-                className="group relative flex items-center justify-between gap-4 border border-white/14 bg-transparent p-4 shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition-all duration-300 hover:border-[#EF2B2D]/45 hover:shadow-[0_22px_55px_rgba(0,0,0,0.4),0_0_18px_rgba(239,43,45,0.12)]"
+                whileHover={{ y: -2 }}
+                className="group relative border-l-2 border-l-[#EF2B2D]/40 bg-white/[0.02] p-4 transition-all duration-300 hover:border-l-[#EF2B2D] hover:bg-white/[0.04]"
               >
-                <span className="absolute left-0 top-0 h-full w-[2px] bg-[#EF2B2D]/55 opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
-                <div className="flex min-w-0 items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#EF2B2D]/40 bg-[#EF2B2D]/14 text-xs font-bold text-[#ff7b7c] shadow-[0_0_18px_rgba(239,43,45,0.22)]">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-
-                  <div className="min-w-0">
-                    <h3 className="flex items-center gap-1.5 truncate text-sm font-semibold tracking-[0.01em] text-white sm:text-base">
-                      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 shrink-0 text-[#EF2B2D]" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-1 flex items-center gap-2">
+                      <span className="text-xs font-bold text-[#EF2B2D]">#{String(index + 1).padStart(2, "0")}</span>
+                      <svg viewBox="0 0 24 24" className="h-3 w-3 shrink-0 text-[#EF2B2D]/60" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                         <path d="M12 3 4 7v5c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-4Z" />
                       </svg>
-                      <span className="truncate">{project.name}</span>
+                    </div>
+                    <h3 className="text-sm font-semibold text-white sm:text-base">
+                      {project.name}
                     </h3>
-                    <p className="mt-0.5 text-xs uppercase tracking-[0.1em] text-white/55">{project.location}</p>
-                    {project.note && <p className="mt-1 text-xs leading-relaxed text-white/50">{project.note}</p>}
+                    <p className="mt-1 text-xs uppercase tracking-wider text-white/55">{project.location}</p>
+                    {project.note && <p className="mt-2 text-xs leading-relaxed text-white/50">{project.note}</p>}
                   </div>
-                </div>
 
-                <div className="flex flex-col items-end gap-1">
                   <span
-                    className={`border px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.12em] ${
+                    className={`shrink-0 px-2 py-1 text-[10px] font-medium uppercase tracking-wider ${
                       project.status === "Upcoming"
-                        ? "border-amber-500/55 bg-amber-500/10 text-amber-300"
+                        ? "bg-amber-500/15 text-amber-300"
                         : project.status === "Ongoing"
-                          ? "border-emerald-500/55 bg-emerald-500/10 text-emerald-300"
-                          : "border-white/25 bg-white/[0.06] text-white/75"
+                          ? "bg-emerald-500/15 text-emerald-300"
+                          : "bg-white/10 text-white/75"
                     }`}
                   >
                     {project.status}
                   </span>
-
-                  <div className="flex items-center gap-1 text-[#ff6b6d]">
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10Z" />
-                    <circle cx="12" cy="11" r="2" />
-                  </svg>
-                  <span className="text-xs font-semibold uppercase tracking-[0.08em] text-white/75">Site</span>
-                  </div>
                 </div>
               </motion.div>
             ))}
