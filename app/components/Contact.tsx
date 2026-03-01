@@ -9,6 +9,9 @@ type ContactProps = {
   mapOnly?: boolean;
 };
 
+const FORMSUBMIT_TARGET_EMAIL = "sunainamahesh1@gmail.com";
+const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_TARGET_EMAIL}`;
+
 export default function Contact({ showFootprints = true, mapOnly = false }: ContactProps) {
   const [formData, setFormData] = useState({
     service: "",
@@ -45,19 +48,32 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
     setSubmitMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
+      const payload = new FormData();
+      payload.append("service", formData.service);
+      payload.append("name", formData.name);
+      payload.append("email", formData.email);
+      payload.append("phone", formData.phone);
+      payload.append("message", formData.message);
+      payload.append("_subject", `New Contact Form Submission - ${formData.service || "General Inquiry"}`);
+      payload.append("_template", "table");
+      payload.append("_captcha", "false");
+      payload.append("_replyto", formData.email);
+
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(formData),
+        body: payload,
       });
 
-      const data = (await response.json()) as { success: boolean; message?: string };
+      const data = (await response.json()) as { success?: boolean | string; message?: string };
 
-      if (!response.ok || !data.success) {
+      const isSuccess = data.success === true || data.success === "true";
+
+      if (!response.ok || !isSuccess) {
         setSubmitState("error");
-        setSubmitMessage(data.message ?? "Unable to send your message. Please try again.");
+        setSubmitMessage(data.message ?? "Unable to send your message right now. Please try again.");
         return;
       }
 

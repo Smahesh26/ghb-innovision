@@ -105,27 +105,38 @@ export default function Header() {
     setBrochureStatusMessage("");
 
     try {
-      const response = await fetch("/api/brochure", {
+      // Send notification to admin via FormSubmit
+      const FORMSUBMIT_TARGET_EMAIL = "sunainamahesh1@gmail.com"; // Change to contact@innovision.co.in after testing
+      const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_TARGET_EMAIL}`;
+
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("type", "Brochure Download Request");
+      formData.append("_subject", "New Brochure Download Request - Innovision");
+      formData.append("_template", "table");
+      formData.append("_captcha", "false");
+
+      await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: formData,
       });
 
-      const data = (await response.json()) as { success?: boolean; message?: string };
+      // Trigger PDF download
+      const link = document.createElement("a");
+      link.href = "/all-banners/Innovision.pdf";
+      link.download = "Innovision-Brochure.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
-      if (!response.ok || !data.success) {
-        setBrochureStatusMessage(data.message ?? "Unable to send brochure link right now.");
-        return;
-      }
-
-      setBrochureStatusMessage(data.message ?? "Brochure link sent successfully. Please check your email.");
+      setBrochureStatusMessage("Download started! Thank you for your interest.");
       setBrochureEmail("");
       setTimeout(() => {
         setIsBrochureModalOpen(false);
         setBrochureStatusMessage("");
-      }, 1200);
+      }, 1500);
     } catch {
-      setBrochureStatusMessage("Unable to send brochure link right now.");
+      setBrochureStatusMessage("Unable to process request. Please try again.");
     } finally {
       setIsBrochureSubmitting(false);
     }
@@ -381,8 +392,8 @@ export default function Header() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-lg font-semibold">Get Brochure Link</h3>
-                    <p className="mt-1 text-sm text-white/70">Enter your email and we&apos;ll send the download link.</p>
+                    <h3 className="text-lg font-semibold">Download Brochure</h3>
+                    <p className="mt-1 text-sm text-white/70">Enter your email to download our company brochure.</p>
                   </div>
                   <button
                     type="button"
@@ -422,7 +433,7 @@ export default function Header() {
                       className="rounded-md bg-[#EF2B2D] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#d62426] disabled:cursor-not-allowed disabled:opacity-70"
                       disabled={isBrochureSubmitting}
                     >
-                      {isBrochureSubmitting ? "Sending..." : "Send Link"}
+                      {isBrochureSubmitting ? "Starting..." : "Download"}
                     </button>
                   </div>
                 </form>
