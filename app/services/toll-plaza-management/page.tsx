@@ -5,40 +5,107 @@ import Footer from "../../components/Footer";
 import Contact from "../../components/Contact";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useMemo, useState } from "react";
+
+type ProjectStatus = "Upcoming" | "Ongoing" | "Closed";
 
 export default function TollPlazaManagementPage() {
   const projects = [
-    { name: "Dumbarwadi", location: "Maharashtra" },
-    { name: "Sabli", location: "Bareilly" },
-    { name: "Tarwa Dewa 2", location: "Aligarh" },
-    { name: "Newadakanthi", location: "Kannauj" },
-    { name: "Pashim Madati", location: "Siliguri" },
-    { name: "Sarawa", location: "Roorkee" },
-    { name: "Dhareri Jattan", location: "Mohali" },
-    { name: "Lathi", location: "Jaisalmer" },
-    { name: "Simliya - Fatehpur", location: "Kota" },
-    { name: "Aihar", location: "Raebareli" },
-    { name: "Milk Majra 2", location: "Panchkula" },
-    { name: "Ramnagar Gansiyari", location: "Allahabad" },
-    { name: "Asroga 1", location: "Lucknow" },
-    { name: "Sayeed Mazera", location: "Roorkee" },
-    { name: "Asroga 2", location: "Lucknow" },
-    { name: "Mashora 1", location: "Dhamtari" },
-    { name: "Mashora 2", location: "Dhamtari" },
-    { name: "Diengpashosh", location: "Shillong" },
-    { name: "Mashora 3", location: "Dhamtari" },
-    { name: "Saini Majra", location: "Ambala" },
-    { name: "Ramnagar Gansiyari -2", location: "Allahabad" },
-    { name: "Tarwa Dewa 1", location: "Aligarh" },
-    { name: "Lachhiwala", location: "Dehradun" },
-    { name: "Nazirakhat", location: "Guwahati" },
-    { name: "Sarawa", location: "Roorkee" },
-    { name: "Pashim Madati", location: "Siliguri" },
-    { name: "Newadakanthi", location: "Kannauj" },
-    { name: "Tarwa Dewa 2", location: "Aligarh" },
-    { name: "Sabli", location: "Bareilly" },
-    { name: "Dumbarwadi", location: "Maharashtra" },
+    { name: "Vanagaram", location: "Chennai", status: "Upcoming" as ProjectStatus },
+    { name: "152D", location: "Bhiwani", status: "Ongoing" as ProjectStatus },
+    { name: "Mikirati Hawgaon", location: "Guwahati", status: "Ongoing" as ProjectStatus },
+    { name: "Nekawala", location: "Jaipur", status: "Ongoing" as ProjectStatus },
+    { name: "Nemili Sriperumpudur", location: "Kanchipuram", status: "Ongoing" as ProjectStatus },
+    { name: "Tarwa Dewa", location: "Lucknow", status: "Ongoing" as ProjectStatus },
+    { name: "Gulalpurva", location: "Lucknow", status: "Ongoing" as ProjectStatus },
+    { name: "Badighati Bhutati", location: "Jaipur", status: "Ongoing" as ProjectStatus },
+    { name: "Saini Majra 2", location: "Ambala", status: "Ongoing" as ProjectStatus },
+    { name: "Puraini", location: "Nazibabad", status: "Closed" as ProjectStatus },
+    { name: "Nazirakhat 2", location: "Guwahati", status: "Closed" as ProjectStatus },
+    { name: "Katoghan", location: "Kanpur", status: "Closed" as ProjectStatus },
+    { name: "Sosokhurd", location: "Dhanbad", status: "Closed" as ProjectStatus },
+    { name: "Dumbarwadi", location: "Ahmednagar", status: "Closed" as ProjectStatus },
+    { name: "Sabli", location: "Bareilly", status: "Closed" as ProjectStatus },
+    { name: "Newadakanthi", location: "Kannauj", status: "Closed" as ProjectStatus },
+    { name: "Pashim Madati", location: "Siliguri", status: "Closed" as ProjectStatus },
+    { name: "Sarawa", location: "Roorkee", status: "Closed" as ProjectStatus },
+    { name: "Nazirakhat", location: "Guwahati", status: "Closed" as ProjectStatus },
+    { name: "Lachhiwala", location: "Dehradun", status: "Closed" as ProjectStatus },
+    {
+      name: "Ramnagar Gansiyari",
+      location: "Allahabad",
+      status: "Closed" as ProjectStatus,
+      note: "Multiple Phases",
+    },
+    { name: "Saini Majra", location: "Ambala", status: "Closed" as ProjectStatus },
+    {
+      name: "Mashora",
+      location: "Dhamtari",
+      status: "Closed" as ProjectStatus,
+      note: "Multiple Times",
+    },
+    { name: "Diengpashosh", location: "Shillong", status: "Closed" as ProjectStatus },
+    {
+      name: "Asroga",
+      location: "Lucknow",
+      status: "Closed" as ProjectStatus,
+      note: "Multiple Phases",
+    },
+    {
+      name: "Milk Majra",
+      location: "Panchkula",
+      status: "Closed" as ProjectStatus,
+      note: "Multiple Phases",
+    },
+    { name: "Aihar", location: "Raebareli", status: "Closed" as ProjectStatus },
+    { name: "Simliya", location: "Fatehpur – Kota", status: "Closed" as ProjectStatus },
+    { name: "Lathi", location: "Jaisalmer", status: "Closed" as ProjectStatus },
+    { name: "Dhareri Jattan", location: "Mohali", status: "Closed" as ProjectStatus },
   ];
+
+  const statusFilters: Array<"All" | ProjectStatus> = ["All", "Ongoing", "Closed", "Upcoming"];
+  const [selectedStatus, setSelectedStatus] = useState<"All" | ProjectStatus>("All");
+
+  const filteredProjects = useMemo(
+    () =>
+      selectedStatus === "All"
+        ? projects
+        : projects.filter((project) => project.status === selectedStatus),
+    [projects, selectedStatus]
+  );
+
+  const getFilterIcon = (status: "All" | ProjectStatus) => {
+    if (status === "All") {
+      return (
+        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      );
+    }
+
+    if (status === "Ongoing") {
+      return (
+        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+        </svg>
+      );
+    }
+
+    if (status === "Upcoming") {
+      return (
+        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="8" />
+          <path d="M12 8v4l3 2" />
+        </svg>
+      );
+    }
+
+    return (
+      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <path d="m6 12 4 4 8-8" />
+      </svg>
+    );
+  };
 
   const features = [
     {
@@ -337,52 +404,114 @@ export default function TollPlazaManagementPage() {
       </section>
 
       {/* Projects Section - Map Style */}
-      <section className="bg-white py-24 text-gray-900">
+      <section className="bg-[#070709] py-24 text-white">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            className="mt-8 mb-16 text-center"
           >
-            <h2 className="mb-4 text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
-              Our <span className="font-semibold text-[#EF2B2D]">Projects</span>
+            <h2 className="mb-4 flex items-center justify-center gap-3 text-4xl font-light tracking-[-0.015em] text-white sm:text-5xl">
+              <svg viewBox="0 0 24 24" className="h-8 w-8 text-[#EF2B2D] sm:h-9 sm:w-9" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                <path d="M12 3v6m0 6v6M3 12h6m6 0h6" />
+                <path d="M6 6l3 3m6 6 3 3M18 6l-3 3m-6 6-3 3" />
+              </svg>
+              <span>
+                Latest <span className="font-semibold text-[#EF2B2D]">Projects Activity</span>
+              </span>
             </h2>
-            <p className="text-lg text-gray-600">Strategic locations across India</p>
+            <p className="mx-auto max-w-3xl text-base leading-relaxed text-white/70 sm:text-lg">
+              Chronological order (latest first) across strategic toll sites in India
+            </p>
           </motion.div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-6 shadow-sm sm:p-8">
-            <div className="pointer-events-none absolute -top-20 -right-10 h-56 w-56 rounded-full bg-[#EF2B2D]/10 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 -left-10 h-56 w-56 rounded-full bg-[#EF2B2D]/8 blur-3xl" />
+          <div className="relative overflow-hidden border border-white/10 bg-gradient-to-br from-[#0d0d10] via-[#0a0a0d] to-[#050507] p-6 pt-20 shadow-[0_28px_70px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-8 sm:pt-24">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.12),transparent_35%),radial-gradient(circle_at_80%_78%,rgba(239,43,45,0.08),transparent_42%)]" />
+            <motion.div
+              className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#EF2B2D]/70 to-transparent"
+              animate={{ opacity: [0.25, 0.75, 0.25], scaleX: [0.98, 1, 0.98] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="pointer-events-none absolute -top-24 -right-14 h-60 w-60 bg-[#EF2B2D]/16 blur-3xl"
+              animate={{ x: [0, -16, 0], y: [0, 12, 0], opacity: [0.18, 0.32, 0.18] }}
+              transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="pointer-events-none absolute -bottom-28 -left-12 h-60 w-60 bg-[#EF2B2D]/14 blur-3xl"
+              animate={{ x: [0, 14, 0], y: [0, -10, 0], opacity: [0.18, 0.3, 0.18] }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            <div className="relative z-20 mt-20 mb-8 flex flex-wrap items-center justify-center gap-3 border border-white/12 bg-white/5 p-3 backdrop-blur-md sm:mt-24 lg:mt-28">
+              {statusFilters.map((status) => (
+                <button
+                  key={status}
+                  type="button"
+                  onClick={() => setSelectedStatus(status)}
+                  className={`flex items-center gap-2 border px-4 py-2 text-xs font-medium uppercase tracking-[0.11em] transition duration-300 sm:text-sm ${
+                    selectedStatus === status
+                      ? "border-[#EF2B2D]/75 bg-[#EF2B2D]/15 text-[#ff6b6d] shadow-[0_0_0_1px_rgba(239,43,45,0.18),0_10px_30px_rgba(239,43,45,0.12)]"
+                      : "border-white/15 bg-white/[0.03] text-white/70 hover:border-[#EF2B2D]/45 hover:text-[#ff8a8b] hover:-translate-y-0.5"
+                  }`}
+                >
+                  <span aria-hidden="true">{getFilterIcon(status)}</span>
+                  {status}
+                </button>
+              ))}
+            </div>
 
             <div className="relative grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
                 key={`${project.name}-${project.location}-${index}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.72, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true }}
-                className="group flex items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#EF2B2D]/40 hover:shadow-md"
+                whileHover={{ y: -3, scale: 1.01 }}
+                className="group relative flex items-center justify-between gap-4 border border-white/14 bg-transparent p-4 shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition-all duration-300 hover:border-[#EF2B2D]/45 hover:shadow-[0_22px_55px_rgba(0,0,0,0.4),0_0_18px_rgba(239,43,45,0.12)]"
               >
+                <span className="absolute left-0 top-0 h-full w-[2px] bg-[#EF2B2D]/55 opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
                 <div className="flex min-w-0 items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#EF2B2D]/25 bg-[#EF2B2D]/10 text-xs font-bold text-[#EF2B2D]">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#EF2B2D]/40 bg-[#EF2B2D]/14 text-xs font-bold text-[#ff7b7c] shadow-[0_0_18px_rgba(239,43,45,0.22)]">
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
                   <div className="min-w-0">
-                    <h3 className="truncate text-sm font-semibold text-gray-900 sm:text-base">{project.name}</h3>
-                    <p className="mt-0.5 text-xs uppercase tracking-[0.08em] text-gray-500">{project.location}</p>
+                    <h3 className="flex items-center gap-1.5 truncate text-sm font-semibold tracking-[0.01em] text-white sm:text-base">
+                      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 shrink-0 text-[#EF2B2D]" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+                        <path d="M12 3 4 7v5c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-4Z" />
+                      </svg>
+                      <span className="truncate">{project.name}</span>
+                    </h3>
+                    <p className="mt-0.5 text-xs uppercase tracking-[0.1em] text-white/55">{project.location}</p>
+                    {project.note && <p className="mt-1 text-xs leading-relaxed text-white/50">{project.note}</p>}
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1 text-[#EF2B2D]">
+                <div className="flex flex-col items-end gap-1">
+                  <span
+                    className={`border px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.12em] ${
+                      project.status === "Upcoming"
+                        ? "border-amber-500/55 bg-amber-500/10 text-amber-300"
+                        : project.status === "Ongoing"
+                          ? "border-emerald-500/55 bg-emerald-500/10 text-emerald-300"
+                          : "border-white/25 bg-white/[0.06] text-white/75"
+                    }`}
+                  >
+                    {project.status}
+                  </span>
+
+                  <div className="flex items-center gap-1 text-[#ff6b6d]">
                   <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10Z" />
                     <circle cx="12" cy="11" r="2" />
                   </svg>
-                  <span className="text-xs font-semibold uppercase tracking-[0.08em]">Site</span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.08em] text-white/75">Site</span>
+                  </div>
                 </div>
               </motion.div>
             ))}

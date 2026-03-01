@@ -132,7 +132,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 shadow-[0_10px_30px_rgba(15,15,18,0.08)] backdrop-blur-md" : "bg-transparent"}`}>
+    <header className={`fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "top-0 bg-white shadow-[0_10px_30px_rgba(15,15,18,0.08)]" : "top-2 bg-transparent md:top-3"}`}>
       <div className="mx-auto max-w-7xl px-6">
 
         <div className="mt-0 flex h-20 items-center justify-between px-8">

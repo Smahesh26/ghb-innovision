@@ -30,6 +30,21 @@ export default function GlobalScrollReveal() {
       element.classList.add("global-reveal-init");
     });
 
+    const revealElement = (element: HTMLElement) => {
+      element.classList.add("global-reveal-in");
+    };
+
+    const isElementInViewport = (element: HTMLElement) => {
+      const rect = element.getBoundingClientRect();
+      const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+      return rect.bottom > 0 && rect.top < viewHeight * 0.92;
+    };
+
+    if (typeof IntersectionObserver === "undefined") {
+      nodes.forEach(revealElement);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -38,7 +53,7 @@ export default function GlobalScrollReveal() {
           }
 
           const element = entry.target as HTMLElement;
-          element.classList.add("global-reveal-in");
+          revealElement(element);
           observer.unobserve(element);
         });
       },
@@ -49,12 +64,28 @@ export default function GlobalScrollReveal() {
     );
 
     nodes.forEach((element) => {
-      if (!element.classList.contains("global-reveal-in")) {
-        observer.observe(element);
+      if (element.classList.contains("global-reveal-in")) {
+        return;
       }
+
+      if (isElementInViewport(element)) {
+        revealElement(element);
+        return;
+      }
+
+      observer.observe(element);
     });
 
+    const fallbackTimer = window.setTimeout(() => {
+      nodes.forEach((element) => {
+        if (!element.classList.contains("global-reveal-in")) {
+          revealElement(element);
+        }
+      });
+    }, 900);
+
     return () => {
+      window.clearTimeout(fallbackTimer);
       observer.disconnect();
     };
   }, [pathname]);

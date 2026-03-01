@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { createPortal } from "react-dom";
 
 type Director = {
   name: string;
   role: string;
   image: string;
+  bio: string;
   linkedin?: string;
 };
 
@@ -17,11 +19,37 @@ type TeamMember = {
   image: string;
 };
 
-function DirectorCard({ director }: { director: Director }) {
+type LeadershipProfile = {
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  linkedin?: string;
+};
+
+function DirectorCard({
+  director,
+  onOpenBio,
+}: {
+  director: Director;
+  onOpenBio: (profile: LeadershipProfile) => void;
+}) {
   const isExternalLinkedIn = director.linkedin?.startsWith("http");
 
   return (
-    <article className="group rounded-2xl border border-neutral-200 bg-white/95 p-7 text-center shadow-[0_18px_40px_rgba(15,15,18,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,15,18,0.14)]">
+    <article
+      className="group cursor-pointer rounded-2xl border border-neutral-200 bg-white/95 p-7 text-center shadow-[0_18px_40px_rgba(15,15,18,0.10)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,15,18,0.14)]"
+      onClick={() => onOpenBio(director)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onOpenBio(director);
+        }
+      }}
+      aria-label={`Open bio of ${director.name}`}
+    >
       <div className="mx-auto relative h-36 w-36 overflow-hidden rounded-full border border-neutral-200 bg-neutral-100 ring-4 ring-[#EF2B2D]/10">
         <Image
           src={director.image}
@@ -41,6 +69,7 @@ function DirectorCard({ director }: { director: Director }) {
       {director.linkedin && (
         <a
           href={director.linkedin}
+          onClick={(event) => event.stopPropagation()}
           target={isExternalLinkedIn ? "_blank" : undefined}
           rel={isExternalLinkedIn ? "noopener noreferrer" : undefined}
           aria-label={`${director.name} LinkedIn profile`}
@@ -51,6 +80,17 @@ function DirectorCard({ director }: { director: Director }) {
           </svg>
         </a>
       )}
+
+      <button
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          onOpenBio(director);
+        }}
+        className="mt-5 inline-flex items-center justify-center border border-neutral-300 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-800 transition hover:border-[#EF2B2D] hover:text-[#EF2B2D]"
+      >
+        Read Bio
+      </button>
     </article>
   );
 }
@@ -85,6 +125,19 @@ export default function LeadershipTabs({
   independentDirectors: Director[];
 }) {
   const [activeTab, setActiveTab] = useState<"board" | "team">("board");
+  const [selectedProfile, setSelectedProfile] = useState<LeadershipProfile | null>(null);
+
+  useEffect(() => {
+    if (selectedProfile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProfile]);
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -114,10 +167,26 @@ export default function LeadershipTabs({
   };
 
   const teamMembers: TeamMember[] = [
-    { name: "Bijender Yadav", role: "Chief Financial Officer", image: "/images/BijenderYadav.jpg" },
-    { name: "Lt. Col. Permender Malik", role: "SVP-Manpower", image: "/images/PermenderMalik.jpeg" },
-    { name: "Commodore Thanigai Anandan", role: "VP-Skills", image: "/images/Thangai.jpg" },
-    { name: "Captain Sunil Dogra", role: "AVP Aerodrone Robtics", image: "/images/SunilDogra.jpg" },
+    {
+      name: "Bijender Yadav",
+      role: "Chief Financial Officer",
+      image: "/images/BijenderYadav.jpg",
+    },
+    {
+      name: "Lt. Col. Permender Malik",
+      role: "SVP-Manpower",
+      image: "/images/PermenderMalik.jpeg",
+    },
+    {
+      name: "Commodore Thanigai Anandan",
+      role: "VP-Skills",
+      image: "/images/Thangai.jpg",
+    },
+    {
+      name: "Captain Sunil Dogra",
+      role: "AVP Aerodrone Robtics",
+      image: "/images/SunilDogra.jpg",
+    },
     // { name: "Shyam B Singh", role: "AVP-Sales", image: "/images/ShyamBSingh.png" },
     // { name: "Rajender Prasad", role: "GM -Admin", image: "/images/RajendraPrasad.jpg" },
     // { name: "Munish Kumar", role: "GM-Accounts", image: "/images/MunishKumar.jpg" },
@@ -203,7 +272,7 @@ export default function LeadershipTabs({
                 >
                   {boardOfDirectors.map((director) => (
                     <motion.div key={director.name} variants={cardVariants}>
-                      <DirectorCard director={director} />
+                      <DirectorCard director={director} onOpenBio={setSelectedProfile} />
                     </motion.div>
                   ))}
                 </motion.div>
@@ -225,7 +294,7 @@ export default function LeadershipTabs({
                 >
                   {independentDirectors.map((director) => (
                     <motion.div key={director.name} variants={cardVariants}>
-                      <DirectorCard director={director} />
+                      <DirectorCard director={director} onOpenBio={setSelectedProfile} />
                     </motion.div>
                   ))}
                 </motion.div>
@@ -261,6 +330,83 @@ export default function LeadershipTabs({
             </motion.div>
           )}
         </AnimatePresence>
+
+        {selectedProfile && typeof document !== "undefined"
+          ? createPortal(
+              <AnimatePresence>
+                <>
+                  <motion.button
+                    type="button"
+                    aria-label="Close bio panel"
+                    className="fixed inset-0 z-[190] bg-black/45 backdrop-blur-[1px]"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    onClick={() => setSelectedProfile(null)}
+                  />
+
+                  <motion.aside
+                    className="fixed right-0 top-0 z-[200] h-screen w-full max-w-xl overflow-y-auto border-l border-neutral-200 bg-white p-6 shadow-[-24px_0_50px_rgba(15,15,18,0.24)] sm:p-8"
+                    initial={{ x: "100%" }}
+                    animate={{ x: 0 }}
+                    exit={{ x: "100%" }}
+                    transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label={`${selectedProfile.name} bio`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="!text-left text-xs font-semibold uppercase tracking-[0.3em] text-[#EF2B2D]">Leadership Bio</p>
+                        <h3 className="mt-3 text-2xl font-bold text-neutral-900 sm:text-3xl">{selectedProfile.name}</h3>
+                        <p className="!text-left mt-2 text-sm font-semibold uppercase tracking-[0.08em] text-[#EF2B2D]">{selectedProfile.role}</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProfile(null)}
+                        className="inline-flex h-10 w-10 items-center justify-center border border-neutral-300 text-neutral-700 transition hover:border-[#EF2B2D] hover:text-[#EF2B2D]"
+                        aria-label="Close bio"
+                      >
+                        ✕
+                      </button>
+                    </div>
+
+                    <div className="mt-6 flex items-center gap-5 border-y border-neutral-200 py-6">
+                      <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border border-neutral-200 bg-neutral-100">
+                        <Image src={selectedProfile.image} alt={selectedProfile.name} fill className="object-cover object-top" sizes="96px" />
+                      </div>
+                      {selectedProfile.linkedin && (
+                        <a
+                          href={selectedProfile.linkedin}
+                          target={selectedProfile.linkedin.startsWith("http") ? "_blank" : undefined}
+                          rel={selectedProfile.linkedin.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="inline-flex items-center border border-[#EF2B2D]/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#EF2B2D] transition hover:bg-[#EF2B2D] hover:text-white"
+                        >
+                          LinkedIn
+                        </a>
+                      )}
+                    </div>
+
+                    <div className="mt-6 space-y-4 text-sm leading-relaxed text-neutral-700 sm:text-base">
+                      <p className="!text-left">{selectedProfile.bio}</p>
+                    </div>
+
+                    <div className="mt-8">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProfile(null)}
+                        className="inline-flex items-center bg-[#EF2B2D] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-[#d62426]"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </motion.aside>
+                </>
+              </AnimatePresence>,
+              document.body
+            )
+          : null}
       </div>
     </motion.section>
   );
