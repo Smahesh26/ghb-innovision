@@ -31,9 +31,9 @@ export default function CTA() {
 					</div>
 
 					{/* Headline */}
-					<h4 className="text-xl font-bold sm:text-4xl lg:text-5xl leading-tight">
+					<h4 className="text-center text-lg font-bold sm:text-3xl lg:text-4xl leading-tight">
 						<span className="block whitespace-normal sm:whitespace-nowrap">Partner with India's Leading Infrastructure</span>
-						<span className="block whitespace-normal text-[#EF2B2D] sm:whitespace-nowrap">Operations and Workforce Solutions Company.</span>
+						<span className="block whitespace-normal sm:whitespace-nowrap">Operations and Workforce Solutions Company.</span>
 					</h4>
 
 					{/* Subheadline */}
