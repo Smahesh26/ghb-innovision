@@ -33,7 +33,7 @@ export default function CTA() {
 					{/* Headline */}
 					<h2 className="text-4xl font-bold sm:text-5xl lg:text-6xl leading-tight">
 						Partner with India's Leading<br />
-						<span className="text-[#EF2B2D]">Manned Private Security Services</span>
+						<span className="text-[#EF2B2D]">Infrastructure Operations and Workforce Solutions Company.</span>
 					</h2>
 
 					{/* Subheadline */}
