@@ -31,10 +31,10 @@ export default function CTA() {
 					</div>
 
 					{/* Headline */}
-					<h2 className="text-4xl font-bold sm:text-5xl lg:text-6xl leading-tight">
-						Partner with India's Leading<br />
-						<span className="text-[#EF2B2D]">Infrastructure Operations and Workforce Solutions Company.</span>
-					</h2>
+					<h4 className="text-xl font-bold sm:text-4xl lg:text-5xl leading-tight">
+						<span className="block whitespace-normal sm:whitespace-nowrap">Partner with India's Leading Infrastructure</span>
+						<span className="block whitespace-normal text-[#EF2B2D] sm:whitespace-nowrap">Operations and Workforce Solutions Company.</span>
+					</h4>
 
 					{/* Subheadline */}
 					<p className="mx-auto mt-6 max-w-2xl text-lg text-white/70 leading-relaxed">
