@@ -109,24 +109,24 @@ export default function TollPlazaManagementPage() {
 
   const features = [
     {
-      title: "Strategic Expansion",
-      description: "Leveraging opportunities in toll management through PPPs",
-      icon: "🎯",
+      title: "Collection Accuracy",
+      description: "Structured controls to ensure precise toll collection and reconciliation.",
+      icon: "📊",
     },
     {
-      title: "Operational Expertise",
-      description: "Delivering seamless operations and high customer satisfaction",
-      icon: "⚙️",
+      title: "Lane Uptime",
+      description: "Continuous supervision focused on throughput, uptime, and lane efficiency.",
+      icon: "🛣️",
     },
     {
-      title: "Adaptive Solutions",
-      description: "Navigating dynamic industry landscapes with flexibility",
-      icon: "🔄",
+      title: "FASTag Reconciliation",
+      description: "Transaction verification and discrepancy tracking through MIS workflows.",
+      icon: "🏷️",
     },
     {
-      title: "Value Delivery",
-      description: "Consistently delivering value to clients across all projects",
-      icon: "💎",
+      title: "Manpower Productivity",
+      description: "Trained operators and supervisory standards maintained with 24x7 oversight.",
+      icon: "👥",
     },
   ];
 
@@ -138,7 +138,7 @@ export default function TollPlazaManagementPage() {
       <section className="relative h-[74vh] w-full overflow-hidden bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/all-banners/Banner ServicesTollPlazaManagement.jpg')" }}
+          style={{ backgroundImage: "url('/images/InnovisinTollMgmt/1.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
 
@@ -147,7 +147,7 @@ export default function TollPlazaManagementPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70"
+            className="flex flex-wrap items-center justify-center gap-2 text-[10px] uppercase tracking-[0.28em] text-center leading-relaxed text-white/70 sm:gap-4 sm:text-xs sm:tracking-[0.4em]"
           >
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <span>Home / Toll Plaza Management</span>
@@ -186,8 +186,8 @@ export default function TollPlazaManagementPage() {
             className="mb-16 text-center"
           >
             <h2 className="text-4xl font-light tracking-tight text-gray-900 sm:text-5xl">
-              Toll Management through
-              <span className="mt-2 block font-semibold text-[#EF2B2D]">Public-Private Partnerships</span>
+              Toll Plaza
+              <span className="mt-2 block font-semibold text-[#EF2B2D]">Management</span>
             </h2>
           </motion.div>
 
@@ -213,16 +213,26 @@ export default function TollPlazaManagementPage() {
                   
                   <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6">
                     <h3 className="text-xl font-semibold text-gray-900">
-                      Opportunity
+                      Overview
                     </h3>
                   </div>
                   
-                  <div className="p-8">
-                    <p className="text-base leading-relaxed text-gray-600">
-                      Government policies are creating exciting opportunities for private players to engage in toll 
-                      management through public-private partnerships (PPPs). Innovision Limited is at the forefront 
-                      of this transformation, leveraging strategic expansions and operational expertise to emerge as 
-                      a leader in toll plaza management.
+                  <div className="p-6 sm:p-8">
+                    <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                      Innovision delivers professional Toll Plaza Management services for the National Highways 
+                      Authority of India (NHAI) and State Highway Authorities, ensuring efficient, compliant, and 
+                      revenue-secure tolling operations.
+                    </p>
+                    <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+                      Operating within deployed infrastructure and approved technology ecosystems, Innovision focuses 
+                      on disciplined execution, structured supervision, and measurable operational performance. Our 
+                      approach is built on standardized operating procedures, trained manpower, and strong internal 
+                      control systems to maintain uninterrupted toll collection and operational transparency.
+                    </p>
+                    <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+                      Beyond national highway assignments, this vertical is positioned to expand into State Highway 
+                      toll operations, municipal user-fee collection systems, structured urban tolling, and organized 
+                      parking management contracts.
                     </p>
                   </div>
                 </div>
@@ -230,7 +240,7 @@ export default function TollPlazaManagementPage() {
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden rounded-lg shadow-md">
                   <Image
-                    src="/images/clients-services/tollmanagement.jpg"
+                    src="/images/InnovisinTollMgmt/2.jpg"
                     alt="Toll Management Opportunities"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
@@ -250,7 +260,7 @@ export default function TollPlazaManagementPage() {
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden rounded-lg shadow-md order-2 lg:order-1">
                   <Image
-                    src="/images/clients-services/tollroad.jpg"
+                    src="/images/InnovisinTollMgmt/3.jpg"
                     alt="Toll Road Industry"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
@@ -266,17 +276,23 @@ export default function TollPlazaManagementPage() {
                   
                   <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6 pl-16">
                     <h3 className="text-xl font-semibold text-gray-900">
-                      Industry
+                      Scope of Services
                     </h3>
                   </div>
                   
-                  <div className="p-8">
-                    <p className="text-base leading-relaxed text-gray-600">
-                      A toll road is a public or private roadway where users pay a fee for passage, implemented to 
-                      recuperate the cost of construction and maintenance. Since 1992, various state governments have 
-                      enacted legislation allowing the levy of toll fees on state highways and other roads constructed 
-                      by the public sector or under PPP arrangements.
-                    </p>
+                  <div className="p-6 sm:p-8">
+                    <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-gray-600 sm:text-base">
+                      <li>End-to-end toll plaza operations management across ETC and cash lanes</li>
+                      <li>FASTag transaction processing and reconciliation</li>
+                      <li>Revenue assurance mechanisms, audit controls, and MIS reporting</li>
+                      <li>Deployment of trained toll operators and supervisory personnel with 24x7 oversight</li>
+                      <li>Centralized command center monitoring for operational supervision</li>
+                      <li>CCTV surveillance coordination and compliance management</li>
+                      <li>Traffic regulation and incident response support at plaza level</li>
+                      <li>SOP-driven operational execution aligned with NHAI and State Authority guidelines</li>
+                      <li>Capability to manage municipal tolling and organized parking fee collection systems</li>
+                      <li>Execution of corporate user-fee and access control collection contracts</li>
+                    </ul>
                   </div>
                 </div>
               </motion.div>
@@ -297,23 +313,27 @@ export default function TollPlazaManagementPage() {
                   
                   <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6">
                     <h3 className="text-xl font-semibold text-gray-900">
-                      Journey
+                      Operational Framework
                     </h3>
                   </div>
                   
-                  <div className="p-8">
-                    <p className="text-base leading-relaxed text-gray-600">
-                      Innovision's journey in toll plaza management showcases strategic expansions and operational prowess. 
-                      The company has navigated the dynamic industry landscape, adapting to market conditions and consistently 
-                      delivering value to clients.
-                    </p>
+                  <div className="p-6 sm:p-8">
+                    <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-gray-600 sm:text-base">
+                      <li>Complete plaza operations across ETC (FASTag), hybrid, and cash lanes</li>
+                      <li>Structured shift deployment based on traffic volume and lane demand</li>
+                      <li>Accurate vehicle classification and optimized lane throughput to minimize congestion</li>
+                      <li>Daily revenue reconciliation and strict cash management protocols</li>
+                      <li>Transaction verification and discrepancy monitoring through structured MIS reporting</li>
+                      <li>CCTV coordination, incident documentation, and regulatory compliance reporting</li>
+                      <li>Continuous 24x7 operational supervision with performance tracking</li>
+                    </ul>
                   </div>
                 </div>
 
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden rounded-lg shadow-md">
                   <Image
-                    src="/images/clients-services/tollplazamanagement.jpg"
+                    src="/images/InnovisinTollMgmt/4.jpg"
                     alt="Toll Plaza Management Journey"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
@@ -333,7 +353,7 @@ export default function TollPlazaManagementPage() {
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden rounded-lg shadow-md order-2 lg:order-1">
                   <Image
-                    src="/images/clients-services/operationalexcellence.jpg"
+                    src="/images/InnovisinTollMgmt/5.jpg"
                     alt="Operational Excellence"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
@@ -347,18 +367,22 @@ export default function TollPlazaManagementPage() {
                     04
                   </div>
                   
-                  <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6">
+                  <div className="relative border-l-2 border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D]/5 to-transparent p-6 pl-16">
                     <h3 className="text-xl font-semibold text-gray-900">
-                      Excellence
+                      Operational Excellence
                     </h3>
                   </div>
                   
-                  <div className="p-8">
-                    <p className="text-base leading-relaxed text-gray-600">
-                      Innovision exemplifies adaptability and operational excellence. The company has consistently adapted 
-                      to new challenges and opportunities, ensuring seamless operations and high customer satisfaction. 
-                      Our toll plaza management segment reflects adaptive spirit, operational excellence, and ability to 
-                      deliver value in a dynamic industry landscape.
+                  <div className="p-6 sm:p-8">
+                    <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                      With SOP-driven execution, trained personnel, centralized monitoring, and robust control 
+                      mechanisms, Innovision ensures stable toll collections, regulatory adherence, and operational 
+                      reliability across highway and urban tolling environments.
+                    </p>
+                    <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+                      The operational model is designed to scale across national highways, state highways, municipal 
+                      tolling systems, and organized user-fee collection infrastructure, enabling authorities and 
+                      concessionaires to maintain secure, transparent, and efficient revenue operations.
                     </p>
                   </div>
                 </div>
@@ -413,7 +437,7 @@ export default function TollPlazaManagementPage() {
             viewport={{ once: true }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-4 flex items-center justify-center gap-3 text-4xl font-light tracking-[-0.015em] text-white sm:text-5xl">
+            <h2 className="mb-4 flex flex-col items-center justify-center gap-2 text-4xl font-light tracking-[-0.015em] text-white sm:flex-row sm:gap-3 sm:text-5xl">
               <svg viewBox="0 0 24 24" className="h-8 w-8 text-[#EF2B2D] sm:h-9 sm:w-9" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
                 <path d="M12 3v6m0 6v6M3 12h6m6 0h6" />
                 <path d="M6 6l3 3m6 6 3 3M18 6l-3 3m-6 6-3 3" />
@@ -425,6 +449,22 @@ export default function TollPlazaManagementPage() {
             <p className="mx-auto max-w-3xl text-base leading-relaxed text-white/70 sm:text-lg">
               Chronological order (latest first) across strategic toll sites in India
             </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true }}
+            className="relative mb-10 h-52 overflow-hidden rounded-lg border border-white/15 sm:h-64"
+          >
+            <Image
+              src="/images/InnovisinTollMgmt/6.jpg"
+              alt="Toll plaza operations overview"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent" />
           </motion.div>
 
           <div className="relative overflow-hidden border border-white/10 bg-gradient-to-br from-[#0d0d10] via-[#0a0a0d] to-[#050507] p-6 pt-8 shadow-[0_28px_70px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-8 sm:pt-10">
