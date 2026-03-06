@@ -264,20 +264,21 @@ export default function IndiaMapClient() {
 
   return (
     <div ref={sectionRef} className="india-map-section mx-auto w-full max-w-[900px]">
-      <div className="india-map-stage" style={{ position: "relative" }}>
-        <svg
-          viewBox={viewBox}
-          className="india-map"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            pointerEvents: "all",
-            zIndex: 5,
-          }}
-        >
+      <div className="india-map-stage">
+        <div className="india-map-canvas" style={{ position: "relative" }}>
+          <svg
+            viewBox={viewBox}
+            className="india-map"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              pointerEvents: "all",
+              zIndex: 5,
+            }}
+          >
           <g>
             {locations.map((location) => (
               <path
@@ -476,7 +477,8 @@ export default function IndiaMapClient() {
               </g>
             );
           })}
-        </svg>
+          </svg>
+        </div>
 
         <div className="symbol-guide-card">
           <div className="symbol-guide-title">Symbol Guide</div>

@@ -195,10 +195,10 @@ export default function Contact({ showFootprints = true, mapOnly = false }: Cont
             className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
           >
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[#EF2B2D]">
-              Corporate Address
+              HO Address
             </h3>
             <p className="text-sm leading-relaxed text-gray-700">
-              Plot 251, 1st Floor, Udyog Vihar IV, Gurugram HR 122015
+              Plot no. 251, Udyog Vihar, Phase IV, Sector 18, Gurgaon, Haryana - 122015
             </p>
           </motion.div>
 

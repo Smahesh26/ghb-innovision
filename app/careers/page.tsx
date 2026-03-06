@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import News from "../components/News";
-import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import { Metadata } from "next";
 
@@ -265,7 +264,6 @@ export default function CareersPage() {
       </section>
 
       <News />
-      <CTA />
       <Footer />
     </>
   );

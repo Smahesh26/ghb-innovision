@@ -2,25 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import CTA from "@/app/components/CTA";
 
 export default function Footer() {
-  const pathname = usePathname();
-
-  const pagesWithInlineCTA = new Set([
-    "/clients",
-    "/careers",
-    "/services",
-    "/services/security/manned-private-security",
-    "/services/skill-development",
-    "/services/skill-development/placement",
-    "/services/skill-development/project",
-    "/services/skill-development/training",
-  ]);
-
-  const showGlobalCTA = pathname !== "/" && !pagesWithInlineCTA.has(pathname);
-
   const socialLinks = [
     {
       name: "Facebook",
@@ -71,7 +54,6 @@ export default function Footer() {
 
   return (
     <>
-      {showGlobalCTA && <CTA />}
       <footer className="relative overflow-hidden bg-gradient-to-b from-[#0b0b0d] via-[#111113] to-black text-white">
 
       {/* 3D Background Effects */}
@@ -190,10 +172,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* INVESTOR RELATIONS */}
+          {/* SUBSIDIARIES */}
           <div className="lg:col-span-2">
             <h3 className="mb-6 border-l-4 border-[#EF2B2D] pl-3 text-sm font-bold uppercase tracking-[0.3em] text-white/80">
-              Investor Relations
+              Subsidiaries
+            </h3>
+
+            <ul className="space-y-3 text-sm text-white/70">
+              <li>
+                <Link href="https://www.wokeindia.in/" target="_blank" rel="noopener noreferrer" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ CSR Project - Woke India</Link>
+              </li>
+              <li>
+                <Link href="https://innovisioninternational.com/" target="_blank" rel="noopener noreferrer" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Innovision International</Link>
+              </li>
+              <li>
+                <Link href="https://www.aerodronerobotics.com/" target="_blank" rel="noopener noreferrer" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Aerodrone Robotics</Link>
+              </li>
+              <li>
+                <Link href="https://vetted.net.in/" target="_blank" rel="noopener noreferrer" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Vetted Consultant</Link>
+              </li>
+              <li>
+                <Link href="https://innovision.ae/" target="_blank" rel="noopener noreferrer" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Innovision HR Consultancy</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* INVESTOR */}
+          <div className="lg:col-span-2">
+            <h3 className="mb-6 border-l-4 border-[#EF2B2D] pl-3 text-sm font-bold uppercase tracking-[0.3em] text-white/80">
+              Investor
             </h3>
 
             <ul className="space-y-3 text-sm text-white/70">
@@ -201,42 +208,31 @@ export default function Footer() {
                 <Link href="/investors" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Financial Statements</Link>
               </li>
               <li>
-                <Link href="/investors" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Annual Report</Link>
+                <Link href="/investors/annual-report" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Annual Return</Link>
               </li>
               <li>
-                <Link href="/investors" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ IPO Information</Link>
-              </li>
-              <li>
-                <Link href="/investors/ipo-disclaimer/confirm" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Corporate Video</Link>
+                <Link href="/investors/ipo-disclaimer" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ IPO Audio Visual</Link>
               </li>
             </ul>
           </div>
 
-          {/* CORPORATE */}
-          <div className="lg:col-span-2">
-            <h3 className="mb-6 border-l-4 border-[#EF2B2D] pl-3 text-sm font-bold uppercase tracking-[0.3em] text-white/80">
-              Corporate
-            </h3>
+        </div>
+      </div>
 
-            <ul className="space-y-3 text-sm text-white/70">
-              <li>
-                <Link href="/insights/certificates" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Compliance</Link>
-              </li>
-              <li>
-                <Link href="/insights/awards" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Awards & Recognition</Link>
-              </li>
-              <li>
-                <Link href="/insights/blogs" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Blogs</Link>
-              </li>
-              <li>
-                <Link href="/services/drone-training" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Aerodrone Robotics</Link>
-              </li>
-              <li>
-                <Link href="/careers" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Careers</Link>
-              </li>
-            </ul>
+      {/* FOOTER NAV ROW */}
+      <div className="relative border-t border-white/10 bg-black/25">
+        <div className="mx-auto max-w-7xl px-6 py-5">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/65">
+            <Link href="/about" className="transition hover:text-white">About Innovision</Link>
+            <Link href="/leadership" className="transition hover:text-white">Leadership</Link>
+            <Link href="/journey" className="transition hover:text-white">Our Story</Link>
+            <Link href="/insights/news" className="transition hover:text-white">News &amp; Press Releases</Link>
+            <Link href="/insights/gallery" className="transition hover:text-white">Gallery</Link>
+            <Link href="/insights/blogs" className="transition hover:text-white">Blogs</Link>
+            <Link href="/quick-links" className="transition hover:text-white">FAQ&apos;s</Link>
+            <Link href="/contact" className="transition hover:text-white">Contact us</Link>
+            <Link href="/insights/certificates" className="transition hover:text-white">Compliance</Link>
           </div>
-
         </div>
       </div>
 

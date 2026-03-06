@@ -34,7 +34,7 @@ export default function OverseasRecruitmentPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70"
+            className="mt-10 flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70"
           >
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <span>Home / Overseas Recruitment</span>
@@ -142,7 +142,7 @@ export default function OverseasRecruitmentPage() {
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Mission</p>
               <h2 className="mb-6 text-2xl font-light">Connecting India&apos;s Talent with Global Opportunities</h2>
               <p className="text-sm leading-relaxed text-gray-300">
-                At Innovision International, we aim to connect India&apos;s talent with global opportunities, empowering individuals and driving economic growth through skilled international placements.
+                At Innovision Limited, we aim to connect India&apos;s talent with global opportunities, empowering individuals and driving economic growth through skilled international placements.
               </p>
             </motion.div>
 
@@ -190,7 +190,7 @@ export default function OverseasRecruitmentPage() {
           >
             <div className="space-y-6 text-base leading-relaxed text-gray-600">
               <p>
-                At Innovision International, we distinguish ourselves through our comprehensive approach to international recruitment. As an authorized Recruiting Agent from India, we hold an <strong className="text-[#EF2B2D]">RA License (Delhi/Company/5815365/2023)</strong> certified under section 11 of the Emigration Act 1983 by the Ministry of External Affairs, Government of India.
+                At Innovision Limited, we distinguish ourselves through our comprehensive approach to international recruitment. As an authorized Recruiting Agent from India, we hold an <strong className="text-[#EF2B2D]">RA License (Delhi/Company/5815365/2023)</strong> certified under section 11 of the Emigration Act 1983 by the Ministry of External Affairs, Government of India.
               </p>
               <p>
                 Additionally, we collaborate with the National Skills Development Corporation (NSDC), the Ministry of Rural Development (MORD), as well as central and state governments, NGOs, and large private organizations to support the national goal of creating a skilled workforce.
@@ -215,7 +215,7 @@ export default function OverseasRecruitmentPage() {
           >
             <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">The Advantage</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
-              Why Choose <span className="font-semibold text-[#EF2B2D]">Innovision International?</span>
+              Why Choose <span className="font-semibold text-[#EF2B2D]">Innovision Limited?</span>
             </h2>
           </motion.div>
 
@@ -223,7 +223,7 @@ export default function OverseasRecruitmentPage() {
             {[
               {
                 title: "Licensed and Authorized",
-                description: "Innovision International is licensed and authorized by the government to send skilled workers abroad, ensuring compliance with legal and regulatory requirements.",
+                description: "Innovision Limited is licensed and authorized by the government to send skilled workers abroad, ensuring compliance with legal and regulatory requirements.",
               },
               {
                 title: "Extensive Network",
@@ -239,7 +239,7 @@ export default function OverseasRecruitmentPage() {
               },
               {
                 title: "Dedicated Support",
-                description: "At Innovision International, we are committed to providing personalized and dedicated support to our clients throughout the recruitment process, ensuring a seamless experience.",
+                description: "At Innovision Limited, we are committed to providing personalized and dedicated support to our clients throughout the recruitment process, ensuring a seamless experience.",
               },
             ].map((benefit, index) => (
               <motion.div

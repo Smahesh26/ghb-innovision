@@ -5,7 +5,6 @@ import Industries from "../components/Industries";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Stats from "../components/Stats";
 import Clients from "../components/Clients";
-import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import { Metadata } from "next";
 
@@ -48,7 +47,6 @@ export default function ServicesPage() {
       <WhyChooseUs />
       <Stats />
       <Clients />
-      <CTA />
       <Footer />
     </>
   );

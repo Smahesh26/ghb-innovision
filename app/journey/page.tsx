@@ -1,6 +1,6 @@
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import InnovisionJourney from "@/app/components/InnovisionJourney";
+import Timeline from "@/app/components/Timeline";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -36,8 +36,8 @@ export default function JourneyPage() {
         </div>
       </section>
 
-      {/* Journey Timeline */}
-      <InnovisionJourney />
+      {/* Corporate Evolution */}
+      <Timeline />
 
       <Footer />
     </>

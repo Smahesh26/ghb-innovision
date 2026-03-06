@@ -3,7 +3,6 @@
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import Contact from "../../../components/Contact";
-import CTA from "../../../components/CTA";
 import { motion } from "framer-motion";
 
 export default function SkillDevelopmentProjectPage() {
@@ -435,7 +434,6 @@ export default function SkillDevelopmentProjectPage() {
         </div>
       </section>
 
-      <CTA />
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

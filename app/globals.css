@@ -267,30 +267,39 @@ section p:not(:last-child) {
 }
 
 .india-map-section {
-  max-width: 1320px;
-  padding-right: 220px;
+  max-width: 980px;
+  padding-right: 0;
 }
 
 .india-map-stage {
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
   max-width: 980px;
-  height: clamp(500px, 56vw, 640px);
   margin: 0 auto;
   overflow: visible;
 }
 
+.india-map-canvas {
+  position: relative;
+  width: 100%;
+  height: clamp(500px, 56vw, 640px);
+}
+
 .symbol-guide-card {
-  position: absolute;
-  top: 18px;
-  right: -120px;
+  position: relative;
+  top: auto;
+  right: auto;
+  margin: 14px auto 0;
+  width: min(100%, 360px);
+  min-width: 0;
   background: linear-gradient(155deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 245, 246, 0.97) 100%);
   border: 1px solid rgba(239, 68, 68, 0.22);
   border-radius: 14px;
   padding: 12px 14px;
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
-  z-index: 8;
-  min-width: 280px;
+  z-index: 12;
   backdrop-filter: blur(6px);
 }
 
@@ -325,30 +334,20 @@ section p:not(:last-child) {
 
 @media (max-width: 1024px) {
   .india-map-section {
-    max-width: 1180px;
-    padding-right: 110px;
-  }
-
-  .india-map-stage {
     max-width: 900px;
-    height: clamp(460px, 58vw, 580px);
   }
 
-  .symbol-guide-card {
-    right: 10px;
-    top: 10px;
-    min-width: 260px;
+  .india-map-canvas {
+    height: clamp(460px, 58vw, 580px);
   }
 }
 
 @media (max-width: 768px) {
-  .india-map-stage {
+  .india-map-canvas {
     height: clamp(380px, 76vw, 460px);
   }
 
   .symbol-guide-card {
-    position: static;
-    margin: 12px auto 0;
-    width: min(100%, 360px);
+    margin-top: 16px;
   }
 }

@@ -5,12 +5,20 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navItems = [
+type NavItem = {
+  label: string;
+  href?: string;
+  hasSubmenu?: boolean;
+  children?: NavItem[];
+};
+
+const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   {
     label: "About Us",
     children: [
       { label: "Company Overview", href: "/about" },
+      { label: "Our Journey", href: "/journey" },
       { label: "Leadership", href: "/leadership" },
     ],
   },
@@ -62,6 +70,8 @@ const navItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mobileParent, setMobileParent] = useState<NavItem | null>(null);
+  const [mobileChild, setMobileChild] = useState<NavItem | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -141,6 +151,27 @@ export default function Header() {
       setIsBrochureSubmitting(false);
     }
   };
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+    setMobileParent(null);
+    setMobileChild(null);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMenuOpen((previous) => {
+      const next = !previous;
+      if (!next) {
+        setMobileParent(null);
+        setMobileChild(null);
+      }
+      return next;
+    });
+  };
+
+  const mobileLevel = mobileChild ? 2 : mobileParent ? 1 : 0;
+  const mobileCurrentItems = mobileChild?.children ?? mobileParent?.children ?? navItems;
+  const mobileTitle = mobileChild?.label ?? mobileParent?.label ?? "Menu";
 
   return (
     <header className={`fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "top-0 bg-white shadow-[0_10px_30px_rgba(15,15,18,0.08)]" : "top-2 bg-transparent md:top-3"}`}>
@@ -280,9 +311,10 @@ export default function Header() {
           {/* MOBILE MENU BUTTON */}
           <button
             className={`lg:hidden ${isScrolled ? "text-neutral-900" : "text-white"}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle navigation menu"
           >
-            ☰
+            {isMenuOpen ? "✕" : "☰"}
           </button>
         </div>
 
@@ -301,7 +333,7 @@ export default function Header() {
               <div className="mb-5 flex items-center gap-3">
                 <Link
                   href="/contact"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={closeMobileMenu}
                   className="rounded-md border border-[#EF2B2D]/60 bg-[#EF2B2D]/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white"
                 >
                   Contact
@@ -315,61 +347,76 @@ export default function Header() {
                 </button>
               </div>
 
-              <div className="space-y-4">
-                {navItems.map((item) =>
-                  item.children ? (
-                    <div key={item.label}>
-                      <p className="font-semibold uppercase tracking-[0.15em] text-white/80">
-                        {item.label}
-                      </p>
-                      <ul className="mt-3 space-y-2 text-sm text-white/60">
-                        {item.children.map((child) =>
-                          child.hasSubmenu ? (
-                            <li key={child.label} className="space-y-2">
-                              <Link
-                                href={child.href || "#"}
-                                onClick={() => setIsMenuOpen(false)}
-                                className="font-semibold text-white/70 hover:text-white"
-                              >
-                                {child.label}
-                              </Link>
-                              <ul className="ml-4 space-y-2 text-white/50">
-                                {child.children?.map((subChild) => (
-                                  <li key={subChild.href}>
-                                    <Link
-                                      href={subChild.href}
-                                      onClick={() => setIsMenuOpen(false)}
-                                    >
-                                      {subChild.label}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </li>
-                          ) : (
-                            <li key={child.href || child.label}>
-                              <Link
-                                href={child.href || "#"}
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                {child.label}
-                              </Link>
-                            </li>
-                          )
+              <div className="mb-4 flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
+                  {mobileLevel === 0 ? "Navigation" : `Menu / ${mobileTitle}`}
+                </div>
+                {mobileLevel > 0 ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (mobileLevel === 2) {
+                        setMobileChild(null);
+                        return;
+                      }
+                      setMobileParent(null);
+                    }}
+                    className="rounded-md border border-white/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/80"
+                  >
+                    Back
+                  </button>
+                ) : null}
+              </div>
+
+              <div className="space-y-2">
+                {mobileCurrentItems.map((item) => {
+                  if (item.children?.length) {
+                    return (
+                      <div
+                        key={`${mobileLevel}-${item.label}`}
+                        className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2"
+                      >
+                        {item.href ? (
+                          <Link
+                            href={item.href}
+                            onClick={closeMobileMenu}
+                            className="text-sm font-semibold text-white/90"
+                          >
+                            {item.label}
+                          </Link>
+                        ) : (
+                          <span className="text-sm font-semibold text-white/90">{item.label}</span>
                         )}
-                      </ul>
-                    </div>
-                  ) : (
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (mobileLevel === 0) {
+                              setMobileParent(item);
+                            } else {
+                              setMobileChild(item);
+                            }
+                          }}
+                          className="rounded-md border border-white/20 px-2 py-1 text-xs text-white/80 transition hover:border-[#EF2B2D]/70 hover:text-white"
+                          aria-label={`Open ${item.label}`}
+                        >
+                          View
+                        </button>
+                      </div>
+                    );
+                  }
+
+                  return (
                     <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block font-semibold"
+                      key={`${mobileLevel}-${item.href || item.label}`}
+                      href={item.href || "#"}
+                      onClick={closeMobileMenu}
+                      className="block rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-sm font-semibold text-white/90 transition hover:border-[#EF2B2D]/60 hover:text-white"
                     >
                       {item.label}
                     </Link>
-                  )
-                )}
+                  );
+                })}
               </div>
             </motion.div>
           )}
