@@ -250,9 +250,9 @@ export default function Header() {
                                       >
                                         <ul className="space-y-3 text-xs text-white/80">
                                           {child.children?.map((subChild) => (
-                                            <li key={subChild.href}>
+                                            <li key={subChild.href ?? subChild.label}>
                                               <Link
-                                                href={subChild.href}
+                                                href={(subChild.href ?? "#") as string}
                                                 className="block transition hover:text-white"
                                               >
                                                 {subChild.label}
@@ -281,8 +281,8 @@ export default function Header() {
                 </div>
               ) : (
                 <Link
-                  key={item.href}
-                  href={item.href}
+                  key={item.href ?? item.label}
+                  href={(item.href ?? "#") as string}
                   className={`relative transition ${isScrolled ? "hover:text-[#EF2B2D]" : "hover:text-white"}`}
                 >
                   {item.label}
@@ -378,7 +378,7 @@ export default function Header() {
                       >
                         {item.href ? (
                           <Link
-                            href={item.href}
+                            href={item.href ?? "#"}
                             onClick={closeMobileMenu}
                             className="text-sm font-semibold text-white/90"
                           >
