@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
@@ -10,11 +9,24 @@ export default function IpoDisclaimerPage() {
     <>
       <Header />
       <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#fbfbfa] via-[#f7f7f5] to-[#f2f2f0]">
+      {/* Banner */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f] pb-20 pt-36 text-white sm:pt-40">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.18),transparent_45%)]" />
+
+        <div className="relative mx-auto max-w-6xl px-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-white/70">Home / IPO Disclaimer</p>
+          <h1 className="mt-5 text-4xl font-bold sm:text-5xl lg:text-6xl">IPO Disclaimer</h1>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-white/75 sm:text-base">
+            Please read all terms and conditions carefully before proceeding to IPO audiovisual content.
+          </p>
+        </div>
+      </section>
+
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,43,45,0.08),transparent_45%)]" />
       <div className="pointer-events-none absolute left-[-120px] top-20 h-72 w-72 bg-black/5 blur-3xl" />
       
-      <div className="relative mx-auto max-w-4xl px-6 py-24">
+      <div className="relative mx-auto max-w-4xl px-6 pb-24 pt-12">
         <div className="rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-12">
           {/* Logo/Header */}
           <div className="mb-8 border-b border-neutral-200 pb-6">
@@ -242,6 +254,7 @@ export default function IpoDisclaimerPage() {
             </Link>
             <Link
               href="/investors/ipo-disclaimer/confirm"
+              scroll
               className="inline-flex items-center justify-center rounded-sm border border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D] to-[#d62426] px-8 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white shadow-[0_10px_25px_rgba(239,43,45,0.35)] transition-all duration-300 hover:shadow-[0_15px_35px_rgba(239,43,45,0.45)]"
             >
               Continue

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
@@ -11,6 +11,18 @@ export default function IpoDisclaimerConfirmPage() {
   const [showContent, setShowContent] = useState(false);
   const englishVideoPreviewUrl = "https://drive.google.com/file/d/1WTcpNLAHKp1Z0wZy70Eyr8749DCzaqFA/preview";
   const hindiVideoPreviewUrl = "https://drive.google.com/file/d/1BwBjMU8S4cLKgvqk0o5lTY1yUP9so5hm/preview";
+  const bannerTitle = showContent ? "IPO Audio Visual" : "IPO Disclaimer Confirmation";
+  const bannerTrail = showContent ? "Home / Investor / IPO Audio Visual" : "Home / Investor / IPO Disclaimer / Confirm";
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
+  useEffect(() => {
+    if (showContent) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [showContent]);
 
   const handleConfirm = () => {
     setShowContent(true);
@@ -24,11 +36,26 @@ export default function IpoDisclaimerConfirmPage() {
     <>
       <Header />
       <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#fbfbfa] via-[#f7f7f5] to-[#f2f2f0]">
+      {/* Banner */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f] pb-20 pt-36 text-white sm:pt-40">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.18),transparent_45%)]" />
+
+        <div className="relative mx-auto max-w-6xl px-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-white/70">{bannerTrail}</p>
+          <h1 className="mt-5 text-4xl font-bold sm:text-5xl lg:text-6xl">{bannerTitle}</h1>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-white/75 sm:text-base">
+            {showContent
+              ? "Watch the IPO audiovisuals and access supporting IPO documents."
+              : "Confirm that you have read and accepted the IPO disclaimer before viewing IPO materials."}
+          </p>
+        </div>
+      </section>
+
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,43,45,0.08),transparent_45%)]" />
       <div className="pointer-events-none absolute left-[-120px] top-20 h-72 w-72 bg-black/5 blur-3xl" />
 
-      <div className="relative mx-auto max-w-5xl px-6 py-24">
+      <div className="relative mx-auto max-w-5xl px-6 pb-24 pt-12">
         {!showContent ? (
           // Confirmation Screen
           <div className="rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-12">
@@ -88,10 +115,7 @@ export default function IpoDisclaimerConfirmPage() {
           <div className="space-y-8">
             <div className="rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-12">
               <div className="mb-8 border-b border-neutral-200 pb-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#EF2B2D]">
-                  Home / Investor / IPO Audio Visual
-                </p>
-                <h1 className="mt-3 text-3xl font-bold text-neutral-900 sm:text-4xl">IPO Audio Visual Content</h1>
+                <h2 className="mt-1 text-3xl font-bold text-neutral-900 sm:text-4xl">IPO Audio Visual Content</h2>
                 <p className="mt-3 text-sm text-neutral-600">
                   Watch the latest IPO audio visual presentations directly on this page.
                 </p>
