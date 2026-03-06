@@ -20,12 +20,12 @@ export default function MannedPrivateSecurityPage() {
     {
       title: "Unarmed Security Services",
       description: "We offer highly trained security guards, supervisors, and officers, ensuring frontline safety for your assets and personnel. Our security guards are proficient in security protocols and emergency response, while supervisors manage day-to-day operations, ensuring coordination...",
-      image: "/images/services/unarmed.jpg",
+      image: "/images/services/armed forces.jpg",
     },
     {
       title: "Armed Security Services",
       description: "Innovision Limited delivers top-tier armed security services with skilled, licensed personnel. Our trained gunmen are prepared to protect high-value assets and respond swiftly to critical situations, ensuring optimal safety through precision, expertise, and unwavering dedication.",
-      image: "/images/services/armed forces.jpg",
+      image: "/images/Armed Security Services.jpeg",
     },
     {
       title: "Event Security",

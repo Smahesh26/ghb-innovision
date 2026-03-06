@@ -9,6 +9,8 @@ import Footer from "@/app/components/Footer";
 export default function IpoDisclaimerConfirmPage() {
   const router = useRouter();
   const [showContent, setShowContent] = useState(false);
+  const englishVideoPreviewUrl = "https://drive.google.com/file/d/1WTcpNLAHKp1Z0wZy70Eyr8749DCzaqFA/preview";
+  const hindiVideoPreviewUrl = "https://drive.google.com/file/d/1BwBjMU8S4cLKgvqk0o5lTY1yUP9so5hm/preview";
 
   const handleConfirm = () => {
     setShowContent(true);
@@ -86,58 +88,63 @@ export default function IpoDisclaimerConfirmPage() {
           <div className="space-y-8">
             <div className="rounded-sm border border-neutral-200/80 bg-white/95 p-8 shadow-[0_20px_50px_rgba(15,15,18,0.08)] lg:p-12">
               <div className="mb-8 border-b border-neutral-200 pb-6">
-                <h1 className="text-3xl font-bold text-neutral-900 sm:text-4xl">IPO Audio Visual Presentations</h1>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.35em] text-[#EF2B2D]">
-                  Innovision Limited
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#EF2B2D]">
+                  Home / Investor / IPO Audio Visual
+                </p>
+                <h1 className="mt-3 text-3xl font-bold text-neutral-900 sm:text-4xl">IPO Audio Visual Content</h1>
+                <p className="mt-3 text-sm text-neutral-600">
+                  Watch the latest IPO audio visual presentations directly on this page.
                 </p>
               </div>
 
-              <div className="space-y-8">
-                {/* English Video */}
-                <div className="rounded-sm border border-neutral-200/80 bg-[#fafaf9] p-6">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h2 className="text-xl font-bold text-neutral-900">IPO Presentation - English</h2>
-                    <span className="rounded-sm bg-blue-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-800">
+              <div className="grid gap-6 lg:grid-cols-2">
+                <article className="rounded-sm border border-neutral-200/80 bg-gradient-to-b from-white to-[#f8f8f7] p-5 shadow-[0_12px_28px_rgba(15,15,18,0.08)] sm:p-6">
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">Video 1</p>
+                    <span className="rounded-sm border border-[#EF2B2D]/20 bg-[#EF2B2D]/10 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#b91f21]">
                       English
                     </span>
                   </div>
-                  <div className="aspect-video w-full overflow-hidden rounded-sm border border-neutral-200/80 bg-black shadow-[0_10px_30px_rgba(15,15,18,0.15)]">
-                    <video
-                      controls
+                  <div className="aspect-video w-full overflow-hidden rounded-sm border border-neutral-300/70 bg-black ring-1 ring-black/5 shadow-[0_12px_35px_rgba(15,15,18,0.2)]">
+                    <iframe
+                      src={englishVideoPreviewUrl}
+                      title="INNOVISION IPO English"
                       className="h-full w-full"
-                      poster="/images/video-poster-en.jpg"
-                    >
-                      <source src="/videos/ipo-presentation-english.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                      loading="lazy"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                      allowFullScreen
+                    />
                   </div>
-                  <p className="mt-4 text-sm text-neutral-600">
-                    Comprehensive overview of Innovision Limited's IPO details, business model, and growth strategy.
+                  <h2 className="mt-4 text-lg font-bold text-neutral-900 sm:text-xl">INNOVISION IPO English</h2>
+                  <p className="mt-1 text-xs leading-relaxed text-neutral-600">
+                    Use the built-in player controls to play, pause, seek, adjust volume, and enter fullscreen.
                   </p>
-                </div>
+                </article>
 
-                {/* Hindi Video */}
-                <div className="rounded-sm border border-neutral-200/80 bg-[#fafaf9] p-6">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h2 className="text-xl font-bold text-neutral-900">IPO Presentation - Hindi</h2>
-                    <span className="rounded-sm bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-800">
-                      हिंदी
+                <article className="rounded-sm border border-neutral-200/80 bg-gradient-to-b from-white to-[#f8f8f7] p-5 shadow-[0_12px_28px_rgba(15,15,18,0.08)] sm:p-6">
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">Video 2</p>
+                    <span className="rounded-sm border border-[#EF2B2D]/20 bg-[#EF2B2D]/10 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#b91f21]">
+                      Hindi
                     </span>
                   </div>
-                  <div className="aspect-video w-full overflow-hidden rounded-sm border border-neutral-200/80 bg-black shadow-[0_10px_30px_rgba(15,15,18,0.15)]">
-                    <video
-                      controls
+                  <div className="aspect-video w-full overflow-hidden rounded-sm border border-neutral-300/70 bg-black ring-1 ring-black/5 shadow-[0_12px_35px_rgba(15,15,18,0.2)]">
+                    <iframe
+                      src={hindiVideoPreviewUrl}
+                      title="INNOVISION IPO Hindi"
                       className="h-full w-full"
-                      poster="/images/video-poster-hi.jpg"
-                    >
-                      <source src="/videos/ipo-presentation-hindi.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                      loading="lazy"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                      allowFullScreen
+                    />
                   </div>
-                  <p className="mt-4 text-sm text-neutral-600">
-                    इनोविज़न लिमिटेड के आईपीओ विवरण, व्यवसाय मॉडल और विकास रणनीति का व्यापक अवलोकन।
+                  <h2 className="mt-4 text-lg font-bold text-neutral-900 sm:text-xl">INNOVISION IPO Hindi</h2>
+                  <p className="mt-1 text-xs leading-relaxed text-neutral-600">
+                    Use the built-in player controls to play, pause, seek, adjust volume, and enter fullscreen.
                   </p>
-                </div>
+                </article>
               </div>
 
               {/* Additional Resources */}

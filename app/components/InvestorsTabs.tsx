@@ -148,7 +148,10 @@ export default function InvestorsTabs() {
 
   const ipoDocs: Doc[] = [
     { title: "Draft Red Herring Prospectus (DRHP)", url: "/images/pdfs/DraftRedHerringProspectus(DRHP).pdf" },
+    { title: "Red Herring Prospectus (RHP)", url: "/images/pdfs/investor/IPOOfferDocumentsRHP.pdf" },
     { title: "Industry Report", url: "/images/pdfs/industryreport.pdf" },
+    { title: "Innovision Limited IPO Audio Visual (English)", url: "/images/pdfs/investor/InnovisionLimitedIPOAudioVisual(English).pdf" },
+    { title: "Innovision Limited IPO Audio Visual (Hindi)", url: "/" },
     { title: "Addendum to DRHP", url: "/images/pdfs/addendumtodrhp.pdf" },
     { title: "Innovision Limited IPO Audio Visual", url: "/investors/ipo-disclaimer" },
   ];
@@ -234,6 +237,10 @@ export default function InvestorsTabs() {
   const financialStatements2024: Doc[] = [
     { title: "Standalone Balance Sheet and Profit & Loss Account", url: "/images/pdfs/Standalone Balance Sheet and Profit & Loss Account2024-2025.pdf" },
     { title: "Consolidate Balance Sheet and Profit & Loss Account", url: "/images/pdfs/Consolidate Balance Sheet and profit & Loss Account2024-2025.pdf" },
+  ];
+
+  const financialStatements2025HalfYearly: Doc[] = [
+    { title: "Consolidate Balance Sheet and profit & Loss Account", url: "/images/pdfs/investor/ConsolidateBalanceSheetandprofit&LossAccount.pdf" },
   ];
 
   const boardDirectors = [
@@ -409,7 +416,7 @@ export default function InvestorsTabs() {
                 </SmoothAccordion>
 
                 <SmoothAccordion title="Filter by financial year 2024-2025">
-                  <DocList title="" docs={annualReports.filter(d => d.title.includes("2024") || !d.title.includes("2023"))} />
+                  <DocList title="" docs={annualReports.filter((d) => d.title.includes("2024-2025"))} />
                 </SmoothAccordion>
               </div>
 
@@ -423,6 +430,10 @@ export default function InvestorsTabs() {
 
                 <SmoothAccordion title="Filter by financial year 2024-2025">
                   <DocList title="" docs={financialStatements2024} />
+                </SmoothAccordion>
+
+                <SmoothAccordion title="Filter by financial year :2025-2026 (Half Yearly)">
+                  <DocList title="" docs={financialStatements2025HalfYearly} />
                 </SmoothAccordion>
               </div>
             </motion.section>
