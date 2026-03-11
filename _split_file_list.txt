@@ -1,0 +1,276 @@
+_cpanel_investors_docs_stage_20260309-231536/.htaccess
+_cpanel_investors_docs_stage_20260309-231536/__next._full.txt
+_cpanel_investors_docs_stage_20260309-231536/__next._head.txt
+_cpanel_investors_docs_stage_20260309-231536/__next._index.txt
+_cpanel_investors_docs_stage_20260309-231536/__next._tree.txt
+_cpanel_investors_docs_stage_20260309-231536/__next.investors.__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/__next.investors.txt
+_cpanel_investors_docs_stage_20260309-231536/__next.investors/__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/_next/.htaccess
+_cpanel_investors_docs_stage_20260309-231536/_next/static/.htaccess
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/026d896b17fd8a29.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/0552eadd38aecc17.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/1426a008e1c2b658.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/1a6ee1b1859bcdf7.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/232e74f0f3e8de3d.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/262e1d3f0a81df25.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/2fb8f16f37ebd8ee.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/313476c8cd9ac2f7.css
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/32894a1c409efa7e.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/3b914682d8b0090f.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/3be1cb0843f9a8c0.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/4ed2afbf71309094.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/52e0c65bf028cf5e.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/557f277d148752ae.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/56123587d737c5a5.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/5925ddfb0f459440.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/5e8950edf4d8ba76.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/640544b10f2c8706.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/640760e3740f72ab.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/6418ada03d8f1f8b.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/69b0febd7401ca45.css
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/6fb921c3ace8b534.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/853311bfc7f8106b.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/8d2a30db1a1da71e.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/8e70caa787b80745.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/95ba29963342e990.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/9a14f945c361158b.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/a44990a3e03da010.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/a6dad97d9634a72d.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/a6dad97d9634a72d.js.map
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/afa19164e313c5aa.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/b92a6bcc475c219f.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/c089c95a0801e4b2.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/ccf78d80275223c5.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/cf9c3f1512e839dd.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/d2be314c3ece3fbe.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/dd849a84607ee756.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/de7d3e8d3bd9ff07.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/e6203aef6817f8f3.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/ebf49524f8072a72.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/f091501564eb2ea3.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/f1b4d49aa9e249c5.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/f8b0f43414291015.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/fac3c1b55fdc539d.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/fc0fb64bc9379e6d.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/fea7169263a37d24.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/ff1a16fafef87110.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/chunks/turbopack-17202c93a08ed35f.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/media/1bffadaabf893a1e-s.7cd81963.woff2
+_cpanel_investors_docs_stage_20260309-231536/_next/static/media/2bbe8d2671613f1f-s.76dcb0b2.woff2
+_cpanel_investors_docs_stage_20260309-231536/_next/static/media/2c55a0e60120577a-s.2a48534a.woff2
+_cpanel_investors_docs_stage_20260309-231536/_next/static/media/5476f68d60460930-s.c995e352.woff2
+_cpanel_investors_docs_stage_20260309-231536/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2
+_cpanel_investors_docs_stage_20260309-231536/_next/static/media/9c72aa0f40e4eef8-s.18a48cbc.woff2
+_cpanel_investors_docs_stage_20260309-231536/_next/static/media/ad66f9afd8947f86-s.7a40eb73.woff2
+_cpanel_investors_docs_stage_20260309-231536/_next/static/media/Albertus Extra Bold Regular-s.p.5515498a.ttf
+_cpanel_investors_docs_stage_20260309-231536/_next/static/zDUIhhrJCLPQum8zoTjFW/_buildManifest.js
+_cpanel_investors_docs_stage_20260309-231536/_next/static/zDUIhhrJCLPQum8zoTjFW/_clientMiddlewareManifest.json
+_cpanel_investors_docs_stage_20260309-231536/_next/static/zDUIhhrJCLPQum8zoTjFW/_ssgManifest.js
+_cpanel_investors_docs_stage_20260309-231536/annualrepoert1.pdf
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next._full.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next._head.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next._index.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next._tree.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next.investors.annual-report.__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next.investors.annual-report.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next.investors.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next.investors/annual-report.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/__next.investors/annual-report/__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/annual-report/index.html
+_cpanel_investors_docs_stage_20260309-231536/annual-report/index.txt
+_cpanel_investors_docs_stage_20260309-231536/annualreport2.pdf
+_cpanel_investors_docs_stage_20260309-231536/Archival Policy.pdf
+_cpanel_investors_docs_stage_20260309-231536/Code of Conduct of BOD, KMP & SMP.pdf
+_cpanel_investors_docs_stage_20260309-231536/Code of Practices & Procedures for Fair Disclosures of UPSI.pdf
+_cpanel_investors_docs_stage_20260309-231536/ConsolidateBalanceSheetandprofit&LossAccount.pdf
+_cpanel_investors_docs_stage_20260309-231536/Corporate Social Responsibility Policy.pdf
+_cpanel_investors_docs_stage_20260309-231536/Dividend Distribution Policy.pdf
+_cpanel_investors_docs_stage_20260309-231536/Familarisation Programme Independent Directors.pdf
+_cpanel_investors_docs_stage_20260309-231536/Global Policy on POSH.pdf
+_cpanel_investors_docs_stage_20260309-231536/index.html
+_cpanel_investors_docs_stage_20260309-231536/index.txt
+_cpanel_investors_docs_stage_20260309-231536/Innovision Limited - Basis for Offer Price.pdf
+_cpanel_investors_docs_stage_20260309-231536/Innovision Limited - Corrigendum to RHP.pdf
+_cpanel_investors_docs_stage_20260309-231536/Innovision Limited - Statutory and Price Band Advertisement.pdf
+_cpanel_investors_docs_stage_20260309-231536/Innovision Limited- Red Herring Propstectus.pdf
+_cpanel_investors_docs_stage_20260309-231536/Innovision Limited_Abridge Prospectus.pdf
+_cpanel_investors_docs_stage_20260309-231536/InnovisionLimitedIPOAudioVisual(English).pdf
+_cpanel_investors_docs_stage_20260309-231536/Internal Procedures and Conduct for Prevention of Insider Trading.pdf
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next._full.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next._head.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next._index.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next._tree.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next.investors.ipo-audio-visual-english.__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next.investors.ipo-audio-visual-english.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next.investors.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next.investors/ipo-audio-visual-english.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/__next.investors/ipo-audio-visual-english/__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/index.html
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-english/index.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next._full.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next._head.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next._index.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next._tree.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next.investors.ipo-audio-visual-hindi.__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next.investors.ipo-audio-visual-hindi.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next.investors.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next.investors/ipo-audio-visual-hindi.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/__next.investors/ipo-audio-visual-hindi/__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/index.html
+_cpanel_investors_docs_stage_20260309-231536/ipo-audio-visual-hindi/index.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next._full.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next._head.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next._index.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next._tree.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next.investors.ipo-disclaimer.__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next.investors.ipo-disclaimer.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next.investors.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next.investors/ipo-disclaimer.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/__next.investors/ipo-disclaimer/__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next._full.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next._head.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next._index.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next._tree.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next.investors.ipo-disclaimer.confirm.__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next.investors.ipo-disclaimer.confirm.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next.investors.ipo-disclaimer.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next.investors.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next.investors/ipo-disclaimer.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next.investors/ipo-disclaimer/confirm.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/__next.investors/ipo-disclaimer/confirm/__PAGE__.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/index.html
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/confirm/index.txt
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/index.html
+_cpanel_investors_docs_stage_20260309-231536/ipo-disclaimer/index.txt
+_cpanel_investors_docs_stage_20260309-231536/IPOOfferDocumentsRHP.pdf
+_cpanel_investors_docs_stage_20260309-231536/Materiality Policy.pdf
+_cpanel_investors_docs_stage_20260309-231536/Nomination & Remuneration Policy.pdf
+_cpanel_investors_docs_stage_20260309-231536/ORTMARCH24.pdf
+_cpanel_investors_docs_stage_20260309-231536/Policy for Evaluation of Performance of Board.pdf
+_cpanel_investors_docs_stage_20260309-231536/Policy on determination and reporting of materiality of Events-information.pdf
+_cpanel_investors_docs_stage_20260309-231536/Policy on Diversity of BOD.pdf
+_cpanel_investors_docs_stage_20260309-231536/Policy on Material Subsidiaries.pdf
+_cpanel_investors_docs_stage_20260309-231536/Policy on Materiality of Related Party Transactions.pdf
+_cpanel_investors_docs_stage_20260309-231536/Policy on Preservation Of Records.pdf
+_cpanel_investors_docs_stage_20260309-231536/Policy On Succession Planning.pdf
+_cpanel_investors_docs_stage_20260309-231536/Risk Management Policy.pdf
+_cpanel_investors_docs_stage_20260309-231536/static/.htaccess
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/026d896b17fd8a29.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/0552eadd38aecc17.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/1426a008e1c2b658.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/1a6ee1b1859bcdf7.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/232e74f0f3e8de3d.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/262e1d3f0a81df25.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/2fb8f16f37ebd8ee.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/313476c8cd9ac2f7.css
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/32894a1c409efa7e.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/3b914682d8b0090f.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/3be1cb0843f9a8c0.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/4ed2afbf71309094.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/52e0c65bf028cf5e.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/557f277d148752ae.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/56123587d737c5a5.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/5925ddfb0f459440.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/5e8950edf4d8ba76.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/640544b10f2c8706.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/640760e3740f72ab.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/6418ada03d8f1f8b.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/69b0febd7401ca45.css
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/6fb921c3ace8b534.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/853311bfc7f8106b.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/8d2a30db1a1da71e.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/8e70caa787b80745.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/95ba29963342e990.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/9a14f945c361158b.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/a44990a3e03da010.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/a6dad97d9634a72d.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/a6dad97d9634a72d.js.map
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/afa19164e313c5aa.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/b92a6bcc475c219f.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/c089c95a0801e4b2.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/ccf78d80275223c5.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/cf9c3f1512e839dd.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/d2be314c3ece3fbe.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/dd849a84607ee756.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/de7d3e8d3bd9ff07.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/e6203aef6817f8f3.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/ebf49524f8072a72.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/f091501564eb2ea3.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/f1b4d49aa9e249c5.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/f8b0f43414291015.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/fac3c1b55fdc539d.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/fc0fb64bc9379e6d.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/fea7169263a37d24.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/ff1a16fafef87110.js
+_cpanel_investors_docs_stage_20260309-231536/static/chunks/turbopack-17202c93a08ed35f.js
+_cpanel_investors_docs_stage_20260309-231536/static/media/1bffadaabf893a1e-s.7cd81963.woff2
+_cpanel_investors_docs_stage_20260309-231536/static/media/2bbe8d2671613f1f-s.76dcb0b2.woff2
+_cpanel_investors_docs_stage_20260309-231536/static/media/2c55a0e60120577a-s.2a48534a.woff2
+_cpanel_investors_docs_stage_20260309-231536/static/media/5476f68d60460930-s.c995e352.woff2
+_cpanel_investors_docs_stage_20260309-231536/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2
+_cpanel_investors_docs_stage_20260309-231536/static/media/9c72aa0f40e4eef8-s.18a48cbc.woff2
+_cpanel_investors_docs_stage_20260309-231536/static/media/ad66f9afd8947f86-s.7a40eb73.woff2
+_cpanel_investors_docs_stage_20260309-231536/static/media/Albertus Extra Bold Regular-s.p.5515498a.ttf
+_cpanel_investors_docs_stage_20260309-231536/static/zDUIhhrJCLPQum8zoTjFW/_buildManifest.js
+_cpanel_investors_docs_stage_20260309-231536/static/zDUIhhrJCLPQum8zoTjFW/_clientMiddlewareManifest.json
+_cpanel_investors_docs_stage_20260309-231536/static/zDUIhhrJCLPQum8zoTjFW/_ssgManifest.js
+_cpanel_investors_docs_stage_20260309-231536/Terms of Appointment of Independent Directors.pdf
+_cpanel_investors_docs_stage_20260309-231536/tus(DRHP).pdf
+_cpanel_investors_docs_stage_20260309-231536/Vigil Mechanism-Whistle Blower Policy.pdf
+app/careers/page.tsx
+app/components/AboutPageSections.tsx
+app/components/Contact.tsx
+app/components/Footer.tsx
+app/components/Header.tsx
+app/components/InvestorsTabs.tsx
+app/components/Technology.tsx
+app/components/Testimonials.tsx
+app/components/WhyChooseUs.tsx
+app/contact/page.tsx
+app/globals.css
+app/insights/awards/page.tsx
+app/investors/ipo-audio-visual-english/page.tsx
+app/investors/ipo-audio-visual-hindi/page.tsx
+app/investors/ipo-disclaimer/confirm/page.tsx
+app/investors/ipo-disclaimer/page.tsx
+app/journey/page.tsx
+app/layout.tsx
+app/privacy-policy/page.tsx
+app/quick-links/page.tsx
+app/services/manpower-sourcing/page.tsx
+app/services/page.tsx
+app/services/security/manned-private-security/page.tsx
+build-clean.log
+next.config.ts
+package.json
+public/.htaccess
+public/apple-touch-icon.png
+public/English_Innovision Limited_Sebi AV_1.mp4
+public/favicon.png
+public/Hindi_Innovision Limited_Sebi AV_1.mp4
+public/icon-192.png
+public/icon-512.png
+public/images/Armed Security Services.jpeg
+public/images/gallery/.htaccess
+public/images/gallery/gallery/.htaccess
+public/images/pdfs/investor/Innovision Limited - Basis for Offer Price.pdf
+public/images/pdfs/investor/Innovision Limited - Corrigendum to RHP.pdf
+public/images/pdfs/investor/Innovision Limited - Statutory and Price Band Advertisement.pdf
+public/images/pdfs/investor/Innovision Limited- Red Herring Propstectus.pdf
+public/images/pdfs/investor/Innovision Limited_Abridge Prospectus.pdf
+public/images/pdfs/MaterialDocumentsAsmentionedinissuedocuments.pdf
+public/manifest.json
+public/mannedservices/Armed Security Services.jpg
+public/mannedservices/armed-security-services.jpg
+public/mannedservices/Command & Control Center.jpg
+public/mannedservices/command-and-control-center.jpg
+public/mannedservices/Event Security.jpg
+public/mannedservices/event-security.jpg
+public/mannedservices/Executive Protection.jpg
+public/mannedservices/executive-protection.jpg
+public/mannedservices/Fire and Safety Services.jpg
+public/mannedservices/fire-and-safety-services.jpg
+public/mannedservices/Unarmed Security Services (2).jpg
+public/mannedservices/unarmed-security-services-2.jpg
+scripts/postexport-rsc-aliases.mjs

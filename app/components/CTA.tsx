@@ -64,11 +64,11 @@ export default function CTA() {
 							<div className="mt-1 text-xs uppercase tracking-wider text-white/60">Trusted Clients</div>
 						</div>
 						<div>
-							<div className="text-3xl font-bold text-white">20,000+</div>
+							<div className="text-3xl font-bold text-white">15,000+</div>
 							<div className="mt-1 text-xs uppercase tracking-wider text-white/60">Deployed Workforce</div>
 						</div>
 						<div>
-							<div className="text-3xl font-bold text-white">2,000+</div>
+							<div className="text-3xl font-bold text-white">1000+</div>
 							<div className="mt-1 text-xs uppercase tracking-wider text-white/60">Active Sites</div>
 						</div>
 					</div>

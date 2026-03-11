@@ -9,7 +9,7 @@ type ContactProps = {
   mapOnly?: boolean;
 };
 
-const FORMSUBMIT_TARGET_EMAIL = "sunainamahesh1@gmail.com";
+const FORMSUBMIT_TARGET_EMAIL = "contact@innovision.co.in";
 const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_TARGET_EMAIL}`;
 
 export default function Contact({ showFootprints = true, mapOnly = false }: ContactProps) {

@@ -143,12 +143,27 @@ export default function WhyChooseUs() {
 	const sectionRef = useRef<HTMLElement>(null);
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const rightScrollRef = useRef<HTMLDivElement>(null);
+	const [isDesktop, setIsDesktop] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [isScrollLockActive, setIsScrollLockActive] = useState(false);
 	const [rightScrollProgress, setRightScrollProgress] = useState(0);
 	const [hasCompletedHighlights, setHasCompletedHighlights] = useState(false);
 
 	useEffect(() => {
+		if (typeof window === "undefined") return;
+		const mediaQuery = window.matchMedia("(min-width: 1024px)");
+		const update = () => setIsDesktop(mediaQuery.matches);
+		update();
+		mediaQuery.addEventListener("change", update);
+		return () => mediaQuery.removeEventListener("change", update);
+	}, []);
+
+	useEffect(() => {
+		if (!isDesktop) {
+			setIsScrollLockActive(false);
+			return;
+		}
+
 		const target = sectionRef.current;
 		if (!target || isScrollLockActive || hasCompletedHighlights) return;
 
@@ -166,7 +181,7 @@ export default function WhyChooseUs() {
 		observer.observe(target);
 
 		return () => observer.disconnect();
-	}, [hasCompletedHighlights, isScrollLockActive]);
+	}, [hasCompletedHighlights, isDesktop, isScrollLockActive]);
 
 	const togglePlay = async () => {
 		if (!videoRef.current) return;
@@ -180,6 +195,7 @@ export default function WhyChooseUs() {
 	};
 
 	const handleSectionWheel = (event: WheelEvent<HTMLElement>) => {
+		if (!isDesktop) return;
 		if (!isScrollLockActive) return;
 
 		const scrollContainer = rightScrollRef.current;
@@ -242,7 +258,7 @@ export default function WhyChooseUs() {
 
 	return (
 		<>
-			<section ref={sectionRef} onWheelCapture={handleSectionWheel} className="relative h-screen overflow-hidden bg-white text-neutral-900">
+			<section ref={sectionRef} onWheelCapture={handleSectionWheel} className="relative min-h-screen overflow-visible bg-white text-neutral-900 lg:h-screen lg:overflow-hidden">
 				<div className="mx-auto h-full max-w-7xl px-6">
 					<div className="grid h-full min-h-0 gap-12 lg:grid-cols-[0.9fr_auto_1.1fr] lg:items-stretch lg:gap-10">
 						{/* LEFT SIDE - HEADING AND VIDEO */}
@@ -340,13 +356,13 @@ export default function WhyChooseUs() {
 
 						{/* RIGHT SIDE - SCROLLABLE POINTS */}
 						<motion.div
-							className="relative flex h-full min-h-0 flex-col py-8 lg:py-10"
+							className="relative flex flex-col py-8 lg:h-full lg:min-h-0 lg:py-10"
 							initial={{ opacity: 0, y: 24 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.7, delay: 0.1 }}
 							viewport={{ once: true, amount: 0.25 }}
 						>
-							<div ref={rightScrollRef} onScroll={handleRightScroll} className="relative mx-auto flex-1 min-h-0 w-full max-w-2xl overflow-y-auto p-6 sm:p-7 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+							<div ref={rightScrollRef} onScroll={handleRightScroll} className="relative mx-auto w-full max-w-2xl overflow-visible p-6 sm:p-7 lg:flex-1 lg:min-h-0 lg:overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 								<div className="space-y-3">
 									{highlights.map((item, index) => (
 										<motion.div

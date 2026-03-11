@@ -1,16 +1,18 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 export default function IpoDisclaimerConfirmPage() {
   const router = useRouter();
   const [showContent, setShowContent] = useState(false);
-  const englishVideoPreviewUrl = "https://drive.google.com/file/d/1WTcpNLAHKp1Z0wZy70Eyr8749DCzaqFA/preview";
-  const hindiVideoPreviewUrl = "https://drive.google.com/file/d/1BwBjMU8S4cLKgvqk0o5lTY1yUP9so5hm/preview";
+  const [loadedVideo, setLoadedVideo] = useState<"english" | "hindi" | null>(null);
+  const englishVideoRef = useRef<HTMLVideoElement | null>(null);
+  const hindiVideoRef = useRef<HTMLVideoElement | null>(null);
+  const englishVideoUrl = "/English_Innovision%20Limited_Sebi%20AV_1.mp4";
+  const hindiVideoUrl = "/Hindi_Innovision%20Limited_Sebi%20AV_1.mp4";
   const bannerTitle = showContent ? "IPO Audio Visual" : "IPO Disclaimer Confirmation";
   const bannerTrail = showContent ? "Home / Investor / IPO Audio Visual" : "Home / Investor / IPO Disclaimer / Confirm";
 
@@ -24,8 +26,26 @@ export default function IpoDisclaimerConfirmPage() {
     }
   }, [showContent]);
 
+  useEffect(() => {
+    if (loadedVideo === "english" && englishVideoRef.current) {
+      void englishVideoRef.current.play().catch(() => {
+        // Fallback to controls if autoplay is blocked by browser policy.
+      });
+    }
+
+    if (loadedVideo === "hindi" && hindiVideoRef.current) {
+      void hindiVideoRef.current.play().catch(() => {
+        // Fallback to controls if autoplay is blocked by browser policy.
+      });
+    }
+  }, [loadedVideo]);
+
   const handleConfirm = () => {
     setShowContent(true);
+  };
+
+  const handleLoadVideo = (language: "english" | "hindi") => {
+    setLoadedVideo(language);
   };
 
   const handleDecline = () => {
@@ -119,6 +139,7 @@ export default function IpoDisclaimerConfirmPage() {
                 <p className="mt-3 text-sm text-neutral-600">
                   Watch the latest IPO audio visual presentations directly on this page.
                 </p>
+                <p className="mt-2 text-xs font-medium text-neutral-500">Videos load on demand for faster page performance.</p>
               </div>
 
               <div className="grid gap-6 lg:grid-cols-2">
@@ -129,16 +150,32 @@ export default function IpoDisclaimerConfirmPage() {
                       English
                     </span>
                   </div>
-                  <div className="aspect-video w-full overflow-hidden rounded-sm border border-neutral-300/70 bg-black ring-1 ring-black/5 shadow-[0_12px_35px_rgba(15,15,18,0.2)]">
-                    <iframe
-                      src={englishVideoPreviewUrl}
-                      title="INNOVISION IPO English"
-                      className="h-full w-full"
-                      loading="lazy"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                      allowFullScreen
-                    />
+                  <div className="relative aspect-video w-full overflow-hidden rounded-sm border border-neutral-300/70 bg-black ring-1 ring-black/5 shadow-[0_12px_35px_rgba(15,15,18,0.2)]">
+                    {loadedVideo === "english" && (
+                      <video
+                        ref={englishVideoRef}
+                        className="h-full w-full"
+                        controls
+                        autoPlay
+                        preload="metadata"
+                        playsInline
+                        src={englishVideoUrl}
+                      />
+                    )}
+                    {loadedVideo !== "english" && (
+                      <button
+                        type="button"
+                        onClick={() => handleLoadVideo("english")}
+                        className="absolute inset-0 z-10 flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-b from-neutral-900 to-neutral-950 text-white transition hover:from-neutral-800 hover:to-neutral-900"
+                      >
+                        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#EF2B2D] shadow-[0_10px_25px_rgba(239,43,45,0.45)]">
+                          <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6.3 4.2A1 1 0 005 5.06v9.88a1 1 0 001.54.84l7.26-4.94a1 1 0 000-1.68L6.3 4.2z" />
+                          </svg>
+                        </span>
+                        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">Load English Video</span>
+                      </button>
+                    )}
                   </div>
                   <h2 className="mt-4 text-lg font-bold text-neutral-900 sm:text-xl">INNOVISION IPO English</h2>
                   <p className="mt-1 text-xs leading-relaxed text-neutral-600">
@@ -153,16 +190,32 @@ export default function IpoDisclaimerConfirmPage() {
                       Hindi
                     </span>
                   </div>
-                  <div className="aspect-video w-full overflow-hidden rounded-sm border border-neutral-300/70 bg-black ring-1 ring-black/5 shadow-[0_12px_35px_rgba(15,15,18,0.2)]">
-                    <iframe
-                      src={hindiVideoPreviewUrl}
-                      title="INNOVISION IPO Hindi"
-                      className="h-full w-full"
-                      loading="lazy"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                      allowFullScreen
-                    />
+                  <div className="relative aspect-video w-full overflow-hidden rounded-sm border border-neutral-300/70 bg-black ring-1 ring-black/5 shadow-[0_12px_35px_rgba(15,15,18,0.2)]">
+                    {loadedVideo === "hindi" && (
+                      <video
+                        ref={hindiVideoRef}
+                        className="h-full w-full"
+                        controls
+                        autoPlay
+                        preload="metadata"
+                        playsInline
+                        src={hindiVideoUrl}
+                      />
+                    )}
+                    {loadedVideo !== "hindi" && (
+                      <button
+                        type="button"
+                        onClick={() => handleLoadVideo("hindi")}
+                        className="absolute inset-0 z-10 flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-b from-neutral-900 to-neutral-950 text-white transition hover:from-neutral-800 hover:to-neutral-900"
+                      >
+                        <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#EF2B2D] shadow-[0_10px_25px_rgba(239,43,45,0.45)]">
+                          <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6.3 4.2A1 1 0 005 5.06v9.88a1 1 0 001.54.84l7.26-4.94a1 1 0 000-1.68L6.3 4.2z" />
+                          </svg>
+                        </span>
+                        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">Load Hindi Video</span>
+                      </button>
+                    )}
                   </div>
                   <h2 className="mt-4 text-lg font-bold text-neutral-900 sm:text-xl">INNOVISION IPO Hindi</h2>
                   <p className="mt-1 text-xs leading-relaxed text-neutral-600">
@@ -202,18 +255,18 @@ export default function IpoDisclaimerConfirmPage() {
 
               {/* Navigation */}
               <div className="mt-8 flex flex-col gap-4 border-t border-neutral-200 pt-6 sm:flex-row sm:justify-between">
-                <Link
-                  href="/investors"
+                <a
+                  href="/investors/"
                   className="inline-flex items-center justify-center rounded-sm border border-neutral-300 bg-white px-8 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-neutral-700 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50"
                 >
                   Back to Investors
-                </Link>
-                <Link
+                </a>
+                <a
                   href="/"
                   className="inline-flex items-center justify-center rounded-sm border border-neutral-300 bg-white px-8 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-neutral-700 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50"
                 >
                   Go to Homepage
-                </Link>
+                </a>
               </div>
             </div>
           </div>

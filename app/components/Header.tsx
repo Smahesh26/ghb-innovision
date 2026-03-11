@@ -68,6 +68,13 @@ const navItems: NavItem[] = [
   { label: "Careers", href: "/careers" },
 ];
 
+const ipoMarqueeItems = [
+  "Innovision IPO Now Open (10-12 Mar 2026) | Price Band Rs 521-Rs 548 | Lot Size 27 Shares | Min Investment Rs 14,796 | Listing Expected 17 Mar 2026 | Apply Now Through Your Broker",
+  "Innovision IPO Live | Price Band Rs 521-Rs 548 | Lot Size 27 | Min Investment Rs 14,796 | Closing 12 Mar 2026",
+  "Innovision IPO Active | Issue Size Rs 323 Cr | Price Band Rs 521-Rs 548 | Lot Size 27 Shares | Min Investment Rs 14,796 | Listing on BSE & NSE - 17 Mar 2026",
+  "Innovision Limited IPO Open from 10-12 Mar 2026 | Price Band Rs 521-Rs 548 | Retail Lot 27 Shares | Investment Starts Rs 14,796 | Apply Before Closing",
+];
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mobileParent, setMobileParent] = useState<NavItem | null>(null);
@@ -116,7 +123,7 @@ export default function Header() {
 
     try {
       // Send notification to admin via FormSubmit
-      const FORMSUBMIT_TARGET_EMAIL = "sunainamahesh1@gmail.com"; // Change to contact@innovision.co.in after testing
+      const FORMSUBMIT_TARGET_EMAIL = "contact@innovision.co.in";
       const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_TARGET_EMAIL}`;
 
       const formData = new FormData();
@@ -173,11 +180,16 @@ export default function Header() {
   const mobileCurrentItems = mobileChild?.children ?? mobileParent?.children ?? navItems;
   const mobileTitle = mobileChild?.label ?? mobileParent?.label ?? "Menu";
 
+  const shouldUseHardNavigation = (href?: string) => {
+    if (!href) return false;
+    return href.startsWith("/investors") || href.startsWith("/leadership");
+  };
+
   return (
     <header className={`fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "top-0 bg-white shadow-[0_10px_30px_rgba(15,15,18,0.08)]" : "top-2 bg-transparent md:top-3"}`}>
       <div className="mx-auto max-w-7xl px-6">
 
-        <div className="mt-0 flex h-20 items-center justify-between px-8">
+        <div className="relative z-40 mt-0 flex h-20 items-center justify-between px-8">
 
           {/* LOGO */}
           <Link href="/">
@@ -220,7 +232,7 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 20 }}
                         transition={{ duration: 0.25 }}
-                        className="absolute left-0 top-full mt-6 w-72 rounded-xl border border-white/10 bg-[#0b0b0d]/95 backdrop-blur-xl p-6 shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
+                        className="absolute left-0 top-full z-[70] mt-6 w-72 rounded-xl border border-white/10 bg-[#0b0b0d]/95 backdrop-blur-xl p-6 shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
                       >
                         <ul className="space-y-4 text-xs text-white/80">
                           {item.children.map((child) => (
@@ -246,7 +258,7 @@ export default function Header() {
                                         animate={{ opacity: 1, x: 0 }}
                                         exit={{ opacity: 0, x: -10 }}
                                         transition={{ duration: 0.2 }}
-                                        className="absolute left-full top-0 ml-2 w-64 rounded-xl border border-white/10 bg-[#0b0b0d]/95 backdrop-blur-xl p-6 shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
+                                        className="absolute left-full top-0 z-[80] ml-2 w-64 rounded-xl border border-white/10 bg-[#0b0b0d]/95 backdrop-blur-xl p-6 shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
                                       >
                                         <ul className="space-y-3 text-xs text-white/80">
                                           {child.children?.map((subChild) => (
@@ -265,12 +277,18 @@ export default function Header() {
                                   </AnimatePresence>
                                 </div>
                               ) : (
-                                <Link
-                                  href={child.href || "#"}
-                                  className="block transition hover:text-white"
-                                >
-                                  {child.label}
-                                </Link>
+                                shouldUseHardNavigation(child.href) ? (
+                                  <a href={child.href || "#"} className="block transition hover:text-white">
+                                    {child.label}
+                                  </a>
+                                ) : (
+                                  <Link
+                                    href={child.href || "#"}
+                                    className="block transition hover:text-white"
+                                  >
+                                    {child.label}
+                                  </Link>
+                                )
                               )}
                             </li>
                           ))}
@@ -280,13 +298,23 @@ export default function Header() {
                   </AnimatePresence>
                 </div>
               ) : (
-                <Link
-                  key={item.href ?? item.label}
-                  href={(item.href ?? "#") as string}
-                  className={`relative transition ${isScrolled ? "hover:text-[#EF2B2D]" : "hover:text-white"}`}
-                >
-                  {item.label}
-                </Link>
+                shouldUseHardNavigation(item.href) ? (
+                  <a
+                    key={item.href ?? item.label}
+                    href={(item.href ?? "#") as string}
+                    className={`relative transition ${isScrolled ? "hover:text-[#EF2B2D]" : "hover:text-white"}`}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href ?? item.label}
+                    href={(item.href ?? "#") as string}
+                    className={`relative transition ${isScrolled ? "hover:text-[#EF2B2D]" : "hover:text-white"}`}
+                  >
+                    {item.label}
+                  </Link>
+                )
               )
             )}
 
@@ -319,6 +347,25 @@ export default function Header() {
         </div>
 
         <div className={`mt-2 border-b ${isScrolled ? "border-neutral-200" : "border-white/35"}`} />
+
+        <div
+          className={`relative z-10 left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-x-0 ${
+            isScrolled
+              ? "border-neutral-200 bg-gradient-to-r from-neutral-950 via-neutral-900 to-neutral-950"
+              : "border-white/35 bg-gradient-to-r from-black/85 via-black/75 to-black/85"
+          }`}
+        >
+          <div className="ipo-marquee-track flex w-max items-center gap-8 py-2 pl-6 pr-2 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+            {[...ipoMarqueeItems, ...ipoMarqueeItems].map((message, index) => (
+              <div key={`${message}-${index}`} className="flex items-center gap-8 whitespace-nowrap">
+                <span className="rounded-full border border-[#EF2B2D]/60 bg-[#EF2B2D]/20 px-2 py-0.5 text-[10px] tracking-[0.2em] text-[#ffd2d2]">
+                  IPO OPEN
+                </span>
+                <span>{message}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* MOBILE MENU */}
         <AnimatePresence>
@@ -377,13 +424,23 @@ export default function Header() {
                         className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2"
                       >
                         {item.href ? (
-                          <Link
-                            href={item.href ?? "#"}
-                            onClick={closeMobileMenu}
-                            className="text-sm font-semibold text-white/90"
-                          >
-                            {item.label}
-                          </Link>
+                          shouldUseHardNavigation(item.href) ? (
+                            <a
+                              href={item.href ?? "#"}
+                              onClick={closeMobileMenu}
+                              className="text-sm font-semibold text-white/90"
+                            >
+                              {item.label}
+                            </a>
+                          ) : (
+                            <Link
+                              href={item.href ?? "#"}
+                              onClick={closeMobileMenu}
+                              className="text-sm font-semibold text-white/90"
+                            >
+                              {item.label}
+                            </Link>
+                          )
                         ) : (
                           <span className="text-sm font-semibold text-white/90">{item.label}</span>
                         )}
@@ -406,7 +463,16 @@ export default function Header() {
                     );
                   }
 
-                  return (
+                  return shouldUseHardNavigation(item.href) ? (
+                    <a
+                      key={`${mobileLevel}-${item.href || item.label}`}
+                      href={item.href || "#"}
+                      onClick={closeMobileMenu}
+                      className="block rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-sm font-semibold text-white/90 transition hover:border-[#EF2B2D]/60 hover:text-white"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
                     <Link
                       key={`${mobileLevel}-${item.href || item.label}`}
                       href={item.href || "#"}
@@ -488,6 +554,22 @@ export default function Header() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        <style jsx>{`
+          .ipo-marquee-track {
+            animation: ipo-marquee-scroll 48s linear infinite;
+            will-change: transform;
+          }
+
+          @keyframes ipo-marquee-scroll {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-50%);
+            }
+          }
+        `}</style>
 
       </div>
     </header>

@@ -386,7 +386,7 @@ export default function AwardsPage() {
 					</section>
 
 					{/* Company Awards - Premium Design */}
-					<section className="py-20 relative">
+					<section className="relative py-14 sm:py-20">
 						{/* Background decoration */}
 						<div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
 						
@@ -395,7 +395,7 @@ export default function AwardsPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6 }}
 							viewport={{ once: true }}
-							className="mb-16 text-center"
+							className="mb-10 text-center sm:mb-16"
 						>
 							<motion.div
 								initial={{ scale: 0, rotate: -180 }}
@@ -406,21 +406,21 @@ export default function AwardsPage() {
 							>
 								<div className="relative">
 									<div className="absolute inset-0 bg-gradient-to-r from-[#EF2B2D]/20 to-red-600/20 blur-2xl" />
-									<div className="relative bg-gradient-to-r from-neutral-900 to-neutral-800 text-white px-8 py-3 rounded-full text-sm font-bold tracking-widest uppercase">
+									<div className="relative rounded-full bg-gradient-to-r from-neutral-900 to-neutral-800 px-4 py-2 text-[10px] font-bold tracking-[0.16em] text-white uppercase sm:px-8 sm:py-3 sm:text-sm sm:tracking-widest">
 										Organizational Excellence
 									</div>
 								</div>
 							</motion.div>
 							
-							<h2 className="text-5xl font-bold text-neutral-900 mb-4 lg:text-6xl">
+							<h2 className="mb-4 text-3xl font-bold text-neutral-900 sm:text-4xl lg:text-6xl">
 								Innovision Limited
 							</h2>
-							<p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+							<p className="mx-auto max-w-2xl text-base text-neutral-600 sm:text-lg lg:text-xl">
 								Industry Recognition • Corporate Achievement • National Awards
 							</p>
 						</motion.div>
 
-						<div className="grid gap-8 md:grid-cols-2">
+						<div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:gap-8">
 							{companyAwards.map((award, index) => (
 								<motion.div
 									key={index}
@@ -438,7 +438,7 @@ export default function AwardsPage() {
 									{/* Premium card with gradient border */}
 									<div className="absolute -inset-[1px] bg-gradient-to-r from-[#EF2B2D] via-red-600 to-[#EF2B2D] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 									
-									<div className="relative bg-white rounded-2xl p-10 shadow-xl hover:shadow-2xl transition-shadow duration-500 overflow-hidden">
+									<div className="relative overflow-hidden rounded-2xl bg-white p-5 shadow-xl transition-shadow duration-500 hover:shadow-2xl sm:p-7 lg:p-10">
 										{/* Animated background gradient */}
 										<motion.div
 											className="absolute inset-0 bg-gradient-to-br from-[#EF2B2D]/5 via-transparent to-red-600/5 opacity-0 group-hover:opacity-100"
@@ -446,7 +446,7 @@ export default function AwardsPage() {
 										/>
 
 										{/* Content */}
-										<div className="relative flex items-start gap-6">
+										<div className="relative flex flex-col items-start gap-4 sm:flex-row sm:gap-6">
 											{/* Icon with 3D effect */}
 											<motion.div 
 												className="flex-shrink-0"
@@ -458,8 +458,8 @@ export default function AwardsPage() {
 											>
 												<div className="relative">
 													<div className="absolute inset-0 bg-gradient-to-r from-[#EF2B2D] to-red-600 rounded-2xl blur-lg opacity-50" />
-													<div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#EF2B2D] to-red-600 shadow-lg">
-														<svg className="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+													<div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#EF2B2D] to-red-600 shadow-lg sm:h-16 sm:w-16 sm:rounded-2xl">
+														<svg className="h-5 w-5 text-white sm:h-8 sm:w-8" fill="currentColor" viewBox="0 0 20 20">
 															<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 														</svg>
 													</div>
@@ -468,24 +468,24 @@ export default function AwardsPage() {
 											
 											<div className="flex-1">
 												<motion.span 
-													className="inline-block rounded-xl bg-gradient-to-r from-[#EF2B2D]/10 to-red-600/10 border border-[#EF2B2D]/20 px-4 py-1.5 text-sm font-bold text-[#EF2B2D] mb-4"
+													className="mb-3 inline-block rounded-xl border border-[#EF2B2D]/20 bg-gradient-to-r from-[#EF2B2D]/10 to-red-600/10 px-3 py-1 text-xs font-bold text-[#EF2B2D] sm:mb-4 sm:px-4 sm:py-1.5 sm:text-sm"
 													whileHover={{ scale: 1.05 }}
 												>
 													{award.year}
 												</motion.span>
 												
-												<h3 className="text-2xl font-bold text-neutral-900 mb-3 leading-tight group-hover:text-[#EF2B2D] transition-colors">
+												<h3 className="mb-3 text-lg font-bold leading-tight text-neutral-900 transition-colors group-hover:text-[#EF2B2D] sm:text-2xl">
 													{award.title}
 												</h3>
 												
-												<div className="flex items-center gap-3 mb-4">
+												<div className="mb-3 flex flex-wrap items-center gap-2 sm:mb-4 sm:gap-3">
 													<div className="h-[2px] w-16 bg-gradient-to-r from-[#EF2B2D] to-red-600 rounded-full" />
-													<p className="text-sm font-bold text-[#EF2B2D] uppercase tracking-wider">
+													<p className="text-[11px] font-bold tracking-[0.12em] text-[#EF2B2D] uppercase sm:text-sm sm:tracking-wider">
 														{award.organization}
 													</p>
 												</div>
 												
-												<p className="text-neutral-600 leading-relaxed">
+												<p className="text-xs leading-relaxed text-neutral-600 sm:text-base">
 													{award.description}
 												</p>
 											</div>
@@ -507,7 +507,7 @@ export default function AwardsPage() {
 					</section>
 
 					{/* Team Awards - Dark Elegant Cards */}
-					<section className="py-20 relative">
+					<section className="relative py-14 sm:py-20">
 						<div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
 						
 						<motion.div
@@ -515,7 +515,7 @@ export default function AwardsPage() {
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6 }}
 							viewport={{ once: true }}
-							className="mb-16 text-center"
+							className="mb-10 text-center sm:mb-16"
 						>
 							<motion.div
 								initial={{ scale: 0, y: 50 }}
@@ -526,21 +526,21 @@ export default function AwardsPage() {
 							>
 								<div className="relative">
 									<div className="absolute inset-0 bg-gradient-to-r from-[#EF2B2D]/20 to-red-600/20 blur-2xl" />
-									<div className="relative bg-gradient-to-r from-[#EF2B2D] to-red-600 text-white px-8 py-3 rounded-full text-sm font-bold tracking-widest uppercase shadow-lg">
+									<div className="relative rounded-full bg-gradient-to-r from-[#EF2B2D] to-red-600 px-5 py-2 text-[11px] font-bold tracking-[0.2em] text-white uppercase shadow-lg sm:px-8 sm:py-3 sm:text-sm sm:tracking-widest">
 										Team Excellence
 									</div>
 								</div>
 							</motion.div>
 							
-							<h2 className="text-5xl font-bold text-neutral-900 mb-4 lg:text-6xl">
+							<h2 className="mb-4 text-3xl font-bold text-neutral-900 sm:text-4xl lg:text-6xl">
 								Team Recognition
 							</h2>
-							<p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+							<p className="mx-auto max-w-2xl text-base text-neutral-600 sm:text-xl">
 								Honoring Individual Excellence • Celebrating Dedication
 							</p>
 						</motion.div>
 
-						<div className="grid gap-8 lg:grid-cols-2">
+						<div className="grid gap-5 sm:gap-8 lg:grid-cols-2">
 							{teamAwards.map((award, index) => (
 								<motion.div
 									key={index}
@@ -558,7 +558,7 @@ export default function AwardsPage() {
 									{/* Card glow */}
 									<div className="absolute -inset-2 bg-gradient-to-r from-[#EF2B2D] via-red-600 to-[#EF2B2D] rounded-3xl opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-700" />
 									
-									<div className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-black rounded-3xl p-10 text-white overflow-hidden shadow-2xl">
+									<div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-800 to-black p-5 text-white shadow-2xl sm:p-8 lg:p-10">
 										{/* Animated background pattern */}
 										<motion.div
 											className="absolute top-0 right-0 w-64 h-64 opacity-5"
@@ -579,15 +579,15 @@ export default function AwardsPage() {
 
 										{/* Content */}
 										<div className="relative">
-											<div className="flex items-start justify-between mb-8">
+											<div className="mb-5 flex items-start justify-between sm:mb-8">
 												<motion.span 
-													className="inline-block rounded-xl bg-gradient-to-r from-[#EF2B2D] to-red-600 px-5 py-2 text-sm font-bold shadow-lg"
+													className="inline-block rounded-xl bg-gradient-to-r from-[#EF2B2D] to-red-600 px-3 py-1.5 text-xs font-bold shadow-lg sm:px-5 sm:py-2 sm:text-sm"
 													whileHover={{ scale: 1.1, rotate: 2 }}
 												>
 													{award.year}
 												</motion.span>
 												<motion.svg 
-													className="h-16 w-16 text-[#EF2B2D]/80" 
+													className="h-12 w-12 text-[#EF2B2D]/80 sm:h-16 sm:w-16" 
 													fill="currentColor" 
 													viewBox="0 0 20 20"
 													animate={{
@@ -604,26 +604,26 @@ export default function AwardsPage() {
 												</motion.svg>
 											</div>
 											
-											<h3 className="text-3xl font-bold mb-4 leading-tight bg-gradient-to-r from-white to-white/80 bg-clip-text">
+											<h3 className="mb-3 bg-gradient-to-r from-white to-white/80 bg-clip-text text-xl font-bold leading-tight sm:mb-4 sm:text-2xl lg:text-3xl">
 												{award.title}
 											</h3>
 											
-											<div className="space-y-2 mb-6">
+											<div className="mb-5 space-y-2 sm:mb-6">
 												<div className="flex items-center gap-3">
 													<div className="h-8 w-1 bg-gradient-to-b from-[#EF2B2D] to-red-600 rounded-full" />
-													<p className="text-white/90 font-semibold text-lg">
+													<p className="text-base font-semibold text-white/90 sm:text-lg">
 														{award.recipient}
 													</p>
 												</div>
 												<div className="flex items-center gap-3">
 													<div className="h-6 w-1 bg-gradient-to-b from-red-600 to-transparent rounded-full" />
-													<p className="text-sm font-bold text-[#EF2B2D] uppercase tracking-wider">
+													<p className="text-xs font-bold tracking-[0.12em] text-[#EF2B2D] uppercase sm:text-sm sm:tracking-wider">
 														{award.organization}
 													</p>
 												</div>
 											</div>
 											
-											<p className="text-white/60 leading-relaxed text-base border-t border-white/10 pt-6">
+											<p className="border-t border-white/10 pt-4 text-sm leading-relaxed text-white/60 sm:pt-6 sm:text-base">
 												{award.description}
 											</p>
 										</div>
@@ -669,10 +669,10 @@ export default function AwardsPage() {
 								</div>
 							</motion.div>
 							
-							<h2 className="text-5xl font-bold text-neutral-900 mb-4 lg:text-6xl">
+							<h2 className="mb-4 text-3xl font-bold text-neutral-900 sm:text-4xl lg:text-6xl">
 								Award <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF2B2D] to-red-600">Gallery</span>
 							</h2>
-							<p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+							<p className="mx-auto max-w-2xl text-base text-neutral-600 sm:text-xl">
 								Moments of Recognition • Celebrating Achievement • Pride & Excellence
 							</p>
 						</motion.div>
@@ -700,7 +700,7 @@ export default function AwardsPage() {
 									/>
 									
 									{/* Card container */}
-									<div className="relative aspect-[4/3] overflow-hidden rounded-3xl border-2 border-neutral-200 group-hover:border-[#EF2B2D]/50 transition-all duration-500 shadow-xl group-hover:shadow-2xl">
+									<div className="relative aspect-[4/3] overflow-hidden rounded-2xl border-2 border-neutral-200 transition-all duration-500 shadow-xl group-hover:border-[#EF2B2D]/50 group-hover:shadow-2xl sm:rounded-3xl">
 										{/* Image */}
 										<Image
 											src={award.src}
@@ -718,41 +718,41 @@ export default function AwardsPage() {
 											transition={{ duration: 0.4 }}
 										>
 											{/* Content overlay */}
-											<div className="absolute inset-0 flex flex-col justify-end p-6">
+											<div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-6">
 												<motion.div
 													initial={{ y: 20, opacity: 0 }}
 													whileHover={{ y: 0, opacity: 1 }}
 													transition={{ duration: 0.3 }}
 												>
 													{/* Category badge */}
-													<span className="inline-block px-3 py-1 mb-3 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#EF2B2D] to-red-600 text-white rounded-full">
+													<span className="mb-2 inline-block rounded-full bg-gradient-to-r from-[#EF2B2D] to-red-600 px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] text-white uppercase sm:mb-3 sm:px-3 sm:text-xs sm:tracking-wider">
 														{award.category}
 													</span>
 													
 													{/* Title */}
-													<h3 className="text-xl font-bold text-white mb-2 leading-tight">
+													<h3 className="mb-1 text-base font-bold leading-tight text-white sm:mb-2 sm:text-xl">
 														{award.title}
 													</h3>
 													
 													{/* View indicator */}
-													<div className="flex items-center gap-2 text-white/80">
-														<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<div className="flex items-center gap-1.5 text-white/80 sm:gap-2">
+														<svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
 														</svg>
-														<span className="text-sm font-semibold">View Photo</span>
+														<span className="text-xs font-semibold sm:text-sm">View Photo</span>
 													</div>
 												</motion.div>
 											</div>
 										</motion.div>
 
 										{/* Corner decoration */}
-										<div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+										<div className="absolute top-2 right-2 hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:top-3 sm:right-3 sm:block">
 											<motion.div
-												className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+												className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm sm:h-10 sm:w-10"
 												whileHover={{ scale: 1.2, rotate: 90 }}
 											>
-												<svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<svg className="h-4 w-4 text-white sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
 												</svg>
 											</motion.div>
@@ -802,9 +802,9 @@ export default function AwardsPage() {
 										whileHover={{ scale: 1.1, rotate: 90 }}
 										whileTap={{ scale: 0.9 }}
 										onClick={() => setSelectedImage(null)}
-										className="absolute top-3 right-3 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#EF2B2D] to-red-600 text-white flex items-center justify-center shadow-2xl border-2 sm:border-4 border-white"
+											className="absolute top-2 right-2 z-10 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-[#EF2B2D] to-red-600 text-white shadow-2xl sm:top-3 sm:right-3 sm:h-12 sm:w-12 sm:border-4"
 									>
-										<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
 										</svg>
 									</motion.button>
@@ -821,14 +821,14 @@ export default function AwardsPage() {
 									</div>
 
 									{/* Navigation */}
-									<div className="flex items-center justify-center gap-4 mt-4">
+									<div className="mt-4 flex items-center justify-center gap-3 sm:gap-4">
 										<motion.button
 											whileHover={{ scale: 1.1, x: -5 }}
 											whileTap={{ scale: 0.9 }}
 											onClick={() => setSelectedImage((selectedImage - 1 + awardImages.length) % awardImages.length)}
-											className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors border border-white/20"
+											className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:h-12 sm:w-12"
 										>
-											<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
 											</svg>
 										</motion.button>
@@ -836,9 +836,9 @@ export default function AwardsPage() {
 											whileHover={{ scale: 1.1, x: 5 }}
 											whileTap={{ scale: 0.9 }}
 											onClick={() => setSelectedImage((selectedImage + 1) % awardImages.length)}
-											className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors border border-white/20"
+											className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:h-12 sm:w-12"
 										>
-											<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
 											</svg>
 										</motion.button>

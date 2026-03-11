@@ -205,13 +205,13 @@ export default function Footer() {
 
             <ul className="space-y-3 text-sm text-white/70">
               <li>
-                <Link href="/investors" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Financial Statements</Link>
+                <a href="/investors" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Financial Statements</a>
               </li>
               <li>
-                <Link href="/investors/annual-report" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Annual Return</Link>
+                <a href="/investors/annual-report" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ Annual Return</a>
               </li>
               <li>
-                <Link href="/investors/ipo-disclaimer" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ IPO Audio Visual</Link>
+                <a href="/investors/ipo-disclaimer" className="block w-full pl-4 -indent-4 leading-relaxed transition hover:text-white hover:translate-x-1">→ IPO Audio Visual</a>
               </li>
             </ul>
           </div>
@@ -224,7 +224,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-6 py-5">
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/65">
             <Link href="/about" className="transition hover:text-white">About Innovision</Link>
-            <Link href="/leadership" className="transition hover:text-white">Leadership</Link>
+            <a href="/leadership" className="transition hover:text-white">Leadership</a>
             <Link href="/journey" className="transition hover:text-white">Our Story</Link>
             <Link href="/insights/news" className="transition hover:text-white">News &amp; Press Releases</Link>
             <Link href="/insights/gallery" className="transition hover:text-white">Gallery</Link>
@@ -248,15 +248,15 @@ export default function Footer() {
             <Link href="/quick-links" className="cursor-pointer transition hover:text-white">
               Quick Links
             </Link>
-            <span className="cursor-pointer transition hover:text-white">
+            <Link href="/privacy-policy" className="cursor-pointer transition hover:text-white">
               Privacy Policy
-            </span>
-            <span className="cursor-pointer transition hover:text-white">
+            </Link>
+            <Link href="/terms-and-conditions" className="cursor-pointer transition hover:text-white">
               Terms & Conditions
-            </span>
-            <span className="cursor-pointer transition hover:text-white">
+            </Link>
+            <Link href="/sitemap.xml" className="cursor-pointer transition hover:text-white">
               Sitemap
-            </span>
+            </Link>
           </div>
         </div>
       </div>

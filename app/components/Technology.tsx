@@ -226,21 +226,21 @@ export default function Technology() {
 
 							{/* Right - Stats Grid */}
 							<div className="grid grid-cols-2 gap-4">
-								<div className="rounded-xl border border-white/20 bg-white/5 p-6 text-center backdrop-blur-sm">
-									<div className="text-4xl font-bold text-[#EF2B2D]">100%</div>
-									<div className="mt-2 text-xs uppercase tracking-wider text-white/70">Digital Attendance</div>
+								<div className="rounded-xl border border-white/20 bg-white/5 p-4 text-center backdrop-blur-sm sm:p-6">
+									<div className="text-3xl font-bold text-[#EF2B2D] sm:text-4xl">100%</div>
+									<div className="mt-2 text-[10px] uppercase tracking-wider text-white/70 sm:text-xs">Digital Attendance</div>
 								</div>
-								<div className="rounded-xl border border-white/20 bg-white/5 p-6 text-center backdrop-blur-sm">
-									<div className="text-4xl font-bold text-[#EF2B2D]">24/7</div>
-									<div className="mt-2 text-xs uppercase tracking-wider text-white/70">Command Centers</div>
+								<div className="rounded-xl border border-white/20 bg-white/5 p-4 text-center backdrop-blur-sm sm:p-6">
+									<div className="text-3xl font-bold text-[#EF2B2D] sm:text-4xl">24/7</div>
+									<div className="mt-2 text-[10px] uppercase tracking-wider text-white/70 sm:text-xs">Command Centers</div>
 								</div>
-								<div className="rounded-xl border border-white/20 bg-white/5 p-6 text-center backdrop-blur-sm">
-									<div className="text-4xl font-bold text-[#EF2B2D]">Real-Time</div>
-									<div className="mt-2 text-xs uppercase tracking-wider text-white/70">Monitoring</div>
+								<div className="rounded-xl border border-white/20 bg-white/5 p-4 text-center backdrop-blur-sm sm:p-6">
+									<div className="text-2xl font-bold leading-tight text-[#EF2B2D] sm:text-4xl">Real-Time</div>
+									<div className="mt-2 text-[10px] uppercase tracking-wider text-white/70 sm:text-xs">Monitoring</div>
 								</div>
-								<div className="rounded-xl border border-white/20 bg-white/5 p-6 text-center backdrop-blur-sm">
-									<div className="text-4xl font-bold text-[#EF2B2D]">Cloud</div>
-									<div className="mt-2 text-xs uppercase tracking-wider text-white/70">Infrastructure</div>
+								<div className="rounded-xl border border-white/20 bg-white/5 p-4 text-center backdrop-blur-sm sm:p-6">
+									<div className="text-2xl font-bold leading-tight text-[#EF2B2D] sm:text-4xl">Cloud</div>
+									<div className="mt-2 text-[10px] uppercase tracking-wider text-white/70 sm:text-xs">Infrastructure</div>
 								</div>
 							</div>
 						</div>

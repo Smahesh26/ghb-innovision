@@ -1,0 +1,65 @@
+# Cache policy for static Next.js export on Apache/cPanel.
+# Prevent stale route payloads (.html/.txt) that can require hard refresh.
+
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# Serve existing files normally
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Never rewrite Next.js static build assets.
+RewriteRule ^_next/ - [L]
+RewriteRule ^assets/_next/ - [L]
+
+# Never rewrite direct file requests (css/js/fonts/images/maps/json/etc).
+RewriteCond %{REQUEST_URI} \.[A-Za-z0-9]{1,8}$ [NC]
+RewriteRule ^ - [L]
+
+# Force static assets to remain publicly accessible even with inherited host rules.
+<IfModule mod_authz_core.c>
+  <FilesMatch "\.(css|js|mjs|map|woff2?|ttf|otf|eot|svg|png|jpe?g|gif|webp|avif|ico)$">
+    Require all granted
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <FilesMatch "\.(css|js|mjs|map|woff2?|ttf|otf|eot|svg|png|jpe?g|gif|webp|avif|ico)$">
+    Order allow,deny
+    Allow from all
+  </FilesMatch>
+</IfModule>
+
+# Handle Next.js static exported routes
+RewriteRule ^(.+)$ $1/index.html [L]
+
+<IfModule mod_headers.c>
+  # Never cache route HTML and RSC text payload files.
+  <FilesMatch "\.(html?|txt)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Keep hashed static assets highly cacheable.
+  <FilesMatch "\.(css|js|mjs|png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|otf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/plain "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

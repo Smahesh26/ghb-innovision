@@ -1,0 +1,5 @@
+:HL["/assets/_next/static/chunks/69b0febd7401ca45.css","style"]
+:HL["/assets/_next/static/chunks/313476c8cd9ac2f7.css","style"]
+:HL["/assets/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/assets/_next/static/media/Albertus%20Extra%20Bold%20Regular-s.p.5515498a.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+0:{"buildId":"zDUIhhrJCLPQum8zoTjFW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"investors","paramType":null,"paramKey":"investors","hasRuntimePrefetch":false,"slots":{"children":{"name":"ipo-disclaimer","paramType":null,"paramKey":"ipo-disclaimer","hasRuntimePrefetch":false,"slots":{"children":{"name":"confirm","paramType":null,"paramKey":"confirm","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

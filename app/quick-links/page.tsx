@@ -33,6 +33,18 @@ const primaryLinks = [
     href: "/about",
     cta: "Learn More",
   },
+  {
+    title: "Privacy Policy",
+    description: "Read how your information is collected and used.",
+    href: "/privacy-policy",
+    cta: "Read Policy",
+  },
+  {
+    title: "Terms & Conditions",
+    description: "Review legal terms governing use of this website.",
+    href: "/terms-and-conditions",
+    cta: "Read Terms",
+  },
 ];
 
 const whatsappChannels = [
@@ -82,7 +94,7 @@ export default function QuickLinksPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/50" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.15),transparent_42%)]" />
 
-        <div className="relative mx-auto flex min-h-[64vh] max-w-7xl flex-col justify-center px-6 pt-28 pb-16 text-white">
+        <div className="relative mx-auto flex min-h-[64vh] max-w-7xl flex-col items-center justify-center px-6 pb-16 pt-28 text-center text-white">
           <p className="text-xs font-semibold uppercase tracking-[0.45em] text-white/65">
             Quick Access
           </p>
@@ -106,17 +118,18 @@ export default function QuickLinksPage() {
       </section>
 
       <main className="bg-gradient-to-b from-[#f8f8f9] via-white to-[#f6f7f8] pb-24">
-        <section id="primary" className="mx-auto max-w-7xl px-6 pt-20">
-          <div className="mb-10 flex items-center gap-4">
+        <div className="mx-auto w-full max-w-6xl space-y-14 px-6 py-16 md:space-y-16 md:py-20">
+        <section id="primary" className="py-6 md:py-8">
+          <div className="mb-10 flex items-center justify-center gap-4">
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-black/60">Primary Links</p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto flex max-w-[1040px] flex-wrap justify-center gap-6">
             {primaryLinks.map((item) => (
               <article
                 key={item.title}
-                className="group rounded-3xl border border-black/10 bg-white p-7 shadow-[0_14px_34px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[#EF2B2D]/30 hover:shadow-[0_24px_56px_rgba(0,0,0,0.14)]"
+                className="group w-[320px] max-w-full rounded-3xl border border-black/10 bg-white p-7 text-center shadow-[0_14px_34px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[#EF2B2D]/30 hover:shadow-[0_24px_56px_rgba(0,0,0,0.14)]"
               >
                 <h3 className="text-xl font-bold leading-snug text-[#131313] transition group-hover:text-[#EF2B2D]">
                   {item.title}
@@ -131,16 +144,16 @@ export default function QuickLinksPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-20 max-w-7xl px-6">
-          <div className="rounded-[2rem] border border-black/10 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:p-10">
-            <div className="mb-8">
+        <section className="py-6 md:py-8">
+          <div className="mx-auto rounded-[2rem] border border-black/10 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:p-10">
+            <div className="mb-8 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#EF2B2D]">WhatsApp Channels</p>
               <h2 className="mt-3 text-3xl font-bold text-[#131313] sm:text-4xl">Official Communication Channels</h2>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="mx-auto flex max-w-[980px] flex-wrap justify-center gap-5">
               {whatsappChannels.map((channel) => (
-                <article key={channel.title} className="rounded-2xl border border-black/10 bg-[#fafafa] p-5 transition hover:border-[#25D366]/40 hover:bg-[#f4fbf6]">
+                <article key={channel.title} className="w-[460px] max-w-full rounded-2xl border border-black/10 bg-[#fafafa] p-5 text-center transition hover:border-[#25D366]/40 hover:bg-[#f4fbf6]">
                   <h3 className="text-lg font-bold text-[#151515]">{channel.title}</h3>
                   <p className="mt-2 text-sm text-black/65">{channel.description}</p>
                   <a
@@ -158,15 +171,15 @@ export default function QuickLinksPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-20 max-w-7xl px-6">
-          <div className="mb-8 flex items-center gap-4">
+        <section className="py-6 md:py-8">
+          <div className="mb-8 flex items-center justify-center gap-4">
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-black/60">Ex-Servicemen Groups</p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="mx-auto flex max-w-[1120px] flex-wrap justify-center gap-6">
             {exServicemenGroups.map((group) => (
-              <article key={group.title} className="rounded-2xl border border-black/10 bg-white p-7 shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition hover:-translate-y-1 hover:border-[#EF2B2D]/30 hover:shadow-[0_20px_46px_rgba(0,0,0,0.10)]">
+              <article key={group.title} className="w-[340px] max-w-full rounded-2xl border border-black/10 bg-white p-7 text-center shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition hover:-translate-y-1 hover:border-[#EF2B2D]/30 hover:shadow-[0_20px_46px_rgba(0,0,0,0.10)]">
                 <h3 className="text-xl font-bold text-[#161616]">{group.title}</h3>
                 <a
                   href={group.href}
@@ -182,15 +195,15 @@ export default function QuickLinksPage() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto mt-20 max-w-7xl px-6">
-          <div className="rounded-[2rem] bg-[#101013] p-8 text-white shadow-[0_24px_70px_rgba(0,0,0,0.32)] md:p-12">
+        <section id="contact" className="py-6 md:py-8">
+          <div className="mx-auto rounded-[2rem] bg-[#101013] p-8 text-white shadow-[0_24px_70px_rgba(0,0,0,0.32)] md:p-12">
             <div className="mb-10 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#EF2B2D]">Contact Teams</p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Domestic & International Job Support</h2>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
-              <article className="rounded-2xl border border-white/10 bg-white/5 p-7">
+            <div className="mx-auto flex max-w-[980px] flex-wrap justify-center gap-8">
+              <article className="w-[460px] max-w-full rounded-2xl border border-white/10 bg-white/5 p-7 text-center">
                 <h3 className="text-2xl font-bold">Domestic Jobs & Placements</h3>
                 <div className="mt-5 space-y-3 text-sm text-white/80">
                   <p>Email: <a href="mailto:contact@innovision.co.in" className="text-white underline">contact@innovision.co.in</a></p>
@@ -199,7 +212,7 @@ export default function QuickLinksPage() {
                 </div>
               </article>
 
-              <article className="rounded-2xl border border-white/10 bg-white/5 p-7">
+              <article className="w-[460px] max-w-full rounded-2xl border border-white/10 bg-white/5 p-7 text-center">
                 <h3 className="text-2xl font-bold">International Jobs & Placements</h3>
                 <div className="mt-5 space-y-3 text-sm text-white/80">
                   <p>Email: <a href="mailto:contactintl@innovision.co.in" className="text-white underline">contactintl@innovision.co.in</a></p>
@@ -210,6 +223,7 @@ export default function QuickLinksPage() {
             </div>
           </div>
         </section>
+        </div>
       </main>
 
       <Footer />

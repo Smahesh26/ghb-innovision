@@ -1,0 +1,9 @@
+# Ensure gallery media is always publicly readable on Apache/cPanel
+<IfModule mod_authz_core.c>
+  Require all granted
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Allow from all
+</IfModule>
+Options -Indexes

@@ -25,7 +25,7 @@ type TabId = (typeof tabs)[number]["id"];
 function ViewLink({ doc }: { doc: Doc }) {
   return (
     <a
-      href={doc.url || "#"}
+      href={doc.url}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center rounded-sm border border-[#EF2B2D]/25 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#EF2B2D] transition-all duration-300 hover:border-[#EF2B2D] hover:bg-[#EF2B2D] hover:text-white"
@@ -51,7 +51,7 @@ function DocList({ title, docs }: { title: string; docs: Doc[] }) {
             className="flex flex-col gap-3 rounded-sm border border-neutral-200/80 bg-[#fafaf9] p-4 transition hover:border-[#EF2B2D]/25 hover:bg-white sm:flex-row sm:items-center sm:justify-between"
           >
             <p className="text-sm font-medium text-neutral-700">{doc.title}</p>
-            <ViewLink doc={doc} />
+            {doc.url ? <ViewLink doc={doc} /> : null}
           </motion.div>
         ))}
       </div>
@@ -135,11 +135,16 @@ export default function InvestorsTabs() {
     { title: "Corporate Social Responsibility Report", url: "/images/pdfs/CorporateSocialResponsibilityReport2023-2024.pdf" },
   ];
 
+  const investorRelations2022: Doc[] = [
+    { title: "Annual Return", url: "/images/pdfs/investor/Form_MGT_7-INNOVISION-2023-SIGNED.pdf" },
+    { title: "Corporate Social Responsibility Report", url: "/images/pdfs/investor/Corporate%20Social%20Responsibility%20Policy.pdf" },
+  ];
+
   const investorRelations2024: Doc[] = [
     { title: "Annual Return", url: "/images/pdfs/annualreturn2024-2025.pdf" },
     { title: "Corporate Social Responsibility Report", url: "/images/pdfs/CorporateSocialResponsibilityReport2024-2025.pdf" },
-    { title: "Material Documents As mentioned in issue documents", url: "/" },
-    { title: "Contact details of Compliance Officer", url: "/" },
+    { title: "Material Documents As mentioned in issue documents", url: "/images/pdfs/MaterialDocumentsAsmentionedinissuedocuments.pdf" },
+    // { title: "Contact details of Compliance Officer", url: "/" },
   ];
 
   const ratingRationale: Doc[] = [
@@ -148,19 +153,65 @@ export default function InvestorsTabs() {
 
   const ipoDocs: Doc[] = [
     { title: "Draft Red Herring Prospectus (DRHP)", url: "/images/pdfs/DraftRedHerringProspectus(DRHP).pdf" },
-    { title: "Red Herring Prospectus (RHP)", url: "/images/pdfs/investor/IPOOfferDocumentsRHP.pdf" },
+    { title: "Red Herring Prospectus (RHP)", url: "/images/pdfs/investor/Innovision Limited- Red Herring Propstectus.pdf" },
+    { title: "Statutory and Price Band Advertisement", url: "/images/pdfs/investor/Innovision Limited - Statutory and Price Band Advertisement.pdf" },
+    { title: "Abridge Prospectus", url: "/images/pdfs/investor/Innovision Limited_Abridge Prospectus.pdf" },
+    { title: "Corrigendum to RHP", url: "/images/pdfs/investor/Innovision Limited - Corrigendum to RHP.pdf" },
     { title: "Industry Report", url: "/images/pdfs/industryreport.pdf" },
-    { title: "Innovision Limited IPO Audio Visual (English)", url: "/images/pdfs/investor/InnovisionLimitedIPOAudioVisual(English).pdf" },
-    { title: "Innovision Limited IPO Audio Visual (Hindi)", url: "/" },
+    { title: "Innovision Limited IPO Audio Visual (English)", url: "/investors/ipo-audio-visual-english" },
+    { title: "Innovision Limited IPO Audio Visual (Hindi)", url: "/investors/ipo-audio-visual-hindi" },
     { title: "Addendum to DRHP", url: "/images/pdfs/addendumtodrhp.pdf" },
     { title: "Innovision Limited IPO Audio Visual", url: "/investors/ipo-disclaimer" },
+  ];
+
+  const materialContractsDocs: Doc[] = [
+    { title: "Offer Agreement 190824 read with amendment to the offer Agreement dated131224", url: "/images/pdfs/1. Offer Agreement 190824 read with amendment to the offer Agreement dated131224.pdf" },
+    { title: "Registrar Agreement dated 190824 read with the amendement dated 131224", url: "/images/pdfs/investor/2.Registrar Agreement dated 190824 read with the amendement dated 131224.pdf" },
+    { title: "Share Escrow Agreement dated 010925", url: "/images/pdfs/investor/3. Share Escrow Agreement dated 010925.pdf" },
+    { title: "Project Lakshya Cash Escrow Agreement (25 02 26) (2) (1)", url: "/images/pdfs/investor/4. Project Lakshya Cash Escrow Agreement (25 02 26) (2) (1).pdf" },
+    { title: "Syndicate Agreement 250226 between Company Promoter selling Shareholders BRLM Syndicate Members and RTA", url: "/images/pdfs/investor/5.Syndicate Agreement 250226 between Company Promoter selling Shareholders BRLM Syndicate Members andRTA (1).pdf" },
+    { title: "Monitoring Agency Agreement 071025", url: "/images/pdfs/investor/6. Monitoring Agency Agreement 071025.pdf" },
+  ];
+
+  const materialDocumentsDocs: Doc[] = [
+    { title: "Certified Copies of MOA and AOA of", url: "/images/pdfs/1. Certified Copies of MOA and AOA of.pdf" },
+    { title: "Certificate of Incorporation dated 11012007 under the anem SRT Innvosion Services Private Limited", url: "/images/pdfs/2. Certificate of Incorporation dated 11012007 under the anem SRT Innvosion Services Private Limited.PDF" },
+    { title: "Fresh Certificate of Incorporation dated 22122010 Consequent upon Change of Name from SRT Innvoison Services Pvt Ltd to SRT Innovision Services Ltd (3)", url: "/images/pdfs/3.Fresh Certificate of Incorporation dated 22122010 Consequent upon Change of Name from SRT Innvoison Services Pvt Ltd to SRT Innovision Services Ltd (3).PDF" },
+    { title: "Fresh Certificate of Incorporation dated 01032011 consequent upon change of name from SRT Innovision Services Ltd to Innovision Ltd", url: "/images/pdfs/4. Fresh Certificate of Incorporation dated 01032011 consequent upon change of name from SRT Innovision Services Ltd to Innovision Ltd.PDF" },
+    { title: "CTC_09.12.24_raising capital through IPO_compressed", url: "/images/pdfs/5.CTC_09.12.24_raising capital through IPO_compressed.pdf" },
+    { title: "CTC_30.09.25_approval of modification in Issue Size_compressed", url: "/images/pdfs/6. CTC_30.09.25_approval of modification in Issue Size_compressed.pdf" },
+    { title: "CTC_10.12.24_EGM_raising funds from IPO with Notice", url: "/images/pdfs/7. CTC_10.12.24_EGM_raising funds from IPO with Notice.pdf" },
+    { title: "Resolution of the Board 121224 and Resolution of IPO Committee 131224 approving DRHP", url: "/images/pdfs/8. Resolution of the Board 121224 and Resolution of IPO Committee 131224 approving DRHP.pdf" },
+    { title: "CTC_IPO Committee_Approval of RHP", url: "/images/pdfs/9. CTC_IPO Committee_Approval of RHP.pdf" },
+    { title: "Examination Report dated 270126 of Statutory Auditors on Restated Consolidated Financials 30.09.25", url: "/images/pdfs/investor/10. Examination Report dated 270126 of Statutory Auditors on Restated Consolidated Financials 30.09.25.PDF" },
+    { title: "Statement of Special tax Benfit", url: "/images/pdfs/12. Statement of Special tax Benfit.PDF" },
+    { title: "In-Principle listing approval each dated 11022025 issed by BSE and NSE", url: "/images/pdfs/13. In-Principle listing approval each dated 11022025 issed by BSE and NSE.pdf" },
+  ];
+
+  const consentsDocs: Doc[] = [
+    { title: "Consents From Directors, Bankers, BRLM, KMP, RTA, Monitaring Agency, Legal Council", url: "/images/pdfs/14. Consents From Directors, Bankers, BRLM, KMP, RTA, Monitaring Agency, Legal Council.pdf" },
+    { title: "WrittenConsent letter 020326 of statutory auditor", url: "/images/pdfs/15 WrittenConsent letter 020326 of statutory auditor.pdf" },
+    { title: "Certificate on WACA", url: "/images/pdfs/16.1Certificate on WACA.PDF" },
+    { title: "Working Capital", url: "/images/pdfs/16.2 Working Capital.PDF" },
+    { title: "CERTIFICATE ON KPI(MCMD)", url: "/images/pdfs/16.3 CERTIFICATE ON KPI(MCMD).PDF" },
+    { title: "CERTIFICATE ON FINANCIAL INDEBTEDNESS", url: "/images/pdfs/16.4 CERTIFICATE ON FINANCIAL INDEBTEDNESS.PDF" },
+    { title: "CERTIFICATE ON OUTSTANDING DUES TO CREDITORS", url: "/images/pdfs/16.5 CERTIFICATE ON OUTSTANDING DUES TO CREDITORS.PDF" },
+    { title: "Basis for Offer Price", url: "/images/pdfs/16.6 Basis for Offer Price.PDF" },
+    { title: "CERTIFICATE ON REPAYMENT OF LOAN FORMING PART OF OBJECT", url: "/images/pdfs/16.7 CERTIFICATE ON REPAYMENT OF LOAN FORMING PART OF OBJECT.PDF" },
+    { title: "Industry Research Report on Manpower Toll Mgt and Drone Industries dated 280126 prepared by Careedge Research", url: "/images/pdfs/17. Industry Research Report on Manpower Toll Mgt and Drone Industries dated 280126 prepared by Careedge Research.pdf" },
+    { title: "Written Consent from CareEdge Research dated 280126", url: "/images/pdfs/18. Written Consent from CareEdge Research dated 280126.pdf" },
+    { title: "Tripartite agreement dated 170524 between CO NSDLand RTA", url: "/images/pdfs/19.Tripartite agreement dated 170524 between CO NSDLand RTA.pdf" },
+    { title: "Tripartite agreement dated 140624 between Company CDSL & RTA", url: "/images/pdfs/20. Tripartite agreement dated 140624 between Company CDSL & RTA.pdf" },
+    { title: "Due Diligence Certificate 13122024 addressed to SEBI from BRLM", url: "/images/pdfs/21. Due Diligence Certificate 13122024 addressed to SEBI from BRLM.pdf" },
+    { title: "SEBI final observation letter ref no SEBI-CFD-DIL2-2025-8022-1 dated 12032025", url: "/images/pdfs/22. SEBI final observation letter ref no SEBI-CFD-DIL2-2025-8022-1 dated 12032025.pdf" },
+    { title: "Show Cause Notice debarment orders issued by NHAI and Stay orders by Delhi HC", url: "/images/pdfs/23. Show Cause Notice debarment orders issued by NHAI and Stay orders by Delhi HC.pdf" },
   ];
 
   const subsidiary2023: CompanyDocs[] = [
     {
       company: "Aerodrone Robotics Pvt Ltd",
       docs: [
-        { title: "INDEPENDENT AUDITORS REPORT MARCH24", url: "/images/pdfs/independentauditorsreportmarch24.pdf" },
+        { title: "INDEPENDENT AUDITORS REPORT MARCH24", url: "/images/pdfs/INDEPENDENTAUDITORSREPORTMARCH24.pdf" },
         { title: "SIGNIFICANT POLICIES", url: "/images/pdfs/SIGNIFICANT POLICIES.pdf" },
         { title: "Aerodrone Balance Sheet March 24", url: "/images/pdfs/Aerodrone Balance Sheet March 24.pdf" },
       ],
@@ -222,6 +273,41 @@ export default function InvestorsTabs() {
         { title: "APOINT NOTES MARCH-25", url: "/images/pdfs/Apoint Notes March-25.pdf" },
       ],
     },
+  ];
+
+  const regulation46Disclosures: Doc[] = [
+    { title: "Details of Business", url: "/" },
+    { title: "Memorandum of Association and Articles of Association", url: "/investors" },
+    { title: "Brief profile of Board of Directors", url: "/" },
+    { title: "Terms and Conditions of appointment of the Independent Directors", url: "/" },
+    { title: "Composition of Committees", url: "/" },
+    { title: "Code of Conduct", url: "/" },
+    { title: "Our Code", url: "/" },
+    { title: "Vigil Mechanism and Whistle-Blower Policy", url: "/" },
+    { title: "Remuneration Policy for Directors", url: "/" },
+    { title: "Policy on Materiality of Related Party Transactions and on Dealing with Related Party Transaction", url: "/" },
+    { title: "Policy for determining Material Subsidiaries", url: "/" },
+    { title: "Familiarisation Programme for Independent Directors", url: "/" },
+    { title: "Contact Details", url: "/" },
+    { title: "Notice of Board Meeting", url: "/" },
+    { title: "Financial Result(s)", url: "/" },
+    { title: "Annual Report(s)", url: "/" },
+    { title: "Shareholding Pattern", url: "/" },
+    { title: "Schedule of analysts or institutional investors meet", url: "/" },
+    { title: "Presentations made to analysts or institutional investors", url: "/" },
+    { title: "Audio and Video Recordings", url: "/" },
+    { title: "Transcripts of Post Earnings Conference Calls", url: "/" },
+    { title: "Newspaper Advertisement", url: "/" },
+    { title: "Credit Rating", url: "/" },
+    { title: "Audited Financial Statements of Subsidiaries", url: "/" },
+    { title: "Secretarial Audit Report of Material Subsidiaries", url: "/" },
+    { title: "Secretarial Compliance Report", url: "/" },
+    { title: "Policy on Determination and Disclosure of Materiality of Events and Information and Web Archival Policy", url: "/" },
+    { title: "Contact details of personnel authorised to determine materiality of event and information", url: "/" },
+    { title: "Disclosure under Regulation 30(8)", url: "/" },
+    { title: "Statement of deviation or variation", url: "/" },
+    { title: "Dividend Distribution Policy", url: "/" },
+    { title: "Annual Return", url: "/" },
   ];
 
   const annualReports: Doc[] = [
@@ -326,6 +412,10 @@ export default function InvestorsTabs() {
                 <h2 className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl">Investor Documents</h2>
               </div>
 
+              <SmoothAccordion title="Filter by financial year: 2022-2023">
+                <DocList title="" docs={investorRelations2022} />
+              </SmoothAccordion>
+
               <SmoothAccordion title="Filter by financial year: 2023-2024">
                 <DocList title="" docs={investorRelations2023} />
               </SmoothAccordion>
@@ -348,7 +438,12 @@ export default function InvestorsTabs() {
               </SmoothAccordion>
 
               <SmoothAccordion title="IPO Offer Documents">
-                <DocList title="" docs={ipoDocs} />
+                <DocList title="IPO Documents" docs={ipoDocs} />
+              </SmoothAccordion>
+
+              <SmoothAccordion title="Material Contracts & Material Documents" contentClassName="mt-0 space-y-6 bg-white p-5">
+                <DocList title="Material Contracts" docs={materialContractsDocs} />
+                <DocList title="Material Documents" docs={[...materialDocumentsDocs, ...consentsDocs]} />
               </SmoothAccordion>
 
               <SmoothAccordion title="Subsidiary Financials" contentClassName="mt-5 grid gap-6 bg-white p-5 lg:grid-cols-2">
@@ -389,6 +484,10 @@ export default function InvestorsTabs() {
                       ))}
                     </div>
                   </div>
+              </SmoothAccordion>
+
+              <SmoothAccordion title="Disclosures under Regulation 46 of SEBI (LODR) Regulations, 2015">
+                <DocList title="Disclosures under Regulation 46" docs={regulation46Disclosures} />
               </SmoothAccordion>
             </motion.section>
           )}

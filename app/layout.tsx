@@ -69,6 +69,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://innovision.co.in',
   },
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+    shortcut: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
@@ -79,8 +84,19 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className={`${inter.variable} ${albertus.variable} ${inter.className}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ19SSEV4W" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-FJ19SSEV4W');
+            `,
+          }}
+        />
+        <link rel="icon" href="/images/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#EF2B2D" />
         <meta name="format-detection" content="telephone=yes" />

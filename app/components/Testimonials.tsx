@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Testimonials() {
 	const videoTestimonials = [
@@ -79,10 +78,10 @@ export default function Testimonials() {
 									<p className="line-clamp-2 text-sm text-neutral-600">
 										"{video.preview}"
 									</p>
-									<Link href="/investors/ipo-disclaimer/confirm" className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-[#EF2B2D] transition group-hover:gap-3">
+									<a href="/investors/ipo-disclaimer/confirm" className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-[#EF2B2D] transition group-hover:gap-3">
 										Watch Video
 										<span>→</span>
-									</Link>
+									</a>
 								</div>
 							</motion.div>
 						))}

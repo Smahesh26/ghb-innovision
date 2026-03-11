@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
@@ -246,19 +245,18 @@ export default function IpoDisclaimerPage() {
 
           {/* Action Buttons */}
           <div className="mt-10 flex flex-col gap-4 border-t border-neutral-200 pt-8 sm:flex-row sm:justify-end">
-            <Link
+            <a
               href="/"
               className="inline-flex items-center justify-center rounded-sm border border-neutral-300 bg-white px-8 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-neutral-700 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50"
             >
               Go Back
-            </Link>
-            <Link
+            </a>
+            <a
               href="/investors/ipo-disclaimer/confirm"
-              scroll
               className="inline-flex items-center justify-center rounded-sm border border-[#EF2B2D] bg-gradient-to-r from-[#EF2B2D] to-[#d62426] px-8 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white shadow-[0_10px_25px_rgba(239,43,45,0.35)] transition-all duration-300 hover:shadow-[0_15px_35px_rgba(239,43,45,0.45)]"
             >
               Continue
-            </Link>
+            </a>
           </div>
         </div>
       </div>

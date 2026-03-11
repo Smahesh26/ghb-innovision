@@ -19,32 +19,32 @@ export default function MannedPrivateSecurityPage() {
     {
       title: "Unarmed Security Services",
       description: "We offer highly trained security guards, supervisors, and officers, ensuring frontline safety for your assets and personnel. Our security guards are proficient in security protocols and emergency response, while supervisors manage day-to-day operations, ensuring coordination...",
-      image: "/images/services/armed forces.jpg",
+      image: "/mannedservices/unarmed-security-services-2.jpg",
     },
     {
       title: "Armed Security Services",
       description: "Innovision Limited delivers top-tier armed security services with skilled, licensed personnel. Our trained gunmen are prepared to protect high-value assets and respond swiftly to critical situations, ensuring optimal safety through precision, expertise, and unwavering dedication.",
-      image: "/images/Armed Security Services.jpeg",
+      image: "/mannedservices/armed-security-services.jpg",
     },
     {
       title: "Event Security",
       description: "We provide specialized event security through trained personnel and bouncers who excel in conflict de-escalation and physical protection. Our team ensures a safe, secure environment for all guests, maintaining order and preventing disruptions during events,...",
-      image: "/images/services/eventsecurity.jpg",
+      image: "/mannedservices/event-security.jpg",
     },
     {
       title: "Executive Protection",
       description: "Innovision Limited offers highly trained, licensed Personal Security Officers (PSOs) for executive protection. Our armed PSOs are equipped to handle high-risk environments, ensuring the safety of high-profile individuals and key assets, delivering personalized protection in...",
-      image: "/images/services/executive prtotection.jpg",
+      image: "/mannedservices/executive-protection.jpg",
     },
     {
       title: "Fire and Safety Services",
       description: "Our certified fire safety experts offer comprehensive risk assessments, implement prevention strategies, and provide emergency response training. Focused on safeguarding people and property, we help clients maintain compliance with safety regulations while minimizing fire risks...",
-      image: "/images/services/firesafety.jpg",
+      image: "/mannedservices/fire-and-safety-services.jpg",
     },
     {
       title: "Command & Control Center",
       description: "Innovision Limited's advanced Command & Control Center supports specialized security operations with skilled personnel and cutting-edge surveillance technology. Our team monitors live video feeds from connected CCTV systems, providing real-time situational awareness and quick response...",
-      image: "/images/services/command control center.jpg",
+      image: "/mannedservices/command-and-control-center.jpg",
     },
   ];
 

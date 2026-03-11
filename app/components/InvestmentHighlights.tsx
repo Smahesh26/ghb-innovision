@@ -15,7 +15,7 @@ const highlights = [
 		),
 	},
 	{
-		metric: "₹1000+ Cr",
+		metric: "₹500+ Cr",
 		unit: "Order Book",
 		title: "Strong Order Book",
 		description: "Secured contracts worth over ₹1000 crores providing robust revenue pipeline and business continuity",
@@ -26,7 +26,7 @@ const highlights = [
 		),
 	},
 	{
-		metric: "3-5 Years",
+		metric: "3 Years",
 		unit: "Visibility",
 		title: "Forward Revenue Visibility",
 		description: "Long-term multi-year contracts ensuring predictable cash flows and sustainable growth trajectory",
@@ -37,9 +37,9 @@ const highlights = [
 		),
 	},
 	{
-		metric: "15+",
-		unit: "States",
-		title: "Multi-State Presence",
+		metric: "23",
+		unit: "States &",
+		title: "5 Union Territories",
 		description: "Pan-India operational infrastructure across 15+ states with localized service delivery capabilities",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -60,7 +60,7 @@ const highlights = [
 		),
 	},
 	{
-		metric: "20,000+",
+		metric: "15,000+",
 		unit: "Workforce",
 		title: "Scale & Deployment Capacity",
 		description: "Trained and deployed personnel serving mission-critical operations nationwide with rapid mobilization capability",
@@ -71,7 +71,7 @@ const highlights = [
 		),
 	},
 	{
-		metric: "2,000+",
+		metric: "Up To 1000+",
 		unit: "Active Sites",
 		title: "Operational Footprint",
 		description: "Active deployment across corporate campuses, government facilities, toll plazas, and infrastructure projects",
