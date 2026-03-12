@@ -125,7 +125,10 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-white/70">
               <li className="flex items-start gap-3 transition hover:text-white">
                 <span className="text-[#EF2B2D] text-lg">📞</span>
-                <a href="tel:01242341602" className="break-words">0124-2341602</a>
+                <div className="flex flex-col gap-1">
+                  <a href="tel:01244387354" className="break-words">0124-4387354</a>
+                  <a href="tel:01242341602" className="break-words">0124-2341602</a>
+                </div>
               </li>
               <li className="flex items-start gap-3 transition hover:text-white">
                 <span className="text-[#EF2B2D] text-lg">📧</span>
