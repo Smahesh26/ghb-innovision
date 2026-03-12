@@ -94,7 +94,7 @@ export default function QuickLinksPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/50" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.15),transparent_42%)]" />
 
-        <div className="relative mx-auto flex min-h-[64vh] max-w-7xl flex-col items-center justify-center px-6 pb-16 pt-28 text-center text-white">
+        <div className="relative mx-auto flex min-h-[64vh] max-w-7xl flex-col items-center justify-center px-6 pb-16 pt-36 sm:pt-40 text-center text-white">
           <p className="text-xs font-semibold uppercase tracking-[0.45em] text-white/65">
             Quick Access
           </p>

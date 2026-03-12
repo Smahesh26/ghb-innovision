@@ -137,7 +137,7 @@ export default function CertificatesPage() {
 			<Header />
 			
 			{/* Hero Section with Parallax */}
-			<section className="relative min-h-[62vh] bg-gradient-to-br from-neutral-900 via-black to-neutral-900 pt-32 pb-12 overflow-hidden">
+			<section className="relative min-h-[62vh] bg-gradient-to-br from-neutral-900 via-black to-neutral-900 pt-40 pb-12 md:pt-40 overflow-hidden">
 				{/* Animated Background Elements */}
 				<div className="absolute inset-0">
 					<motion.div 

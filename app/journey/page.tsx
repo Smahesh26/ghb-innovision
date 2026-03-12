@@ -22,7 +22,7 @@ export default function JourneyPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-28 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-40 text-center text-white">
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <span>Timeline & Growth</span>

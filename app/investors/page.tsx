@@ -18,7 +18,7 @@ export default function InvestorsPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.18),transparent_45%)]" />
         
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 pb-14 text-center text-white sm:pt-40">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-40 pb-14 text-center text-white sm:pt-40">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 backdrop-blur-sm">
             <svg className="h-4 w-4 text-[#EF2B2D]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
@@ -70,7 +70,7 @@ export default function InvestorsPage() {
 
             {/* Header */}
             <div className="relative mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+              <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
                 Support & Resolution
               </p>
               <h2 className="mt-4 text-4xl font-bold sm:text-5xl">

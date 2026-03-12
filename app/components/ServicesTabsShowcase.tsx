@@ -108,7 +108,7 @@ export default function ServicesTabsShowcase() {
           transition={{ duration: 0.65 }}
           className="mb-14 text-center"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#EF2B2D]">Service Model</p>
+          <p className="text-s font-semibold uppercase tracking-[0.4em] text-[#EF2B2D]">Service Model</p>
           <h2 className="mx-auto mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl">
             Premium Service Architecture for Modern Operations
           </h2>

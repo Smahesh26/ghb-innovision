@@ -105,7 +105,7 @@ export default function Technology() {
 					viewport={{ once: true }}
 					className="text-center mb-20"
 				>
-					<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+					<p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 						Digital Transformation
 					</p>
 

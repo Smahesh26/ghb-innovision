@@ -83,7 +83,7 @@ export default function ManpowerSourcingPage() {
           transition={{ duration: 8.3, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-80 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-48 sm:pt-52 lg:pt-56 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function ManpowerSourcingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">About Us</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">About Us</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
               Innovision Limited: Your Trusted Partner
               <span className="mt-2 block font-semibold text-[#EF2B2D]">For Manpower Sourcing & HR Solutions</span>
@@ -191,7 +191,7 @@ export default function ManpowerSourcingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">What We Offer</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">What We Offer</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
               Our <span className="font-semibold text-[#EF2B2D]">Services</span>
             </h2>

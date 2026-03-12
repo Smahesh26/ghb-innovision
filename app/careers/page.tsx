@@ -90,7 +90,7 @@ export default function CareersPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/45 to-black/35" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.16),transparent_46%)]" />
         
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 pb-16 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-40 sm:pt-40 pb-16 text-center text-white">
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <span>Build Your Future</span>
@@ -126,7 +126,7 @@ export default function CareersPage() {
       <section className="relative bg-gradient-to-b from-white via-[#f8f8f9] to-white py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
               Why Innovision
             </p>
             <h2 className="mt-5 text-4xl font-bold text-gray-900 sm:text-5xl">
@@ -159,7 +159,7 @@ export default function CareersPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,43,45,0.12),transparent_45%)]" />
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Careers</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Careers</p>
             <h2 className="mt-5 text-4xl font-bold text-white sm:text-5xl">
               Current Openings
             </h2>
@@ -214,7 +214,7 @@ export default function CareersPage() {
       <section id="culture" className="relative bg-white py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Life at Innovision</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Life at Innovision</p>
             <h2 className="mt-5 text-4xl font-bold text-gray-900 sm:text-5xl">Culture in Motion</h2>
             <p className="mx-auto mt-6 max-w-2xl text-gray-600">
               Explore our team culture, training energy, and workplace moments through Instagram Reels.

@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/50" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(239,43,45,0.15),transparent_42%)]" />
 
-        <div className="container relative mx-auto px-6 pb-16 pt-28 text-center text-white">
+        <div className="container relative mx-auto px-6 pb-16 pt-36 sm:pt-40 text-center text-white">
           <p className="text-xs font-semibold uppercase tracking-[0.45em] text-white/65">Policy</p>
           <h1 className="mx-auto mt-5 max-w-4xl text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl">
             Privacy <span className="text-[#EF2B2D]">Policy</span>

@@ -46,7 +46,7 @@ export default function SkillDevelopmentPlacementPage() {
           ))}
         </div>
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-24 sm:pt-20 lg:pt-16 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-48 sm:pt-52 lg:pt-56 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export default function SkillDevelopmentPlacementPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Approach</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Approach</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
               Comprehensive <span className="font-semibold text-[#EF2B2D]">Placement Plan</span>
             </h2>
@@ -213,7 +213,7 @@ export default function SkillDevelopmentPlacementPage() {
             className="mb-16 overflow-hidden rounded-2xl bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20 text-center shadow-[0_22px_45px_rgba(17,24,39,0.2)]"
           >
             <div className="mx-auto max-w-4xl px-6">
-              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Strategy</p>
+              <p className="mb-6 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Strategy</p>
               <h2 className="text-4xl font-light text-white">
                 Strategy to Place the <span className="font-semibold text-[#EF2B2D]">Trained Candidate</span>
               </h2>

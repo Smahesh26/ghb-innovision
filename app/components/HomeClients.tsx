@@ -17,7 +17,7 @@ export default function HomeClients() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+          <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
             Our Clients
           </p>
 

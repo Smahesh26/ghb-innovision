@@ -260,7 +260,7 @@ export default function LeadershipTabs({
             >
               <div>
                 <div className="mb-14 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+                  <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
                     Corporate Leadership
                   </p>
                   <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Board of Directors</h2>
@@ -282,7 +282,7 @@ export default function LeadershipTabs({
 
               <div>
                 <div className="mb-14 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+                  <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
                     Governance Excellence
                   </p>
                   <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Independent Directors</h2>

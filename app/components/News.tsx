@@ -17,7 +17,7 @@ const articles = featuredBlogSlugs
 
 export default function News() {
   return (
-    <section className="relative bg-[#f7f7f5] py-28 text-neutral-900">
+    <section className="relative bg-[#f7f7f5] pt-32 pb-28 text-neutral-900">
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,43,45,0.06),transparent_65%)]" />
 
@@ -25,7 +25,7 @@ export default function News() {
 
         {/* HEADER */}
         <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+          <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
             News & Articles
           </p>
 

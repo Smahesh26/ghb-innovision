@@ -108,7 +108,7 @@ export default function Stats() {
 					viewport={{ once: true }}
 					className="max-w-3xl"
 				>
-					<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+					<p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 						Why Choose Us
 					</p>
 

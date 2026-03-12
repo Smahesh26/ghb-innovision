@@ -269,7 +269,7 @@ export default function WhyChooseUs() {
 							viewport={{ once: true }}
 							className="h-full flex flex-col justify-start pt-8 pb-8 lg:sticky lg:top-0 lg:pt-12"
 						>
-							<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+							<p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 								Why Choose Us
 							</p>
 

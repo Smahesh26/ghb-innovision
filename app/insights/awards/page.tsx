@@ -133,7 +133,7 @@ export default function AwardsPage() {
 				initial={{ opacity: 0, y: 16 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-				className="relative min-h-[62vh] bg-gradient-to-br from-neutral-900 via-black to-neutral-900 pt-32 pb-12 overflow-hidden"
+				className="relative min-h-[62vh] bg-gradient-to-br from-neutral-900 via-black to-neutral-900 pt-40 pb-12 md:pt-40 overflow-hidden"
 			>
 				{/* Animated Background Elements */}
 				<div className="absolute inset-0">

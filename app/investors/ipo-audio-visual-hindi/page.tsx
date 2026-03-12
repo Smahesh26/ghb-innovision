@@ -26,7 +26,7 @@ export default function IpoAudioVisualHindiPage() {
     <>
       <Header />
       <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#fbfbfa] via-[#f7f7f5] to-[#f2f2f0]">
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f] pb-20 pt-36 text-white sm:pt-40">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#0d0d0f] via-[#1a1a1d] to-[#0d0d0f] pb-20 pt-40 text-white sm:pt-40">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,43,45,0.18),transparent_45%)]" />
 
           <div className="relative mx-auto max-w-6xl px-6 text-center">

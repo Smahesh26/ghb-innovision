@@ -25,7 +25,7 @@ export default function LeadershipHero() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
-        className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-28 text-center text-white"
+        className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-40 text-center text-white"
       >
         <motion.div
           className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70"

@@ -136,10 +136,10 @@ export default function GalleryPage() {
 	return (
 		<>
 			<Header />
-			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
+			<main className="min-h-screen bg-[#0d0d0f] pt-40 pb-20 md:pt-40">
 				<div className="mx-auto max-w-6xl px-6">
 					<div className="mb-14">
-						<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+						<p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 							Insights
 						</p>
 						<h1 className="mt-4 text-5xl font-bold text-white">

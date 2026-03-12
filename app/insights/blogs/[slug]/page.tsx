@@ -34,7 +34,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
 
-					<div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-32 pb-12 text-center text-white">
+					<div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-40 sm:pt-40 pb-12 text-center text-white">
 						<div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
 							<span className="h-px w-12 bg-[#EF2B2D]" />
 							<span>{blog.category}</span>
@@ -84,7 +84,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 						<section className="mt-20">
 							<div className="mb-10 flex items-center gap-4">
 								<span className="h-px w-12 bg-[#EF2B2D]" />
-								<p className="text-xs font-semibold uppercase tracking-[0.4em] text-black/60">
+								<p className="text-s font-semibold uppercase tracking-[0.4em] text-black/60">
 									News & Articles
 								</p>
 								<span className="h-px flex-1 bg-black/10" />

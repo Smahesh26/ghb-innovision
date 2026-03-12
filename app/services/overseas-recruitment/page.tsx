@@ -29,7 +29,7 @@ export default function OverseasRecruitmentPage() {
           transition={{ duration: 8.3, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-48 sm:pt-52 lg:pt-56 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export default function OverseasRecruitmentPage() {
               transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Global Workforce</p>
+              <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Global Workforce</p>
               <h2 className="mt-6 text-4xl font-light text-gray-900">
                 Explore Global Opportunities with
                 <span className="mt-2 block font-semibold text-[#EF2B2D]">Overseas Recruitment</span>
@@ -139,7 +139,7 @@ export default function OverseasRecruitmentPage() {
               whileHover={{ y: -4 }}
               className="rounded-2xl border border-[#EF2B2D]/30 bg-gradient-to-br from-[#EF2B2D]/10 to-transparent p-12 text-white shadow-[0_14px_35px_rgba(239,43,45,0.14)] transition-all"
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Mission</p>
+              <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Mission</p>
               <h2 className="mb-6 text-2xl font-light">Connecting India&apos;s Talent with Global Opportunities</h2>
               <p className="text-sm leading-relaxed text-gray-300">
                 At Innovision Limited, we aim to connect India&apos;s talent with global opportunities, empowering individuals and driving economic growth through skilled international placements.
@@ -154,7 +154,7 @@ export default function OverseasRecruitmentPage() {
               whileHover={{ y: -4 }}
               className="rounded-2xl border border-white/10 bg-white/5 p-12 text-white shadow-[0_14px_35px_rgba(17,24,39,0.2)] transition-all"
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Vision</p>
+              <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Vision</p>
               <h2 className="mb-6 text-2xl font-light">Breaking Barriers, Building Futures</h2>
               <p className="text-sm leading-relaxed text-gray-300">
                 To be a trusted leader in international recruitment, breaking barriers to create a world where talent thrives beyond borders.
@@ -174,7 +174,7 @@ export default function OverseasRecruitmentPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-12 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">What Sets Us Apart</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">What Sets Us Apart</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
               Our Unique <span className="font-semibold text-[#EF2B2D]">Approach</span>
             </h2>
@@ -213,7 +213,7 @@ export default function OverseasRecruitmentPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">The Advantage</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">The Advantage</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
               Why Choose <span className="font-semibold text-[#EF2B2D]">Innovision Limited?</span>
             </h2>

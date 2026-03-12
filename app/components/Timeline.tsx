@@ -149,7 +149,7 @@ export default function Timeline() {
 					viewport={{ once: true }}
 					className="shrink-0 pt-12 text-center md:pt-14"
 				>
-					<p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
+					<p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">
 						Corporate Evolution
 					</p>
 

@@ -42,7 +42,7 @@ export default function InsightsPage() {
 	return (
 		<>
 			<Header />
-			<main className="min-h-screen bg-[#0d0d0f] pt-32 pb-20">
+			<main className="min-h-screen bg-[#0d0d0f] pt-40 pb-20 md:pt-40">
 				<div className="mx-auto max-w-7xl px-6">
 					{/* Hero Section */}
 					<div className="mb-20 text-center">

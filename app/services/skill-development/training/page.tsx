@@ -38,7 +38,7 @@ export default function SkillDevelopmentTrainingPage() {
           transition={{ duration: 8.2, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-40 sm:pt-40 lg:pt-44 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-50px" }}
               className="flex flex-col justify-center lg:col-span-3"
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">About Our Training</p>
+              <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">About Our Training</p>
               <h2 className="mb-8 text-4xl font-light leading-tight text-gray-900">
                 Innovision: Empowering
                 <span className="mt-2 block font-semibold text-[#EF2B2D]">India's Workforce</span>
@@ -123,7 +123,7 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-100px" }}
               className="mb-16 text-center"
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Process</p>
+              <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Process</p>
               <h2 className="text-4xl font-light text-gray-900 sm:text-5xl">
                 Training <span className="font-semibold text-[#EF2B2D]">Approach</span>
               </h2>
@@ -187,7 +187,7 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-50px" }}
               className="flex flex-col justify-center lg:col-span-2"
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Facilities</p>
+              <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Facilities</p>
               <h2 className="mb-8 text-3xl font-light text-gray-900">
                 State-of-the-Art
                 <span className="mt-2 block font-semibold text-[#EF2B2D]">Training Centers</span>
@@ -219,13 +219,13 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-50px" }}
               className="lg:col-span-3"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-[0_14px_40px_rgba(17,24,39,0.10)]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-[0_14px_40px_rgba(17,24,39,0.10)]">
                 <Image
                   src="/images/skill-training2.jpg"
                   alt="Training Facilities"
                   fill
                   sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                 />
                 <div className="absolute bottom-0 right-0 h-1 w-32 bg-[#EF2B2D]" />
               </div>
@@ -241,7 +241,7 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-100px" }}
               className="mb-16 text-center"
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">What We Offer</p>
+              <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">What We Offer</p>
               <h2 className="text-4xl font-light text-gray-900">
                 Comprehensive Training <span className="font-semibold text-[#EF2B2D]">Delivery</span>
               </h2>
@@ -298,7 +298,7 @@ export default function SkillDevelopmentTrainingPage() {
               viewport={{ once: true, margin: "-50px" }}
               className="flex flex-col justify-center lg:col-span-3"
             >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Quality Assurance</p>
+              <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Quality Assurance</p>
               <h2 className="mb-8 text-3xl font-light text-gray-900">
                 Rigorous Assessment and
                 <span className="mt-2 block font-semibold text-[#EF2B2D]">Certification</span>
@@ -333,7 +333,7 @@ export default function SkillDevelopmentTrainingPage() {
             className="bg-gradient-to-br from-[#0d0d0f] to-[#1a1a1d] py-20 text-center"
           >
             <div className="mx-auto max-w-4xl px-6">
-              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Mission</p>
+              <p className="mb-6 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Mission</p>
               <h2 className="mb-12 text-4xl font-light text-white">
                 The Innovision <span className="font-semibold text-[#EF2B2D]">Advantage</span>
               </h2>

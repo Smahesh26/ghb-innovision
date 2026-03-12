@@ -15,7 +15,7 @@ export default function ClientsPage() {
       <Header />
       
       {/* Hero Banner for Clients Page */}
-      <section className="relative w-full overflow-hidden bg-black py-20 sm:py-24 lg:py-28">
+      <section className="relative w-full overflow-hidden bg-black py-28 sm:py-32 lg:py-36">
         <div className="absolute inset-0 opacity-[0.06]">
           <div className="absolute inset-0" style={{
             backgroundImage: `repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 40px),
@@ -23,7 +23,7 @@ export default function ClientsPage() {
           }} />
         </div>
         
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center justify-center px-6 text-center">
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center justify-center px-6 pt-14 sm:pt-16 text-center">
           <div className="flex items-center gap-4 text-xs uppercase tracking-[0.4em] text-white/70">
             <span className="h-px w-12 bg-[#EF2B2D]" />
             <span>Trusted Partnerships</span>

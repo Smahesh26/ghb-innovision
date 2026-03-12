@@ -328,7 +328,7 @@ export default function DroneTrainingPage() {
               viewport={{ once: true, margin: "-50px" }}
               className="lg:col-span-2"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Aerodrone Robotics</p>
+              <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Aerodrone Robotics</p>
               <h2 className="mt-6 text-4xl font-light leading-tight text-gray-900">
                 India's Premium
                 <span className="mt-2 block font-semibold text-[#EF2B2D]">Remote Pilot Training Organisation</span>
@@ -381,7 +381,7 @@ export default function DroneTrainingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-12 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Get To Know Us</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Get To Know Us</p>
           </motion.div>
 
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -451,7 +451,7 @@ export default function DroneTrainingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Why Choose Us</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Why Choose Us</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
               Why Choose <span className="font-semibold text-[#EF2B2D]">Aerodrone Robotics?</span>
             </h2>
@@ -494,7 +494,7 @@ export default function DroneTrainingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Aerodrone Robotics</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Aerodrone Robotics</p>
             <h2 className="mt-6 text-4xl font-light text-white">
               Our <span className="font-semibold text-[#EF2B2D]">Courses</span>
             </h2>
@@ -584,7 +584,7 @@ export default function DroneTrainingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Pricing</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Pricing</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
               Course <span className="font-semibold text-[#EF2B2D]">Fee Details</span>
             </h2>
@@ -694,7 +694,7 @@ export default function DroneTrainingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Work</p>
+            <p className="text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Work</p>
             <h2 className="mt-6 text-4xl font-light text-gray-900">
               Training <span className="font-semibold text-[#EF2B2D]">Gallery</span>
             </h2>

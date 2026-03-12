@@ -37,7 +37,7 @@ export default function SkillDevelopmentProjectPage() {
           transition={{ duration: 8.2, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-32 lg:pt-28 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-40 sm:pt-40 lg:pt-44 pb-10 sm:pb-8 lg:pb-0 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export default function SkillDevelopmentProjectPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-20 text-center"
           >
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Programs</p>
+            <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Our Programs</p>
             <h2 className="text-4xl font-medium leading-tight text-gray-900 sm:text-5xl">
               Government Schemes
               <span className="mt-2 block font-semibold text-[#EF2B2D]">Undertaken By Innovision Limited</span>
@@ -122,7 +122,7 @@ export default function SkillDevelopmentProjectPage() {
           >
             {/* MSDE Introduction */}
             <div className="mx-auto max-w-4xl py-16 text-center">
-              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Ministry of Skill Development</p>
+              <p className="mb-6 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Ministry of Skill Development</p>
               <h3 className="mb-6 text-3xl font-medium leading-tight text-gray-900 sm:text-4xl">
                 Empower Your Future with
                 <span className="mt-2 block font-semibold text-[#EF2B2D]">Skill Certification from MSDE</span>
@@ -136,7 +136,7 @@ export default function SkillDevelopmentProjectPage() {
             {/* ========== RPL SECTION ========== */}
             <div className="space-y-16">
               <div className="text-center">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Certification Program</p>
+                <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Certification Program</p>
                 <h3 className="text-3xl font-medium text-gray-900">
                   <span className="font-semibold">RPL</span> — Recognition of Prior Learning
                 </h3>
@@ -327,7 +327,7 @@ export default function SkillDevelopmentProjectPage() {
             {/* ========== STT SECTION ========== */}
             <div className="space-y-16">
               <div className="text-center">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Training Program</p>
+                <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Training Program</p>
                 <h3 className="text-3xl font-medium text-gray-900">
                   <span className="font-semibold">STT</span> — Short Term Training
                 </h3>
@@ -353,7 +353,7 @@ export default function SkillDevelopmentProjectPage() {
             {/* ========== CSR SECTION ========== */}
             <div className="space-y-16">
               <div className="text-center">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Social Initiative</p>
+                <p className="mb-4 text-s font-semibold uppercase tracking-[0.5em] text-[#EF2B2D]">Social Initiative</p>
                 <h3 className="text-3xl font-medium text-gray-900">
                   <span className="font-semibold">CSR</span> — Corporate Social Responsibility
                 </h3>

@@ -112,7 +112,7 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20" />
         
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-28 text-center text-white">
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 pt-36 sm:pt-40 text-center text-white">
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex items-center gap-2 text-xs text-white/70" itemScope itemType="https://schema.org/BreadcrumbList">
