@@ -40,7 +40,7 @@ const highlights = [
 		metric: "23",
 		unit: "States &",
 		title: "5 Union Territories",
-		description: "Pan-India operational infrastructure across 15+ states with localized service delivery capabilities",
+		description: "Pan-India operational infrastructure across 23 states with localized service delivery capabilities",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
 				<path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -71,7 +71,7 @@ const highlights = [
 		),
 	},
 	{
-		metric: "Up To 1000+",
+		metric: "1000+",
 		unit: "Active Sites",
 		title: "Operational Footprint",
 		description: "Active deployment across corporate campuses, government facilities, toll plazas, and infrastructure projects",
