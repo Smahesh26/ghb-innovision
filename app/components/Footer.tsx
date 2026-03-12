@@ -134,8 +134,7 @@ export default function Footer() {
               <li className="flex items-start gap-3 transition hover:text-white">
                 <span className="text-[#EF2B2D] text-lg">📍</span>
                 <span>
-                  First Floor, 1/209, Sadar Bazaar, Delhi Cantonment,
-                  New Delhi 110010
+                  Plot no. 251, Udyog Vihar, Phase IV, Sector 18, Gurgaon, Haryana - 122015
                 </span>
               </li>
             </ul>

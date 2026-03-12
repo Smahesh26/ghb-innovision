@@ -154,7 +154,7 @@ export default function Timeline() {
 					</p>
 
 					<h2 className="mt-5 text-4xl font-bold sm:text-5xl">
-						From Security Provider<br />to Infrastructure Partner
+						From Security Provider<br />to Global Infrastructure Partner
 					</h2>
 
 					<p className="mx-auto mt-6 max-w-3xl text-base text-white/70 leading-relaxed">

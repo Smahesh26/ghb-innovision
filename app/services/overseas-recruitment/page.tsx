@@ -193,7 +193,7 @@ export default function OverseasRecruitmentPage() {
                 At Innovision Limited, we distinguish ourselves through our comprehensive approach to international recruitment. As an authorized Recruiting Agent from India, we hold an <strong className="text-[#EF2B2D]">RA License (Delhi/Company/5815365/2023)</strong> certified under section 11 of the Emigration Act 1983 by the Ministry of External Affairs, Government of India.
               </p>
               <p>
-                Additionally, we collaborate with the National Skills Development Corporation (NSDC), the Ministry of Rural Development (MORD), as well as central and state governments, NGOs, and large private organizations to support the national goal of creating a skilled workforce.
+                Additionally, we collaborate with the National Skills Development Corporation (NSDC), the Ministry of Rural Development (MORD), as well as central and state governments, NGOs, and large private Organisations to support the national goal of creating a skilled workforce.
               </p>
               <p>
                 Our experienced team meticulously screens and shortlists candidates, conducting preliminary interviews to ensure the best fit for our clients&apos; needs. We take pride in our well-established office, staffed by highly qualified personnel dedicated to meeting the rigorous recruitment standards of our international clients.

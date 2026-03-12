@@ -59,7 +59,7 @@ export default function MoreAboutUs() {
             {/* Label */}
             <motion.p
               variants={itemVariants}
-              className="text-xs font-semibold uppercase tracking-[0.45em] text-[#EF2B2D]"
+              className="text-S font-semibold uppercase tracking-[0.45em] text-[#EF2B2D]"
             >
               More About Us
             </motion.p>

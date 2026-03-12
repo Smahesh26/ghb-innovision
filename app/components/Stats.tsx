@@ -9,7 +9,7 @@ const highlights = [
 	{ label: "Service Standards" },
 	{ label: "55+ Locations" },
 	{ label: "Training Centers" },
-	{ label: "Client-Focused Organization" },
+	{ label: "Client-Focused Organisation" },
 	{ label: "Diverse Clientele" },
 	{ label: "Risk Management & Audit" },
 ];

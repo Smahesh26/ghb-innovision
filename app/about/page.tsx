@@ -5,11 +5,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us - Company Profile & Leadership",
-  description: "Discover Innovision Limited's journey since 2007. From 10 guards to 20,000+ workforce, 1000+ clients, 2,000+ sites. Learn about our governance, technology, and leadership preparing for IPO 2025. ISO 9001:2015 & 45001:2018 certified.",
+  description: "Discover Innovision Limited's journey since 2007. From 10 guards to 15,000+ workforce, 1000+ clients, up to 1000+ sites. Learn about our governance, technology, and leadership preparing for IPO 2025. ISO 9001:2015 & 45001:2018 certified.",
   keywords: ['about innovision', 'company profile', 'security company India', 'Lt Col Randeep Hundal', 'IPO 2025', 'integrated security provider', 'facility management company', 'corporate governance', 'ISO certified security'],
   openGraph: {
     title: 'About Innovision Limited - 19+ Years of Excellence in Security Services',
-    description: 'From 10 guards to 20,000+ workforce. Discover our journey, leadership, and vision for integrated security and infrastructure services in India.',
+    description: 'From 10 guards to 15,000+ workforce. Discover our journey, leadership, and vision for integrated security and infrastructure services in India.',
     url: 'https://innovision.co.in/about',
     siteName: 'Innovision Limited',
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About Innovision Limited - 19+ Years of Excellence',
-    description: 'From 10 guards to 20,000+ workforce. Discover our journey, leadership, and vision.',
+    description: 'From 10 guards to 15,000+ workforce. Discover our journey, leadership, and vision.',
     images: ['/images/banner1.png'],
   },
   alternates: {
@@ -39,20 +39,20 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "mainEntity": {
-      "@type": "Organization",
+      "@type": "Organisation",
       "name": "Innovision Limited",
       "url": "https://innovision.co.in",
       "foundingDate": "2007",
       "founder": {
         "@type": "Person",
-        "name": "Lt. Col. Randeep Hundal",
+        "name": "Lt Col Randeep Hundal",
         "jobTitle": "Managing Director"
       },
       "numberOfEmployees": {
         "@type": "QuantitativeValue",
-        "value": 20000
+        "value": 15000
       },
-      "description": "Innovision Limited has grown from a team of 10 security guards in 2007 to India's leading integrated security and infrastructure services provider with 20,000+ workforce, 1000+ clients, and operations across 15 states.",
+      "description": "Innovision Limited has grown from a team of 10 security guards in 2007 to India's leading integrated security and infrastructure services provider with 15,000+ workforce, 1000+ clients, and operations across 15 states.",
       "areaServed": [
         "Haryana", "West Bengal", "Odisha", "Rajasthan", "Delhi", "Punjab",
         "Uttar Pradesh", "Chhattisgarh", "Bihar", "Madhya Pradesh",

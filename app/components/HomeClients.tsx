@@ -22,7 +22,7 @@ export default function HomeClients() {
           </p>
 
           <h2 className="mt-5 text-4xl font-bold sm:text-5xl">
-            Trusted By Leading Organizations
+            Trusted By Leading Organisations
           </h2>
 
           <div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />

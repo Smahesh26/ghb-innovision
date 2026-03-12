@@ -10,15 +10,15 @@ export default function ManpowerSourcingPage() {
   const services = [
     {
       title: "Recruitment Solutions",
-      description: "At Innovision Limited, we specialize in offering tailored recruitment solutions that span from entry-level positions to senior executive roles. Our deep understanding of diverse industries and job markets enables us to meet the unique HR needs of our clients effectively. Whether you're looking for fresh talent or seasoned professionals, our recruitment strategies ensure you get the right fit for your organization.",
+      description: "At Innovision Limited, we specialize in offering tailored recruitment solutions that span from entry-level positions to senior executive roles. Our deep understanding of diverse industries and job markets enables us to meet the unique HR needs of our clients effectively. Whether you're looking for fresh talent or seasoned professionals, our recruitment strategies ensure you get the right fit for your Organisation.",
     },
     {
       title: "Executive Search",
-      description: "Finding the right leaders for your organization is crucial for success. Our Executive Search service is designed to identify and attract top-tier executives who align with your company's culture and values. We undertake specific selection assignments, meticulously understanding job specifications and organizational attributes to ensure the perfect match for your leadership roles.",
+      description: "Finding the right leaders for your Organisation is crucial for success. Our Executive Search service is designed to identify and attract top-tier executives who align with your company's culture and values. We undertake specific selection assignments, meticulously understanding job specifications and Organisational attributes to ensure the perfect match for your leadership roles.",
     },
     {
       title: "Headhunting",
-      description: "Backed by industry experts, Innovision Limited excels in headhunting the best talent available. Our team has the expertise to identify and convince top professionals to join your organization. We leverage our extensive network and industry insights to attract exceptional talent that can drive your business forward solutions.",
+      description: "Backed by industry experts, Innovision Limited excels in headhunting the best talent available. Our team has the expertise to identify and convince top professionals to join your Organisation. We leverage our extensive network and industry insights to attract exceptional talent that can drive your business forward solutions.",
     },
     {
       title: "Turnkey Solutions",

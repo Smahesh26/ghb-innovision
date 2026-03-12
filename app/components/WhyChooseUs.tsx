@@ -27,10 +27,10 @@ const highlights = [
 	{
 		label: "Nationwide Presence",
 		detail:
-			"Operating across 55+ offices with active deployment at 2000+ sites, ensuring localized presence and rapid response capabilities.",
+			"Operating across 55+ offices with active deployment at up to 1000+ sites, ensuring localized presence and rapid response capabilities.",
 	},
 	{
-		label: "20,000+ Workforce",
+		label: "15,000+ Workforce",
 		detail:
 			"Large trained and vetted workforce ready for immediate deployment across security, facility management, and specialized services.",
 	},
@@ -60,7 +60,7 @@ const statsData = [
 		)
 	},
 	{ 
-		value: 2000, 
+		value: 1000, 
 		label: "Active Sites", 
 		suffix: "+",
 		icon: (
@@ -83,7 +83,7 @@ const statsData = [
 		)
 	},
 	{ 
-		value: 20000, 
+		value: 15000, 
 		label: "Workforce", 
 		suffix: "+",
 		icon: (

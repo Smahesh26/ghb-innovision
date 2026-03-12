@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Our Clients | Innovision Security",
-  description: "Trusted by 1000+ leading organizations across corporate, government, and PSU sectors in India.",
+  description: "Trusted by 1000+ leading Organisations across corporate, government, and PSU sectors in India.",
 };
 
 export default function ClientsPage() {
@@ -35,7 +35,7 @@ export default function ClientsPage() {
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg text-white/75">
-            Serving 1000+ leading organizations with excellence, reliability, and unwavering commitment
+            Serving 1000+ leading Organisations with excellence, reliability, and unwavering commitment
           </p>
 
           {/* Quick Stats */}
@@ -45,7 +45,7 @@ export default function ClientsPage() {
               <div className="mt-2 text-sm text-white/70">Active Clients</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-[#EF2B2D] sm:text-4xl">2,000+</div>
+              <div className="text-3xl font-bold text-[#EF2B2D] sm:text-4xl">Up To 1000+</div>
               <div className="mt-2 text-sm text-white/70">Sites Managed</div>
             </div>
             <div>

@@ -50,7 +50,7 @@ const journeyMilestones = [
     points: [
       "100 Cr. Milestone achieved",
       "Managing 2 Million plus sq. ft area for complete IFM services with Rajasthan Government",
-      "Awarded 'Best Small Scale Private organization-2018' by ASSOCHAM",
+      "Awarded 'Best Small Scale Private Organisation-2018' by ASSOCHAM",
     ],
   },
   {
@@ -58,7 +58,7 @@ const journeyMilestones = [
     points: [
       "Started Toll Management vertical",
       "150 Cr. milestone achieved",
-      "Best Large Scale Private Organization Training Program-2019 by ASSOCHAM",
+      "Best Large Scale Private Organisation Training Program-2019 by ASSOCHAM",
       "Awarded 'Security Entrepreneur of the Year - 2019' by CAPSI",
     ],
   },

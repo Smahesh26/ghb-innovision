@@ -14,43 +14,43 @@ export default function AwardsPage() {
 		{
 			year: "2024",
 			title: "12 Visionary Entrepreneurs 2024",
-			organization: "Entrepreneur Street",
+			Organisation: "Entrepreneur Street",
 			description: "Recognized among India's 12 visionary entrepreneurs shaping the future of business.",
 		},
 		{
 			year: "2023",
 			title: "Rising Star in Security Industry",
-			organization: "BW Businessworld Honors",
+			Organisation: "BW Businessworld Honors",
 			description: "National award recognizing exceptional talent and promise in the Security Industry.",
 		},
 		{
 			year: "2022",
 			title: "Champion of Change Haryana",
-			organization: "Interactive Forum on Indian Economy (IIFE)",
+			Organisation: "Interactive Forum on Indian Economy (IIFE)",
 			description: "Honored for promoting Indian values in Business and Social Development.",
 		},
 		{
 			year: "2022",
 			title: "Man of Excellence",
-			organization: "Indian Achievers' Award",
+			Organisation: "Indian Achievers' Award",
 			description: "Outstanding professionalism achievement & contribution in Nation building.",
 		},
 		{
 			year: "2022",
 			title: "CEO of the Year",
-			organization: "Indian Achievers' Award",
+			Organisation: "Indian Achievers' Award",
 			description: "Demonstrating strong leadership qualities and vision.",
 		},
 		{
 			year: "2019",
 			title: "Security Entrepreneur of the Year",
-			organization: "Central Association of Private Security Industry (CAPSI)",
+			Organisation: "Central Association of Private Security Industry (CAPSI)",
 			description: "National award recognizing excellence in security entrepreneurship.",
 		},
 		{
 			year: "2013",
 			title: "Young Security Entrepreneur of the Year",
-			organization: "CAPSI & Association of Private Detectives (APDI)",
+			Organisation: "CAPSI & Association of Private Detectives (APDI)",
 			description: "National recognition for young entrepreneurial excellence in security.",
 		},
 	];
@@ -59,37 +59,37 @@ export default function AwardsPage() {
 		{
 			year: "2024",
 			title: "Best Man Guarding Company of the Year",
-			organization: "CAPSI",
+			Organisation: "CAPSI",
 			description: "Recognized as the leading man guarding service provider in India.",
 		},
 		{
 			year: "2023",
 			title: "Security Training Company of The Year",
-			organization: "BW Businessworld",
+			Organisation: "BW Businessworld",
 			description: "Excellence in security training and skill development programs.",
 		},
 		{
 			year: "2022",
 			title: "Brand Impact Award",
-			organization: "Indian Achievers' Forum",
+			Organisation: "Indian Achievers' Forum",
 			description: "Recognition for strong brand presence and market impact.",
 		},
 		{
 			year: "2019",
-			title: "Best Large Scale Private Organization - Training Program",
-			organization: "ASSOCHAM",
+			title: "Best Large Scale Private Organisation - Training Program",
+			Organisation: "ASSOCHAM",
 			description: "Excellence in large-scale training program implementation.",
 		},
 		{
 			year: "2018",
-			title: "Best Small Scale Private Organization - Training Program",
-			organization: "ASSOCHAM",
+			title: "Best Small Scale Private Organisation - Training Program",
+			Organisation: "ASSOCHAM",
 			description: "Outstanding training program for small scale operations.",
 		},
 		{
 			year: "2017",
 			title: "Best Start up in Skill Development",
-			organization: "ASSOCHAM",
+			Organisation: "ASSOCHAM",
 			description: "Innovation and excellence in skill development initiatives.",
 		},
 	];
@@ -99,14 +99,14 @@ export default function AwardsPage() {
 			year: "2022",
 			title: "Lady Leadership in Security",
 			recipient: "Ms. Navneet Kaur, VP INNOVISION",
-			organization: "CAPSI",
+			Organisation: "CAPSI",
 			description: "Recognition for outstanding women leadership in security industry.",
 		},
 		{
 			year: "2022 & 2025",
 			title: "Golden Guard Award",
 			recipient: "6 Security Personnel",
-			organization: "CAPSI",
+			Organisation: "CAPSI",
 			description: "Exceptional performance and dedication by our security personnel.",
 		},
 	];
@@ -269,7 +269,7 @@ export default function AwardsPage() {
 			>
 				<div className="mx-auto max-w-7xl px-6">
 
-					{/* Lt. Col. Hundal Awards - Enhanced 3D Cards */}
+					{/* Lt Col Hundal Awards - Enhanced 3D Cards */}
 					<section className="py-20">
 						<motion.div
 							initial={{ opacity: 0, y: 30 }}
@@ -294,7 +294,7 @@ export default function AwardsPage() {
 							</motion.div>
 							
 							<h2 className="text-5xl font-bold text-neutral-900 mb-4 lg:text-6xl">
-								Lt. Col. Randeep Hundal
+								Lt Col Randeep Hundal
 							</h2>
 							<p className="text-xl text-neutral-600 max-w-2xl mx-auto">
 								Managing Director • Visionary Leader • Industry Pioneer
@@ -363,7 +363,7 @@ export default function AwardsPage() {
 										<div className="flex items-center gap-2 mb-4">
 											<div className="h-1 w-12 bg-gradient-to-r from-[#EF2B2D] to-red-600 rounded-full" />
 											<p className="text-sm font-semibold text-[#EF2B2D]">
-												{award.organization}
+												{award.Organisation}
 											</p>
 										</div>
 										
@@ -407,7 +407,7 @@ export default function AwardsPage() {
 								<div className="relative">
 									<div className="absolute inset-0 bg-gradient-to-r from-[#EF2B2D]/20 to-red-600/20 blur-2xl" />
 									<div className="relative rounded-full bg-gradient-to-r from-neutral-900 to-neutral-800 px-4 py-2 text-[10px] font-bold tracking-[0.16em] text-white uppercase sm:px-8 sm:py-3 sm:text-sm sm:tracking-widest">
-										Organizational Excellence
+										Organisational Excellence
 									</div>
 								</div>
 							</motion.div>
@@ -481,7 +481,7 @@ export default function AwardsPage() {
 												<div className="mb-3 flex flex-wrap items-center gap-2 sm:mb-4 sm:gap-3">
 													<div className="h-[2px] w-16 bg-gradient-to-r from-[#EF2B2D] to-red-600 rounded-full" />
 													<p className="text-[11px] font-bold tracking-[0.12em] text-[#EF2B2D] uppercase sm:text-sm sm:tracking-wider">
-														{award.organization}
+														{award.Organisation}
 													</p>
 												</div>
 												
@@ -618,7 +618,7 @@ export default function AwardsPage() {
 												<div className="flex items-center gap-3">
 													<div className="h-6 w-1 bg-gradient-to-b from-red-600 to-transparent rounded-full" />
 													<p className="text-xs font-bold tracking-[0.12em] text-[#EF2B2D] uppercase sm:text-sm sm:tracking-wider">
-														{award.organization}
+														{award.Organisation}
 													</p>
 												</div>
 											</div>
@@ -876,7 +876,7 @@ export default function AwardsPage() {
 								</h3>
 								
 								<p className="text-lg text-white/70 leading-relaxed mb-8">
-									Be part of an organization that values excellence, innovation, and dedication. Explore career opportunities with India&apos;s leading security and workforce solutions provider.
+									Be part of an Organisation that values excellence, innovation, and dedication. Explore career opportunities with India&apos;s leading security and workforce solutions provider.
 								</p>
 								
 								<div className="flex flex-wrap gap-4">

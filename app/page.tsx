@@ -15,7 +15,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: 'Home - Integrated Security & Facility Management Services',
-  description: 'Innovision Limited offers integrated security services, facility management, manpower sourcing & payroll, toll plaza management, skill development, overseas recruitment, and drone training across India. 19+ years experience, 20,000+ trained professionals, 1000+ clients, ISO certified.',
+  description: 'Innovision Limited offers integrated security services, facility management, manpower sourcing & payroll, toll plaza management, skill development, overseas recruitment, and drone training across India. 19+ years experience, 15,000+ trained professionals, 1000+ clients, ISO certified.',
   keywords: ['security services', 'facility management', 'integrated security solutions', 'manpower supply India', 'toll plaza management', 'security guards', 'workforce management', 'infrastructure services', 'manned guarding', 'electronic security'],
   openGraph: {
     title: 'Innovision Limited - Integrated Security & Infrastructure Services',
@@ -47,7 +47,7 @@ export default function Home() {
   // Structured Data for SEO
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "Organisation",
     "name": "Innovision Limited",
     "alternateName": "Innovision Security Services",
     "url": "https://innovision.co.in",
@@ -73,11 +73,11 @@ export default function Home() {
       "https://www.facebook.com/innovisionlimited",
       "https://twitter.com/innovisionltd"
     ],
-    "description": "Innovision Limited is India's leading integrated security and infrastructure services provider with 19+ years of excellence, 20,000+ workforce, and 1000+ clients across the nation.",
+    "description": "Innovision Limited is India's leading integrated security and infrastructure services provider with 19+ years of excellence, 15,000+ workforce, and 1000+ clients across the nation.",
     "foundingDate": "2007",
     "numberOfEmployees": {
       "@type": "QuantitativeValue",
-      "value": 20000
+      "value": 15000
     },
     "areaServed": {
       "@type": "Place",
@@ -141,7 +141,7 @@ export default function Home() {
         "name": "How many employees does Innovision have?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Innovision Limited has a workforce of over 20,000 trained professionals serving 1000+ clients across 2,000+ sites in India."
+          "text": "Innovision Limited has a workforce of over 15,000 trained professionals serving 1000+ clients across up to 1000+ sites in India."
         }
       },
       {
@@ -198,7 +198,7 @@ export default function Home() {
     "thumbnailUrl": "https://innovision.co.in/images/video-poster-en.jpg",
     "uploadDate": "2026-02-21",
     "publisher": {
-      "@type": "Organization",
+      "@type": "Organisation",
       "name": "Innovision Limited",
       "logo": {
         "@type": "ImageObject",
@@ -254,11 +254,11 @@ export default function Home() {
         {/* 9. Client Testimonials (hidden for now) */}
         
         {/* 10. IPO Ready */}
-        <CTA />
         
         {/* 11-13. Our Footprints + Get in Touch + Contact Form */}
         <Contact />
-        
+                <CTA />
+
       </main>
       <Footer />
     </>

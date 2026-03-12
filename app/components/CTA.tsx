@@ -32,7 +32,7 @@ export default function CTA() {
 
 					{/* Subheadline */}
 					<p className="mx-auto mt-6 max-w-2xl text-lg text-white/70 leading-relaxed">
-						Join 1000+ organizations trusting Innovision for secure, compliant, and technology-enabled workforce and facility management solutions.
+						Join 1000+ Organisations trusting Innovision for secure, compliant, and technology-enabled workforce and facility management solutions.
 					</p>
 
 					{/* CTA Buttons */}

@@ -18,7 +18,7 @@ const highlights = [
 		metric: "₹500+ Cr",
 		unit: "Order Book",
 		title: "Strong Order Book",
-		description: "Secured contracts worth over ₹1000 crores providing robust revenue pipeline and business continuity",
+		description: "Secured contracts worth over ₹500 crores providing robust revenue pipeline and business continuity",
 		icon: (
 			<svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.5">
 				<path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -26,7 +26,7 @@ const highlights = [
 		),
 	},
 	{
-		metric: "3 Years",
+		metric: "Up To 3 Years",
 		unit: "Visibility",
 		title: "Forward Revenue Visibility",
 		description: "Long-term multi-year contracts ensuring predictable cash flows and sustainable growth trajectory",

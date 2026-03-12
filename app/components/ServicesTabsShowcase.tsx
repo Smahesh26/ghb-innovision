@@ -52,14 +52,14 @@ const serviceTabs: ServiceTab[] = [
     title: "Skill Development",
     description:
       "Industry-aligned learning tracks that build employable capabilities with certified training outcomes.",
-    points: ["Demand-led curriculum design", "Assessment and certification support", "Placement-oriented ecosystem"],
+    points: ["38 Skill Development Centres","Demand-led curriculum design", "Assessment and certification support"],
     image: "/images/services-home/skilldevelopmentservicehome.jpg",
     href: "/services/skill-development",
   },
   {
     id: "manpower",
-    tabLabel: "Manpower & Payroll",
-    title: "Manpower Sourcing & Payroll",
+    tabLabel: "Manpower Sourcing",
+    title: "Manpower Sourcing & Payroll Management",
     description:
       "Unified recruitment-to-payroll lifecycle with transparent workforce administration and statutory compliance.",
     points: ["Recruitment and onboarding", "Payroll and statutory filings", "Attendance and workforce tracking"],
@@ -68,7 +68,7 @@ const serviceTabs: ServiceTab[] = [
   },
   {
     id: "overseas",
-    tabLabel: "Overseas Recruitment",
+    tabLabel: "Global Operations",
     title: "Overseas Recruitment",
     description:
       "Global talent sourcing and deployment support with documentation, compliance, and onboarding precision.",
@@ -78,8 +78,8 @@ const serviceTabs: ServiceTab[] = [
   },
   {
     id: "drone",
-    tabLabel: "Drone Training",
-    title: "Drone Flying Training",
+    tabLabel: "Drone Technology",
+    title: "Drone Flying, Training & Manufacturing",
     description:
       "Advanced drone capability building for surveillance, inspection, and modern field operations.",
     points: ["DGCA-aligned operator training", "Simulation plus live-flight modules", "Mission-specific deployment readiness"],

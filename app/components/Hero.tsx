@@ -19,13 +19,13 @@ const slides = [
 	},
 	{
 		image: "/images/integratedfacilitybanner.jpg",
-		title: "Integrated facility management",
+		title: "Integrated Facility Management",
 		description:
 			"Your go-to partner for premium facility management that runs smoothly.",
 	},
 	{
 		image: "/images/skillsbanner.jpg",
-		title: "Transforming India into a global hub of skills",
+		title: "Transforming India Into a Global Hub of Skills",
 		description:
 			"Building trained, dependable workforces for every industry we serve.",
 	},

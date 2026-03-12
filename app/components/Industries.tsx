@@ -95,7 +95,7 @@ export default function Industries() {
 					</h2>
 
 					<p className="mx-auto mt-6 max-w-2xl text-base text-gray-600 leading-relaxed">
-						Trusted by leading organizations across diverse sectors with specialized workforce and operational solutions
+						Trusted by leading Organisations across diverse sectors with specialized workforce and operational solutions
 					</p>
 
 					<div className="mx-auto mt-6 h-1 w-16 bg-[#EF2B2D]" />

@@ -315,7 +315,7 @@ export default async function Clients() {
           </p>
 
           <h2 className="mt-5 text-4xl font-bold sm:text-5xl">
-            Trusted By Leading Organizations
+            Trusted By Leading Organisations
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base text-neutral-600">

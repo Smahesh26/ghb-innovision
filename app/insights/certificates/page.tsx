@@ -124,7 +124,7 @@ export default function CertificatesPage() {
 			validFrom: "17-Jan-24",
 			validTill: "16-Jan-27",
 			image: "/images/certifications/ISO 21001-2018.jpg",
-			description: "Educational Organizations Management",
+			description: "Educational Organisations Management",
 			category: "Education",
 			color: "from-[#EF2B2D] to-red-600",
 		},

@@ -339,7 +339,7 @@ export default function SkillDevelopmentTrainingPage() {
               </h2>
               <div className="space-y-6 text-base leading-relaxed text-white/80">
                 <p>
-                  Innovision began its journey with the mission to provide skilled training to the Indian youth. Apart from the training, we facilitate the placement of our students in leading organizations, helping them shape their careers and contribute to the growth of the nation.
+                  Innovision began its journey with the mission to provide skilled training to the Indian youth. Apart from the training, we facilitate the placement of our students in leading Organisations, helping them shape their careers and contribute to the growth of the nation.
                 </p>
                 <p>
                   Our highly educated team of skilled professionals impart meaningful training with industry-driven skill sets, ensuring the grooming of our students.

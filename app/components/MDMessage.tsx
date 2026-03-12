@@ -51,7 +51,7 @@ export default function MDMessage() {
 							<div className="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-4 border-[#EF2B2D]/20 bg-gradient-to-br from-gray-100 to-gray-200">
 								<Image
 									src="/images/Randeepsir.jpeg"
-									alt="Lt. Col. Randeep Hundal"
+									alt="Lt Col Randeep Hundal"
 									width={192}
 									height={192}
 									className="h-full w-full object-cover"
@@ -61,7 +61,7 @@ export default function MDMessage() {
 
 							{/* Name & Title */}
 							<h3 className="text-xl font-bold text-gray-900">
-								Lt. Col. Randeep Hundal
+								Lt Col Randeep Hundal
 							</h3>
 							<p className="mt-2 text-sm font-semibold text-[#EF2B2D]">
 								Managing Director
@@ -94,7 +94,7 @@ export default function MDMessage() {
 						<div className="space-y-6 text-base text-gray-700 leading-relaxed -mt-12 pl-8">
 							
 							<p>
-								When we founded Innovision, our objective was to build a disciplined and dependable services organization. Today, as we enter our next phase of institutional growth and public listing, our vision is broader.
+								When we founded Innovision, our objective was to build a disciplined and dependable services Organisation. Today, as we enter our next phase of institutional growth and public listing, our vision is broader.
 							</p>
 
 							<p>

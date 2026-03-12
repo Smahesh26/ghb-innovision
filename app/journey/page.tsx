@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Our Journey - Innovision Limited Timeline & Growth",
-  description: "Discover Innovision Limited's growth journey from 2007 to present. From 10 guards to 20,000+ workforce, explore our timeline of achievements and milestones.",
+  description: "Discover Innovision Limited's growth journey from 2007 to present. From 10 guards to 15,000+ workforce, explore our timeline of achievements and milestones.",
   keywords: ['innovision journey', 'company timeline', 'growth milestones', '2007 to 2024', 'expansion history'],
 };
 
@@ -34,7 +34,7 @@ export default function JourneyPage() {
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg text-white/80">
-            From 10 guards in 2007 to 20,000+ workforce today. Discover our growth story and key milestones
+            From 10 guards in 2007 to 15,000+ workforce today. Discover our growth story and key milestones
           </p>
         </div>
       </section>

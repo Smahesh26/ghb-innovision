@@ -67,6 +67,7 @@ const upCityMarkers: UpCityMarker[] = [
   { project: "UPSDM", name: "Prayagraj", lat: 25.4358, lng: 81.8463, state: "Uttar Pradesh" },
   { project: "UPSDM", name: "Prayagraj", lat: 25.4358, lng: 81.8463, state: "Uttar Pradesh" },
   { project: "UPSDM", name: "Barabanki", lat: 26.9268, lng: 81.1834, state: "Uttar Pradesh" },
+  { project: "PMKVY", name: "Srinagar", lat: 34.0837, lng: 74.7973, state: "Jammu and Kashmir" },
 ];
 
 const mhProjectMarkers: MhProjectMarker[] = [

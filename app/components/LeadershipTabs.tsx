@@ -175,7 +175,7 @@ export default function LeadershipTabs({
       image: "/images/BijenderYadav.jpg",
     },
     {
-      name: "Lt. Col. Permender Malik",
+      name: "Lt Col Permender Malik",
       role: "SVP-Manpower",
       image: "/images/PermenderMalik.jpeg",
     },

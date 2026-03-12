@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Careers | Innovision Security",
-  description: "Join Innovision's 20,000+ strong workforce and build a rewarding career in security and integrated services.",
+  description: "Join Innovision's 15,000+ strong workforce and build a rewarding career in security and integrated services.",
 };
 
 export default function CareersPage() {
