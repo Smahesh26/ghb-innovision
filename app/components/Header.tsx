@@ -69,10 +69,7 @@ const navItems: NavItem[] = [
 ];
 
 const ipoMarqueeItems = [
-  "Innovision IPO Now Open (10-12 Mar 2026) | Price Band Rs 521-Rs 548 | Lot Size 27 Shares | Min Investment Rs 14,796 | Listing Expected 17 Mar 2026 | Apply Now Through Your Broker",
-  "Innovision IPO Live | Price Band Rs 521-Rs 548 | Lot Size 27 | Min Investment Rs 14,796 | Closing 12 Mar 2026",
-  "Innovision IPO Active | Issue Size Rs 323 Cr | Price Band Rs 521-Rs 548 | Lot Size 27 Shares | Min Investment Rs 14,796 | Listing on BSE & NSE - 17 Mar 2026",
-  "Innovision Limited IPO Open from 10-12 Mar 2026 | Price Band Rs 521-Rs 548 | Retail Lot 27 Shares | Investment Starts Rs 14,796 | Apply Before Closing",
+  "Innovision Limited IPO – Closing Date Extended! | Apply 13–17 March 2026 | Price Band ₹494–₹519 | Lot Size 27 Shares | Minimum Investment ₹13,338 | Listed on NSE & BSE",
 ];
 
 export default function Header() {
